@@ -27,7 +27,7 @@ pathlib.Path.mkdir = forbidden
 import dietary_rag
 for module in pkgutil.walk_packages(dietary_rag.__path__, dietary_rag.__name__ + "."):
     importlib.import_module(module.name)
-for name in ("torch", "transformers", "sentence_transformers", "chromadb", "pytesseract"):
+for name in ("torch", "transformers", "sentence_transformers", "chromadb", "pytesseract", "httpx", "httpcore", "pypdf"):
     assert name not in sys.modules, name
 """
     result = subprocess.run(

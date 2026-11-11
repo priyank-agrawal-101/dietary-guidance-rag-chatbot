@@ -11,13 +11,16 @@ The objective is a US-focused chatbot that retrieves approved dietary and househ
 | Item | Current status | Implementation consequence |
 | --- | --- | --- |
 | Problem statement and architecture | Documented | Use these as requirements and design references. |
-| [Source registry](../config/sources.yaml) | 61 reviewed candidate URLs; all 20 earlier IDs retained | Extend the existing registry instead of replacing it or creating a second source list. |
-| [Source review](sourceReview.md) | 10 verified official US PDFs; 7 approved with exclusions | Acquisition approval still requires block-level extraction and quality validation. |
-| Proposed default consumer selection | 10 distinct guidance families | Additional eligible coverage is needed for the initial 15–20-family target. |
+| [Source registry](../config/sources.yaml) | 68 reviewed candidate URLs; all 20 earlier IDs retained | Extend the existing registry instead of replacing it or creating a second source list. |
+| [Source review](sourceReview.md) | 12 verified official US PDFs; 9 approved with exclusions | Acquisition approval still requires block-level extraction and quality validation. |
+| Default consumer acquisition selection | 16 eligible families, all byte-verified in the current snapshot; 10 HTML and 6 PDFs | Initial family/PDF acquisition target met; exclusion-aware extraction and release checks remain. |
 | [Registry validator](../scripts/validate_source_registry.py) | Implemented | Reuse it and extend its checks alongside runtime schemas. |
 | Local review snapshots and PDF inspection artifacts | Available in ignored staging directories on the review machine | Useful development inputs; not a portable, published corpus or a substitute for acquisition/import commands. |
 | Phase 0 package, settings, provenance contracts and identity helpers | Implemented and verified | See [Phase 0 foundations](phase0-foundations.md) for setup and contracts. |
-| Ingestion, SQLite corpus, vector index, policy service, API and UI | Not implemented | Phases 1–7 remain planned. |
+| Registry eligibility, original-byte artifact store and SQLite provenance | P1.1/P1.2 implemented and verified | See [corpus foundations](phase1-corpus-foundation.md). |
+| Reviewed HTML/PDF import, file inspection, bounded HTTPS fetch, acquisition CLI/reports | P1.3–P1.6 implemented and verified | See [source acquisition](phase1-acquisition.md) for actual import/fetch results and beginner explanations. |
+| Coverage review and read-only audit | P1.7 complete | See [coverage review](phase1-coverage.md) and [verified audit](coverage-audit.json). |
+| Extraction, active corpus/index, policy service, API and UI | Not implemented | Phases 2–7 remain planned. |
 
 These counts describe the November 11, 2026 review. Recompute them from the registry when implementation starts; do not hardcode them in runtime logic.
 
@@ -62,7 +65,7 @@ Milestones A–D are **development checkpoints**, not relaxation of the final re
 ### Working efficiently
 
 - Keep each task to one coherent output and one reviewable change. Split a task if it introduces a second independent component; do not merge extraction, retrieval and generation into one large implementation batch.
-- Implement the first supported parser/profile fully, then extend it to selected sources. Avoid designing parsers for all 61 registry URLs or installing every model/tool before it is needed.
+- Implement the first supported parser/profile fully, then extend it to selected sources. Avoid designing parsers for every candidate registry URL or installing every model/tool before it is needed.
 - Reuse reviewed local snapshots for deterministic development, then verify the real fetch/import path. Network availability must not block every parser/test run.
 - Keep normalized blocks, chunks and API orchestration shared across formats and entry points. Separate adapters handle HTML, native PDF and OCR; the UI calls the same validated workflow as the CLI.
 - After P1.1, coverage task P1.7 can progress independently of parser work. After P0.4, policy tasks P4.1–P4.4 can progress while retrieval is built. After P2P.1, OCR classification can progress alongside native layout extraction.
@@ -112,12 +115,16 @@ Milestones A–D are **development checkpoints**, not relaxation of the final re
 
 ### 1.1 Registry and provenance store
 
+**Status: complete — P1.1 and P1.2.** The registry loader/consumer filters, content-addressed artifact API, SQLite provenance repositories and read-only `check-registry` command are implemented. Their original verification passed 87 tests, Ruff lint/format and wheel-build checks at the earlier 61-source/10-family baseline. See [phase1-corpus-foundation.md](phase1-corpus-foundation.md). P1.3–P1.7 and the Phase 1 acquisition exit gate are now complete as described below.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
 | `P1.1` | Load the existing registry and enforce consumer eligibility/family rules. | P0.4, P0.5 | Restricted, unavailable and reference-only records are excluded; IDs and review decisions remain intact. |
 | `P1.2` | Implement raw-artifact storage and SQLite document/acquisition repositories. | P0.3, P0.4 | Original bytes, version metadata and hashes can be written/read without losing source date labels. |
 
 ### 1.2 Import, fetch and response validation
+
+**Status: complete — P1.3–P1.6.** Reviewed Minnesota HTML and native-PDF files were imported with their original URL/time/hash evidence and repeat-import identities verified. Actual file checks, bounded approved-host/public-IP HTTPS fetching, `import-source`/`fetch-sources` commands and JSON reports are implemented. Live fetching reused the matching PDF artifact and retained changed HTML bytes as `needs_review`, preserving the approved version. Verification: 125 tests, Ruff lint/format, dependency consistency, registry validation and wheel build passed. See [source acquisition](phase1-acquisition.md) for commands, outcomes, limits and beginner explanations. No extraction or active corpus is claimed.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -127,6 +134,8 @@ Milestones A–D are **development checkpoints**, not relaxation of the final re
 | `P1.6` | Expose administrative import/fetch commands and a compact acquisition report. | P1.3, P1.5 | Commands record success/failure/provenance and reuse unchanged reviewed artifacts; no chat-time fetching. |
 
 ### 1.3 Coverage expansion
+
+**Status: complete — P1.7 and the Phase 1 acquisition exit gate.** Existing IDs were retained, failed CDC/FDA sources recovered, additional official consumer pages and direct FDA PDFs inspected, and alternate editions/conflicting recommendations reconciled through recorded exclusions and separate roles. The registry contains 68 URLs, 12 verified/9 approved official PDFs, and 16 eligible families. All 16 selected assets, including 6 official PDFs, have current-snapshot versions with exact stored bytes verified by `audit-coverage --verify-acquisitions`. The real WHO HTML-as-PDF case remains rejected. Verification: 131 tests, registry/PDF-cache validation, Ruff, dependency consistency and wheel build passed. See [phase1-coverage.md](phase1-coverage.md) for sources, rationale, plain-language explanation, remaining domain gaps and [coverage-audit.json](coverage-audit.json). This is acquisition completion, not extracted chunks or a released index.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -469,7 +478,7 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | Phase | Status at plan creation | Evidence needed to mark complete |
 | --- | --- | --- |
 | 0 | Complete: P0.1–P0.5 | 44 passing tests, lint/format checks, settings CLI, locked installs, wheel smoke check and registry baseline; see Phase 0 completion record. |
-| 1 | Source review exists; application work pending | Registry-driven acquisition/import, provenance storage and eligibility enforcement. |
+| 1 | Complete: P1.1–P1.7 | Registry/provenance, file inspection, bounded fetch, commands and coverage audit verified. Current-snapshot stored bytes match all 16 selected assets, including 6 official PDFs. Acquisition gate passes; extraction/release checks remain Phase 2+. |
 | 2 | PDF inspection exists; parser/chunker implementation pending | Reviewed HTML/PDF/OCR blocks and chunks. |
 | 3 | Not started | Compatible snapshot and filtered retrieval demonstrations. |
 | 4 | Not started | Code gates and reviewed routing/error behavior. |
@@ -477,6 +486,6 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | 6 | Not started | Integrated API/UI and source-separated comparisons. |
 | 7 | Not started | Evaluation, coverage, release and reproducibility evidence. |
 
-With Phase 0 complete, continue with P1.1 and P1.2, then P1.3 and Milestone A. Progress through the development milestones using task dependencies, continuing coverage and OCR work toward the full phase/release gates. P0.1–P0.5 are complete; the next ready tasks are P1.1 and P1.2. Phases 1–7 remain unimplemented. The existing review/validator are inputs to reuse, not unfinished work to repeat.
+With Phase 0 and Phase 1 complete, continue toward Milestone A with Phase 2's HTML/native-PDF extraction and normalization, starting with the two earlier development inputs and extending to the 16 acquired consumer assets. Follow task dependencies and later OCR work toward extraction/release gates. Phases 2–7 remain planned. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage after extraction exclusions remove unusable material.
 
 Keep the following outside the initial build: individual-food nutrient database integration, personalized diet/weight plans, persistent chat memory, arbitrary user document ingestion, live web search at answer time, distributed ingestion jobs and multiple API workers. Optional FTS5 search or reranking should be added only when measured retrieval failures justify them. A separate scientific/medical reference experiment must not expand the consumer chatbot's permitted advice scope.

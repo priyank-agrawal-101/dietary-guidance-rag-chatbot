@@ -5,6 +5,7 @@ import argparse
 from collections import Counter
 from datetime import datetime
 import hashlib
+import json
 from pathlib import Path
 import sys
 from urllib.parse import urlparse
@@ -74,7 +75,21 @@ def validate(registry, root, check_cache=False):
                 require(selection["decision"] == "approved_with_exclusions", f"{sid}: PDF approval conflicts with decision")
                 require(source["source_tier"] == "official_guidance" and source["jurisdiction"].startswith("US"), f"{sid}: milestone PDF not official US source")
             if check_cache:
-                path = root / "data/staging/source_review" / registry["review_date"] / f"{sid}.pdf"
+                # Review rounds can live in nested directories. Resolve the original
+                # file from its acquisition receipt rather than assuming one flat cache.
+                try:
+                    evidence_path = (root / access["evidence_record"]).resolve()
+                    if not evidence_path.is_relative_to(root.resolve()):
+                        raise ValueError("evidence receipt leaves project root")
+                    receipt = json.loads(evidence_path.read_text())
+                    path = (root / receipt["raw_path"]).resolve()
+                    if not path.is_relative_to(root.resolve()):
+                        raise ValueError("cached artifact leaves project root")
+                    require(receipt.get("source_id") == sid, f"{sid}: receipt identity differs")
+                    require(receipt.get("sha256") == access["sha256"], f"{sid}: receipt hash differs")
+                except (OSError, ValueError, KeyError, TypeError) as exc:
+                    errors.append(f"{sid}: invalid acquisition receipt: {exc}")
+                    continue
                 if not path.exists():
                     errors.append(f"{sid}: missing local PDF cache")
                 else:

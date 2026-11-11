@@ -27,6 +27,7 @@ class FetchSettings(SettingsModel):
     max_retries: Annotated[int, Field(strict=True, ge=0, le=5)] = 2
     max_html_bytes: PositiveInt = 5 * 1024 * 1024
     max_pdf_bytes: PositiveInt = 60 * 1024 * 1024
+    max_redirects: Annotated[int, Field(strict=True, ge=0, le=10)] = 5
 
 
 class EmbeddingSettings(SettingsModel):

@@ -1,0 +1,561 @@
+{
+  "status": "source_acquisition_coverage_audit",
+  "review_date": "2026-11-11",
+  "registry_snapshot_id": "registry_20a0f4fa019acc24c550ad279cee42bca15588cd94c92a1977a95cfe1672cbd3",
+  "candidate_url_count": 68,
+  "preserved_existing_source_count": 20,
+  "eligible_consumer_asset_count": 16,
+  "eligible_consumer_family_count": 16,
+  "minimum_consumer_families": 15,
+  "family_shortfall": 0,
+  "family_target_met": true,
+  "eligible_format_counts": {
+    "html": 10,
+    "pdf": 6
+  },
+  "verified_official_pdf_count": 12,
+  "approved_official_pdf_count": 9,
+  "minimum_verified_official_pdfs": 5,
+  "approved_pdf_registry_target_met": true,
+  "families": [
+    {
+      "family_id": "cdc_food_safety",
+      "selected_document_id": "cdc_food_safety",
+      "format": "html",
+      "publisher": "Centers for Disease Control and Prevention",
+      "coverage": "Household food-poisoning prevention and safe handling.",
+      "eligible_sections": [
+        "Prevention steps and strategies: clean, separate, cook and chill",
+        "Recalled food handling and refrigerator cleaning"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Symptoms, diagnosis, treatment, risk statistics and linked clinical pages"
+      ]
+    },
+    {
+      "family_id": "mn_safe_temperatures",
+      "selected_document_id": "mn_safe_temperatures",
+      "format": "html",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "Cooking, chilling, thawing, and temperature conditions.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.",
+        "Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations."
+      ]
+    },
+    {
+      "family_id": "mn_cold_storage",
+      "selected_document_id": "mn_cold_storage",
+      "format": "html",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "Refrigeration, freezer packaging, storage conditions, and freezer burn.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission"
+      ]
+    },
+    {
+      "family_id": "mn_storage_chart",
+      "selected_document_id": "mn_storage_chart",
+      "format": "html",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "HTML storage-time table with food categories, temperatures, days, and months.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission"
+      ]
+    },
+    {
+      "family_id": "mn_food_thermometers",
+      "selected_document_id": "mn_food_thermometers",
+      "format": "html",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "Thermometer placement, checking food, and cleaning between uses.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission"
+      ]
+    },
+    {
+      "family_id": "fda_seafood",
+      "selected_document_id": "fda_seafood",
+      "format": "html",
+      "publisher": "FDA",
+      "coverage": "Potential seafood-specific gap; supplied URL returned 404, so no advice is approved from this candidate.",
+      "eligible_sections": [
+        "Buy Right: fish, shrimp, shellfish and frozen seafood",
+        "Store Properly",
+        "Separate for Safety",
+        "Picnic Tips",
+        "Prepare Safely: thawing and thermometer-based cooking",
+        "Serving",
+        "Eating Raw Seafood: freezing does not eliminate all harmful germs"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "No-thermometer visual-doneness alternatives including the contradictory fish flesh is clear line",
+        "Special Health Notes: personalized prenatal/child fish servings and mercury intake targets",
+        "About Foodborne Illness: symptoms, treatment and reporting"
+      ]
+    },
+    {
+      "family_id": "fda_produce",
+      "selected_document_id": "fda_produce",
+      "format": "html",
+      "publisher": "FDA",
+      "coverage": "Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides some overlap.",
+      "eligible_sections": [
+        "Buy Right",
+        "Store Properly",
+        "Separate for Safety",
+        "Prepare Safely",
+        "What About Pre-Washed Produce?"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "About Foodborne Illness: symptoms, medical action and linked clinical content"
+      ]
+    },
+    {
+      "family_id": "cdc_pregnancy_food_safety",
+      "selected_document_id": "cdc_pregnancy_food_safety",
+      "format": "html",
+      "publisher": "CDC",
+      "coverage": "Population-specific household safety, potentially useful after verification; HTTP 403 prevented inspection.",
+      "eligible_sections": [
+        "Safer food choices table: cooking, pasteurization, produce, deli foods, flour and handling qualifications"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Personalized prenatal diets, mercury serving targets, disease likelihood statistics and linked medical treatment"
+      ]
+    },
+    {
+      "family_id": "dga_2025_2030_pdf",
+      "selected_document_id": "dga_2025_2030_pdf",
+      "format": "pdf",
+      "publisher": "HHS and USDA",
+      "coverage": "Current final federal dietary guidance; select general food-group and preparation passages.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Political/administrative foreword",
+        "Body-weight-based protein or individual calorie-based targets",
+        "Disease-specific adaptations and supplement advice"
+      ]
+    },
+    {
+      "family_id": "hhs_adults_older_adults_pdf",
+      "selected_document_id": "hhs_adults_older_adults_pdf",
+      "format": "pdf",
+      "publisher": "HHS / Office of Disease Prevention and Health Promotion",
+      "coverage": "Practical adult and older-adult food choices, labels and healthy habits.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission"
+      ]
+    },
+    {
+      "family_id": "hhs_kids_teens_pdf",
+      "selected_document_id": "hhs_kids_teens_pdf",
+      "format": "pdf",
+      "publisher": "HHS / Office of Disease Prevention and Health Promotion",
+      "coverage": "General food choices and habits for parents/caregivers of children aged 3\u201317.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Personalized growth/energy and supplement advice; do not apply age-specific limits to adults"
+      ]
+    },
+    {
+      "family_id": "nhlbi_sodium_tips_pdf",
+      "selected_document_id": "nhlbi_sodium_tips_pdf",
+      "format": "pdf",
+      "publisher": "NIH / National Heart, Lung, and Blood Institute",
+      "coverage": "Select only general shopping, seasoning and dining tips on physical page 1; not DASH treatment recommendations.",
+      "eligible_sections": [
+        "Physical page 1: shopping, seasoning, preparation and dining tips only, after block review"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Blood-pressure treatment/effectiveness claims and DASH program prescriptions",
+        "Physical page 2: individual-food sodium lookup table",
+        "Physical page 1 treatment callouts/footer; page-level approval does not include adjacent clinical claims"
+      ]
+    },
+    {
+      "family_id": "mn_cross_contamination",
+      "selected_document_id": "mn_cross_contamination_pdf",
+      "format": "pdf",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "Household separation, hygiene and handling; alternate format of existing HTML.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission"
+      ]
+    },
+    {
+      "family_id": "mn_safe_grilling",
+      "selected_document_id": "mn_safe_grilling_pdf",
+      "format": "pdf",
+      "publisher": "Minnesota Department of Health",
+      "coverage": "Household handling, grilling and reheating; retain household/regulatory distinction.",
+      "eligible_sections": [
+        "Reviewed general food guidance and household safety only"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.",
+        "Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations."
+      ]
+    },
+    {
+      "family_id": "fda_nutrition_label_current",
+      "selected_document_id": "fda_nutrition_label_current",
+      "format": "html",
+      "publisher": "U.S. Food and Drug Administration",
+      "coverage": "Serving sizes, percent Daily Value interpretation, comparing labels and label formats.",
+      "eligible_sections": [
+        "Serving Information: serving size is not a recommended amount to eat",
+        "Percent Daily Value definition and 5%/20% label interpretation",
+        "Compare Foods and Understand Nutrient Content Claims",
+        "Nutrition Facts Label Variations"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Calories section and linked MyPlate calorie calculator",
+        "How Daily Values Relate to the %DVs: daily dietary-goal tables and upper/lower intake targets",
+        "Dietary trade-off prescriptions and disease-treatment claims",
+        "Individual-food nutrient values in worked examples; label semantics only"
+      ]
+    },
+    {
+      "family_id": "cdc_emergency_food_safety",
+      "selected_document_id": "cdc_emergency_food_safety",
+      "format": "html",
+      "publisher": "Centers for Disease Control and Prevention",
+      "coverage": "Power-outage preparation, refrigerator/freezer time-temperature conditions, discarding/refreezing foods and flood-food handling.",
+      "eligible_sections": [
+        "Prepare for emergencies",
+        "Steps to take during a power outage",
+        "Steps to take after a power outage",
+        "Steps to take after a flood: discard unsafe foods"
+      ],
+      "excluded_sections": [
+        "Medical treatment or personalized condition-specific diet advice",
+        "Calorie/weight targets and personalized calculators",
+        "Supplement treatment or dosing",
+        "Individual-food nutrient lookup data reserved for Milestone 3",
+        "Navigation, promotions and unrelated linked content",
+        "Images or third-party material without appropriate reuse permission",
+        "Floodwater bleach recipes and commercial-can reconditioning procedures pending process-specific safety/extraction review",
+        "Unrelated emergency/medical/utility advice"
+      ]
+    }
+  ],
+  "alternate_families": [
+    {
+      "family_id": "mn_cross_contamination",
+      "document_ids": [
+        "mn_cross_contamination",
+        "mn_cross_contamination_pdf"
+      ],
+      "selected_document_ids": [
+        "mn_cross_contamination_pdf"
+      ]
+    },
+    {
+      "family_id": "mn_storage_chart",
+      "document_ids": [
+        "mn_storage_chart",
+        "mn_storage_chart_pdf"
+      ],
+      "selected_document_ids": [
+        "mn_storage_chart"
+      ]
+    },
+    {
+      "family_id": "mn_safe_grilling",
+      "document_ids": [
+        "mn_safe_grilling",
+        "mn_safe_grilling_pdf"
+      ],
+      "selected_document_ids": [
+        "mn_safe_grilling_pdf"
+      ]
+    },
+    {
+      "family_id": "fda_produce",
+      "document_ids": [
+        "fda_produce",
+        "fda_produce_pdf"
+      ],
+      "selected_document_ids": [
+        "fda_produce"
+      ]
+    },
+    {
+      "family_id": "fda_safe_handling_current",
+      "document_ids": [
+        "fda_safe_handling_current",
+        "fda_safe_handling_pdf"
+      ],
+      "selected_document_ids": []
+    }
+  ],
+  "recorded_coverage_gaps": [
+    "FoodSafety.gov federal cold-storage chart and USDA leftovers page still return HTTP 403; Minnesota storage/leftovers coverage retained with source-specific dates.",
+    "MyPlate and NIA locators remain unverified; no access or rights approval inferred.",
+    "Food allergy, infant feeding, home canning and shellfish regional advisories are not claimed as comprehensive coverage.",
+    "Extraction exclusions, table fidelity, conditions, OCR and publication/retrieval gates still need Phase 2+ validation."
+  ],
+  "consumer_acquisitions": {
+    "verification_scope": "Current registry snapshot and exact stored artifact bytes; not extracted/indexed evidence",
+    "matched_consumer_document_count": 16,
+    "matched_consumer_family_count": 16,
+    "matched_approved_official_pdf_count": 6,
+    "matched_approved_official_pdf_ids": [
+      "dga_2025_2030_pdf",
+      "hhs_adults_older_adults_pdf",
+      "hhs_kids_teens_pdf",
+      "mn_cross_contamination_pdf",
+      "mn_safe_grilling_pdf",
+      "nhlbi_sodium_tips_pdf"
+    ],
+    "minimum_pdf_acquisitions_met": true,
+    "missing_or_invalid": [],
+    "documents": [
+      {
+        "document_id": "cdc_food_safety",
+        "family_id": "cdc_food_safety",
+        "format": "html",
+        "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+        "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+        "retrieved_at": "2026-11-11T17:42:47.578562+00:00"
+      },
+      {
+        "document_id": "mn_safe_temperatures",
+        "family_id": "mn_safe_temperatures",
+        "format": "html",
+        "document_version_id": "docv_d8982ec70f5e1234669ca10f62d535d7fab066455583b5010985e95b9bd8061a",
+        "raw_sha256": "6e761d72f67fe304f7dcc98d7b49f5d6f9f66ddd3332091abd6b38fc70d33914",
+        "retrieved_at": "2026-11-11T12:15:58.864674+00:00"
+      },
+      {
+        "document_id": "mn_cold_storage",
+        "family_id": "mn_cold_storage",
+        "format": "html",
+        "document_version_id": "docv_dbecf7a2b8fa0d45ea342f13f9d4f893c601f31f4c0cdf88cfe31965a9e81d3f",
+        "raw_sha256": "bbdf795e157d070d5d1ecd2a2451d28c410a5a77718692a662c34b687563a3fb",
+        "retrieved_at": "2026-11-11T12:15:58.864894+00:00"
+      },
+      {
+        "document_id": "mn_storage_chart",
+        "family_id": "mn_storage_chart",
+        "format": "html",
+        "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+        "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+        "retrieved_at": "2026-11-11T12:15:58.864997+00:00"
+      },
+      {
+        "document_id": "mn_food_thermometers",
+        "family_id": "mn_food_thermometers",
+        "format": "html",
+        "document_version_id": "docv_00818768b5b500afd6bbd37ff3acd966198a95d489e2936b414f25aa0fc9ab22",
+        "raw_sha256": "5285f02183267b596a18706e0b47a60e449185fa1be222f58b36b1334c489359",
+        "retrieved_at": "2026-11-11T12:15:58.987331+00:00"
+      },
+      {
+        "document_id": "fda_seafood",
+        "family_id": "fda_seafood",
+        "format": "html",
+        "document_version_id": "docv_f717d00e9d67aa91f45a193ecd7c38f22d685ae5d9eb4b9d64ee2864b0d85cab",
+        "raw_sha256": "f2f74671298ca6a95104b174b9ea15450883f985ee7aba2a1dc4a67245f97e90",
+        "retrieved_at": "2026-11-11T17:43:27.901019+00:00"
+      },
+      {
+        "document_id": "fda_produce",
+        "family_id": "fda_produce",
+        "format": "html",
+        "document_version_id": "docv_f0802ed3fca14dc810fadd80d4e71f45960319df73bd8a820761b0cbe0c24f39",
+        "raw_sha256": "489b428c6f1faf39d692345e907b52effb21e29bf9c2eb3e3c5f437b4af91525",
+        "retrieved_at": "2026-11-11T17:42:47.282134+00:00"
+      },
+      {
+        "document_id": "cdc_pregnancy_food_safety",
+        "family_id": "cdc_pregnancy_food_safety",
+        "format": "html",
+        "document_version_id": "docv_1396c4d6f8e66c246bdcb6f0b2ba9884fb92cefa6c81b84d207625550bccbefb",
+        "raw_sha256": "3f21a62dd84a3d5bc138ef039ea4cc97af208c9294b92089563e16ea3d311f03",
+        "retrieved_at": "2026-11-11T17:43:29.580161+00:00"
+      },
+      {
+        "document_id": "dga_2025_2030_pdf",
+        "family_id": "dga_2025_2030_pdf",
+        "format": "pdf",
+        "document_version_id": "docv_1db0dbfc8831feeb8d3686251fd8da910222794f5e928955e4db13b2e723a358",
+        "raw_sha256": "f27d3c96d51db4847b6087c068ec2d3dca400ef35e5e94c4c3ac77e8fd66e36c",
+        "retrieved_at": "2026-11-11T12:16:00.174116+00:00"
+      },
+      {
+        "document_id": "hhs_adults_older_adults_pdf",
+        "family_id": "hhs_adults_older_adults_pdf",
+        "format": "pdf",
+        "document_version_id": "docv_f099f05ee058c0c418974fadee498c7d761c4641b54703dfc97471279f29c172",
+        "raw_sha256": "503e78136fa6b9f46a967028e25e76de2cdca768c823eb59d59a49870761c8e7",
+        "retrieved_at": "2026-11-11T12:24:40.103547+00:00"
+      },
+      {
+        "document_id": "hhs_kids_teens_pdf",
+        "family_id": "hhs_kids_teens_pdf",
+        "format": "pdf",
+        "document_version_id": "docv_9f71a66f5a01c88e54d647b3d9792c1ac362627f35cd6bd3db7641fc0d54aed7",
+        "raw_sha256": "410363b45c679c2cb956da81cb2d58e3667d85f91369c8618a0b4c6b8cc6a0f3",
+        "retrieved_at": "2026-11-11T12:26:29.951353+00:00"
+      },
+      {
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "family_id": "nhlbi_sodium_tips_pdf",
+        "format": "pdf",
+        "document_version_id": "docv_915ecafb2cb9f537cc1b9bf914a0af50f041c1cf8d619003c1358c05188b6c90",
+        "raw_sha256": "30f97a37299f9f6d9d55d9c2f2222820120d3d4d4f9a66ca0bb66c04e0c6f307",
+        "retrieved_at": "2026-11-11T12:22:54.443621+00:00"
+      },
+      {
+        "document_id": "mn_cross_contamination_pdf",
+        "family_id": "mn_cross_contamination",
+        "format": "pdf",
+        "document_version_id": "docv_073fd92cd5bd55b2017a2c3f4181980a086b84d4c21dc22709ea7dc2ca7a7c7a",
+        "raw_sha256": "dd44a22d78752af0e9c7972b32aff5f146808ea86b55a2adeea4ba637d423f8b",
+        "retrieved_at": "2026-11-11T12:19:47.140759+00:00"
+      },
+      {
+        "document_id": "mn_safe_grilling_pdf",
+        "family_id": "mn_safe_grilling",
+        "format": "pdf",
+        "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+        "raw_sha256": "4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391",
+        "retrieved_at": "2026-11-11T12:19:47.140986+00:00"
+      },
+      {
+        "document_id": "fda_nutrition_label_current",
+        "family_id": "fda_nutrition_label_current",
+        "format": "html",
+        "document_version_id": "docv_76fdedd6ab1a93d033b1dc00892ef67db636f1a7eee64da302d50aab07702d35",
+        "raw_sha256": "7d78e44efc16fd3da627a9b3d729ab1f563d8849f12337c87dd94120d835866e",
+        "retrieved_at": "2026-11-11T17:44:06.489548+00:00"
+      },
+      {
+        "document_id": "cdc_emergency_food_safety",
+        "family_id": "cdc_emergency_food_safety",
+        "format": "html",
+        "document_version_id": "docv_664dde305d7d460a6a84c222004481a941f0234eda8564c7fcf9fc838aaf1e2f",
+        "raw_sha256": "fb236f0203b52f208aae8f01a469db86c1a3ebf6b6bb3d175ecd6e8670dc56ae",
+        "retrieved_at": "2026-11-11T17:46:09.095697+00:00"
+      }
+    ]
+  },
+  "published_corpus_ready": false,
+  "remaining_activation_gates": [
+    "Accessible correct-format response",
+    "Applicable audience and source date/edition labels",
+    "Document-specific rights and section exclusions",
+    "Manual extraction/reading-order/table review",
+    "One default asset per family, with version differences preserved",
+    "Validated chunk provenance and retrieval"
+  ]
+}

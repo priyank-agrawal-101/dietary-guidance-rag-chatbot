@@ -1,7 +1,7 @@
-# Reviewed acquisition registry. See docs/sourceReview.md for decisions and limitations.
+# Reviewed acquisition registry. See docs/sourceReview.md and docs/phase1-coverage.md.
 schema_version: 1
 review_date: '2026-11-11'
-status: source_review_complete_ingestion_implementation_pending
+status: source_acquisition_review_complete_extraction_pending
 policy:
   allowed_formats:
   - html
@@ -53,25 +53,44 @@ policy:
   date_policy: Keep publication, revision, update and edition separate. Unknown publication year remains null; cite
     a verified edition or date label, or explicitly state date not established.
 review_summary:
-  candidate_url_count: 61
+  candidate_url_count: 68
   preserved_existing_source_count: 20
-  verified_official_us_pdf_count: 10
-  approved_official_us_pdf_count: 7
-  default_selected_asset_count: 10
-  default_selected_unique_family_count: 10
+  verified_official_us_pdf_count: 12
+  approved_official_us_pdf_count: 9
+  default_selected_asset_count: 16
+  default_selected_unique_family_count: 16
   decision_counts:
-    pending_access: 21
-    approved_with_exclusions: 13
+    pending_access: 16
+    approved_with_exclusions: 22
     pending_rights_review: 9
     blocked_usage: 2
-    discovery_only: 7
-    reference_only: 8
+    discovery_only: 8
+    reference_only: 10
     rejected_format: 1
   coverage_gaps:
-  - Federal emergency/power-outage and pregnancy pages inaccessible
-  - FDA seafood-specific and consumer pages not verified
-  - MyPlate resources inaccessible
-  - Original 15–20 distinct consumer-family planning target not yet met after rights and duplicate exclusions
+  - FoodSafety.gov federal cold-storage chart and USDA leftovers page still return HTTP 403; Minnesota storage/leftovers
+    coverage retained with source-specific dates.
+  - MyPlate and NIA locators remain unverified; no access or rights approval inferred.
+  - Food allergy, infant feeding, home canning and shellfish regional advisories are not claimed as comprehensive
+    coverage.
+  - Extraction exclusions, table fidelity, conditions, OCR and publication/retrieval gates still need Phase 2+ validation.
+  p1_7_review:
+    new_source_ids:
+    - fda_safe_handling_current
+    - fda_safe_handling_pdf
+    - fda_produce_pdf
+    - fda_nutrition_label_current
+    - cdc_emergency_food_safety
+    - fda_pregnancy_food_safety
+    - wa_power_outages_current
+    recovered_default_ids:
+    - cdc_food_safety
+    - cdc_pregnancy_food_safety
+    - fda_produce
+    - fda_seafood
+    review_document: docs/phase1-coverage.md
+    authority_note: 16 consumer families includes overlapping general and specialized handling documents, not 16
+      independent nutrition authorities.
 sources:
 - document_id: foodsafety_cold_storage
   document_name: Cold Food Storage Charts
@@ -98,14 +117,14 @@ sources:
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:15:58.864000+00:00'
+    checked_at: '2026-11-11T17:44:06.495659+00:00'
     status_code: 403
     publicly_accessible: false
-    error: 'HTTP Error 403: Forbidden'
+    error: 'http_error: HTTP 403'
     content_type: null
     bytes: null
     sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/foodsafety_cold_storage.json
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/foodsafety_cold_storage.json
   selection:
     decision: pending_access
     default_index: false
@@ -121,6 +140,8 @@ sources:
     - Refrigerator/freezer storage times by food category.
     - Access or format failure prevents source-content, date and document-specific rights verification; supplied
       titles/topics remain provisional.
+    - P1.7 bounded recheck still returned HTTP 403; retain source identity and metadata gap, with no default ingestion
+      approval.
   rights_review:
     status: document_rights_unverified_source_inaccessible
     scope: No ingestion approval; actual document-specific notices remain unverified.
@@ -153,14 +174,14 @@ sources:
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:15:58.864382+00:00'
+    checked_at: '2026-11-11T17:42:46.289703+00:00'
     status_code: 403
     publicly_accessible: false
-    error: 'HTTP Error 403: Forbidden'
+    error: 'http_error: HTTP 403'
     content_type: null
     bytes: null
     sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/usda_leftovers.json
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/usda_leftovers.json
   selection:
     decision: pending_access
     default_index: false
@@ -176,6 +197,8 @@ sources:
     - Cooling, storing, and reheating leftovers.
     - Access or format failure prevents source-content, date and document-specific rights verification; supplied
       titles/topics remain provisional.
+    - P1.7 bounded recheck still returned HTTP 403; retain source identity and metadata gap, with no default ingestion
+      approval.
   rights_review:
     status: document_rights_unverified_source_inaccessible
     scope: No ingestion approval; actual document-specific notices remain unverified.
@@ -187,7 +210,7 @@ sources:
   document_name: Food safety prevention
   publisher: Centers for Disease Control and Prevention
   source_url: https://www.cdc.gov/food-safety/prevention/index.html
-  resolved_url: null
+  resolved_url: https://www.cdc.gov/food-safety/prevention/index.html
   source_tier: official_guidance
   jurisdiction: US
   target_audience: US
@@ -195,31 +218,34 @@ sources:
   content_role: consumer_guidance
   coverage: Household food-poisoning prevention and safe handling.
   format: html
-  detected_format: null
+  detected_format: html
   parser_profile: cdc_guidance
   origin: existing_project
   family_id: cdc_food_safety
   dates:
     publication_year: null
     edition: null
-    source_stated_dates: []
-    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
-      date.
+    source_stated_dates:
+    - 'Visible page date: Nov. 24, 2025'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:15:58.864537+00:00'
-    status_code: 403
-    publicly_accessible: false
-    error: 'HTTP Error 403: Forbidden'
-    content_type: null
-    bytes: null
-    sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/cdc_food_safety.json
+    checked_at: '2026-11-11T17:42:47.578562+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html
+    bytes: 65251
+    sha256: 17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/cdc_food_safety.json
   selection:
-    decision: pending_access
-    default_index: false
-    eligible_sections: []
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - 'Prevention steps and strategies: clean, separate, cook and chill'
+    - Recalled food handling and refrigerator cleaning
     excluded_sections:
     - Medical treatment or personalized condition-specific diet advice
     - Calorie/weight targets and personalized calculators
@@ -227,17 +253,25 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Symptoms, diagnosis, treatment, risk statistics and linked clinical pages
     notes:
-    - Household food-poisoning prevention and safe handling.
-    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
-      titles/topics remain provisional.
+    - Recovered HTTP 200 on recheck; prior access failure remains in the original review receipt and immutable registry
+      snapshot.
+    - Federal general prevention overview; granular Minnesota thermometer/handling sources remain separately attributed,
+      not independent confirmation of every overlapping claim.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
   rights_review:
-    status: document_rights_unverified_source_inaccessible
-    scope: No ingestion approval; actual document-specific notices remain unverified.
-    policy_url: null
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.cdc.gov/other/agencymaterials.html
     observations:
-    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
-      alone does not establish a reuse license.
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - CDC requires attribution, a prominent non-endorsement disclaimer, unchanged substantive content and a statement
+      that the original is available free on its website.
+    - Images, logos, videos and third-party works are outside this local-text approval.
 - document_id: mn_safe_temperatures
   document_name: Keep Your Food at the Appropriate Temperatures
   publisher: Minnesota Department of Health
@@ -284,8 +318,12 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.
+    - Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations.
     notes:
     - Cooking, chilling, thawing, and temperature conditions.
+    - 'P1.7 comparison: FDA and CDC whole-cut 145 F guidance explicitly includes a three-minute rest. Preserve source
+      differences; unsupported unqualified rows and color-only claims excluded before extraction.'
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
     scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
@@ -347,6 +385,8 @@ sources:
       count them as independent corroboration.
     - PDF is the proposed default asset for this milestone; retain this HTML for parser comparison and original
       stable document ID/alias resolution.
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
     scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
@@ -464,6 +504,8 @@ sources:
     - HTML storage-time table with food categories, temperatures, days, and months.
     - HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never
       count them as independent corroboration.
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
     scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
@@ -577,12 +619,18 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.
+    - Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations.
     notes:
     - Safe handling, marinating, holding, cooking-temperature tables, and reheating.
     - HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never
       count them as independent corroboration.
     - PDF is the proposed default asset for this milestone; retain this HTML for parser comparison and original
       stable document ID/alias resolution.
+    - 'P1.7 comparison: FDA and CDC whole-cut 145 F guidance explicitly includes a three-minute rest. Preserve source
+      differences; unsupported unqualified rows and color-only claims excluded before extraction.'
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
     scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
@@ -2061,7 +2109,7 @@ sources:
   document_name: Are You Storing Food Safely?
   publisher: FDA
   source_url: https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely
-  resolved_url: null
+  resolved_url: https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely
   source_tier: official_guidance
   jurisdiction: US
   target_audience: US
@@ -2069,29 +2117,29 @@ sources:
   content_role: consumer_guidance
   coverage: Relevant proposed storage topic; supplied URL returned 404 and no content was verified.
   format: html
-  detected_format: null
+  detected_format: html
   parser_profile: html_main_content
   origin: requested_government_review
   family_id: fda_storing_food
   dates:
     publication_year: null
     edition: null
-    source_stated_dates: []
-    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
-      date.
+    source_stated_dates:
+    - 'Content current as of: 01/18/2023'
+    notes: Accessible recheck; consumer update date is not a new publication date.
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:16:02.803240+00:00'
-    status_code: 404
-    publicly_accessible: false
-    error: 'HTTP Error 404: Not Found'
-    content_type: null
-    bytes: null
-    sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/fda_storing_food.json
+    checked_at: '2026-11-11T17:43:27.909356+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 43592
+    sha256: 4ff014e2e16bc8b036f2ee3e6352aa2df64e0b592ec86c0a650f4c7d19d4e363
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_storing_food.json
   selection:
-    decision: pending_access
+    decision: reference_only
     default_index: false
     eligible_sections: []
     excluded_sections:
@@ -2101,22 +2149,28 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Power-outage 45 F wording and four-hour above-40 F allowance conflict with selected CDC emergency guidance.
     notes:
-    - Relevant proposed storage topic; supplied URL returned 404 and no content was verified.
-    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
-      titles/topics remain provisional.
+    - Accessible and relevant, but withheld from default intake pending conflict review. Do not silently merge temperatures
+      or time thresholds.
+    - CDC Keep Food Safe After a Disaster or Emergency is the selected current federal emergency source; FDA publication
+      remains separately recorded.
   rights_review:
-    status: document_rights_unverified_source_inaccessible
-    scope: No ingestion approval; actual document-specific notices remain unverified.
-    policy_url: null
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
     observations:
-    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
-      alone does not establish a reuse license.
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
 - document_id: fda_seafood
   document_name: Selecting and Serving Fresh and Frozen Seafood Safely
   publisher: FDA
   source_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
-  resolved_url: null
+  resolved_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
   source_tier: official_guidance
   jurisdiction: US
   target_audience: US
@@ -2124,31 +2178,39 @@ sources:
   content_role: consumer_guidance
   coverage: Potential seafood-specific gap; supplied URL returned 404, so no advice is approved from this candidate.
   format: html
-  detected_format: null
+  detected_format: html
   parser_profile: html_main_content
   origin: requested_government_review
   family_id: fda_seafood
   dates:
     publication_year: null
     edition: null
-    source_stated_dates: []
-    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
-      date.
+    source_stated_dates:
+    - 'Content current as of: 03/05/2024'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:16:03.064622+00:00'
-    status_code: 404
-    publicly_accessible: false
-    error: 'HTTP Error 404: Not Found'
-    content_type: null
-    bytes: null
-    sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/fda_seafood.json
+    checked_at: '2026-11-11T17:43:27.901019+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 46259
+    sha256: f2f74671298ca6a95104b174b9ea15450883f985ee7aba2a1dc4a67245f97e90
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_seafood.json
   selection:
-    decision: pending_access
-    default_index: false
-    eligible_sections: []
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - 'Buy Right: fish, shrimp, shellfish and frozen seafood'
+    - Store Properly
+    - Separate for Safety
+    - Picnic Tips
+    - 'Prepare Safely: thawing and thermometer-based cooking'
+    - Serving
+    - 'Eating Raw Seafood: freezing does not eliminate all harmful germs'
     excluded_sections:
     - Medical treatment or personalized condition-specific diet advice
     - Calorie/weight targets and personalized calculators
@@ -2156,22 +2218,31 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - No-thermometer visual-doneness alternatives including the contradictory fish flesh is clear line
+    - 'Special Health Notes: personalized prenatal/child fish servings and mercury intake targets'
+    - 'About Foodborne Illness: symptoms, treatment and reporting'
     notes:
-    - Potential seafood-specific gap; supplied URL returned 404, so no advice is approved from this candidate.
-    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
-      titles/topics remain provisional.
+    - Buying appearance/smell cues do not prove pathogen safety. Retain thermometer-based 145 F cooking guidance;
+      exclude contradictory clear-flesh visual wording.
+    - Mercury and condition-specific serving targets are outside the consumer handling selection.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
   rights_review:
-    status: document_rights_unverified_source_inaccessible
-    scope: No ingestion approval; actual document-specific notices remain unverified.
-    policy_url: null
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
     observations:
-    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
-      alone does not establish a reuse license.
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
 - document_id: fda_produce
   document_name: Selecting and Serving Produce Safely
   publisher: FDA
   source_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely
-  resolved_url: null
+  resolved_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely
   source_tier: official_guidance
   jurisdiction: US
   target_audience: US
@@ -2180,31 +2251,37 @@ sources:
   coverage: Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides
     some overlap.
   format: html
-  detected_format: null
+  detected_format: html
   parser_profile: html_main_content
   origin: requested_government_review
   family_id: fda_produce
   dates:
     publication_year: null
     edition: null
-    source_stated_dates: []
-    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
-      date.
+    source_stated_dates:
+    - 'Content current as of: 03/05/2024'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:16:03.261589+00:00'
-    status_code: 404
-    publicly_accessible: false
-    error: 'HTTP Error 404: Not Found'
-    content_type: null
-    bytes: null
-    sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/fda_produce.json
+    checked_at: '2026-11-11T17:42:47.282134+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 40261
+    sha256: 489b428c6f1faf39d692345e907b52effb21e29bf9c2eb3e3c5f437b4af91525
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_produce.json
   selection:
-    decision: pending_access
-    default_index: false
-    eligible_sections: []
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Buy Right
+    - Store Properly
+    - Separate for Safety
+    - Prepare Safely
+    - What About Pre-Washed Produce?
     excluded_sections:
     - Medical treatment or personalized condition-specific diet advice
     - Calorie/weight targets and personalized calculators
@@ -2212,18 +2289,25 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - 'About Foodborne Illness: symptoms, medical action and linked clinical content'
     notes:
-    - Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides
-      some overlap.
-    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
-      titles/topics remain provisional.
+    - Current English HTML selected over the July 2023 four-page PDF; PDF page 4 repeats general handling guidance
+      and is not a separate consumer family.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
   rights_review:
-    status: document_rights_unverified_source_inaccessible
-    scope: No ingestion approval; actual document-specific notices remain unverified.
-    policy_url: null
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
     observations:
-    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
-      alone does not establish a reuse license.
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+  alternate_document_ids:
+  - fda_produce_pdf
 - document_id: foodsafety_power_outage
   document_name: Food Safety During Power Outages and Emergencies
   publisher: FoodSafety.gov
@@ -2249,14 +2333,14 @@ sources:
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:16:03.458791+00:00'
+    checked_at: '2026-11-11T17:42:46.289832+00:00'
     status_code: 403
     publicly_accessible: false
-    error: 'HTTP Error 403: Forbidden'
+    error: 'http_error: HTTP 403'
     content_type: null
     bytes: null
     sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/foodsafety_power_outage.json
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/foodsafety_power_outage.json
   selection:
     decision: pending_access
     default_index: false
@@ -2272,6 +2356,8 @@ sources:
     - Important emergency storage coverage; HTTP 403 prevented inspection. Keep for later acquisition.
     - Access or format failure prevents source-content, date and document-specific rights verification; supplied
       titles/topics remain provisional.
+    - P1.7 bounded recheck still returned HTTP 403; retain source identity and metadata gap, with no default ingestion
+      approval.
   rights_review:
     status: document_rights_unverified_source_inaccessible
     scope: No ingestion approval; actual document-specific notices remain unverified.
@@ -2283,39 +2369,41 @@ sources:
   document_name: Food Safety During Pregnancy
   publisher: CDC
   source_url: https://www.cdc.gov/food-safety/foods/pregnant-people.html
-  resolved_url: null
+  resolved_url: https://www.cdc.gov/food-safety/foods/pregnant-women.html
   source_tier: official_guidance
   jurisdiction: US
   target_audience: US
-  intended_audience: household consumers
+  intended_audience: pregnant household consumers and caregivers; general food-safety education
   content_role: consumer_guidance
   coverage: Population-specific household safety, potentially useful after verification; HTTP 403 prevented inspection.
   format: html
-  detected_format: null
+  detected_format: html
   parser_profile: html_main_content
   origin: requested_government_review
   family_id: cdc_pregnancy_food_safety
   dates:
     publication_year: null
     edition: null
-    source_stated_dates: []
-    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
-      date.
+    source_stated_dates:
+    - 'Visible page date: Jan. 31, 2025'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
   author: null
   medical_reviewer: null
   access:
-    checked_at: '2026-11-11T12:16:03.556868+00:00'
-    status_code: 403
-    publicly_accessible: false
-    error: 'HTTP Error 403: Forbidden'
-    content_type: null
-    bytes: null
-    sha256: null
-    evidence_record: data/staging/source_review/2026-11-11/cdc_pregnancy_food_safety.json
+    checked_at: '2026-11-11T17:43:29.580161+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html
+    bytes: 63744
+    sha256: 3f21a62dd84a3d5bc138ef039ea4cc97af208c9294b92089563e16ea3d311f03
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/cdc_pregnancy_food_safety.json
   selection:
-    decision: pending_access
-    default_index: false
-    eligible_sections: []
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - 'Safer food choices table: cooking, pasteurization, produce, deli foods, flour and handling qualifications'
     excluded_sections:
     - Medical treatment or personalized condition-specific diet advice
     - Calorie/weight targets and personalized calculators
@@ -2323,17 +2411,23 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Personalized prenatal diets, mercury serving targets, disease likelihood statistics and linked medical treatment
     notes:
-    - Population-specific household safety, potentially useful after verification; HTTP 403 prevented inspection.
-    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
-      titles/topics remain provisional.
+    - Pregnancy-specific consumer food safety, not a therapeutic diet. Retain pregnancy audience and each row condition;
+      do not generalize restrictions to every user.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
   rights_review:
-    status: document_rights_unverified_source_inaccessible
-    scope: No ingestion approval; actual document-specific notices remain unverified.
-    policy_url: null
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.cdc.gov/other/agencymaterials.html
     observations:
-    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
-      alone does not establish a reuse license.
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - CDC requires attribution, a prominent non-endorsement disclaimer, unchanged substantive content and a statement
+      that the original is available free on its website.
+    - Images, logos, videos and third-party works are outside this local-text approval.
 - document_id: fda_food_code_2026
   document_name: FDA Food Code 2026 — unverified edition candidate
   publisher: FDA
@@ -2992,6 +3086,8 @@ sources:
     - Images or third-party material without appropriate reuse permission
     notes:
     - Household separation, hygiene and handling; alternate format of existing HTML.
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
     approved_pdf_for_milestone: true
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
@@ -3065,8 +3161,14 @@ sources:
     - Individual-food nutrient lookup data reserved for Milestone 3
     - Navigation, promotions and unrelated linked content
     - Images or third-party material without appropriate reuse permission
+    - Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.
+    - Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations.
     notes:
     - Household handling, grilling and reheating; retain household/regulatory distinction.
+    - 'P1.7 comparison: FDA and CDC whole-cut 145 F guidance explicitly includes a three-minute rest. Preserve source
+      differences; unsupported unqualified rows and color-only claims excluded before extraction.'
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
     approved_pdf_for_milestone: true
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
@@ -3146,6 +3248,8 @@ sources:
     - Dated conservative storage chart and valuable table-extraction benchmark; not a claim of latest federal standards.
     - Approved as a dated conservative source and parser benchmark. Current storage answers use reviewed HTML or
       newer applicable federal guidance; do not silently swap old PDF values for newer standards.
+    - P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and
+      original format-specific dates preserved.
     approved_pdf_for_milestone: true
   rights_review:
     status: text_reviewed_no_explicit_reuse_barrier_observed
@@ -3748,3 +3852,506 @@ sources:
     observations:
     - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
       alone does not establish a reuse license.
+- document_id: fda_nutrition_label_current
+  document_name: How to Understand and Use the Nutrition Facts Label
+  publisher: U.S. Food and Drug Administration
+  source_url: https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label
+  resolved_url: https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Serving sizes, percent Daily Value interpretation, comparing labels and label formats.
+  format: html
+  detected_format: html
+  parser_profile: fda_consumer_guidance
+  origin: p1_7_coverage_review
+  family_id: fda_nutrition_label_current
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Content current as of: 03/05/2024'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:44:06.489548+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 57626
+    sha256: 7d78e44efc16fd3da627a9b3d729ab1f563d8849f12337c87dd94120d835866e
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_nutrition_label_current.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - 'Serving Information: serving size is not a recommended amount to eat'
+    - Percent Daily Value definition and 5%/20% label interpretation
+    - Compare Foods and Understand Nutrient Content Claims
+    - Nutrition Facts Label Variations
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Calories section and linked MyPlate calorie calculator
+    - 'How Daily Values Relate to the %DVs: daily dietary-goal tables and upper/lower intake targets'
+    - Dietary trade-off prescriptions and disease-treatment claims
+    - Individual-food nutrient values in worked examples; label semantics only
+    notes:
+    - Verified relocated /food/nutrition-facts-label/ URL; older /food/food-labeling-nutrition/ locator returned
+      404.
+    - Label reference semantics do not replace current Dietary Guidelines or prescribe a personal nutrient/calorie
+      target.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+- document_id: cdc_emergency_food_safety
+  document_name: Keep Food Safe After a Disaster or Emergency
+  publisher: Centers for Disease Control and Prevention
+  source_url: https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html
+  resolved_url: https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Power-outage preparation, refrigerator/freezer time-temperature conditions, discarding/refreezing foods
+    and flood-food handling.
+  format: html
+  detected_format: html
+  parser_profile: cdc_consumer_guidance
+  origin: p1_7_coverage_review
+  family_id: cdc_emergency_food_safety
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Visible page date: Nov. 24, 2025'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:46:09.095697+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html
+    bytes: 62735
+    sha256: fb236f0203b52f208aae8f01a469db86c1a3ebf6b6bb3d175ecd6e8670dc56ae
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/cdc_emergency_food_safety.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Prepare for emergencies
+    - Steps to take during a power outage
+    - Steps to take after a power outage
+    - 'Steps to take after a flood: discard unsafe foods'
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Floodwater bleach recipes and commercial-can reconditioning procedures pending process-specific safety/extraction
+      review
+    - Unrelated emergency/medical/utility advice
+    notes:
+    - Fills emergency coverage with current federal consumer guidance while FoodSafety.gov remains unavailable.
+    - Preserve 4-hour refrigerator, 48-hour full-freezer, 24-hour half-full-freezer and 40 F conditions together;
+      source lists after-outage qualifications separately.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.cdc.gov/other/agencymaterials.html
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - CDC requires attribution, a prominent non-endorsement disclaimer, unchanged substantive content and a statement
+      that the original is available free on its website.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+- document_id: fda_safe_handling_current
+  document_name: Safe Food Handling
+  publisher: U.S. Food and Drug Administration
+  source_url: https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling
+  resolved_url: https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Federal clean, separate, cook, chill guidance and safe internal-temperature table.
+  format: html
+  detected_format: html
+  parser_profile: fda_consumer_guidance
+  origin: p1_7_coverage_review
+  family_id: fda_safe_handling_current
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Content current as of: 03/05/2024'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:42:47.029261+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 37971
+    sha256: 6f631cfd37bae13e241babc2df6f6c685bee49125b04fc06cfc3dfd557c6137d
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_safe_handling_current.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - CLEAN
+    - SEPARATE
+    - COOK
+    - CHILL
+    - Safe Minimum Internal Temperatures with whole-cut rest times
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Know the Symptoms, illness estimates, medical treatment and reporting
+    notes:
+    - Overlaps selected CDC general prevention and Minnesota handling/thermometer families; retained for federal
+      qualification and layout comparison, not another default family.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+  alternate_document_ids:
+  - fda_safe_handling_pdf
+- document_id: fda_safe_handling_pdf
+  document_name: 'Safe Food Handling: What You Need to Know'
+  publisher: U.S. Food and Drug Administration
+  source_url: https://www.fda.gov/media/91319/download
+  resolved_url: https://www.fda.gov/media/91319/download
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Federal clean, separate, cook, chill guidance and safe internal-temperature table.
+  format: pdf
+  detected_format: pdf
+  parser_profile: native_pdf
+  origin: p1_7_coverage_review
+  family_id: fda_safe_handling_current
+  dates:
+    publication_year: 2017
+    edition: null
+    source_stated_dates:
+    - 'Printed issue: March 2017'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:44:08.176066+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 310598
+    sha256: 41d19d5b61e42629b4d3268a03743bd1009ce354f03004cdeb4e1e1ce47133d3
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_safe_handling_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - Physical page 1 CLEAN/SEPARATE and page 2 COOK/CHILL and temperature table; exclude illness/reporting panels
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Agency logos, illustrations, third-party photographs and contact/reporting panels
+    - Overlapping general handling pages outside the selected document topic
+    notes:
+    - Direct PDF link discovered on inspected official HTML; all pages inspected for selectable text and layout.
+    - Retained as an attributed older-format comparison asset; HTML dates do not redate the PDF and no extra default
+      family is counted.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+  direct_pdf_url: https://www.fda.gov/media/91319/download
+  source_page_url: https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling
+  pdf:
+    page_count: 2
+    text_classification: selectable_text
+    pages_with_extractable_text: 2
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Two-column colored boxes, icon/photograph imagery, footer dates; page 2 temperature table has
+      wrapped rest-time cells.
+    table_pages_in_sample:
+    - 2
+    sampled_pages:
+    - 1
+    - 2
+    inspection_scope: Native text examined and rendered page images visually inspected on every page; not an exclusion-aware
+      extraction approval.
+    inspection_record: data/staging/source_review/2026-11-11/p1-7/fda_safe_handling_pdf.pdf-inspection.json
+  alternate_document_ids:
+  - fda_safe_handling_current
+- document_id: fda_produce_pdf
+  document_name: 'Raw Produce: Selecting and Serving it Safely'
+  publisher: U.S. Food and Drug Administration
+  source_url: https://www.fda.gov/media/77178/download
+  resolved_url: https://www.fda.gov/media/77178/download
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides
+    some overlap.
+  format: pdf
+  detected_format: pdf
+  parser_profile: native_pdf
+  origin: p1_7_coverage_review
+  family_id: fda_produce
+  dates:
+    publication_year: 2023
+    edition: null
+    source_stated_dates:
+    - 'Printed issue: July 2023'
+    notes: Visible source date labels retained; these are not assumed publication dates or replaced with retrieval
+      time.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:44:06.432711+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 1877546
+    sha256: 100be676f649677fd530506d83462d6207bbd94703a023e72cfbf31dc4b26445
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_produce_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - 'Physical pages 1-2: buying, storage, separation, preparation and pre-washed produce; omit pages 3-4'
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Agency logos, illustrations, third-party photographs and contact/reporting panels
+    - Overlapping general handling pages outside the selected document topic
+    notes:
+    - Direct PDF link discovered on inspected official HTML; all pages inspected for selectable text and layout.
+    - Retained as an attributed older-format comparison asset; HTML dates do not redate the PDF and no extra default
+      family is counted.
+    - 'P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and
+      exclusion enforcement remain Phase 2 gates.'
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+  direct_pdf_url: https://www.fda.gov/media/77178/download
+  source_page_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely
+  pdf:
+    page_count: 4
+    text_classification: selectable_text
+    pages_with_extractable_text: 4
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: 'Four English pages: two-column prose/photos on pages 1-2; large symptoms/callout panel on page
+      3; page 4 is a separate general handling infographic. Different scope from the 2024 HTML; not interchangeable
+      wholesale.'
+    table_pages_in_sample: []
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 4
+    inspection_scope: Native text examined and rendered page images visually inspected on every page; not an exclusion-aware
+      extraction approval.
+    inspection_record: data/staging/source_review/2026-11-11/p1-7/fda_produce_pdf.pdf-inspection.json
+  alternate_document_ids:
+  - fda_produce
+- document_id: fda_pregnancy_food_safety
+  document_name: Safe Eats (Food Safety for Moms-to-Be)
+  publisher: U.S. Food and Drug Administration
+  source_url: https://www.fda.gov/food/people-risk-foodborne-illness/safe-eats-food-safety-moms-be
+  resolved_url: https://www.fda.gov/food/people-risk-foodborne-illness/safe-eats-food-safety-moms-be
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Food-category pregnancy-safety locator; actual recommendations are in linked subpages.
+  format: html
+  detected_format: html
+  parser_profile: fda_consumer_guidance
+  origin: p1_7_coverage_review
+  family_id: fda_pregnancy_food_safety
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Content current as of: 09/27/2018'
+    notes: Landing-page date; linked subpages were not automatically approved.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:43:28.024349+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 35468
+    sha256: a95e3fc90768945a725f9a42258a65f7441d7b5e5e577fb72b707298a08fd090
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/fda_pregnancy_food_safety.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Accessible but primarily a directory, not the full pregnancy guidance. CDC pregnancy table selected instead;
+      linked FDA subpages require separate review.
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Attributed local educational text intake, with source link and acquisition date; exclude agency marks
+      and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.
+    policy_url: https://www.fda.gov/about-fda/about-website/website-policies
+    observations:
+    - Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on
+      selected government-authored text observed.
+    - FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring
+      revisions.
+    - Images, logos, videos and third-party works are outside this local-text approval.
+- document_id: wa_power_outages_current
+  document_name: Power Outages
+  publisher: Washington State Department of Health
+  source_url: https://doh.wa.gov/emergencies/be-prepared-be-safe/severe-weather-and-natural-disasters/power-outages
+  resolved_url: https://doh.wa.gov/emergencies/be-prepared-be-safe/severe-weather-and-natural-disasters/power-outages
+  source_tier: official_guidance
+  jurisdiction: US-WA
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Power-outage general preparedness and a short Keep food safe section.
+  format: html
+  detected_format: html
+  parser_profile: wa_consumer_guidance
+  origin: p1_7_coverage_review
+  family_id: wa_power_outages_current
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Revised - March 2008
+    - Reviewed annually; no dated annual review established
+    notes: Visible 2008 revision retained. Generic annual-review statement is not proof of a 2026 revision.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T17:44:06.825422+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 115857
+    sha256: 43ffc5c664ac33bfbb55ae51411856ab9c614fb39d6b90df189e4990a26a56d4
+    evidence_record: data/staging/source_review/2026-11-11/p1-7/wa_power_outages_current.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Electrical/generator/medical preparedness and subjective food feels cold safety judgments
+    notes:
+    - Older broad emergency page; not selected instead of the current, thermometer-based CDC food-emergency guidance.
+    - Legacy FoodSafety URL redirected to a general emergency hub; do not approve that HTTP-200 hub as a food-safety
+      document.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: No default ingestion; optional attributed local text comparison only, subject to document rights review
+      before reuse.
+    policy_url: null
+    observations:
+    - State works are not automatically federal public-domain material. No document-specific license or 2026 review
+      date was established.

@@ -5,6 +5,7 @@ log_level: INFO
 fetch:
   timeout_seconds: 20
   max_retries: 2
+  max_redirects: 5
   max_html_bytes: 5242880
   max_pdf_bytes: 62914560
 embedding:

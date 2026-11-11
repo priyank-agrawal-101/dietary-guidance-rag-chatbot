@@ -52,6 +52,7 @@ class SourceDates(Contract):
     publication_year: Annotated[int, Field(strict=True, ge=1900, le=2100)] | None = None
     edition: NonEmpty | None = None
     source_stated_dates: tuple[NonEmpty, ...] = ()
+    structured_metadata_observed: tuple[NonEmpty, ...] = ()
     notes: NonEmpty | None = None
 
 

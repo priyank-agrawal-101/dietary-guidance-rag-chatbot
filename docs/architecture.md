@@ -2,7 +2,7 @@
 
 ## 1. Purpose and Design Status
 
-This document describes a proposed implementation of the [problem statement](problemStatement.md). The repository contains project documentation, a reviewed acquisition registry and its validation script, plus the Phase 0 package/settings/provenance foundations described in [phase0-foundations.md](phase0-foundations.md). Ingestion, runtime stores, retrieval, answering and HTTP endpoints below remain a build plan.
+This document describes an implementation plan for the [problem statement](problemStatement.md). The repository contains project documentation, a reviewed acquisition registry and its validation script, plus the Phase 0 package/settings/provenance foundations described in [phase0-foundations.md](phase0-foundations.md). P1.1/P1.2 implement registry eligibility and raw-artifact/SQLite provenance repositories; see [corpus foundations](phase1-corpus-foundation.md). P1.3–P1.6 implement reviewed-file imports, format inspection, bounded HTTPS fetching and administrative acquisition commands/reports; see [source acquisition](phase1-acquisition.md). P1.7 completes the acquisition coverage review and read-only audit, with 16 consumer families and six verified stored default PDFs; see [coverage review](phase1-coverage.md). Extraction, published corpus stores, retrieval, answering and HTTP endpoints below remain a build plan.
 
 The service answers general food, nutrition, and household food-safety questions for a **U.S. audience**, using **a reviewed mixture of HTML guidance pages and PDF documents** from U.S. government, academic/clinical, and reviewed editorial publishers. Every factual claim must be supported by retrieved text and carry a citation. Answers involving several documents must preserve each document's contribution separately.
 
@@ -160,7 +160,7 @@ No orchestration framework is required. Keep the ingestion, retrieval, policy, a
 
 ## 6. Source Registry and Initial Corpus
 
-The implemented acquisition registry is [config/sources.yaml](../config/sources.yaml), with detailed findings in [sourceReview.md](sourceReview.md). It records 61 investigated URLs, retains all 20 existing IDs, verifies 10 official US PDFs, and approves 7 PDF assets with exclusions. Six PDFs are proposed consumer defaults; the dated Minnesota chart PDF is a reference/parser asset. Ten distinct consumer families are proposed for default retrieval before block extraction. The original 15–20-family planning target is not yet met; unavailable and rights-unresolved entries cannot fill that gap.
+The implemented acquisition registry is [config/sources.yaml](../config/sources.yaml), with detailed findings in [sourceReview.md](sourceReview.md) and [P1.7 coverage review](phase1-coverage.md). It records 68 investigated URLs, retains all 20 existing IDs, verifies 12 official US PDFs, and approves 9 PDF assets with exclusions. Six PDFs are default consumer acquisitions; the dated Minnesota chart and older FDA PDFs remain comparison assets. Sixteen distinct eligible consumer families have current-snapshot byte-verified acquisitions, meeting the initial 15–20-family planning target before extraction/indexing. The [coverage audit](coverage-audit.json) separates eligibility, verified storage and publication; unavailable, restricted, alternate and reference-only assets do not inflate default coverage.
 
 The YAML registry is the single source of truth for acquisition decisions. A published `manifest.json` later records the subset that actually passed extraction, chunking, rights and retrieval validation. Neither approval nor a successful fetch means an active vector corpus exists.
 
@@ -174,7 +174,7 @@ Registry fields include `document_id`, `document_name`, `publisher`, `source_url
 | `pending_access` | Failed acquisition; preserve URL and diagnostics, do not index error content. |
 | `pending_rights_review` | Relevant content retained; reuse scope unresolved, ingestion disabled. |
 | `blocked_usage` | Explicit usage restriction observed; ingestion disabled unless an appropriate permission record is later obtained. |
-| `reference_only` | Medical, scientific, historical or optional international reference; excluded from default consumer retrieval. |
+| `reference_only` | Medical, scientific, historical, conflicting consumer or optional international reference; excluded from default consumer retrieval. |
 | `discovery_only` | Locator or hub used for source/date discovery, not an evidence document. |
 | `rejected_format` | Actual response differs from expected asset; not accepted as that document. |
 
@@ -635,7 +635,7 @@ Error bodies contain a request ID, stable error code, and a concise message, wit
 
 ## 18. Proposed Repository Layout
 
-The registry, review document, validator and Phase 0 package/configuration/contracts/tests now exist. The component directories have foundation scaffolding; ingestion, storage, models, API handlers and UI implementations remain planned.
+The registry, validator, Phase 0 foundations and P1.1/P1.2 registry/artifact/SQLite provenance modules/tests now exist. Other component directories have scaffolding; acquisition adapters, parsing, vectors/models, API handlers and UI implementations remain planned.
 
 ```text
 docs/
