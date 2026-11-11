@@ -1,0 +1,77 @@
+{
+  "acquisition": {
+    "document_id": "example_guidance",
+    "requested_url": "https://example.gov/guidance.pdf",
+    "resolved_url": "https://example.gov/guidance.pdf",
+    "expected_format": "pdf",
+    "detected_format": "pdf",
+    "outcome": "success",
+    "checked_at": "2026-11-11T12:00:00Z",
+    "retrieved_at": "2026-11-11T12:00:00Z",
+    "status_code": 200,
+    "content_type": "application/pdf",
+    "byte_count": 100,
+    "raw_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "raw_path": "data/example-guidance.pdf"
+  },
+  "document": {
+    "document_id": "example_guidance",
+    "document_version_id": "docv_example",
+    "family_id": "example_guidance",
+    "document_name": "Synthetic guidance contract example",
+    "publisher": "Example US authority (synthetic)",
+    "source_url": "https://example.gov/guidance.pdf",
+    "resolved_url": "https://example.gov/guidance.pdf",
+    "format": "pdf",
+    "dates": {
+      "publication_year": null,
+      "edition": "Example edition",
+      "source_stated_dates": ["Example update label"],
+      "notes": "Publication date deliberately unknown; not inferred from acquisition time."
+    },
+    "retrieved_at": "2026-11-11T12:00:00Z",
+    "source_tier": "official_guidance",
+    "jurisdiction": "US",
+    "target_audience": "US",
+    "intended_audience": "household consumers",
+    "content_role": "consumer_guidance",
+    "eligibility": {
+      "decision": "approved_with_exclusions",
+      "default_index": false,
+      "eligible_sections": ["Synthetic example section"],
+      "excluded_sections": ["Personalized targets"]
+    },
+    "rights_review": {
+      "status": "synthetic_example",
+      "scope": "Project-created structural example; not an actual reviewed publication"
+    },
+    "raw_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "page_count": 3,
+    "text_classification": "selectable_text"
+  },
+  "block": {
+    "block_id": "block_example",
+    "document_version_id": "docv_example",
+    "block_type": "table_row",
+    "heading_path": ["Synthetic storage example"],
+    "sequence_index": 0,
+    "text": "Placeholder row text; no actual storage recommendation.",
+    "source_locations": [
+      {
+        "format": "pdf",
+        "physical_page": 3,
+        "printed_page_label": "2",
+        "bbox": [10, 20, 200, 60],
+        "extraction_method": "native_pdf",
+        "review_state": "pending"
+      }
+    ],
+    "table_context": {
+      "title": "Synthetic chart",
+      "column_headers": ["Refrigerator", "Freezer"],
+      "row_headers": ["Example category"],
+      "units": ["days", "months"],
+      "footnotes": ["Placeholder qualification; preserve source-specific conditions."]
+    }
+  }
+}

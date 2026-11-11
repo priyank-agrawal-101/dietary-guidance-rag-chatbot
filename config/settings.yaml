@@ -1,0 +1,24 @@
+# Nonsecret configuration. Paths are relative to the project root.
+data_dir: data
+source_registry: config/sources.yaml
+log_level: INFO
+fetch:
+  timeout_seconds: 20
+  max_retries: 2
+  max_html_bytes: 5242880
+  max_pdf_bytes: 62914560
+embedding:
+  model_name: intfloat/e5-base-v2
+  revision: null  # Phase 3 must pin the actual revision before building an index.
+chunking:
+  target_tokens: 350
+  overlap_tokens: 50
+runtime:
+  question_max_characters: 2000
+  selected_document_limit: 20
+  candidate_chunks: 20
+  per_document_candidates: 3
+  request_timeout_seconds: 60
+generation:
+  provider: unconfigured
+  model_name: null

@@ -1,0 +1,3750 @@
+# Reviewed acquisition registry. See docs/sourceReview.md for decisions and limitations.
+schema_version: 1
+review_date: '2026-11-11'
+status: source_review_complete_ingestion_implementation_pending
+policy:
+  allowed_formats:
+  - html
+  - pdf
+  audience: US
+  initial_target_unique_consumer_families: 15–20; planning target, not a cap on reviewed URLs or reference assets
+  minimum_verified_official_us_pdfs: 5
+  existing_document_ids:
+  - foodsafety_cold_storage
+  - usda_leftovers
+  - cdc_food_safety
+  - mn_safe_temperatures
+  - mn_cross_contamination
+  - mn_cold_storage
+  - mn_storage_chart
+  - mn_food_thermometers
+  - mn_safe_grilling
+  - harvard_healthy_plate
+  - harvard_whole_grains
+  - harvard_vegetables_fruits
+  - harvard_fats
+  - harvard_fiber
+  - cleveland_balanced_diet
+  - cleveland_food_labels
+  - healthline_healthy_eating
+  - healthline_food_labels
+  - webmd_balanced_diet
+  - webmd_fiber
+  default_content_roles:
+  - consumer_guidance
+  blocked_decisions:
+  - pending_access
+  - rejected_format
+  - blocked_usage
+  - pending_rights_review
+  - reference_only
+  - discovery_only
+  approval_meaning: Approved sources are eligible for local educational ingestion with recorded exclusions. Not
+    yet extracted into reviewed blocks, embedded, indexed or released; redistribution requires rights clearance.
+  activation_gates:
+  - Accessible correct-format response
+  - Applicable audience and source date/edition labels
+  - Document-specific rights and section exclusions
+  - Manual extraction/reading-order/table review
+  - One default asset per family, with version differences preserved
+  - Validated chunk provenance and retrieval
+  international_policy: Optional nonconflicting general references only; disabled in default US consumer retrieval.
+  pdf_detection: Use content type, PDF signature and parser-open validation; a .pdf URL or HTTP 200 alone is insufficient.
+  date_policy: Keep publication, revision, update and edition separate. Unknown publication year remains null; cite
+    a verified edition or date label, or explicitly state date not established.
+review_summary:
+  candidate_url_count: 61
+  preserved_existing_source_count: 20
+  verified_official_us_pdf_count: 10
+  approved_official_us_pdf_count: 7
+  default_selected_asset_count: 10
+  default_selected_unique_family_count: 10
+  decision_counts:
+    pending_access: 21
+    approved_with_exclusions: 13
+    pending_rights_review: 9
+    blocked_usage: 2
+    discovery_only: 7
+    reference_only: 8
+    rejected_format: 1
+  coverage_gaps:
+  - Federal emergency/power-outage and pregnancy pages inaccessible
+  - FDA seafood-specific and consumer pages not verified
+  - MyPlate resources inaccessible
+  - Original 15–20 distinct consumer-family planning target not yet met after rights and duplicate exclusions
+sources:
+- document_id: foodsafety_cold_storage
+  document_name: Cold Food Storage Charts
+  publisher: FoodSafety.gov
+  source_url: https://www.foodsafety.gov/food-safety-charts/cold-food-storage-charts
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Refrigerator/freezer storage times by food category.
+  format: html
+  detected_format: null
+  parser_profile: foodsafety_table
+  origin: existing_project
+  family_id: foodsafety_cold_storage
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864000+00:00'
+    status_code: 403
+    publicly_accessible: false
+    error: 'HTTP Error 403: Forbidden'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/foodsafety_cold_storage.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Refrigerator/freezer storage times by food category.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: usda_leftovers
+  document_name: Leftovers and Food Safety
+  publisher: USDA Food Safety and Inspection Service
+  source_url: https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Cooling, storing, and reheating leftovers.
+  format: html
+  detected_format: null
+  parser_profile: fsis_guidance
+  origin: existing_project
+  family_id: usda_leftovers
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864382+00:00'
+    status_code: 403
+    publicly_accessible: false
+    error: 'HTTP Error 403: Forbidden'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/usda_leftovers.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Cooling, storing, and reheating leftovers.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: cdc_food_safety
+  document_name: Food safety prevention
+  publisher: Centers for Disease Control and Prevention
+  source_url: https://www.cdc.gov/food-safety/prevention/index.html
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Household food-poisoning prevention and safe handling.
+  format: html
+  detected_format: null
+  parser_profile: cdc_guidance
+  origin: existing_project
+  family_id: cdc_food_safety
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864537+00:00'
+    status_code: 403
+    publicly_accessible: false
+    error: 'HTTP Error 403: Forbidden'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/cdc_food_safety.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Household food-poisoning prevention and safe handling.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: mn_safe_temperatures
+  document_name: Keep Your Food at the Appropriate Temperatures
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/cook/temperature.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/cook/temperature.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Cooking, chilling, thawing, and temperature conditions.
+  format: html
+  detected_format: html
+  parser_profile: mdh_guidance
+  origin: existing_project
+  family_id: mn_safe_temperatures
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Last Updated: July 15, 2026'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864674+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 81429
+    sha256: 6e761d72f67fe304f7dcc98d7b49f5d6f9f66ddd3332091abd6b38fc70d33914
+    evidence_record: data/staging/source_review/2026-11-11/mn_safe_temperatures.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Cooking, chilling, thawing, and temperature conditions.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+- document_id: mn_cross_contamination
+  document_name: Prevent Cross-Contamination
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Separating foods during shopping, storage, preparation, and serving.
+  format: html
+  detected_format: html
+  parser_profile: mdh_guidance
+  origin: existing_project
+  family_id: mn_cross_contamination
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Revised April 2007
+    - 'Last Updated: July 15, 2026'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864787+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 82339
+    sha256: d7cb28efdbd4b986c4dbba9a0555b08d3b78cbc2b94bebefe53b7a04df7da056
+    evidence_record: data/staging/source_review/2026-11-11/mn_cross_contamination.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Separating foods during shopping, storage, preparation, and serving.
+    - HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never
+      count them as independent corroboration.
+    - PDF is the proposed default asset for this milestone; retain this HTML for parser comparison and original
+      stable document ID/alias resolution.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  alternate_document_ids:
+  - mn_cross_contamination_pdf
+- document_id: mn_cold_storage
+  document_name: Cold Storage
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/store/coldstore.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/store/coldstore.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Refrigeration, freezer packaging, storage conditions, and freezer burn.
+  format: html
+  detected_format: html
+  parser_profile: mdh_guidance
+  origin: existing_project
+  family_id: mn_cold_storage
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Last Updated: July 15, 2026'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864894+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 81507
+    sha256: bbdf795e157d070d5d1ecd2a2451d28c410a5a77718692a662c34b687563a3fb
+    evidence_record: data/staging/source_review/2026-11-11/mn_cold_storage.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Refrigeration, freezer packaging, storage conditions, and freezer burn.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+- document_id: mn_storage_chart
+  document_name: 'Refrigerator and Freezer Storage Chart: Cold Storage Temperatures'
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/store/cold.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/store/cold.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: HTML storage-time table with food categories, temperatures, days, and months.
+  format: html
+  detected_format: html
+  parser_profile: mdh_table
+  origin: existing_project
+  family_id: mn_storage_chart
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Revised April 2007
+    - 'Last Updated: September 25, 2026'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.864997+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 80865
+    sha256: e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7
+    evidence_record: data/staging/source_review/2026-11-11/mn_storage_chart.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - HTML storage-time table with food categories, temperatures, days, and months.
+    - HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never
+      count them as independent corroboration.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  alternate_document_ids:
+  - mn_storage_chart_pdf
+- document_id: mn_food_thermometers
+  document_name: 'Food Thermometers: How to Choose and Use One'
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/cook/thermy.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/cook/thermy.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Thermometer placement, checking food, and cleaning between uses.
+  format: html
+  detected_format: html
+  parser_profile: mdh_guidance
+  origin: existing_project
+  family_id: mn_food_thermometers
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 'Last Updated: July 15, 2026'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:58.987331+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 77949
+    sha256: 5285f02183267b596a18706e0b47a60e449185fa1be222f58b36b1334c489359
+    evidence_record: data/staging/source_review/2026-11-11/mn_food_thermometers.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Thermometer placement, checking food, and cleaning between uses.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+- document_id: mn_safe_grilling
+  document_name: Safe Grilling
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.html
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.html
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Safe handling, marinating, holding, cooking-temperature tables, and reheating.
+  format: html
+  detected_format: html
+  parser_profile: mdh_guidance
+  origin: existing_project
+  family_id: mn_safe_grilling
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Revised August 2011
+    - 'Last Updated: January 21, 2025'
+    notes: Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains
+      relevant; verify retained values and qualifications before indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.246651+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 79775
+    sha256: 922e86363efee844cb4b226b3865cbebd5e9b3f8c48df20c7284e91bcf34153a
+    evidence_record: data/staging/source_review/2026-11-11/mn_safe_grilling.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Safe handling, marinating, holding, cooking-temperature tables, and reheating.
+    - HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never
+      count them as independent corroboration.
+    - PDF is the proposed default asset for this milestone; retain this HTML for parser comparison and original
+      stable document ID/alias resolution.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  alternate_document_ids:
+  - mn_safe_grilling_pdf
+- document_id: harvard_healthy_plate
+  document_name: Healthy Eating Plate
+  publisher: Harvard T.H. Chan School of Public Health — The Nutrition Source
+  source_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+  resolved_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Balanced meals, food groups, whole grains, oils, and drinks.
+  format: html
+  detected_format: html
+  parser_profile: harvard_nutrition
+  origin: existing_project
+  family_id: harvard_healthy_plate
+  dates:
+    publication_year: 2012
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2012-09-18T17:30:02-04:00 (page structured metadata)'
+    - 'dateModified: 2025-08-05T16:06:56-04:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.376095+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 119788
+    sha256: 1ba4425dfbe86497d3f6552998ab6e4be90bbbdbc57ef0a174a2d93c90ab206c
+    evidence_record: data/staging/source_review/2026-11-11/harvard_healthy_plate.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Balanced meals, food groups, whole grains, oils, and drinks.
+    - Relevant institutional reference retained; select only nonconflicting general food explanations after text
+      reuse clearance. Dairy/fat guidance can differ from final 2025–2030 DGA; do not merge into a consensus.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+    observations:
+    - Healthy Eating Plate has image-specific educational reuse conditions. Do not infer those permissions cover
+      article prose or commercial RAG ingestion. No blanket text license established.
+- document_id: harvard_whole_grains
+  document_name: Whole Grains
+  publisher: Harvard T.H. Chan School of Public Health — The Nutrition Source
+  source_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/whole-grains/
+  resolved_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/whole-grains/
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Whole versus refined grains and general food choices.
+  format: html
+  detected_format: html
+  parser_profile: harvard_nutrition
+  origin: existing_project
+  family_id: harvard_whole_grains
+  dates:
+    publication_year: 2014
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2014-01-24T14:28:24-05:00 (page structured metadata)'
+    - 'dateModified: 2025-01-14T16:16:19-05:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.578299+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 116092
+    sha256: 3e4cdb5e400cc6f1f6255934ed41509dcd79aef25207370c1995db95084b6620
+    evidence_record: data/staging/source_review/2026-11-11/harvard_whole_grains.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Whole versus refined grains and general food choices.
+    - Relevant institutional reference retained; select only nonconflicting general food explanations after text
+      reuse clearance. Dairy/fat guidance can differ from final 2025–2030 DGA; do not merge into a consensus.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+    observations:
+    - Healthy Eating Plate has image-specific educational reuse conditions. Do not infer those permissions cover
+      article prose or commercial RAG ingestion. No blanket text license established.
+- document_id: harvard_vegetables_fruits
+  document_name: Vegetables and Fruits
+  publisher: Harvard T.H. Chan School of Public Health — The Nutrition Source
+  source_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/vegetables-and-fruits/
+  resolved_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/vegetables-and-fruits/
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Produce variety and practical ways to include fruits and vegetables.
+  format: html
+  detected_format: html
+  parser_profile: harvard_nutrition
+  origin: existing_project
+  family_id: harvard_vegetables_fruits
+  dates:
+    publication_year: 2012
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2012-09-18T17:30:02-04:00 (page structured metadata)'
+    - 'dateModified: 2025-05-16T16:33:43-04:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.747748+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 118055
+    sha256: 1a68b4acd82a723bdbdbfffc419a1b5ebf2de493ad4e1aeb3938ba0c8677165e
+    evidence_record: data/staging/source_review/2026-11-11/harvard_vegetables_fruits.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Produce variety and practical ways to include fruits and vegetables.
+    - Relevant institutional reference retained; select only nonconflicting general food explanations after text
+      reuse clearance. Dairy/fat guidance can differ from final 2025–2030 DGA; do not merge into a consensus.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+    observations:
+    - Healthy Eating Plate has image-specific educational reuse conditions. Do not infer those permissions cover
+      article prose or commercial RAG ingestion. No blanket text license established.
+- document_id: harvard_fats
+  document_name: Fats and Cholesterol
+  publisher: Harvard T.H. Chan School of Public Health — The Nutrition Source
+  source_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/fats-and-cholesterol/
+  resolved_url: https://nutritionsource.hsph.harvard.edu/what-should-you-eat/fats-and-cholesterol/
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Types of dietary fat, oils, and general food-selection guidance.
+  format: html
+  detected_format: html
+  parser_profile: harvard_nutrition
+  origin: existing_project
+  family_id: harvard_fats
+  dates:
+    publication_year: 2012
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2012-09-18T17:30:02-04:00 (page structured metadata)'
+    - 'dateModified: 2025-11-14T11:29:35-05:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.761521+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 94143
+    sha256: 29dc319bc0cfc57664be45e7e216def97ecc8c832706c5fafc3ffa84047614e8
+    evidence_record: data/staging/source_review/2026-11-11/harvard_fats.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Types of dietary fat, oils, and general food-selection guidance.
+    - Relevant institutional reference retained; select only nonconflicting general food explanations after text
+      reuse clearance. Dairy/fat guidance can differ from final 2025–2030 DGA; do not merge into a consensus.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+    observations:
+    - Healthy Eating Plate has image-specific educational reuse conditions. Do not infer those permissions cover
+      article prose or commercial RAG ingestion. No blanket text license established.
+- document_id: harvard_fiber
+  document_name: Fiber
+  publisher: Harvard T.H. Chan School of Public Health — The Nutrition Source
+  source_url: https://nutritionsource.hsph.harvard.edu/carbohydrates/fiber/
+  resolved_url: https://nutritionsource.hsph.harvard.edu/carbohydrates/fiber/
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Food-based fiber, soluble/insoluble fiber, and general eating guidance.
+  format: html
+  detected_format: html
+  parser_profile: harvard_nutrition
+  origin: existing_project
+  family_id: harvard_fiber
+  dates:
+    publication_year: 2012
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2012-09-18T17:30:02-04:00 (page structured metadata)'
+    - 'dateModified: 2024-11-07T12:12:43-05:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.769296+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 128151
+    sha256: 814c9bb186a4ec94dda23ad018b81f5c3d5acd411078349e722d0c18afa088cb
+    evidence_record: data/staging/source_review/2026-11-11/harvard_fiber.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Food-based fiber, soluble/insoluble fiber, and general eating guidance.
+    - Relevant institutional reference retained; select only nonconflicting general food explanations after text
+      reuse clearance. Dairy/fat guidance can differ from final 2025–2030 DGA; do not merge into a consensus.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://nutritionsource.hsph.harvard.edu/healthy-eating-plate/
+    observations:
+    - Healthy Eating Plate has image-specific educational reuse conditions. Do not infer those permissions cover
+      article prose or commercial RAG ingestion. No blanket text license established.
+- document_id: cleveland_balanced_diet
+  document_name: What Exactly Is a Balanced Diet?
+  publisher: Cleveland Clinic — Health Essentials
+  source_url: https://health.clevelandclinic.org/balanced-diet
+  resolved_url: https://health.clevelandclinic.org/balanced-diet
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Balanced eating and food-group variety explained by a dietitian.
+  format: html
+  detected_format: html
+  parser_profile: cleveland_article
+  origin: existing_project
+  family_id: cleveland_balanced_diet
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.796691+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 402922
+    sha256: 561551a27aeb53eea4fd9cd8e50109d463aa42eaa32105eed61d62ff2601a534
+    evidence_record: data/staging/source_review/2026-11-11/cleveland_balanced_diet.json
+  selection:
+    decision: blocked_usage
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Balanced eating and food-group variety explained by a dietitian.
+  rights_review:
+    status: explicit_rag_and_automated_harvesting_restriction
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://my.clevelandclinic.org/about/website/terms-of-use
+    observations:
+    - Terms explicitly prohibit automated harvesting and RAG/AI use without permission. Entry retained for review,
+      not indexing.
+- document_id: cleveland_food_labels
+  document_name: What Can You Learn From a Nutrition Label?
+  publisher: Cleveland Clinic — Health Essentials
+  source_url: https://health.clevelandclinic.org/how-to-read-a-nutrition-label
+  resolved_url: https://health.clevelandclinic.org/how-to-read-a-nutrition-label
+  source_tier: institutional_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: U.S. Nutrition Facts labels, serving sizes, and percent Daily Value.
+  format: html
+  detected_format: html
+  parser_profile: cleveland_article
+  origin: existing_project
+  family_id: cleveland_food_labels
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.808158+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 377466
+    sha256: 147d0b2559bf1fe7d4c2fc027c9e4cb8397cee52edfb811b13acd4c58a00f787
+    evidence_record: data/staging/source_review/2026-11-11/cleveland_food_labels.json
+  selection:
+    decision: blocked_usage
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - U.S. Nutrition Facts labels, serving sizes, and percent Daily Value.
+  rights_review:
+    status: explicit_rag_and_automated_harvesting_restriction
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://my.clevelandclinic.org/about/website/terms-of-use
+    observations:
+    - Terms explicitly prohibit automated harvesting and RAG/AI use without permission. Entry retained for review,
+      not indexing.
+- document_id: healthline_healthy_eating
+  document_name: The Definitive Guide to Healthy Eating in Real Life
+  publisher: Healthline
+  source_url: https://www.healthline.com/nutrition/how-to-eat-healthy-guide
+  resolved_url: https://www.healthline.com/nutrition/how-to-eat-healthy-guide
+  source_tier: editorial_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Practical meal variety and everyday healthy-eating habits.
+  format: html
+  detected_format: html
+  parser_profile: healthline_article
+  origin: existing_project
+  family_id: healthline_healthy_eating
+  dates:
+    publication_year: 2021
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2021-06-24T06:00:00Z (page structured metadata)'
+    - 'dateModified: 2024-11-28T01:04:31Z (page structured metadata)'
+    - 'lastReviewed: 2024-11-28T01:04:32Z (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.880041+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 651028
+    sha256: 17c4ae7966503a1749799e01d9e6426b243a4824250c9b190e3bb049565b1ffd
+    evidence_record: data/staging/source_review/2026-11-11/healthline_healthy_eating.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Practical meal variety and everyday healthy-eating habits.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Article copyright present; attempted publisher terms locator returned 404. Do not treat public access as reuse
+      permission.
+- document_id: healthline_food_labels
+  document_name: How to Read Food Labels Without Being Tricked
+  publisher: Healthline
+  source_url: https://www.healthline.com/nutrition/how-to-read-food-labels
+  resolved_url: https://www.healthline.com/nutrition/how-to-read-food-labels
+  source_tier: editorial_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Ingredient lists, serving sizes, added-sugar names, and marketing claims.
+  format: html
+  detected_format: html
+  parser_profile: healthline_article
+  origin: existing_project
+  family_id: healthline_food_labels
+  dates:
+    publication_year: 2019
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 2019-02-27T08:00:00Z (page structured metadata)'
+    - 'dateModified: 2026-10-19T17:49:14Z (page structured metadata)'
+    - 'lastReviewed: 2025-06-30T14:55:21Z (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.930642+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 559137
+    sha256: 4e4765ccad1f0373321895d1914cd776838ed175c937e3f5305e4c1fd7630292
+    evidence_record: data/staging/source_review/2026-11-11/healthline_food_labels.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Ingredient lists, serving sizes, added-sugar names, and marketing claims.
+  rights_review:
+    status: copyrighted_text_reuse_scope_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Article copyright present; attempted publisher terms locator returned 404. Do not treat public access as reuse
+      permission.
+- document_id: webmd_balanced_diet
+  document_name: What Is a Balanced Diet?
+  publisher: WebMD
+  source_url: https://www.webmd.com/diet/what-is-a-balanced-diet
+  resolved_url: https://www.webmd.com/diet/what-is-a-balanced-diet
+  source_tier: editorial_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Food groups and general balanced-eating explanations; omit calorie-target sections.
+  format: html
+  detected_format: html
+  parser_profile: webmd_article
+  origin: existing_project
+  family_id: webmd_balanced_diet
+  dates:
+    publication_year: 2021
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 04/08/2021 08:56:00 (page structured metadata)'
+    - 'dateModified: 07/14/2023 00:00:00 (page structured metadata)'
+    - 'lastReviewed: 07/14/2023 00:00:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:15:59.948568+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html
+    bytes: 744468
+    sha256: 2f03091fabe85bf64347c497433b3a529c596682d194940e12465022f5b73dc7
+    evidence_record: data/staging/source_review/2026-11-11/webmd_balanced_diet.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Food groups and general balanced-eating explanations; omit calorie-target sections.
+  rights_review:
+    status: personal_copy_only_broader_reuse_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://www.webmd.com/about-webmd-policies/about-terms-and-conditions-of-use
+    observations:
+    - Terms permit a single personal noncommercial copy; broader RAG ingestion/reuse permission was not established.
+      No explicit AI ban inferred.
+- document_id: webmd_fiber
+  document_name: 'Understanding Dietary Fiber: Soluble and Insoluble Types'
+  publisher: WebMD
+  source_url: https://www.webmd.com/diet/compare-dietary-fibers
+  resolved_url: https://www.webmd.com/diet/compare-dietary-fibers
+  source_tier: editorial_reference
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: General food-based fiber explanations; omit treatment and supplement advice.
+  format: html
+  detected_format: html
+  parser_profile: webmd_article
+  origin: existing_project
+  family_id: webmd_fiber
+  dates:
+    publication_year: 2010
+    edition: null
+    source_stated_dates:
+    - 'datePublished: 11/04/2010 20:00:00 (page structured metadata)'
+    - 'dateModified: 01/17/2024 20:00:00 (page structured metadata)'
+    - 'lastReviewed: 01/17/2024 20:00:00 (page structured metadata)'
+    notes: Source-stated structured dates, not a new independent validation of scientific currency. Preserve modification/review
+      labels separately; rights review still blocks default indexing.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.165008+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html
+    bytes: 744361
+    sha256: 3f41d39592347c7a3d7cde8af82d5bc54dfc4cdadf6189abb6456aa0855ea271
+    evidence_record: data/staging/source_review/2026-11-11/webmd_fiber.json
+  selection:
+    decision: pending_rights_review
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - General food-based fiber explanations; omit treatment and supplement advice.
+  rights_review:
+    status: personal_copy_only_broader_reuse_unresolved
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://www.webmd.com/about-webmd-policies/about-terms-and-conditions-of-use
+    observations:
+    - Terms permit a single personal noncommercial copy; broader RAG ingestion/reuse permission was not established.
+      No explicit AI ban inferred.
+- document_id: dgac_2025_report_landing
+  document_name: Scientific Report of the 2025 Dietary Guidelines Advisory Committee — landing page
+  publisher: HHS and USDA
+  source_url: https://www.dietaryguidelines.gov/2025-advisory-committee-report
+  resolved_url: https://www.dietaryguidelines.gov/2025-advisory-committee-report
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Useful verified locator for full scientific report; avoid indexing a download summary as the report.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: dgac_2025_report_landing
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.200262+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 30502
+    sha256: db3c0fe1fdb4f9ed6437f647a2af719266fd17c920c1fa17de7113e82362be00
+    evidence_record: data/staging/source_review/2026-11-11/dgac_2025_report_landing.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Useful verified locator for full scientific report; avoid indexing a download summary as the report.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: usda_myplate_home
+  document_name: USDA MyPlate
+  publisher: USDA
+  source_url: https://www.myplate.gov/
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Potential general food-group resources; contents could not be inspected because DNS resolution failed.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: usda_myplate_home
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.614958+00:00'
+    status_code: null
+    publicly_accessible: false
+    error: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/usda_myplate_home.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Potential general food-group resources; contents could not be inspected because DNS resolution failed.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: usda_myplate_plan
+  document_name: USDA MyPlate Plan
+  publisher: USDA
+  source_url: https://www.myplate.gov/myplate-plan
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Unavailable; review any personalized calorie-plan functionality against scope before approval.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: usda_myplate_plan
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.783351+00:00'
+    status_code: null
+    publicly_accessible: false
+    error: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/usda_myplate_plan.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Unavailable; review any personalized calorie-plan functionality against scope before approval.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: hhs_life_stage_guidance
+  document_name: Dietary Guidelines for Americans — HHS overview
+  publisher: HHS / Office of Disease Prevention and Health Promotion
+  source_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines
+  resolved_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Verified current-edition locator; prefer full guidelines and relevant fact sheets as evidence.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: hhs_life_stage_guidance
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.799879+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 69975
+    sha256: d1ec8fa9938131132f6f10b29bf8be7db144af2058d728adb7ca4db1c87be730
+    evidence_record: data/staging/source_review/2026-11-11/hhs_life_stage_guidance.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Verified current-edition locator; prefer full guidelines and relevant fact sheets as evidence.
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+- document_id: hhs_healthy_eating_resources
+  document_name: Healthy Eating Resources
+  publisher: HHS / Office of Disease Prevention and Health Promotion
+  source_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/healthy-eating-resources
+  resolved_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/healthy-eating-resources
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Verified life-stage PDF listing; adult and kids/teens documents selected, others not blindly approved.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: hhs_healthy_eating_resources
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:22:54.443287+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 68920
+    sha256: 0055c4e51dc6d848001107af89e8bd22c33b633cda5dd1f1bb4e9dcb25ddd0f4
+    evidence_record: data/staging/source_review/2026-11-11/hhs_healthy_eating_resources.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Verified life-stage PDF listing; adult and kids/teens documents selected, others not blindly approved.
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+- document_id: hhs_life_stage_resources
+  document_name: New Dietary Guidelines Fact Sheets Offer Healthy Eating Information for Every Life Stage
+  publisher: HHS / Office of Disease Prevention and Health Promotion
+  source_url: https://odphp.health.gov/news/202611/new-dietary-guidelines-fact-sheets-offer-healthy-eating-information-every-life-stage
+  resolved_url: https://odphp.health.gov/news/202611/new-dietary-guidelines-fact-sheets-offer-healthy-eating-information-every-life-stage
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Official November 4, 2026 announcement, updated November 5; date evidence and discovery only.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: hhs_life_stage_resources
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Posted November 4, 2026; updated November 5, 2026
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.141090+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 34515
+    sha256: 46fb056bf34d0f4bab095b7d319f41f12e4f89f913d74543c562cb51995e27cb
+    evidence_record: data/staging/source_review/2026-11-11/hhs_life_stage_resources.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Official November 4, 2026 announcement, updated November 5; date evidence and discovery only.
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+- document_id: nhlbi_home
+  document_name: NHLBI homepage
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/
+  resolved_url: https://www.nhlbi.nih.gov/
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Broad institutional homepage; replace with targeted healthy-foods resource for topic review.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: nhlbi_home
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:01.848990+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 86736
+    sha256: b58816e218ce65f0f46c279603b93377bdb4fed87279c47449f3f5fb477d1632
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_home.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Broad institutional homepage; replace with targeted healthy-foods resource for topic review.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: nhlbi_dash_landing
+  document_name: DASH Eating Plan
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/education/dash-eating-plan
+  resolved_url: https://www.nhlbi.nih.gov/health/dash-eating-plan
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: specialized_medical
+  coverage: Blood-pressure eating plan with calorie-based serving tables; reference only, not default general recommendations.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: nhlbi_dash_landing
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Last updated February 25, 2026
+    notes: Visible source review/update label retained; source publication year not established. Clinical scope
+      remains separate from default guidance.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:01.303010+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 63129
+    sha256: 90ca234f627821f120cb22a0cbdf62bad2a12e65bd94ec5da9d48f07e23e0879
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_dash_landing.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Blood-pressure eating plan with calorie-based serving tables; reference only, not default general recommendations.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: nhlbi_heart_healthy_foods
+  document_name: 'Heart-Healthy Living: Choose Heart-Healthy Foods'
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/health/heart-healthy-living/healthy-foods
+  resolved_url: https://www.nhlbi.nih.gov/health/heart-healthy-living/healthy-foods
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: specialized_medical
+  coverage: Targeted replacement for NHLBI homepage; heart-health profile and potentially differing fat recommendations
+    require separate attribution.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: nhlbi_heart_healthy_foods
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Last updated December 10, 2025
+    notes: Visible source review/update label retained; source publication year not established. Clinical scope
+      remains separate from default guidance.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:05.350491+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 79323
+    sha256: 862e801580889d83304534c29ca9954f199a3340b7eefd94720681e3b6873f14
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_heart_healthy_foods.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Targeted replacement for NHLBI homepage; heart-health profile and potentially differing fat recommendations
+      require separate attribution.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: nhlbi_sodium_tips_resource
+  document_name: Tips To Reduce Salt and Sodium — resource page
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/resources/tips-reduce-salt-sodium
+  resolved_url: https://www.nhlbi.nih.gov/resources/tips-reduce-salt-sodium
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Verified source of direct PDF, April 2019 date, general-public/patient audience and two-page length.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: nhlbi_sodium_tips_resource
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.141194+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 73082
+    sha256: ed8b2bf8e9c1ad7c7aaafd23bd65e68254eb3311078d6fe1a02e687910a87ee0
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_sodium_tips_resource.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Verified source of direct PDF, April 2019 date, general-public/patient audience and two-page length.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: niddk_ckd_nutrition
+  document_name: Healthy Eating for Adults with Chronic Kidney Disease
+  publisher: NIH / National Institute of Diabetes and Digestive and Kidney Diseases
+  source_url: https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/eating-nutrition
+  resolved_url: https://www.niddk.nih.gov/health-information/kidney-disease/chronic-kidney-disease-ckd/healthy-eating-adults-chronic-kidney-disease?dkrd=/health-information/kidney-disease/chronic-kidney-disease-ckd/eating-nutrition
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: specialized_medical
+  coverage: CKD-specific calorie, fluid, potassium, phosphorus and protein guidance; exclude from default household/general
+    diet retrieval.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: niddk_ckd_nutrition
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Last Reviewed January 2025; visible consumer page label
+    notes: Visible source review/update label retained; source publication year not established. Clinical scope
+      remains separate from default guidance. Structured 2026 dates differ from visible clinical review dates; do
+      not silently replace the clinical review label with a CMS date.
+    structured_metadata_observed:
+    - 'datePublished: 2026-05-20 16:59:30 -04:00'
+    - 'dateModified: 2026-05-20 16:59:30 -04:00'
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.050758+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 64886
+    sha256: 259363fb7d76b1a85892b8b2520cd97f8c40a9393a5349da500608af528c3252
+    evidence_record: data/staging/source_review/2026-11-11/niddk_ckd_nutrition.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - CKD-specific calorie, fluid, potassium, phosphorus and protein guidance; exclude from default household/general
+      diet retrieval.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: niddk_diabetes_nutrition
+  document_name: Healthy Living with Diabetes
+  publisher: NIH / National Institute of Diabetes and Digestive and Kidney Diseases
+  source_url: https://www.niddk.nih.gov/health-information/diabetes/overview/diet-eating-physical-activity
+  resolved_url: https://www.niddk.nih.gov/health-information/diabetes/overview/healthy-living-with-diabetes?dkrd=/health-information/diabetes/overview/diet-eating-physical-activity
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: specialized_medical
+  coverage: Diabetes management, meal timing, weight and supplement guidance; exclude from default general retrieval.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: niddk_diabetes_nutrition
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Last Reviewed October 2023; visible consumer page label
+    notes: Visible source review/update label retained; source publication year not established. Clinical scope
+      remains separate from default guidance. Structured 2026 dates differ from visible clinical review dates; do
+      not silently replace the clinical review label with a CMS date.
+    structured_metadata_observed:
+    - 'datePublished: 2026-05-19 18:23:33 -04:00'
+    - 'dateModified: 2026-05-19 18:23:33 -04:00'
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.086195+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 72083
+    sha256: 2799ea5ae04ea7b0f962ed3e033467461ed2e1cbbe7a9d52f8ff9257a305e4da
+    evidence_record: data/staging/source_review/2026-11-11/niddk_diabetes_nutrition.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Diabetes management, meal timing, weight and supplement guidance; exclude from default general retrieval.
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+- document_id: nia_healthy_eating_age
+  document_name: Healthy Eating As You Age
+  publisher: NIH / National Institute on Aging
+  source_url: https://www.nia.nih.gov/health/healthy-eating-nutrition-and-diet/healthy-eating-as-you-age
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Potential older-adult nutrition resource; HTTP 405 prevented content inspection. Verified HHS adult
+    PDF covers much of this topic.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: nia_healthy_eating_age
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.144937+00:00'
+    status_code: 405
+    publicly_accessible: false
+    error: 'HTTP Error 405: Not Allowed'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/nia_healthy_eating_age.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Potential older-adult nutrition resource; HTTP 405 prevented content inspection. Verified HHS adult PDF covers
+      much of this topic.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_shopping_storage
+  document_name: 'Food Safety: Shopping and Storage'
+  publisher: FDA
+  source_url: https://www.fda.gov/food/buy-store-serve-safe-food/food-safety-shopping-and-storage
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Relevant proposed household shopping/storage topic; supplied URL returned 404 and no content was verified.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_shopping_storage
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.267373+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_shopping_storage.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Relevant proposed household shopping/storage topic; supplied URL returned 404 and no content was verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_safety_home
+  document_name: Food Safety at Home
+  publisher: FDA
+  source_url: https://www.fda.gov/consumers/consumer-updates/food-safety-home
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Relevant proposed safe-handling topic; supplied URL returned 404 and no content was verified.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_safety_home
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.566416+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_safety_home.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Relevant proposed safe-handling topic; supplied URL returned 404 and no content was verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_storing_food
+  document_name: Are You Storing Food Safely?
+  publisher: FDA
+  source_url: https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Relevant proposed storage topic; supplied URL returned 404 and no content was verified.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_storing_food
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:02.803240+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_storing_food.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Relevant proposed storage topic; supplied URL returned 404 and no content was verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_seafood
+  document_name: Selecting and Serving Fresh and Frozen Seafood Safely
+  publisher: FDA
+  source_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Potential seafood-specific gap; supplied URL returned 404, so no advice is approved from this candidate.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_seafood
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.064622+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_seafood.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Potential seafood-specific gap; supplied URL returned 404, so no advice is approved from this candidate.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_produce
+  document_name: Selecting and Serving Produce Safely
+  publisher: FDA
+  source_url: https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides
+    some overlap.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_produce
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.261589+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_produce.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Relevant proposed produce-safety topic; supplied URL returned 404. Existing MDH handling guidance provides
+      some overlap.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: foodsafety_power_outage
+  document_name: Food Safety During Power Outages and Emergencies
+  publisher: FoodSafety.gov
+  source_url: https://www.foodsafety.gov/food-safety-charts/food-safety-during-power-outage
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Important emergency storage coverage; HTTP 403 prevented inspection. Keep for later acquisition.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: foodsafety_power_outage
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.458791+00:00'
+    status_code: 403
+    publicly_accessible: false
+    error: 'HTTP Error 403: Forbidden'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/foodsafety_power_outage.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Important emergency storage coverage; HTTP 403 prevented inspection. Keep for later acquisition.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: cdc_pregnancy_food_safety
+  document_name: Food Safety During Pregnancy
+  publisher: CDC
+  source_url: https://www.cdc.gov/food-safety/foods/pregnant-people.html
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Population-specific household safety, potentially useful after verification; HTTP 403 prevented inspection.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: cdc_pregnancy_food_safety
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.556868+00:00'
+    status_code: 403
+    publicly_accessible: false
+    error: 'HTTP Error 403: Forbidden'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/cdc_pregnancy_food_safety.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Population-specific household safety, potentially useful after verification; HTTP 403 prevented inspection.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_food_code_2026
+  document_name: FDA Food Code 2026 — unverified edition candidate
+  publisher: FDA
+  source_url: https://www.fda.gov/food/fda-food-code/food-code-2026
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: food-service establishments and regulators
+  content_role: food_service_regulatory
+  coverage: Supplied URL returned 404; no 2026 edition verified. Regulatory food-service reference would remain
+    separate from household guidance.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_food_code_2026
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.676781+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_food_code_2026.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Supplied URL returned 404; no 2026 edition verified. Regulatory food-service reference would remain separate
+      from household guidance.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_consumer_hub
+  document_name: FDA Food Facts for Consumers — proposed consumer hub
+  publisher: FDA
+  source_url: https://www.fda.gov/food/consumers
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Supplied hub returned 404; a hub is discovery, not an automatic consumer evidence document.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: requested_government_review
+  family_id: fda_consumer_hub
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.805025+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_consumer_hub.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Supplied hub returned 404; a hub is discovery, not an automatic consumer evidence document.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: who_healthy_diet
+  document_name: Healthy Diet
+  publisher: World Health Organization
+  source_url: https://www.who.int/news-room/fact-sheets/detail/healthy-diet
+  resolved_url: https://www.who.int/news-room/fact-sheets/detail/healthy-diet
+  source_tier: international_reference
+  jurisdiction: international
+  target_audience: general_international
+  intended_audience: household consumers
+  content_role: international_supplement
+  coverage: Optional general food diversity context only; updated January 26, 2026. Do not introduce non-US targets
+    or override current US guidance.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: who_healthy_diet
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - Updated January 26, 2026; inspected fact sheet
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:03.870586+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 134478
+    sha256: ea367b794f63b47a9740c302a7ffb7c6cde1577c3d68c32f4b16c4caef761d18
+    evidence_record: data/staging/source_review/2026-11-11/who_healthy_diet.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Optional general food diversity context only; updated January 26, 2026. Do not introduce non-US targets or
+      override current US guidance.
+  rights_review:
+    status: license_scope_review_required
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://www.who.int/about/policies/publishing/copyright
+    observations:
+    - WHO policy describes noncommercial open-access licensing with attribution/share-alike for covered publications.
+      Verify license on the particular asset; do not assume the 2006 manual has that license. Commercial reuse may
+      require permission.
+- document_id: who_five_keys_landing
+  document_name: Five Keys to Safer Food Manual — publication page
+  publisher: World Health Organization
+  source_url: https://www.who.int/publications/i/item/9789241594639
+  resolved_url: https://www.who.int/publications/i/item/9789241594639
+  source_tier: international_reference
+  jurisdiction: international
+  target_audience: general_international
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Verified overview of 2006 manual, not full manual text or direct PDF; general hygiene is potentially
+    useful if full asset and reuse scope are verified.
+  format: html
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: who_five_keys_landing
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates:
+    - 2006 publication year; inspected landing page
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:04.045180+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: text/html; charset=utf-8
+    bytes: 86038
+    sha256: 30b02d8705b366c30dbd6089b915215fe4b5ba2e4483cd1c1199b7529818e956
+    evidence_record: data/staging/source_review/2026-11-11/who_five_keys_landing.json
+  selection:
+    decision: discovery_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Verified overview of 2006 manual, not full manual text or direct PDF; general hygiene is potentially useful
+      if full asset and reuse scope are verified.
+  rights_review:
+    status: license_scope_review_required
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://www.who.int/about/policies/publishing/copyright
+    observations:
+    - WHO policy describes noncommercial open-access licensing with attribution/share-alike for covered publications.
+      Verify license on the particular asset; do not assume the 2006 manual has that license. Commercial reuse may
+      require permission.
+- document_id: who_five_keys_english_pdf
+  document_name: Five Keys to Safer Food Manual — attempted English PDF
+  publisher: World Health Organization
+  source_url: https://iris.who.int/bitstream/handle/10665/43546/9789241594639_eng.pdf?sequence=1
+  resolved_url: https://iris.who.int/bitstream/handle/10665/43546/9789241594639_eng.pdf?sequence=1
+  source_tier: international_reference
+  jurisdiction: international
+  target_audience: general_international
+  intended_audience: household consumers
+  content_role: international_supplement
+  coverage: URL returned HTTP 200 but an HTML DSpace application shell, not a PDF. Reject as a PDF source.
+  format: pdf
+  detected_format: html
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: who_five_keys_english_pdf
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:48.302361+00:00'
+    status_code: 200
+    publicly_accessible: false
+    error: null
+    content_type: text/html; charset=UTF-8
+    bytes: 755
+    sha256: a859cc83d11508435744f1ce4fb6f39396083c22e60bea3f872887eb2dd1863f
+    evidence_record: data/staging/source_review/2026-11-11/who_five_keys_english_pdf.json
+  selection:
+    decision: rejected_format
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - URL returned HTTP 200 but an HTML DSpace application shell, not a PDF. Reject as a PDF source.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: license_scope_review_required
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://www.who.int/about/policies/publishing/copyright
+    observations:
+    - WHO policy describes noncommercial open-access licensing with attribution/share-alike for covered publications.
+      Verify license on the particular asset; do not assume the 2006 manual has that license. Commercial reuse may
+      require permission.
+- document_id: dga_2025_2030_pdf
+  document_name: Dietary Guidelines for Americans, 2025–2030
+  publisher: HHS and USDA
+  source_url: https://cdn.realfood.gov/DGA_508.pdf
+  resolved_url: https://cdn.realfood.gov/DGA_508.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Current final federal dietary guidance; select general food-group and preparation passages.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: dga_2025_2030_pdf
+  dates:
+    publication_year: null
+    edition: 2025–2030
+    source_stated_dates:
+    - 2025–2030 edition; publication year not established in inspected PDF
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:00.174116+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 3553977
+    sha256: f27d3c96d51db4847b6087c068ec2d3dca400ef35e5e94c4c3ac77e8fd66e36c
+    evidence_record: data/staging/source_review/2026-11-11/dga_2025_2030_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Political/administrative foreword
+    - Body-weight-based protein or individual calorie-based targets
+    - Disease-specific adaptations and supplement advice
+    notes:
+    - Current final federal dietary guidance; select general food-group and preparation passages.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+  direct_pdf_url: https://cdn.realfood.gov/DGA_508.pdf
+  source_page_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines
+  pdf:
+    page_count: 10
+    text_classification: selectable_text
+    pages_with_extractable_text: 10
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Two-column recommendations, food-pyramid illustration, photos and callouts.
+    table_pages_in_sample: []
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/dga_2025_2030_pdf.pdf-inspection.json
+- document_id: hhs_adults_older_adults_pdf
+  document_name: Healthy Eating for Adults & Older Adults
+  publisher: HHS / Office of Disease Prevention and Health Promotion
+  source_url: https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf
+  resolved_url: https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: adults and older adults
+  content_role: consumer_guidance
+  coverage: Practical adult and older-adult food choices, labels and healthy habits.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: hhs_adults_older_adults_pdf
+  dates:
+    publication_year: 2026
+    edition: null
+    source_stated_dates:
+    - 2026; linked in official November 4, 2026 announcement
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:24:40.103547+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 4506173
+    sha256: 503e78136fa6b9f46a967028e25e76de2cdca768c823eb59d59a49870761c8e7
+    evidence_record: data/staging/source_review/2026-11-11/hhs_adults_older_adults_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Practical adult and older-adult food choices, labels and healthy habits.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+  direct_pdf_url: https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf
+  source_page_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/healthy-eating-resources
+  pdf:
+    page_count: 8
+    text_classification: selectable_text
+    pages_with_extractable_text: 8
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Illustrated food groups, callouts and Nutrition Facts example on physical page 5.
+    table_pages_in_sample:
+    - 5
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/hhs_adults_older_adults_pdf.pdf-inspection.json
+- document_id: hhs_kids_teens_pdf
+  document_name: Healthy Eating for Kids & Teens (Ages 3 to 17)
+  publisher: HHS / Office of Disease Prevention and Health Promotion
+  source_url: https://odphp.health.gov/sites/default/files/2026-10/dga-kids-teens.pdf
+  resolved_url: https://odphp.health.gov/sites/default/files/2026-10/dga-kids-teens.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: parents/caregivers; ages 3–17 only
+  content_role: consumer_guidance
+  coverage: General food choices and habits for parents/caregivers of children aged 3–17.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: hhs_kids_teens_pdf
+  dates:
+    publication_year: 2026
+    edition: null
+    source_stated_dates:
+    - 2026; linked in official November 4, 2026 announcement
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:26:29.951353+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 4306243
+    sha256: 410363b45c679c2cb956da81cb2d58e3667d85f91369c8618a0b4c6b8cc6a0f3
+    evidence_record: data/staging/source_review/2026-11-11/hhs_kids_teens_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Personalized growth/energy and supplement advice; do not apply age-specific limits to adults
+    notes:
+    - General food choices and habits for parents/caregivers of children aged 3–17.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: permitted_government_text_with_exclusions
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: https://odphp.health.gov/copyright-policy
+    observations:
+    - HHS policy permits copying and distribution with attribution/link; some contributed images require permission;
+      no implied endorsement.
+  direct_pdf_url: https://odphp.health.gov/sites/default/files/2026-10/dga-kids-teens.pdf
+  source_page_url: https://odphp.health.gov/our-work/nutrition-physical-activity/dietary-guidelines/healthy-eating-resources
+  pdf:
+    page_count: 8
+    text_classification: selectable_text
+    pages_with_extractable_text: 8
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Illustrated guidance and Nutrition Facts example on physical page 7.
+    table_pages_in_sample:
+    - 7
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/hhs_kids_teens_pdf.pdf-inspection.json
+- document_id: nhlbi_sodium_tips_pdf
+  document_name: 'DASH Eating Plan: Tips To Reduce Salt and Sodium'
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf
+  resolved_url: https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Select only general shopping, seasoning and dining tips on physical page 1; not DASH treatment recommendations.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: nhlbi_sodium_tips_pdf
+  dates:
+    publication_year: 2019
+    edition: null
+    source_stated_dates:
+    - April 2019; official resource page
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:22:54.443621+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 1022751
+    sha256: 30f97a37299f9f6d9d55d9c2f2222820120d3d4d4f9a66ca0bb66c04e0c6f307
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_sodium_tips_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - 'Physical page 1: shopping, seasoning, preparation and dining tips only, after block review'
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    - Blood-pressure treatment/effectiveness claims and DASH program prescriptions
+    - 'Physical page 2: individual-food sodium lookup table'
+    - Physical page 1 treatment callouts/footer; page-level approval does not include adjacent clinical claims
+    notes:
+    - Select only general shopping, seasoning and dining tips on physical page 1; not DASH treatment recommendations.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+  direct_pdf_url: https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf
+  source_page_url: https://www.nhlbi.nih.gov/resources/tips-reduce-salt-sodium
+  pdf:
+    page_count: 2
+    text_classification: selectable_text
+    pages_with_extractable_text: 2
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Multiple columns, photographs, callouts and food/sodium table on physical page 2.
+    table_pages_in_sample:
+    - 1
+    - 2
+    sampled_pages:
+    - 1
+    - 2
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/nhlbi_sodium_tips_pdf.pdf-inspection.json
+- document_id: mn_cross_contamination_pdf
+  document_name: Prevent Cross-Contamination
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.pdf
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.pdf
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Household separation, hygiene and handling; alternate format of existing HTML.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: mn_cross_contamination
+  dates:
+    publication_year: 2006
+    edition: null
+    source_stated_dates:
+    - Created April 2006; modified 2025; printed footer
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.140759+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 122707
+    sha256: dd44a22d78752af0e9c7972b32aff5f146808ea86b55a2adeea4ba637d423f8b
+    evidence_record: data/staging/source_review/2026-11-11/mn_cross_contamination_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Household separation, hygiene and handling; alternate format of existing HTML.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  direct_pdf_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.pdf
+  source_page_url: https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.html
+  pdf:
+    page_count: 1
+    text_classification: selectable_text
+    pages_with_extractable_text: 1
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Two-column bullet lists; no table observed.
+    table_pages_in_sample: []
+    sampled_pages:
+    - 1
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/mn_cross_contamination_pdf.pdf-inspection.json
+  alternate_document_ids:
+  - mn_cross_contamination
+- document_id: mn_safe_grilling_pdf
+  document_name: Safe Grilling
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Household handling, grilling and reheating; retain household/regulatory distinction.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: mn_safe_grilling
+  dates:
+    publication_year: 2007
+    edition: null
+    source_stated_dates:
+    - Created April 2007; modified 2025; printed footer
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.140986+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 138512
+    sha256: 4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391
+    evidence_record: data/staging/source_review/2026-11-11/mn_safe_grilling_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: true
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Household handling, grilling and reheating; retain household/regulatory distinction.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  direct_pdf_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf
+  source_page_url: https://www.health.state.mn.us/people/foodsafety/cook/grill.html
+  pdf:
+    page_count: 1
+    text_classification: selectable_text
+    pages_with_extractable_text: 1
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Two-column text and internal cooking-temperature table with a regulated-facility qualification.
+    table_pages_in_sample:
+    - 1
+    sampled_pages:
+    - 1
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/mn_safe_grilling_pdf.pdf-inspection.json
+  alternate_document_ids:
+  - mn_safe_grilling
+- document_id: mn_storage_chart_pdf
+  document_name: 'Cold Storage (For Consumers): Refrigerator and Freezer Storage Chart'
+  publisher: Minnesota Department of Health
+  source_url: https://www.health.state.mn.us/people/foodsafety/store/cold.pdf
+  resolved_url: https://www.health.state.mn.us/people/foodsafety/store/cold.pdf
+  source_tier: official_guidance
+  jurisdiction: US-MN
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Dated conservative storage chart and valuable table-extraction benchmark; not a claim of latest federal
+    standards.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: mn_storage_chart
+  dates:
+    publication_year: 2006
+    edition: null
+    source_stated_dates:
+    - July 21, 2006; printed footer; HTML update date does not update this PDF
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.140884+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 15674
+    sha256: 47d4085e42748549115136c5982416ed09067acb1b9660d0ed39476f619f5e25
+    evidence_record: data/staging/source_review/2026-11-11/mn_storage_chart_pdf.json
+  selection:
+    decision: approved_with_exclusions
+    default_index: false
+    eligible_sections:
+    - Reviewed general food guidance and household safety only
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Dated conservative storage chart and valuable table-extraction benchmark; not a claim of latest federal standards.
+    - Approved as a dated conservative source and parser benchmark. Current storage answers use reviewed HTML or
+      newer applicable federal guidance; do not silently swap old PDF values for newer standards.
+    approved_pdf_for_milestone: true
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label
+      state works federal public domain. Preserve attribution; further rights review required before redistribution.
+  direct_pdf_url: https://www.health.state.mn.us/people/foodsafety/store/cold.pdf
+  source_page_url: https://www.health.state.mn.us/people/foodsafety/store/cold.html
+  pdf:
+    page_count: 1
+    text_classification: selectable_text
+    pages_with_extractable_text: 1
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Dense storage table; automatic table detection missed it, confirmed by rendered-page inspection.
+    table_pages_in_sample:
+    - 1
+    sampled_pages:
+    - 1
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/mn_storage_chart_pdf.pdf-inspection.json
+  alternate_document_ids:
+  - mn_storage_chart
+- document_id: dgac_2025_scientific_pdf
+  document_name: Scientific Report of the 2025 Dietary Guidelines Advisory Committee
+  publisher: HHS and USDA / 2025 Dietary Guidelines Advisory Committee
+  source_url: https://www.dietaryguidelines.gov/sites/default/files/2024-12/Scientific_Report_of_the_2025_Dietary_Guidelines_Advisory_Committee_508c.pdf
+  resolved_url: https://www.dietaryguidelines.gov/sites/default/files/2024-12/Scientific_Report_of_the_2025_Dietary_Guidelines_Advisory_Committee_508c.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: scientific committee, researchers and policy developers
+  content_role: scientific_background
+  coverage: Advisory scientific background, not final federal policy; long-document parser benchmark.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: dgac_2025_scientific_pdf
+  dates:
+    publication_year: 2024
+    edition: null
+    source_stated_dates:
+    - 2024 publication; suggested citation on physical page 2
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:47.140453+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 12811633
+    sha256: 4fa59d3d760555a77dc36d23fbca25cc1ca43ff56ba5cbca28307d5bbe63fcb4
+    evidence_record: data/staging/source_review/2026-11-11/dgac_2025_scientific_pdf.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Advisory scientific background, not final federal policy; long-document parser benchmark.
+    approved_pdf_for_milestone: false
+  rights_review:
+    status: explicit_document_reuse_notice
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Physical page 2 permits use and reprinting without permission and prohibits implied HHS endorsement; third-party
+      cited works retain their own rights.
+  direct_pdf_url: https://www.dietaryguidelines.gov/sites/default/files/2024-12/Scientific_Report_of_the_2025_Dietary_Guidelines_Advisory_Committee_508c.pdf
+  source_page_url: https://www.dietaryguidelines.gov/2025-advisory-committee-report
+  pdf:
+    page_count: 421
+    text_classification: selectable_text
+    pages_with_extractable_text: 421
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Complex tables, figures, references and differing printed versus physical page labels.
+    table_pages_in_sample:
+    - 47
+    - 50
+    - 56
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 47
+    - 50
+    - 56
+    - 211
+    - 421
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/dgac_2025_scientific_pdf.pdf-inspection.json
+- document_id: nhlbi_dash_full_pdf
+  document_name: Your Guide to Lowering Your Blood Pressure With DASH
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/files/docs/public/heart/new_dash.pdf
+  resolved_url: https://www.nhlbi.nih.gov/files/docs/public/heart/new_dash.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: historical_medical_reference
+  coverage: Historical condition-specific guide; extraction benchmark, not current default general dietary advice.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: nhlbi_dash_full_pdf
+  dates:
+    publication_year: 1998
+    edition: null
+    source_stated_dates:
+    - Originally 1998; revised April 2006; physical pages 3 and 64
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:04.065410+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 811872
+    sha256: a950723fa1047238ecf843723668c1bcae1f4ff4ee0722e475470211fbcc415d
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_dash_full_pdf.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Historical condition-specific guide; extraction benchmark, not current default general dietary advice.
+    approved_pdf_for_milestone: false
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+  direct_pdf_url: https://www.nhlbi.nih.gov/files/docs/public/heart/new_dash.pdf
+  source_page_url: https://www.nhlbi.nih.gov/education/dash-eating-plan
+  pdf:
+    page_count: 64
+    text_classification: mostly_selectable_with_sparse_pages
+    pages_with_extractable_text: 60
+    pages_with_little_text:
+    - 2
+    - 4
+    - 34
+    - 50
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Illustrated booklet with multi-column layouts, menus and serving information; not every layout
+      visually reviewed.
+    table_pages_in_sample: []
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 33
+    - 64
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/nhlbi_dash_full_pdf.pdf-inspection.json
+- document_id: nhlbi_healthy_heart_pdf
+  document_name: Your Guide to a Healthy Heart
+  publisher: NIH / National Heart, Lung, and Blood Institute
+  source_url: https://www.nhlbi.nih.gov/files/docs/public/heart/healthyheart.pdf
+  resolved_url: https://www.nhlbi.nih.gov/files/docs/public/heart/healthyheart.pdf
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: historical_medical_reference
+  coverage: Historical heart-health reference; not current default dietary policy.
+  format: pdf
+  detected_format: pdf
+  parser_profile: pdf_layout
+  origin: additional_review
+  family_id: nhlbi_healthy_heart_pdf
+  dates:
+    publication_year: 2005
+    edition: null
+    source_stated_dates:
+    - 2005; front matter says December, back cover November; exact month unresolved
+    notes: Dates are format-specific and retain their original label.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:04.380383+00:00'
+    status_code: 200
+    publicly_accessible: true
+    error: null
+    content_type: application/pdf
+    bytes: 2292377
+    sha256: 17764bfb8167be2307f44812a58bb91dcc9659a49fb4b387159e546867095a5e
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_healthy_heart_pdf.json
+  selection:
+    decision: reference_only
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Historical heart-health reference; not current default dietary policy.
+    approved_pdf_for_milestone: false
+  rights_review:
+    status: text_reviewed_no_explicit_reuse_barrier_observed
+    scope: Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party
+      artwork.
+    policy_url: null
+    observations:
+    - Government affiliation does not automatically license every image or third-party contribution.
+  direct_pdf_url: https://www.nhlbi.nih.gov/files/docs/public/heart/healthyheart.pdf
+  source_page_url: https://www.nhlbi.nih.gov/health/heart-healthy-living/healthy-foods
+  pdf:
+    page_count: 95
+    text_classification: selectable_text
+    pages_with_extractable_text: 95
+    pages_with_little_text: []
+    ocr_required_for_main_text: false
+    complex_layout: true
+    layout_notes: Illustrated long booklet with charts and callouts; full layout review not performed.
+    table_pages_in_sample: []
+    sampled_pages:
+    - 1
+    - 2
+    - 3
+    - 48
+    - 95
+    inspection_scope: Text presence examined on every page; table/graphics detection on listed sample pages only.
+      Rendered sample pages inspected for seven selected consumer documents and scientific report; long historical
+      booklets require fuller layout review.
+    inspection_record: data/staging/source_review/2026-11-11/nhlbi_healthy_heart_pdf.pdf-inspection.json
+- document_id: fda_food_code_2022_pdf
+  document_name: FDA Food Code 2022 — attempted direct PDF
+  publisher: FDA
+  source_url: https://www.fda.gov/media/164194/download
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: food-service establishments and regulators
+  content_role: food_service_regulatory
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: pdf
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: fda_food_code_2022_pdf
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:05.286270+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_food_code_2022_pdf.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_storage_pdf_candidate
+  document_name: FDA storage educational PDF — unverified probe
+  publisher: FDA
+  source_url: https://www.fda.gov/media/74435/download
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: pdf
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: fda_storage_pdf_candidate
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:05.062103+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_storage_pdf_candidate.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: fda_handling_pdf_candidate
+  document_name: FDA safe-handling educational PDF — unverified probe
+  publisher: FDA
+  source_url: https://www.fda.gov/media/74441/download
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: consumer_guidance
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: pdf
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: fda_handling_pdf_candidate
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:05.144473+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/fda_handling_pdf_candidate.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: nhlbi_dash_brief_pdf
+  document_name: DASH brief — unverified PDF probe
+  publisher: NIH / NHLBI
+  source_url: https://www.nhlbi.nih.gov/files/docs/public/heart/dash_brief.pdf
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: patients and healthcare-related education; specialized scope
+  content_role: specialized_medical
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: pdf
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: nhlbi_dash_brief_pdf
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:16:04.187462+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_dash_brief_pdf.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: nhlbi_dash_resource
+  document_name: DASH resource — unverified locator probe
+  publisher: NIH / NHLBI
+  source_url: https://www.nhlbi.nih.gov/resources/dash-eating-plan
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: nhlbi_dash_resource
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:48.000307+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_dash_resource.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
+- document_id: nhlbi_heart_eating_resource
+  document_name: Heart-healthy eating — unverified locator probe
+  publisher: NIH / NHLBI
+  source_url: https://www.nhlbi.nih.gov/resources/heart-healthy-eating
+  resolved_url: null
+  source_tier: official_guidance
+  jurisdiction: US
+  target_audience: US
+  intended_audience: household consumers
+  content_role: discovery
+  coverage: Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties
+    verified.
+  format: html
+  detected_format: null
+  parser_profile: html_main_content
+  origin: additional_review
+  family_id: nhlbi_heart_eating_resource
+  dates:
+    publication_year: null
+    edition: null
+    source_stated_dates: []
+    notes: Source date not established during this review; retain staging metadata gap, never substitute retrieval
+      date.
+  author: null
+  medical_reviewer: null
+  access:
+    checked_at: '2026-11-11T12:19:48.237729+00:00'
+    status_code: 404
+    publicly_accessible: false
+    error: 'HTTP Error 404: Not Found'
+    content_type: null
+    bytes: null
+    sha256: null
+    evidence_record: data/staging/source_review/2026-11-11/nhlbi_heart_eating_resource.json
+  selection:
+    decision: pending_access
+    default_index: false
+    eligible_sections: []
+    excluded_sections:
+    - Medical treatment or personalized condition-specific diet advice
+    - Calorie/weight targets and personalized calculators
+    - Supplement treatment or dosing
+    - Individual-food nutrient lookup data reserved for Milestone 3
+    - Navigation, promotions and unrelated linked content
+    - Images or third-party material without appropriate reuse permission
+    notes:
+    - Additional locator/direct-file probe returned HTTP 404; no content, title, edition or PDF properties verified.
+    - Access or format failure prevents source-content, date and document-specific rights verification; supplied
+      titles/topics remain provisional.
+  rights_review:
+    status: document_rights_unverified_source_inaccessible
+    scope: No ingestion approval; actual document-specific notices remain unverified.
+    policy_url: null
+    observations:
+    - Access failure prevented review of actual content and document-specific rights. Publisher/domain identity
+      alone does not establish a reuse license.
