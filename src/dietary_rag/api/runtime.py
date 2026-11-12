@@ -50,6 +50,7 @@ class ActiveRuntime:
         model_manifest=None,
         tokenizer_dir=None,
         tokenizer_manifest=None,
+        query_embedder_factory=None,
     ):
         self.settings, self.registry = settings, registry
         # Chroma's embedded clients share a cached system which close_chroma stops.
@@ -57,6 +58,7 @@ class ActiveRuntime:
         self._corpus_lock = threading.Lock()
         self._status_lock = threading.Lock()
         self._status_cache = None
+        self.query_embedder_factory = query_embedder_factory
         root = Path(project_root)
 
         def path(value, default):
@@ -100,7 +102,12 @@ class ActiveRuntime:
         ):
             raise ValueError("configured tokenizer differs from historical evidence")
         with pin.open_request(
-            self.registry, tokenizer, processor, resolver, self.settings.runtime
+            self.registry,
+            tokenizer,
+            processor,
+            resolver,
+            self.settings.runtime,
+            query_embedder_factory=self.query_embedder_factory,
         ) as request:
             yield request
 

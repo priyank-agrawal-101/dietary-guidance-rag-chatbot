@@ -87,8 +87,8 @@ def safe_source_url(value, reviewed):
         return None
 
 
-@st.cache_resource(show_spinner=False)
-def cached_runtime(identity, cache_dir):
+@st.cache_resource(show_spinner="Loading sources. First startup may take a few minutes…")
+def cached_runtime(identity, cache_dir, settings_identity):
     settings = load_settings(ROOT / "config/settings.yaml", project_root=ROOT, environ={})
     registry = load_registry(settings.source_registry)
     active = ensure_runtime(
@@ -106,8 +106,13 @@ def cached_runtime(identity, cache_dir):
 def cached_host(identity, cache_dir, usage_dir, key_fingerprint, offline, _api_key):
     # Offline/online sessions and credential rotation share one corpus lock and gate.
     # No visitor question/history/selection in these global resources.
-    active, capacity, metrics = cached_runtime(identity, cache_dir)
-    settings = active.settings.model_copy(update={"data_dir": Path(usage_dir).resolve()})
+    active, capacity, metrics = cached_runtime(
+        bootstrap_identity(ROOT),
+        cache_dir,
+        sha256((ROOT / "config/settings.yaml").read_bytes()).hexdigest(),
+    )
+    settings = load_settings(ROOT / "config/settings.yaml", project_root=ROOT, environ={})
+    settings = settings.model_copy(update={"data_dir": Path(usage_dir).resolve()})
     service, ledger = build_answer_service(
         settings, active, environ={"GROQ_API_KEY": _api_key}, offline=offline
     )
@@ -123,13 +128,14 @@ def render_response(response, documents):
         st.text(response["message"])
     else:
         citations = {c["citation_id"]: c for c in response["citations"]}
+        source_numbers = {identifier: index for index, identifier in enumerate(citations, 1)}
         for answer in response["document_answers"]:
             if len(response["document_answers"]) > 1:
                 doc = documents.get(answer["document_id"])
                 st.text(doc.document_name if doc else answer["document_id"])
             for claim in answer["claims"]:
-                st.text(claim["text"])
-                st.caption("Sources: " + ", ".join(claim["citation_ids"]))
+                references = ", ".join(str(source_numbers[c]) for c in claim["citation_ids"])
+                st.text(f"{claim['text']} [{references}]")
         if response["unanswered_aspects"]:
             st.info(
                 "Some parts of your question aren't covered by the sources. See diagnostics for details."
@@ -137,7 +143,7 @@ def render_response(response, documents):
         with st.expander("Sources and supporting passages"):
             for citation in citations.values():
                 st.text(
-                    f"{citation['citation_id']}: {citation['document_name']} — {citation['publisher']}"
+                    f"Source {source_numbers[citation['citation_id']]}: {citation['document_name']} — {citation['publisher']}"
                 )
                 st.text(citation["section_heading"])
                 doc = documents.get(citation["document_id"])
@@ -166,28 +172,23 @@ def main():
         api_key = st.secrets.get("GROQ_API_KEY", env.get("GROQ_API_KEY", ""))
     except FileNotFoundError:
         api_key = env.get("GROQ_API_KEY", "")
-    offline = st.sidebar.toggle("Use offline source excerpts", value=not bool(api_key))
-    st.sidebar.caption("Learning project · Human–AI assisted review")
-    if offline:
-        st.info("Offline mode: answers use source excerpts. A Groq key enables generated answers.")
+    # Keep key-free excerpts available internally; no visitor-facing mode control.
+    offline = not bool(api_key)
     cache_dir = os.environ.get("DIETARY_STREAMLIT_CACHE_DIR", str(ROOT / ".streamlit-runtime"))
     usage_dir = os.environ.get("DIETARY_STREAMLIT_USAGE_DIR", str(Path(cache_dir) / "usage-state"))
-    if "DIETARY_STREAMLIT_USAGE_DIR" not in os.environ:
-        st.sidebar.caption(
-            "The answer allowance applies to this app instance and may reset when the host restarts."
-        )
     try:
-        with st.spinner("Preparing reviewed sources. First startup may take a few minutes…"):
-            host = cached_host(
-                bootstrap_identity(ROOT),
-                cache_dir,
-                usage_dir,
-                sha256(str(api_key).encode()).hexdigest(),
-                offline,
-                str(api_key),
-            )
-            state = host.active.corpus_status()
-            documents = state["documents"]
+        host = cached_host(
+            bootstrap_identity(ROOT)
+            + ":"
+            + sha256((ROOT / "config/settings.yaml").read_bytes()).hexdigest(),
+            cache_dir,
+            usage_dir,
+            sha256(str(api_key).encode()).hexdigest(),
+            offline,
+            str(api_key),
+        )
+        state = host.active.corpus_status()
+        documents = state["documents"]
     except Exception as exc:
         # Log only type: exception text could contain provider URLs/credentials.
         LOGGER.error("Streamlit source startup failed (%s)", type(exc).__name__)
@@ -197,16 +198,6 @@ def main():
         if st.button("Retry loading sources"):
             st.rerun()
         st.stop()
-    with st.sidebar.expander("Service diagnostics"):
-        st.json(
-            {
-                "corpus_version": state.get("corpus_version"),
-                "release_id": state.get("release_id"),
-                "available_sources": len(documents),
-                "generation": "offline excerpts" if offline else "Groq",
-                "metrics": host.metrics.snapshot(),
-            }
-        )
     mode = st.sidebar.radio("Search sources", ["All available sources", "Choose sources"])
     selected = st.sidebar.multiselect(
         "Sources",
@@ -255,6 +246,22 @@ def main():
             render_response(response, documents)
         st.session_state.turns.append({"question": prompt, "response": response})
         st.session_state.turns = st.session_state.turns[-20:]
+    st.sidebar.divider()
+    with st.sidebar.expander("Service diagnostics", expanded=False):
+        st.caption("Learning project · Human–AI assisted review")
+        if "DIETARY_STREAMLIT_USAGE_DIR" not in os.environ:
+            st.caption(
+                "The answer allowance applies to this app instance and may reset when the host restarts."
+            )
+        st.json(
+            {
+                "corpus_version": state.get("corpus_version"),
+                "release_id": state.get("release_id"),
+                "available_sources": len(documents),
+                "generation": "source excerpts (no API key configured)" if offline else "Groq",
+                "metrics": host.metrics.snapshot(),
+            }
+        )
 
 
 if __name__ == "__main__":

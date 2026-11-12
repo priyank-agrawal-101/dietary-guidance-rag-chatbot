@@ -2,10 +2,12 @@
 
 import fcntl
 import json
+import logging
 import os
 import shutil
 import tarfile
 import tempfile
+import threading
 from hashlib import sha256
 from pathlib import Path
 
@@ -20,6 +22,22 @@ MEMBERS = frozenset(
 )
 MAX_ARCHIVE_BYTES = 20 * 1024 * 1024
 MAX_EXTRACTED_BYTES = 40 * 1024 * 1024
+LOGGER = logging.getLogger(__name__)
+
+
+class SharedEmbedder:
+    """One model per runtime; request readers still validate its configuration."""
+
+    def __init__(self, factory):
+        self.factory = factory
+        self.value = None
+        self.lock = threading.Lock()
+
+    def __call__(self):
+        with self.lock:
+            if self.value is None:
+                self.value = self.factory()
+            return self.value
 
 
 def digest(path):
@@ -30,11 +48,30 @@ def bootstrap_identity(root):
     from importlib.metadata import version
 
     root = Path(root)
-    inputs = {p.name: digest(p) for p in sorted((root / "config").glob("*")) if p.is_file()}
+    # UI copy, question buttons and answer rendering do not change index artifacts.
+    config_files = (
+        "deployment-artifacts.json",
+        "sources.yaml",
+        "document-aliases.json",
+        "embedding-bge-small-en-v1.5.json",
+        "tokenizer-e5-base-v2.json",
+    )
+    inputs = {name: digest(root / "config" / name) for name in config_files}
+    from dietary_rag.settings import load_settings
+
+    settings = load_settings(root / "config/settings.yaml", project_root=root, environ={})
+    inputs["configuration"] = {
+        name: getattr(settings, name).model_dump(mode="json")
+        for name in ("embedding", "chunking", "runtime")
+    }
     inputs["implementation"] = {
         p.relative_to(root).as_posix(): digest(p)
-        for p in sorted((root / "src/dietary_rag").rglob("*.py"))
+        for directory in ("corpus", "ingestion", "retrieval", "deployment")
+        for p in sorted((root / "src/dietary_rag" / directory).rglob("*.py"))
     }
+    inputs["implementation"]["providers/embeddings.py"] = digest(
+        root / "src/dietary_rag/providers/embeddings.py"
+    )
     inputs["dependencies"] = {
         n: version(n)
         for n in (
@@ -47,6 +84,15 @@ def bootstrap_identity(root):
         )
     }
     return sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest()
+
+
+def model_cache_paths(root, cache_dir):
+    """Pinned model files survive UI and corpus-version changes on retained disk."""
+    root, cache_dir = Path(root), Path(cache_dir)
+    return tuple(
+        cache_dir / "models" / digest(root / "config" / name)
+        for name in ("embedding-bge-small-en-v1.5.json", "tokenizer-e5-base-v2.json")
+    )
 
 
 def extract_verified(root, destination):
@@ -111,11 +157,13 @@ def ensure_runtime(root, settings, registry, cache_dir, *, model_seed=None, toke
     from dietary_rag.retrieval.resolution import DocumentResolver
 
     root = Path(root).resolve()
-    work = Path(cache_dir).resolve() / bootstrap_identity(root)
+    cache_dir = Path(cache_dir).resolve()
+    work = cache_dir / bootstrap_identity(root)
     work.mkdir(parents=True, exist_ok=True)
-    model, tokenizer_dir = work / "models/bge", work / "models/e5-tokenizer"
+    model, tokenizer_dir = model_cache_paths(root, cache_dir)
     model_manifest = root / "config/embedding-bge-small-en-v1.5.json"
     tokenizer_manifest = root / "config/tokenizer-e5-base-v2.json"
+    shared_embedder = SharedEmbedder(lambda: BGEEmbedder(model, model_manifest, settings.embedding))
     active = ActiveRuntime(
         settings,
         registry,
@@ -123,21 +171,33 @@ def ensure_runtime(root, settings, registry, cache_dir, *, model_seed=None, toke
         lifecycle_dir=work / "active",
         model_dir=model,
         tokenizer_dir=tokenizer_dir,
+        query_embedder_factory=shared_embedder,
     )
     with (work / "bootstrap.lock").open("a+b") as lock:
         fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
         if active.store.pointer.exists():
             active.corpus_status()  # Includes full canonical/index/proof validation.
             return active
-        for seed, target in ((model_seed, model), (tokenizer_seed, tokenizer_dir)):
-            if seed is not None:
-                shutil.copytree(seed, target, dirs_exist_ok=True)
-        prepare_embeddings(model_manifest, model)
-        prepare_tokenizer(tokenizer_manifest, tokenizer_dir)
+        # Model paths are shared by independent corpus builds; protect downloads too.
+        with (cache_dir / "models.lock").open("a+b") as model_lock:
+            fcntl.flock(model_lock.fileno(), fcntl.LOCK_EX)
+            for seed, target, legacy_name in (
+                (model_seed, model, "bge"),
+                (tokenizer_seed, tokenizer_dir, "e5-tokenizer"),
+            ):
+                if seed is None and not target.exists():
+                    # Reuse pinned files downloaded by the earlier cache layout.
+                    seed = next(cache_dir.glob(f"*/models/{legacy_name}"), None)
+                if seed is not None:
+                    shutil.copytree(seed, target, dirs_exist_ok=True)
+            LOGGER.info("Preparing pinned embedding model and tokenizer")
+            prepare_embeddings(model_manifest, model)
+            prepare_tokenizer(tokenizer_manifest, tokenizer_dir)
         source = Path(tempfile.mkdtemp(prefix=".evidence-", dir=work))
         try:
             receipt = extract_verified(root, source)
-            embedder = BGEEmbedder(model, model_manifest, settings.embedding)
+            LOGGER.info("Building native reviewed-source index")
+            embedder = shared_embedder()
             tokenizer = E5Tokenizer(tokenizer_dir, tokenizer_manifest)
             directory = build_candidate(
                 source / "evidence.sqlite",
@@ -152,6 +212,7 @@ def ensure_runtime(root, settings, registry, cache_dir, *, model_seed=None, toke
             )
             reports = []
             for strategy in ("dense", "bm25", "hybrid"):
+                LOGGER.info("Evaluating frozen retrieval cases: %s", strategy)
                 config = RetrievalConfig(
                     strategy=strategy,
                     resolution_configuration_id=resolver.configuration_id,
@@ -199,6 +260,7 @@ def ensure_runtime(root, settings, registry, cache_dir, *, model_seed=None, toke
                 ),
                 expected_generation=0,
             )
+            LOGGER.info("Validated hybrid corpus activated")
             (work / "bootstrap-report.json").write_text(
                 json.dumps(
                     {

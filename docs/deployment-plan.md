@@ -1,6 +1,6 @@
 # Deployment plan: Streamlit learning project
 
-**Created:** November 12, 2026. **Status:** local implementation and verification complete; Linux CI and Community Cloud deployment pending.
+**Created:** November 12, 2026. **Status:** local implementation and verification complete; Community Cloud deployment reported by the user. Linux CI and cloud performance verification pending.
 
 Implementation and runnable commands: [Streamlit deployment guide](streamlit-deployment.md).
 A small reviewed canonical text bundle is tracked in Git; native indexes and frozen

@@ -21,16 +21,21 @@ python3.13 -m venv .venv
 Open **http://localhost:8501**. Locally, `.env` or `.streamlit/secrets.toml` can
 supply `GROQ_API_KEY`. Use `.streamlit/secrets.toml.example` as the template.
 Exported environment values override `.env`; Streamlit secrets override both.
-Without a key the app defaults to offline source excerpts. The toggle lets each
-session choose offline mode, without changing other sessions.
+The visitor-facing offline toggle and banner have been removed. Without a key,
+the internal source-excerpt fallback remains available; its mode is recorded only
+in the collapsed Service diagnostics panel at the bottom of the sidebar.
 
 First startup downloads the exact hash-verified BGE model and historical E5
 tokenizer from their immutable Hugging Face revisions. It verifies the packaged
 canonical evidence, creates a native paired SQLite/Chroma index, evaluates all
 48 frozen retrieval questions and scope checks for all three strategies, and
 activates only a passing selected hybrid configuration. This can take a few
-minutes. Subsequent reruns reuse the same runtime. No source scraping or OCR
-runs during startup.
+minutes. Subsequent reruns reuse the same runtime and embedding model. The loading
+spinner appears only when the shared runtime cache is first populated. UI edits
+and suggested-question changes do not invalidate the corpus index; changes to
+canonical evidence, retrieval code or compatible model configuration still do.
+Pinned model files live in a separate cache and can survive corpus-version
+changes on retained disk. No source scraping or OCR runs during startup.
 
 For local verification using the already downloaded pinned model files:
 
@@ -152,3 +157,26 @@ The Linux lock pins a direct official CPU wheel URL and hash for Python 3.13;
 this avoids sending unrelated package lookups to the Torch index. The root
 requirements file enforces wheel hashes. Parsing/OCR/test tooling is intentionally excluded from the visitor runtime;
 the existing administrative dependencies remain in their original lock files.
+
+## If source preparation takes a long time
+
+[Recorded local cache/model verification](streamlit-performance-review.json):
+713 tests, 71/71 frozen answer cases and real-corpus model reuse across questions.
+
+A fresh or recycled cloud instance must download approximately 133 MB of embedding
+weights and run the native index/retrieval checks. This is separate from answering
+a question with Groq. The updated adapter avoids repeating downloads for UI
+changes on retained disk, reuses the embedding model across requests and shows
+the startup spinner only on a resource-cache miss. Cloud redeployments can still
+discard local disk, so a completely fresh startup is slower than the previously
+prepared local FastAPI service.
+
+After committing/pushing the update, allow the app to rebuild once. If it keeps
+loading without reaching the source picker, inspect **Manage app → Logs** for
+download failures or memory/CPU resource errors. A web-server health check alone
+does not establish corpus readiness. Cloud timings have not been measured by
+the local benchmark; do not treat a local startup time as a cloud guarantee.
+
+Answer citations use short numbered references such as `[1]`. Reviewed source
+names, links and supporting quotes appear in the collapsed “Sources and supporting
+passages” accordion. Internal citation identifiers remain in answer diagnostics.

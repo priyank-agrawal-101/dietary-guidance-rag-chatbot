@@ -3,6 +3,7 @@
 import gzip
 import io
 import json
+import shutil
 import tarfile
 import threading
 from hashlib import sha256
@@ -12,10 +13,57 @@ from types import SimpleNamespace
 import pytest
 
 from dietary_rag.api.contracts import ChatResponse
-from dietary_rag.deployment.bootstrap import MEMBERS, extract_verified
+from dietary_rag.deployment.bootstrap import (
+    MEMBERS,
+    SharedEmbedder,
+    bootstrap_identity,
+    extract_verified,
+    model_cache_paths,
+)
 from dietary_rag.deployment.service import ChatHost
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_ui_edits_do_not_invalidate_corpus_or_model_cache(tmp_path):
+    shutil.copytree(ROOT / "config", tmp_path / "config")
+    shutil.copytree(ROOT / "src/dietary_rag", tmp_path / "src/dietary_rag")
+    original = bootstrap_identity(tmp_path)
+    paths = model_cache_paths(tmp_path, tmp_path / "cache")
+    ui = tmp_path / "src/dietary_rag/ui/streamlit_app.py"
+    ui.write_text(ui.read_text() + "\n# Updated suggested-question layout\n")
+    assert bootstrap_identity(tmp_path) == original
+    assert model_cache_paths(tmp_path, tmp_path / "cache") == paths
+    retrieval = tmp_path / "src/dietary_rag/retrieval/engine.py"
+    retrieval.write_text(retrieval.read_text() + "\n# Changed retrieval implementation\n")
+    assert bootstrap_identity(tmp_path) != original
+    assert model_cache_paths(tmp_path, tmp_path / "cache") == paths
+
+
+def test_shared_model_is_loaded_once_under_concurrent_access():
+    entered, release = threading.Event(), threading.Event()
+    calls = []
+    model = object()
+
+    def factory():
+        calls.append(True)
+        entered.set()
+        assert release.wait(3)
+        return model
+
+    shared = SharedEmbedder(factory)
+    results = []
+    threads = [threading.Thread(target=lambda: results.append(shared())) for _ in range(2)]
+    for thread in threads:
+        thread.start()
+    try:
+        assert entered.wait(3)
+    finally:
+        release.set()
+        for thread in threads:
+            thread.join(3)
+    assert len(calls) == 1 and results == [model, model]
+    assert shared() is model and len(calls) == 1
 
 
 def test_packaged_corpus_is_complete_and_verified(tmp_path):
@@ -188,6 +236,64 @@ def test_streamlit_submission_rerun_and_session_isolation(app_host):
     assert len(app_host) == 1  # Widget rerun does not repeat a paid request.
     second = AppTest.from_file(str(ROOT / "streamlit_app.py")).run()
     assert not second.exception and second.session_state["turns"] == []
+
+
+def test_demo_controls_and_diagnostics_are_less_prominent(app_host):
+    from streamlit.testing.v1 import AppTest
+
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py")).run()
+    assert not app.exception and not app.toggle
+    assert all("Offline mode" not in item.value for item in app.info)
+    assert app.sidebar.expander[-1].label == "Service diagnostics"
+    assert not app.sidebar.expander[-1].proto.expanded
+    assert app.checkbox[0].label == "Official guidance only"
+
+
+def test_answers_use_readable_source_numbers_in_collapsed_accordion():
+    pytest.importorskip("streamlit")
+    from streamlit.testing.v1 import AppTest
+
+    identifier = "citation_" + "a" * 64
+    response = {
+        "status": "answered",
+        "document_answers": [
+            {
+                "document_id": "food",
+                "claims": [{"text": "Keep food cold.", "citation_ids": [identifier]}],
+            }
+        ],
+        "unanswered_aspects": [],
+        "citations": [
+            {
+                "citation_id": identifier,
+                "document_id": "food",
+                "document_name": "Food safety",
+                "publisher": "FDA",
+                "section_heading": "Storage",
+                "source_url": "https://www.fda.gov/food",
+                "physical_pages": [],
+                "page_urls": [],
+                "support_quotes": ["Keep food cold."],
+            }
+        ],
+    }
+
+    def display(value):
+        from types import SimpleNamespace
+
+        from dietary_rag.ui.streamlit_app import render_response
+
+        render_response(value, {"food": SimpleNamespace(source_url="https://www.fda.gov/food")})
+
+    app = AppTest.from_function(display, args=(response,)).run()
+    assert not app.exception
+    assert app.text[0].value == "Keep food cold. [1]"
+    assert any(item.value == "Source 1: Food safety — FDA" for item in app.text)
+    assert all(identifier not in item.value for item in app.text)
+    assert not app.caption
+    assert app.expander[0].label == "Sources and supporting passages"
+    assert not app.expander[0].proto.expanded
+    assert app.expander[1].label == "Diagnostics"
 
 
 def test_streamlit_empty_selection_is_disabled_and_exact_scope_preserved(app_host):
