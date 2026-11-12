@@ -1,0 +1,9 @@
+# Runtime only: corpus parsing and OCR remain administrative jobs.
+streamlit==1.67.0
+pydantic
+PyYAML
+python-dotenv
+httpx
+sentence-transformers
+chromadb
+tokenizers

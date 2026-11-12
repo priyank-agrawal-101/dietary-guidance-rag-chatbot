@@ -1,0 +1,52 @@
+name: Streamlit deployment checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: src
+      ANONYMIZED_TELEMETRY: 'False'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '2'
+      MKL_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements/linux-streamlit.lock
+      - name: Install cloud runtime with hashes
+        run: python -m pip install -r requirements.txt
+      - name: Verify CPU installation and dependency consistency
+        run: |
+          python -m pip check
+          python -c "import torch; assert torch.version.cuda is None, 'CUDA build in CPU deployment'"
+      - name: Install deployment test dependencies
+        run: python -m pip install --require-hashes -r requirements/dev.lock
+      - name: Streamlit session and artifact tests
+        run: python -m pytest tests/test_streamlit_deployment.py -q
+      - name: Build native index and check frozen retrieval and answer suites
+        run: python scripts/check_streamlit.py
+      - name: Launch and probe Streamlit health
+        run: |
+          python -m streamlit run streamlit_app.py --server.address 127.0.0.1 --server.port 8501 > /tmp/streamlit.log 2>&1 &
+          STREAMLIT_PID=$!
+          trap 'kill "$STREAMLIT_PID"' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8501/_stcore/health; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: linux-streamlit-check
+          path: .streamlit-runtime/deployment-check.json
+          if-no-files-found: ignore

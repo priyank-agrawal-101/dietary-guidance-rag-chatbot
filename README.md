@@ -1,5 +1,9 @@
 # dietary-guidance-rag-chatbot
 
+Streamlit deployment code and local verification are ready. See the
+[setup guide](docs/streamlit-deployment.md) and [deployment plan](docs/deployment-plan.md)
+for Community Cloud, Linux checks, secrets and persistent hosting.
+
 Build a prototype for a US audience using **HTML pages and PDF documents**, prioritizing authoritative government guidance. Every factual claim must come from retrieved evidence and carry a citation, including page references for PDFs. The service reports evidence gaps and declines medical advice and calorie/weight targets.
 
 The [source registry](config/sources.yaml) records 68 inspected candidate URLs and retains all 20 earlier IDs. The [source review](docs/sourceReview.md) and [P1.7 coverage review](docs/phase1-coverage.md) document access, audience, currency, rights, alternate formats and 12 verified official PDFs; 9 PDFs are approved with exclusions. The default selection has **16 eligible consumer families: 10 HTML assets and 6 PDFs**, all imported and byte-verified under the current review snapshot. This meets the initial acquisition coverage target; extraction/indexing gates remain separate.
@@ -241,3 +245,17 @@ The [learning review gate revision](docs/review-gate-revision.md) documents the 
 The immutable learning bundle is at `data/releases/learning-v0.1.1`; [publication proof](docs/learning-release-publication.json) records checksum and copied-index validation. No live deployment or independent human review is claimed.
 
 Chat UX update: [improvements and verification](docs/ux-improvements.md) covers friendly scope/source-gap replies, hyphenated egg preparation, cooking-oil coverage, collapsed request diagnostics and source loading without competing for chat capacity. Current development checks pass 687 Python tests, 50 UI tests and all 71 frozen evaluation cases. Reload the local chat to use the update.
+
+## Streamlit deployment
+
+A native Streamlit entry point now reuses the grounded answer service and includes
+reviewed source artifacts for a fresh checkout. Follow the
+[Streamlit setup guide](docs/streamlit-deployment.md) for local launch, secrets,
+Community Cloud deployment and the persistent Linux option.
+
+```sh
+./deploy/start-streamlit.sh
+```
+
+Local chat: **http://localhost:8501**. Community Cloud entry point: **`streamlit_app.py`**,
+Python **3.13**. Its root `requirements.txt` installs the hash-locked Linux CPU runtime.

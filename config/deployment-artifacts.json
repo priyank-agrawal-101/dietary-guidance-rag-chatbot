@@ -1,0 +1,30 @@
+{
+  "version": "streamlit_corpus_v1",
+  "archive": "deployment/artifacts/corpus.tar.gz",
+  "sha256": "39e16b89c6f40839f51952c27d4b5a2cfa9139c278e5550220602aa81c44c3a1",
+  "bytes": 2506418,
+  "chunk_snapshot_id": "chunk_snapshot_e9e8b804e406477b528835fd71163f40bcffa5bf85c3552168300ecef26fe921",
+  "members": {
+    "evidence.sqlite": {
+      "sha256": "239631d72dc6d2a344938fc14fee4b89002dd4fc17fce3434a76b918e2ae0707",
+      "bytes": 9875456
+    },
+    "manifest.json": {
+      "sha256": "da6ccdef525765f27f095d6fe3af3faf9c545dfe8f563e553d6999b3e61060b7",
+      "bytes": 203476
+    },
+    "proof/freeze.json": {
+      "sha256": "dd24ec3be1171562cfe453f400489061b825f0a93fd2b5a06f573bb015b6b759",
+      "bytes": 4213
+    },
+    "proof/heldout.json": {
+      "sha256": "a5c13f7db47753751496e70c5789f2b6252392cac5dc355d4e367ffddfe56429",
+      "bytes": 10947
+    },
+    "proof/regressions.json": {
+      "sha256": "4136f9e3e89466ca6841e634f72cf20a7bf6e058d6dffadcbe22421509d670b8",
+      "bytes": 3934
+    }
+  },
+  "scope": "Learning project; reviewed canonical text only. Rebuild native index and evaluate before activation."
+}

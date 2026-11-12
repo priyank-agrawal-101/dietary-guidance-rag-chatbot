@@ -128,3 +128,14 @@ PIP_TOOLS_CACHE_DIR=/tmp/dietary-pip-tools python -m piptools compile pyproject.
 ```
 
 See [API integration](../docs/phase6-api.md) for `.env`, server startup, quotas and tests.
+
+## Streamlit runtime
+
+`linux-streamlit.lock` resolves the Community Cloud CPython 3.13 x86_64 runtime
+with CPU Torch and hashes. Install via the root `requirements.txt`, which supplies
+a direct hash-verified official CPU wheel URL. `macos-streamlit.lock` is a separate local lock
+resolved on the development Mac. Runtime-only packages exclude source acquisition,
+PDF parsing and OCR. Inputs and reviewed version constraints are retained in
+`streamlit.in` and `streamlit-constraints.txt`. See the
+[deployment guide](../docs/streamlit-deployment.md) for regeneration and host checks.
+These locks do not extend the old macOS release approval to a Linux deployment.
