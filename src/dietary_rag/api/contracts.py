@@ -181,6 +181,9 @@ ErrorCode = Literal[
     "model_unavailable",
     "answer_validation_failed",
     "request_timeout",
+    "usage_limit_exceeded",
+    "token_budget_exceeded",
+    "service_busy",
 ]
 ERROR_HTTP_STATUS = {
     "invalid_request": 422,
@@ -190,6 +193,9 @@ ERROR_HTTP_STATUS = {
     "model_unavailable": 503,
     "answer_validation_failed": 502,
     "request_timeout": 504,
+    "usage_limit_exceeded": 429,
+    "token_budget_exceeded": 422,
+    "service_busy": 503,
 }
 ERROR_MESSAGES = {
     "invalid_request": "The request has invalid fields, scope, or limits.",
@@ -199,6 +205,9 @@ ERROR_MESSAGES = {
     "model_unavailable": "The intent or generation dependency is unavailable.",
     "answer_validation_failed": "The generated answer failed validation and has been withheld.",
     "request_timeout": "The request could not complete within its deadline.",
+    "usage_limit_exceeded": "The generation usage limit has been reached. Try again later.",
+    "token_budget_exceeded": "The complete evidence exceeds the generation token budget. Select fewer documents or narrow the question.",
+    "service_busy": "The service is handling its maximum number of requests. Try again later.",
 }
 
 
@@ -208,17 +217,55 @@ class ServiceError(Contract):
     message: NonEmpty
     document_ids: tuple[Identifier, ...] = ()
     scope_issues: tuple[ScopeIssue, ...] = ()
+    retry_after_seconds: PositiveInt | None = None
 
     @property
     def http_status(self):
         return ERROR_HTTP_STATUS[self.code]
 
 
-def service_error(request_id, code, document_ids=(), scope_issues=()):
+def service_error(request_id, code, document_ids=(), scope_issues=(), *, retry_after_seconds=None):
     return ServiceError(
         request_id=request_id,
         code=code,
         message=ERROR_MESSAGES[code],
         document_ids=document_ids,
         scope_issues=scope_issues,
+        retry_after_seconds=retry_after_seconds,
     )
+
+
+class LivenessResponse(Contract):
+    status: Literal["alive"] = "alive"
+
+
+class ReadinessResponse(Contract):
+    status: Literal["ready"] = "ready"
+    corpus_version: Identifier
+    release_id: Identifier
+    activation_generation: PositiveInt
+    available_documents: Annotated[int, Field(strict=True, ge=0)]
+    generation: NonEmpty
+
+
+class DocumentAvailability(Contract):
+    document_id: Identifier
+    document_name: NonEmpty
+    publisher: NonEmpty
+    source_url: AnyHttpUrl
+    format: SourceFormat
+    source_tier: SourceTier
+    jurisdiction: NonEmpty
+    target_audience: NonEmpty
+    content_role: NonEmpty
+    dates: dict
+    available: StrictBool
+    availability_reason: Literal["active", "corpus_unavailable", "not_in_active_corpus"]
+
+
+class DocumentListResponse(Contract):
+    request_id: NonEmpty
+    corpus_version: Identifier | None
+    release_id: Identifier | None
+    documents: tuple[DocumentAvailability, ...]
+    error: ServiceError | None = None

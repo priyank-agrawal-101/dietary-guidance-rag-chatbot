@@ -65,7 +65,7 @@ The real-engine tests explicitly skip when the binary is missing; deterministic
 OCR routing/quality unit tests still run. Fixture generation needs the `pdf-dev`
 extra already included in `pdf.lock`.
 
-The API extra remains unactivated. The embeddings extra is now activated for
+The API extra is activated for P6.1–P6.3 through `api.lock`. The embeddings extra is now activated for
 P3.1–P3.3 through the platform-specific lock described below. Acquisition and
 settings validation still do not require model dependencies.
 
@@ -114,3 +114,17 @@ BGE model artifacts are separately pinned by
 `config/embedding-bge-small-en-v1.5.json`; they are not Python dependencies.
 See [Phase 3 indexing](../docs/phase3-indexing.md) for model/cache contracts,
 candidate build and compatibility validation commands.
+
+## API and Groq dependencies
+
+`api.lock` pins FastAPI, Uvicorn, HTTPX and python-dotenv for P6.1–P6.3. Groq uses
+its OpenAI-compatible HTTPS endpoint directly; no additional model or SDK is downloaded.
+Imports remain lazy, so core-only policy/settings/CLI checks do not require API packages.
+The lock shares existing core/acquisition/embedding dependency constraints.
+
+```sh
+python -m pip install --require-hashes -r requirements/api.lock
+PIP_TOOLS_CACHE_DIR=/tmp/dietary-pip-tools python -m piptools compile pyproject.toml --extra api --constraint requirements/core.lock --constraint requirements/acquisition.lock --constraint requirements/embeddings.lock --generate-hashes --strip-extras --output-file requirements/api.lock --no-emit-index-url --no-emit-trusted-host
+```
+
+See [API integration](../docs/phase6-api.md) for `.env`, server startup, quotas and tests.

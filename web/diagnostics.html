@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Diagnostics · Dietary guidance</title>
+    <link rel="icon" href="/assets/leaf.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/assets/diagnostics.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#diagnostic-tabs">Skip to diagnostics</a>
+    <header class="site-header">
+      <a class="brand" href="/"
+        ><img src="/assets/leaf.svg" alt="" width="32" height="32" /><span
+          >Dietary guidance<span class="brand-caption"
+            >A source-first conversation</span
+          ></span
+        ></a
+      >
+      <a href="/">Back to chat</a>
+    </header>
+    <main class="diagnostics">
+      <div class="intro">
+        <p class="eyebrow">Maintenance &amp; troubleshooting</p>
+        <h1>Diagnostics.</h1>
+        <p>Inspect service health, source availability, and API usage.</p>
+      </div>
+      <p class="fine-print">
+        This local diagnostics page has no access controls. Checks are read-only
+        and do not call Groq.
+      </p>
+      <div
+        id="diagnostic-tabs"
+        class="diagnostic-tabs"
+        role="tablist"
+        aria-label="Diagnostics"
+      >
+        <button
+          id="tab-status"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-status"
+          tabindex="0"
+          data-tab="status"
+        >
+          Status
+        </button>
+        <button
+          id="tab-sources"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-sources"
+          tabindex="-1"
+          data-tab="sources"
+        >
+          Sources
+        </button>
+        <button
+          id="tab-usage"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-usage"
+          tabindex="-1"
+          data-tab="usage"
+        >
+          Usage &amp; limits
+        </button>
+        <button
+          id="tab-api"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-api"
+          tabindex="-1"
+          data-tab="api"
+        >
+          API &amp; debugging
+        </button>
+      </div>
+      <section
+        id="panel-status"
+        role="tabpanel"
+        aria-labelledby="tab-status"
+        tabindex="0"
+        class="diagnostic-panel"
+      >
+        <div class="panel-heading">
+          <h2>Service status</h2>
+          <button class="quiet" type="button" data-refresh="status">
+            Refresh status
+          </button>
+        </div>
+        <div id="status-content" role="status"></div>
+      </section>
+      <section
+        id="panel-sources"
+        role="tabpanel"
+        aria-labelledby="tab-sources"
+        tabindex="0"
+        class="diagnostic-panel"
+        hidden
+      >
+        <div class="panel-heading">
+          <h2>Source collection</h2>
+          <button class="quiet" type="button" data-refresh="sources">
+            Refresh sources
+          </button>
+        </div>
+        <p class="muted">
+          Unavailable references are outside the active collection and cannot be
+          searched.
+        </p>
+        <div id="sources-content" role="status"></div>
+      </section>
+      <section
+        id="panel-usage"
+        role="tabpanel"
+        aria-labelledby="tab-usage"
+        tabindex="0"
+        class="diagnostic-panel"
+        hidden
+      >
+        <div class="panel-heading">
+          <h2>Usage &amp; limits</h2>
+          <button class="quiet" type="button" data-refresh="usage">
+            Refresh usage
+          </button>
+        </div>
+        <p class="muted">
+          Rolling windows, shared by requests to this server. Pending calls
+          reserve their token budget until completion.
+        </p>
+        <div id="usage-content" role="status"></div>
+        <p class="fine-print">
+          Only the current question is sent. Earlier turns are not resent.
+          Evidence is compacted before generation; supported claims and
+          citations are restored and verified locally.
+        </p>
+      </section>
+      <section
+        id="panel-api"
+        role="tabpanel"
+        aria-labelledby="tab-api"
+        tabindex="0"
+        class="diagnostic-panel"
+        hidden
+      >
+        <h2>API &amp; debugging</h2>
+        <p>
+          <a href="/docs" target="_blank" rel="noopener noreferrer"
+            >API reference ↗</a
+          >
+          ·
+          <a href="/openapi.json" target="_blank" rel="noopener noreferrer"
+            >OpenAPI schema ↗</a
+          >
+        </p>
+        <p>
+          Read-only endpoints: <code>/health/live</code>,
+          <code>/health/ready</code>, <code>/documents</code>,
+          <code>/usage</code>, and <code>/ui/config</code>.
+        </p>
+        <p>
+          For a failed chat request, inspect its
+          <code>X-Request-ID</code> response header and typed error code in your
+          browser’s Network panel. These identifiers can be matched to server
+          logs. Request details are absent from the chat display.
+        </p>
+        <p class="muted">
+          This page does not retain conversation content or fetch past requests.
+          Credentials and environment files are never displayed.
+        </p>
+      </section>
+      <footer class="page-footer">
+        <span>Dietary guidance · Diagnostics</span><a href="/">Back to chat</a>
+      </footer>
+    </main>
+    <noscript>Enable JavaScript to load diagnostic checks.</noscript>
+  </body>
+</html>

@@ -18,7 +18,7 @@ html = ["beautifulsoup4>=4.13,<5"]
 acquisition = ["httpx>=0.28,<1", "pypdf>=5,<7"]
 dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1.2,<2", "pip-tools>=7.4,<8", "setuptools>=75,<83", "wheel>=0.45,<1"]
 ingestion = ["httpx>=0.28,<1", "beautifulsoup4>=4.13,<5", "lxml>=5.3,<7", "pypdf>=5,<7", "pdfplumber>=0.11,<1"]
-api = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
+api = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "httpx>=0.28,<1", "python-dotenv>=1,<2"]
 embeddings = ["sentence-transformers>=3.4,<6", "chromadb>=1,<2"]
 ocr = ["pdfplumber>=0.11,<1", "pypdf>=5,<7", "pypdfium2>=5.9,<6", "Pillow>=12.2,<13"]
 
@@ -27,6 +27,10 @@ dietary-rag = "dietary_rag.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.data-files]
+"share/dietary-rag/web" = ["web/index.html", "web/diagnostics.html"]
+"share/dietary-rag/web/assets" = ["web/assets/app.js", "web/assets/diagnostics.js", "web/assets/client.js", "web/assets/render.js", "web/assets/style.css", "web/assets/leaf.svg"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

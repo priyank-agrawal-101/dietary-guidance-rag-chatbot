@@ -57,14 +57,45 @@ class RuntimeSettings(SettingsModel):
 
 
 class GenerationSettings(SettingsModel):
-    provider: Literal["unconfigured", "local", "hosted"] = "unconfigured"
+    provider: Literal["unconfigured", "local", "hosted", "groq"] = "unconfigured"
     model_name: NonEmpty | None = None
 
     @model_validator(mode="after")
     def validate_model(self):
         if self.provider != "unconfigured" and self.model_name is None:
             raise ValueError("a configured provider requires model_name")
+        if self.provider == "groq" and self.model_name != "openai/gpt-oss-120b":
+            raise ValueError("the reviewed Groq adapter requires openai/gpt-oss-120b")
         return self
+
+
+class GroqSettings(SettingsModel):
+    # Application limits, independent of the account's actual Groq limits.
+    max_input_tokens: PositiveInt = 6000
+    max_completion_tokens: Annotated[int, Field(strict=True, gt=0, le=65536)] = 1024
+    requests_per_minute: PositiveInt = 30
+    requests_per_hour: PositiveInt = 60
+    requests_per_day: PositiveInt = 300
+    tokens_per_minute: PositiveInt = 8000
+    tokens_per_hour: PositiveInt = 30000
+    tokens_per_day: PositiveInt = 100000
+
+    @model_validator(mode="after")
+    def validate_budgets(self):
+        if self.max_input_tokens + self.max_completion_tokens > min(
+            self.tokens_per_minute, self.tokens_per_hour, self.tokens_per_day, 131072
+        ):
+            raise ValueError("per-call token budget must fit every window and the model context")
+        if not self.requests_per_minute <= self.requests_per_hour <= self.requests_per_day:
+            raise ValueError("request windows must have increasing limits")
+        if not self.tokens_per_minute <= self.tokens_per_hour <= self.tokens_per_day:
+            raise ValueError("token windows must have increasing limits")
+        return self
+
+
+class APISettings(SettingsModel):
+    max_body_bytes: PositiveInt = 16384
+    max_in_flight: Annotated[int, Field(strict=True, ge=1, le=16)] = 2
 
 
 class PolicySettings(SettingsModel):
@@ -92,6 +123,8 @@ class Settings(SettingsModel):
     chunking: ChunkingSettings = Field(default_factory=ChunkingSettings)
     runtime: RuntimeSettings = Field(default_factory=RuntimeSettings)
     generation: GenerationSettings = Field(default_factory=GenerationSettings)
+    groq: GroqSettings = Field(default_factory=GroqSettings)
+    api: APISettings = Field(default_factory=APISettings)
     policy: PolicySettings = Field(default_factory=PolicySettings)
     answering: AnsweringSettings = Field(default_factory=AnsweringSettings)
 

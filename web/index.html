@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Dietary guidance · Ask with evidence</title>
+    <link rel="icon" href="/assets/leaf.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="module" src="/assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#question">Skip to question</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Dietary guidance home"
+        ><img src="/assets/leaf.svg" alt="" width="32" height="32" /><span
+          >Dietary guidance<span class="brand-caption"
+            >A source-first conversation</span
+          ></span
+        ></a
+      >
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">US nutrition &amp; household food safety</p>
+        <h1>Ask with evidence.</h1>
+        <p>
+          Explore reviewed guidance, compare sources, and see where every answer
+          comes from.
+        </p>
+      </div>
+      <div id="availability" hidden>
+        <div id="health-notice" class="notice" role="status"></div>
+        <button id="retry-sources" class="quiet" type="button">
+          Try loading sources again
+        </button>
+      </div>
+      <div class="workspace">
+        <aside class="sources-panel" aria-label="Search sources">
+          <div class="panel-heading">
+            <h2>Your sources</h2>
+            <span id="available-count" class="count">—</span>
+          </div>
+          <p class="muted">
+            Search the collection or choose documents to compare.
+          </p>
+          <fieldset class="scope-options">
+            <legend class="sr-only">Search scope</legend>
+            <label
+              ><input type="radio" name="scope" value="all" checked /> All
+              available sources</label
+            >
+            <label
+              ><input type="radio" name="scope" value="selected" /> Choose
+              sources</label
+            >
+          </fieldset>
+          <div id="source-picker" hidden>
+            <label class="sr-only" for="source-filter">Find a source</label
+            ><input
+              id="source-filter"
+              type="search"
+              placeholder="Find a source…"
+              autocomplete="off"
+            />
+            <div class="selection-toolbar">
+              <span id="selection-count">0 selected</span
+              ><button id="clear-selection" type="button" class="quiet">
+                Clear
+              </button>
+            </div>
+            <div id="source-list" class="source-list"></div>
+            <p id="no-matches" class="muted" hidden>No matching sources.</p>
+            <p
+              id="selection-error"
+              class="field-error"
+              role="status"
+              hidden
+            ></p>
+          </div>
+        </aside>
+        <section class="chat-panel" aria-label="Question and answers">
+          <form id="question-form" class="composer">
+            <label for="question">What would you like to know?</label>
+            <textarea
+              id="question"
+              rows="3"
+              maxlength="2000"
+              placeholder="How long can hard-cooked eggs stay in the refrigerator or freezer?"
+              required
+            ></textarea>
+            <div class="composer-footer">
+              <span id="scope-description" class="muted"
+                >Searching all available sources</span
+              ><span id="character-count" class="fine-print">0 / 2,000</span>
+            </div>
+            <div class="submit-row">
+              <p class="fine-print">
+                General guidance for a US audience. Medical advice and calorie
+                or weight targets are outside scope.
+              </p>
+              <button id="ask" type="submit" class="primary" disabled>
+                Ask a question <span aria-hidden="true">↗</span></button
+              ><button id="cancel" type="button" class="quiet" hidden>
+                Stop waiting
+              </button>
+            </div>
+            <p id="form-error" class="field-error" role="status" hidden></p>
+          </form>
+          <div class="examples" aria-label="Example questions">
+            <span>Try asking</span
+            ><button
+              type="button"
+              data-example="What internal temperature should chicken be cooked to?"
+            >
+              Cooking chicken</button
+            ><button
+              type="button"
+              data-example="How should I wash fresh produce?"
+            >
+              Washing produce</button
+            ><button
+              type="button"
+              data-example="What does a low Daily Value mean on a Nutrition Facts label?"
+            >
+              Reading food labels
+            </button>
+          </div>
+          <div class="conversation-heading">
+            <h2>Conversation</h2>
+            <button id="clear-chat" type="button" class="quiet" hidden>
+              Clear conversation
+            </button>
+          </div>
+          <div id="empty-state" class="empty-state">
+            <span aria-hidden="true" class="empty-mark">↗</span>
+            <h3>Start with a question.</h3>
+            <p>
+              Answers stay connected to their sources.<br />Choose two documents
+              to compare their guidance.
+            </p>
+          </div>
+          <div
+            id="conversation"
+            aria-live="polite"
+            aria-relevant="additions text"
+          ></div>
+        </section>
+      </div>
+      <footer class="page-footer">
+        <span>Grounded in reviewed sources. Gaps stay visible.</span
+        ><a href="/diagnostics" target="_blank" rel="noopener noreferrer"
+          >Diagnostics ↗</a
+        >
+      </footer>
+    </main>
+    <noscript
+      >This chat interface requires JavaScript. The API remains available at
+      /docs.</noscript
+    >
+  </body>
+</html>

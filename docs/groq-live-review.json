@@ -1,0 +1,428 @@
+{
+  "version": "groq_live_api_review_v1",
+  "provider": "real Groq via local HTTP API",
+  "model": "openai/gpt-oss-120b",
+  "passed": true,
+  "checks": [
+    {
+      "check": "liveness",
+      "passed": true
+    },
+    {
+      "check": "readiness",
+      "passed": true
+    },
+    {
+      "check": "groq_configured",
+      "passed": true
+    },
+    {
+      "check": "document_listing",
+      "passed": true
+    },
+    {
+      "check": "snapshot_consistency",
+      "passed": true
+    },
+    {
+      "check": "refusal_request_id",
+      "passed": true
+    },
+    {
+      "check": "refusal",
+      "passed": true
+    },
+    {
+      "check": "structured_data_request_id",
+      "passed": true
+    },
+    {
+      "check": "structured_data",
+      "passed": true
+    },
+    {
+      "check": "invalid_request_request_id",
+      "passed": true
+    },
+    {
+      "check": "invalid_request",
+      "passed": true
+    },
+    {
+      "check": "unknown_selection_request_id",
+      "passed": true
+    },
+    {
+      "check": "unknown_selection",
+      "passed": true
+    },
+    {
+      "check": "pre_generation_states_spend_nothing",
+      "passed": true
+    },
+    {
+      "check": "storage_request_id",
+      "passed": true
+    },
+    {
+      "check": "storage_answered",
+      "passed": true
+    },
+    {
+      "check": "storage_has_citations",
+      "passed": true
+    },
+    {
+      "check": "storage_canonical_document_answers",
+      "passed": true
+    },
+    {
+      "check": "storage_canonical_citations",
+      "passed": true
+    },
+    {
+      "check": "storage_canonical_searched_documents",
+      "passed": true
+    },
+    {
+      "check": "storage_canonical_unanswered_aspects",
+      "passed": true
+    },
+    {
+      "check": "comparison_request_id",
+      "passed": true
+    },
+    {
+      "check": "comparison_answered",
+      "passed": true
+    },
+    {
+      "check": "comparison_has_citations",
+      "passed": true
+    },
+    {
+      "check": "comparison_canonical_document_answers",
+      "passed": true
+    },
+    {
+      "check": "comparison_canonical_citations",
+      "passed": true
+    },
+    {
+      "check": "comparison_canonical_searched_documents",
+      "passed": true
+    },
+    {
+      "check": "comparison_canonical_unanswered_aspects",
+      "passed": true
+    },
+    {
+      "check": "comparison_source_separation",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "case": "refusal",
+      "http_status": 200,
+      "elapsed_seconds": 0.001,
+      "response": {
+        "request_id": "b036ab8c-1cf7-4a8f-923b-65b9c2bc20a5",
+        "status": "out_of_scope",
+        "corpus_version": null,
+        "message": "I can't provide medical advice or a medically personalized diet. Please consult a qualified clinician or registered dietitian. Ask a separate question about general food selection or household food safety.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "structured_data",
+      "http_status": 200,
+      "elapsed_seconds": 0.001,
+      "response": {
+        "request_id": "c806db7d-72ce-4d26-9d43-63218830d837",
+        "status": "requires_structured_data",
+        "corpus_version": null,
+        "message": "Individual-food nutrient values require a structured nutrient database, planned for Milestone 3. This capability is not available here, and I can't estimate those values from guidance documents. Ask a separate general guidance question.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "invalid_request",
+      "http_status": 422,
+      "elapsed_seconds": 0.0,
+      "response": {
+        "request_id": "be10b03c-00e5-49ee-9909-29c69b0c6220",
+        "code": "invalid_request",
+        "message": "The request has invalid fields, scope, or limits.",
+        "document_ids": [],
+        "scope_issues": [],
+        "retry_after_seconds": null
+      }
+    },
+    {
+      "case": "unknown_selection",
+      "http_status": 404,
+      "elapsed_seconds": 3.669,
+      "response": {
+        "request_id": "0f96ddba-f88e-4e98-92f0-f5233c91942b",
+        "code": "unknown_document",
+        "message": "A selected document is not recognized.",
+        "document_ids": [
+          "unknown"
+        ],
+        "scope_issues": [
+          {
+            "kind": "unknown",
+            "selection": "unknown",
+            "candidate_document_ids": [],
+            "reason": "Unknown registry document ID"
+          }
+        ],
+        "retry_after_seconds": null
+      }
+    },
+    {
+      "case": "storage",
+      "http_status": 200,
+      "elapsed_seconds": 7.195,
+      "response": {
+        "request_id": "3fbadaba-ffd2-497a-aa7a-1e80a88194be",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "comparison",
+      "http_status": 200,
+      "elapsed_seconds": 5.144,
+      "response": {
+        "request_id": "a4bb8e43-9a0c-4d03-bd6b-a8464362c89a",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "All poultry, including ground chicken and turkey 165\u00b0F",
+                "citation_ids": [
+                  "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd"
+                ]
+              }
+            ]
+          },
+          {
+            "document_id": "mn_safe_grilling_pdf",
+            "claims": [
+              {
+                "text": "Table: Safe Grilling Food: Poultry or fowl, whole or parts Safe Internal Temperature: 165\u00b0F Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+                "citation_ids": [
+                  "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-fl6ehds86y",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Safe internal temperatures for different foods",
+            "chunk_ids": [
+              "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+            ],
+            "support_quotes": [
+              "All poultry, including ground chicken and turkey\n\n165\u00b0F"
+            ]
+          },
+          {
+            "citation_id": "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c",
+            "document_id": "mn_safe_grilling_pdf",
+            "document_name": "Safe Grilling",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": 2007,
+            "date_label": "Created April 2007; modified 2025; printed footer",
+            "format": "pdf",
+            "physical_pages": [
+              1
+            ],
+            "page_urls": [
+              "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1"
+            ],
+            "printed_page_labels": [
+              "1"
+            ],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1",
+            "section_heading": "Safe Grilling",
+            "chunk_ids": [
+              "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+            ],
+            "support_quotes": [
+              "Table: Safe Grilling",
+              "Food: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F",
+              "Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety",
+          "mn_safe_grilling_pdf"
+        ],
+        "unanswered_aspects": []
+      }
+    }
+  ],
+  "live": {
+    "status": "alive"
+  },
+  "ready": {
+    "status": "ready",
+    "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+    "activation_generation": 1,
+    "available_documents": 16,
+    "generation": "groq_evidence_selection_v1"
+  },
+  "available_document_ids": [
+    "cdc_food_safety",
+    "mn_safe_temperatures",
+    "mn_cold_storage",
+    "mn_storage_chart",
+    "mn_food_thermometers",
+    "fda_seafood",
+    "fda_produce",
+    "cdc_pregnancy_food_safety",
+    "dga_2025_2030_pdf",
+    "hhs_adults_older_adults_pdf",
+    "hhs_kids_teens_pdf",
+    "nhlbi_sodium_tips_pdf",
+    "mn_cross_contamination_pdf",
+    "mn_safe_grilling_pdf",
+    "fda_nutrition_label_current",
+    "cdc_emergency_food_safety"
+  ],
+  "usage_before": {
+    "window_type": "rolling",
+    "windows": {
+      "minute": {
+        "requests": 0,
+        "tokens": 0,
+        "pending_calls": 0,
+        "request_limit": 30,
+        "token_limit": 8000
+      },
+      "hour": {
+        "requests": 0,
+        "tokens": 0,
+        "pending_calls": 0,
+        "request_limit": 60,
+        "token_limit": 30000
+      },
+      "day": {
+        "requests": 0,
+        "tokens": 0,
+        "pending_calls": 0,
+        "request_limit": 300,
+        "token_limit": 100000
+      }
+    },
+    "retry_after_seconds": 0
+  },
+  "usage_after": {
+    "window_type": "rolling",
+    "windows": {
+      "minute": {
+        "requests": 2,
+        "tokens": 876,
+        "pending_calls": 0,
+        "request_limit": 30,
+        "token_limit": 8000
+      },
+      "hour": {
+        "requests": 2,
+        "tokens": 876,
+        "pending_calls": 0,
+        "request_limit": 60,
+        "token_limit": 30000
+      },
+      "day": {
+        "requests": 2,
+        "tokens": 876,
+        "pending_calls": 0,
+        "request_limit": 300,
+        "token_limit": 100000
+      }
+    },
+    "retry_after_seconds": 0
+  },
+  "usage_delta": {
+    "requests": 2,
+    "tokens": 876
+  },
+  "review_date": "2026-11-12",
+  "offline_groq_api_checks_passed": 44
+}

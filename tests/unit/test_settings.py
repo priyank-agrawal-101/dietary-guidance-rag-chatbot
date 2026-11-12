@@ -65,3 +65,34 @@ def test_repository_settings_load():
     assert settings.embedding.revision == "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
     assert settings.chunking.tokenizer_revision == "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
     assert settings.chunking.target_tokens == 350
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"groq": {"max_completion_tokens": 0}},
+        {"groq": {"max_input_tokens": 8000}},
+        {"groq": {"requests_per_hour": 1}},
+        {"groq": {"tokens_per_day": 100}},
+        {"groq": {"requests_per_day": True}},
+        {"api": {"max_body_bytes": 0}},
+        {"api": {"max_in_flight": 17}},
+        {"generation": {"provider": "groq", "model_name": "unreviewed-model"}},
+    ],
+)
+def test_invalid_api_and_groq_budgets_fail(payload):
+    with pytest.raises(ValidationError):
+        Settings.model_validate(payload)
+
+
+def test_env_file_is_explicit_and_exports_win_without_interpolation(tmp_path, monkeypatch):
+    pytest.importorskip("dotenv")
+    from dietary_rag.api.runtime import load_environment
+
+    monkeypatch.setenv("GROQ_API_KEY", "exported-test-key")
+    (tmp_path / ".env").write_text("GROQ_API_KEY=file-test-key\nLITERAL=${GROQ_API_KEY}\n")
+    environ = load_environment(tmp_path)
+    assert environ["GROQ_API_KEY"] == "exported-test-key"
+    assert environ["LITERAL"] == "${GROQ_API_KEY}"
+    settings = Settings()
+    assert "test-key" not in settings.model_dump_json()

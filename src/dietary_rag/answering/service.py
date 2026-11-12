@@ -11,9 +11,11 @@ from dietary_rag.answering.adapters import (
 from dietary_rag.answering.citations import render_response
 from dietary_rag.answering.contracts import AnswerModelUnavailable, AnswerValidationError, DraftGap
 from dietary_rag.answering.evidence import EvidenceAssessor
+from dietary_rag.api.context import CURRENT_REQUEST, request_context
 from dietary_rag.api.contracts import ChatResponse, ServiceError, service_error
 from dietary_rag.policy.runtime import PreparedRequest
 from dietary_rag.policy.service import ClassificationUnavailable, PolicyViolation
+from dietary_rag.providers.usage import TokenBudgetExceeded, UsageLimitExceeded
 from dietary_rag.settings import AnsweringSettings
 
 
@@ -40,8 +42,12 @@ class AnswerService:
         return self.inspect(payload).response
 
     def inspect(self, payload):
+        with request_context(self.runtime.runtime.request_timeout_seconds):
+            return self._inspect(payload)
+
+    def _inspect(self, payload):
         started = time.monotonic()
-        deadline = started + self.runtime.runtime.request_timeout_seconds
+        deadline = CURRENT_REQUEST.get().deadline
         audit = {
             "version": "answer_inspection_v1",
             "generation_attempts": 0,
@@ -194,6 +200,12 @@ class AnswerService:
                         generation = generation.model_copy(update={"repair_codes": (code,)})
             except TimeoutError:
                 response = service_error(request_id, "request_timeout")
+            except UsageLimitExceeded as exc:
+                response = service_error(
+                    request_id, "usage_limit_exceeded", retry_after_seconds=exc.retry_after_seconds
+                )
+            except TokenBudgetExceeded:
+                response = service_error(request_id, "token_budget_exceeded")
             except (AnswerModelUnavailable, ClassificationUnavailable):
                 response = service_error(request_id, "model_unavailable")
             except (OSError, KeyError, ValueError, RuntimeError):

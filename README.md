@@ -4,7 +4,7 @@ Build a prototype for a US audience using **HTML pages and PDF documents**, prio
 
 The [source registry](config/sources.yaml) records 68 inspected candidate URLs and retains all 20 earlier IDs. The [source review](docs/sourceReview.md) and [P1.7 coverage review](docs/phase1-coverage.md) document access, audience, currency, rights, alternate formats and 12 verified official PDFs; 9 PDFs are approved with exclusions. The default selection has **16 eligible consumer families: 10 HTML assets and 6 PDFs**, all imported and byte-verified under the current review snapshot. This meets the initial acquisition coverage target; extraction/indexing gates remain separate.
 
-See the [problem statement](docs/problemStatement.md) and [architecture](docs/architecture.md) for HTML/PDF extraction, OCR fallback, cleaning, normalization, chunking, indexing and citation requirements. Phase 0 provides the Python package, settings, contracts and identity helpers. P1.1/P1.2 add registry eligibility, immutable raw-byte artifacts and SQLite provenance storage. **P1.3–P1.6 implement reviewed-file imports, actual-format inspection, bounded HTTPS fetching and acquisition commands/reports.** **Phase 2.1 implements HTML extraction for all ten selected HTML assets.** **Phase 2.2 implements native PDF extraction through P2P.4.** **Phase 2.3 implements OCR fallback through P2O.3.** **Phase 2.4 implements shared normalization and exclusions through P2N.3.** **Phase 2.5 implements structure-aware chunking through P2C.3.** **P3.1–P3.6 implement BGE-small candidate indexing, scoped dense/BM25/hybrid retrieval and frozen strategy selection.** **P3.7 implements atomic activation, request pinning and rollback.** Policy and the chatbot remain planned. Downloaded source snapshots, acquisition outputs and inspection renders are ignored by Git.
+See the [problem statement](docs/problemStatement.md) and [architecture](docs/architecture.md) for HTML/PDF extraction, OCR fallback, cleaning, normalization, chunking, indexing and citation requirements. Phase 0 provides the Python package, settings, contracts and identity helpers. P1.1/P1.2 add registry eligibility, immutable raw-byte artifacts and SQLite provenance storage. **P1.3–P1.6 implement reviewed-file imports, actual-format inspection, bounded HTTPS fetching and acquisition commands/reports.** **Phase 2.1 implements HTML extraction for all ten selected HTML assets.** **Phase 2.2 implements native PDF extraction through P2P.4.** **Phase 2.3 implements OCR fallback through P2O.3.** **Phase 2.4 implements shared normalization and exclusions through P2N.3.** **Phase 2.5 implements structure-aware chunking through P2C.3.** **P3.1–P3.6 implement BGE-small candidate indexing, scoped dense/BM25/hybrid retrieval and frozen strategy selection.** **P3.7 implements atomic activation, request pinning and rollback.** Phases 4–5 implement policy and grounded answering; P6.1–P6.3 implement the Groq-backed API. P6.4–P6.6 implement the chat UI and source comparisons. Downloaded source snapshots, acquisition outputs and inspection renders are ignored by Git.
 
 Follow the [phase-wise implementation plan](docs/implementation-plan.md) for build dependencies, tasks, deliverables, learning outcomes and completion gates.
 
@@ -27,7 +27,7 @@ python -m ruff check src tests
 python -m ruff format --check src tests
 ```
 
-See [Phase 0 foundations](docs/phase0-foundations.md) for configuration precedence, synthetic contract examples, identity/version rules, dependency groups and wheel installation. Core, development, acquisition, HTML, native PDF, OCR and tokenizer dependencies are hash-locked; embeddings/indexing now have a separate macOS ARM64/Python 3.13 wheel lock. API dependencies remain reserved for later phases. OCR requires a separately installed Tesseract executable and language data. Acquisition does not require model/API credentials.
+See [Phase 0 foundations](docs/phase0-foundations.md) for configuration precedence, synthetic contract examples, identity/version rules, dependency groups and wheel installation. Core, development, acquisition, HTML, native PDF, OCR and tokenizer dependencies are hash-locked; embeddings/indexing now have a separate macOS ARM64/Python 3.13 wheel lock. API dependencies are pinned in `requirements/api.lock`. OCR requires a separately installed Tesseract executable and language data. Acquisition does not require model/API credentials.
 
 See [P1.1/P1.2 corpus foundations](docs/phase1-corpus-foundation.md) for consumer selection reasons, original-byte storage, SQLite usage and provenance checks. The registry check is read-only; repository initialization and writes require explicit API calls. It does not import the review cache or activate a corpus.
 
@@ -187,21 +187,47 @@ complete; deterministic policy routing in P4.1 is next.
 
 ## Phase 4 policy and response contracts
 
-[Policy foundations](docs/phase4-policy.md) documents the implemented P4.1–P4.6 scope gates, typed intent adapter, fixed refusal/capability messages, request/response/error contracts and pinned retrieval preparation context. Run `.venv/bin/dietary-rag check-policy "How should I store leftovers?"` to inspect routing without retrieval. Medical and calorie/weight requests are declined with professional referral; individual-food nutrient values route to Milestone 3; uncertain intent asks for clarification. Grounded answering is implemented below; the HTTP API/UI remain Phase 6.
+[Policy foundations](docs/phase4-policy.md) documents the implemented P4.1–P4.6 scope gates, typed intent adapter, fixed refusal/capability messages, request/response/error contracts and pinned retrieval preparation context. Run `.venv/bin/dietary-rag check-policy "How should I store leftovers?"` to inspect routing without retrieval. Medical and calorie/weight requests are declined with professional referral; individual-food nutrient values route to Milestone 3; uncertain intent asks for clarification. Grounded answering and the HTTP API are implemented below; the browser UI is implemented through P6.6.
 
 ## Phase 5 grounded answering
 
-[Answering foundations](docs/phase5-answering.md) documents P5.1–P5.7, the typed generator/verifier adapters, condition-aware evidence decisions, canonical citations and one bounded repair. The default offline extractive generator preserves complete source conditions; no hosted model is enabled implicitly.
+[Answering foundations](docs/phase5-answering.md) documents P5.1–P5.7, the typed generator/verifier adapters, condition-aware evidence decisions, canonical citations and one bounded repair. The original Phase 5 extractive path preserves complete source conditions. Repository settings now select Groq; add `--offline` to reproduce the credential-free Phase 5 examples.
 
 ```bash
 .venv/bin/dietary-rag answer-question \
   'How long can hard cooked eggs stay in the refrigerator or freezer?' \
-  --documents mn_storage_chart --format text \
+  --documents mn_storage_chart --format text --offline \
   --report data/staging/answering/eggs.json
 
 .venv/bin/dietary-rag answer-question \
   'What internal temperature should chicken be cooked to?' \
-  --documents cdc_food_safety mn_safe_grilling_pdf --format text
+  --documents cdc_food_safety mn_safe_grilling_pdf --format text --offline
 ```
 
-Answers require the compatible active corpus from Phase 3. JSON is the default output; `--format text` attaches complete citations beside each claim. Medical/calorie/weight and nutrient-capability responses still work without opening the corpus. Dependency failures and repeatedly invalid drafts are service errors, while evidence gaps identify the actual searched scope. The [31-case review](docs/answering-review.json) includes all six active PDFs, comparisons, partial answers, refusals and error/repair examples. HTTP endpoints and UI remain Phase 6.
+Answers require the compatible active corpus from Phase 3. JSON is the default output; `--format text` attaches complete citations beside each claim. Medical/calorie/weight and nutrient-capability responses still work without opening the corpus. Dependency failures and repeatedly invalid drafts are service errors, while evidence gaps identify the actual searched scope. The [31-case review](docs/answering-review.json) includes all six active PDFs, comparisons, partial answers, refusals and error/repair examples. HTTP endpoints are implemented below; the browser UI is implemented below.
+
+## Phase 6.1–6.3 API and Groq
+
+[API integration guide](docs/phase6-api.md) documents health/readiness, document availability, chat, request IDs/deadlines and typed failures. Groq uses `openai/gpt-oss-120b` with compact evidence IDs and local claim verification. Persistent request/token limits cover rolling minute, hour and day windows; `/usage` reports aggregate usage.
+
+```bash
+.venv/bin/python -m pip install --require-hashes -r requirements/api.lock
+# Edit project-root .env: GROQ_API_KEY=your-key
+.venv/bin/dietary-rag serve
+```
+
+The API is at `http://127.0.0.1:8000`; `/docs` has the schema. `serve` and `answer-question` load `.env`, with exported variables taking precedence. Local defaults allow 60 calls/hour, 300/day, 30,000 tokens/hour and 100,000/day, with a 1,024-token completion cap. Adjust `config/settings.yaml` to your account's limits. Use `--offline` for credential-free operation. The browser UI is available at the server root.
+
+## Chat UI and comparisons (P6.4–P6.6)
+
+Restart `.venv/bin/dietary-rag serve`, then open **http://127.0.0.1:8000/**.
+Choose all sources, one document, or multiple documents to compare. Completed
+validated answers keep each source's claims and adjacent HTML/PDF citations
+separate. Partial evidence, refusal, clarification and service failures stay visible.
+The footer links to a tabbed Diagnostics page for service status, source availability, hourly/daily usage limits, and API debugging. The chat keeps answers, comparisons, citations, and evidence gaps. Previous turns are not resent to Groq.
+
+The HTML/CSS/JavaScript client in `web/` needs no build step. Same-origin serving,
+text-only rendering, reviewed citation URLs and CSP protect the interface from
+active source markup. See the [UI guide](docs/phase6-ui.md) and [eight-flow real-corpus review](docs/ui-review.json)
+for behavior, concurrency handling, desktop/mobile inspection and verification.
+634 Python tests and 42 UI tests passed; Phase 7 evaluation and operation remain.

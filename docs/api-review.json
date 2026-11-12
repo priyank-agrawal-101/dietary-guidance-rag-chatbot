@@ -1,0 +1,243 @@
+{
+  "version": "api_review_v1",
+  "review_date": "2026-11-12",
+  "provider": "mocked Groq HTTP transport; no authenticated or paid API request",
+  "corpus": "real approved active corpus, not synthetic evidence",
+  "live": {
+    "status": "alive"
+  },
+  "ready": {
+    "status": "ready",
+    "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+    "activation_generation": 1,
+    "available_documents": 16,
+    "generation": "groq_evidence_selection_v1"
+  },
+  "available_document_ids": [
+    "cdc_food_safety",
+    "mn_safe_temperatures",
+    "mn_cold_storage",
+    "mn_storage_chart",
+    "mn_food_thermometers",
+    "fda_seafood",
+    "fda_produce",
+    "cdc_pregnancy_food_safety",
+    "dga_2025_2030_pdf",
+    "hhs_adults_older_adults_pdf",
+    "hhs_kids_teens_pdf",
+    "nhlbi_sodium_tips_pdf",
+    "mn_cross_contamination_pdf",
+    "mn_safe_grilling_pdf",
+    "fda_nutrition_label_current",
+    "cdc_emergency_food_safety"
+  ],
+  "listed_sources": 68,
+  "cases": [
+    {
+      "case": "storage",
+      "http_status": 200,
+      "response": {
+        "request_id": "95e0ae2a-58eb-46f5-950b-f3b0490e0b37",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "comparison",
+      "http_status": 200,
+      "response": {
+        "request_id": "464d8121-d3c9-422b-86e2-eb6eb1ed5aea",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "All poultry, including ground chicken and turkey 165\u00b0F",
+                "citation_ids": [
+                  "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd"
+                ]
+              }
+            ]
+          },
+          {
+            "document_id": "mn_safe_grilling_pdf",
+            "claims": [
+              {
+                "text": "Table: Safe Grilling Food: Poultry or fowl, whole or parts Safe Internal Temperature: 165\u00b0F Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+                "citation_ids": [
+                  "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-fl6ehds86y",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Safe internal temperatures for different foods",
+            "chunk_ids": [
+              "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+            ],
+            "support_quotes": [
+              "All poultry, including ground chicken and turkey\n\n165\u00b0F"
+            ]
+          },
+          {
+            "citation_id": "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c",
+            "document_id": "mn_safe_grilling_pdf",
+            "document_name": "Safe Grilling",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": 2007,
+            "date_label": "Created April 2007; modified 2025; printed footer",
+            "format": "pdf",
+            "physical_pages": [
+              1
+            ],
+            "page_urls": [
+              "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1"
+            ],
+            "printed_page_labels": [
+              "1"
+            ],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1",
+            "section_heading": "Safe Grilling",
+            "chunk_ids": [
+              "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+            ],
+            "support_quotes": [
+              "Table: Safe Grilling",
+              "Food: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F",
+              "Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety",
+          "mn_safe_grilling_pdf"
+        ],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "refusal",
+      "http_status": 200,
+      "response": {
+        "request_id": "050aea70-7d4d-4616-8fa6-17953962afaf",
+        "status": "out_of_scope",
+        "corpus_version": null,
+        "message": "I can't provide medical advice or a medically personalized diet. Please consult a qualified clinician or registered dietitian. Ask a separate question about general food selection or household food safety.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "structured_data",
+      "http_status": 200,
+      "response": {
+        "request_id": "48dedf9c-4a09-47a2-bd61-06beaefd49ed",
+        "status": "requires_structured_data",
+        "corpus_version": null,
+        "message": "Individual-food nutrient values require a structured nutrient database, planned for Milestone 3. This capability is not available here, and I can't estimate those values from guidance documents. Ask a separate general guidance question.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "unknown_selection",
+      "http_status": 404,
+      "response": {
+        "request_id": "2d36071e-b000-4a21-bed9-192c3287272b",
+        "code": "unknown_document",
+        "message": "A selected document is not recognized.",
+        "document_ids": [
+          "unknown"
+        ],
+        "scope_issues": [
+          {
+            "kind": "unknown",
+            "selection": "unknown",
+            "candidate_document_ids": [],
+            "reason": "Unknown registry document ID"
+          }
+        ],
+        "retry_after_seconds": null
+      }
+    }
+  ],
+  "mocked_provider_calls": [
+    {
+      "model": "openai/gpt-oss-120b",
+      "units": 1
+    },
+    {
+      "model": "openai/gpt-oss-120b",
+      "units": 2
+    }
+  ]
+}

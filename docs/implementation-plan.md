@@ -30,7 +30,8 @@ The objective is a US-focused chatbot that retrieves approved dietary and househ
 | Active corpus lifecycle | P3.7 implemented and verified | Atomic validated publication, request/evidence pinning, retained proof and rollback; [lifecycle review](phase3-lifecycle.md). |
 | Policy service and response contracts | P4.1–P4.6 implemented and verified | Code gates, typed routing/contracts and pinned retrieval integration; [policy foundations](phase4-policy.md). |
 | Grounded answering and citation validation | P5.1–P5.7 implemented and verified | Conservative extractive CLI, typed provider/verifier adapters, canonical citations and bounded repair; [answering foundations](phase5-answering.md). |
-| HTTP API and UI | Not implemented | Phases 6–7 remain planned. |
+| HTTP API integration | P6.1–P6.3 implemented and verified | Shared CLI/API orchestration, Groq token/usage budgets, health/readiness, source listing and deadline/error handling; [API guide](phase6-api.md). |
+| Browser UI | P6.4–P6.6 implemented and verified | Source selection, comparisons, all response states and safe rendering; [UI guide](phase6-ui.md). Phase 7 remains planned. |
 
 Registry counts reflect the November 11, 2026 source review; Phase 2 completion reflects November 12, 2026. Recompute coverage from the registry and reviewed build reports when sources change; do not hardcode these counts in runtime logic.
 
@@ -473,6 +474,8 @@ Dense retrieval missed the complete restaurant sodium-tips evidence. The hybrid 
 
 ### 6.1 API integration
 
+**Status: complete — P6.1–P6.3, November 12, 2026.** FastAPI exposes liveness/readiness, pinned source availability and shared validated chat orchestration. Groq `openai/gpt-oss-120b` uses compact evidence selections, local verification and persistent rolling minute/hour/day request/token limits. Absolute deadlines and request IDs span every stage; provider details stay private. Verification passed 628 full-suite tests and 44 final Groq/API checks, plus Ruff, dependency and build checks; the [real active-corpus API review](api-review.json) confirms 16 available documents and two cited answers with mocked Groq transport. See [Phase 6 API integration](phase6-api.md) for configuration, endpoints, limits and deterministic verification. Authenticated [Groq smoke verification](groq-live-review.json) passes six HTTP cases: two cited answers use two live calls totaling 876 tokens; four pre-generation states spend nothing. P6.4–P6.6 and the Phase 6 development exit gate are now complete as described below.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
 | `P6.1` | Add process health, corpus readiness and document-list endpoints. | P3.7, P4.4 | Liveness/readiness differ; active snapshot, source availability and metadata are visible. |
@@ -480,6 +483,8 @@ Dense retrieval missed the complete restaurant sodium-tips evidence. The hybrid 
 | `P6.3` | Add request deadlines, stable request IDs and typed dependency failures. | P6.2 | Timeouts/model outages are service errors and provider details/secrets are not exposed. |
 
 ### 6.2 Minimal chat UI and comparisons
+
+**Status: complete — P6.4–P6.6 and the Phase 6 development exit gate, November 12, 2026.** The same-origin `web/` client serves source selection, cited source-separated comparisons, partial gaps, refusal/clarification/capability states, dependency failures and rolling usage visibility. Text-only DOM construction, reviewed-URL checks and CSP prevent active scraped/generated markup. A corpus-access lock fixes overlapping embedded Chroma lifecycles discovered during UI verification. Verification: 634 full-suite Python tests, 42 UI tests, eight [real active-corpus UI flows](ui-review.json), native Chrome desktop/390-pixel inspection and installed-wheel asset serving. See [chat UI foundations](phase6-ui.md). Phase 7 release/semantic evaluation remains separate.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -575,9 +580,9 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | 3 | Complete — P3.1–P3.7 | Hybrid selected on frozen questions; validated atomic publication, pinned requests and rollback verified over the reviewed mixed corpus. |
 | 4 | Complete — P4.1–P4.6 | Reviewed routing, fail-closed classification, typed contracts, actual scope isolation and pinned evidence verified; see [policy foundations](phase4-policy.md). |
 | 5 | Complete — P5.1–P5.7 | Cited active-corpus CLI, 31/31 reviewed cases, per-document gaps and bounded validation/repair verified; see [answering foundations](phase5-answering.md). |
-| 6 | Not started | Integrated API/UI and source-separated comparisons. |
+| 6 | Complete — P6.1–P6.6 | Shared Groq API, source selection, validated comparisons, all response states and safe desktop/mobile UI; [UI review](ui-review.json). |
 | 7 | Not started | Evaluation, coverage, release and reproducibility evidence. |
 
-With Phases 0–5 complete, Milestone C's cited CLI development answer works over the gated, pinned corpus of 269 reviewed chunks from 16 documents, including six PDFs. The default extractive path preserves complete source conditions; typed adapters are available for explicitly configured provider-backed experiments. Next implement P6.1 health/readiness/document listing and the remaining Phase 6 API/UI integration around the shared `AnswerService`. Retain BGE-small, the passing hybrid configuration and 350/50 chunking. Phases 6–7 remain planned; broader semantic/release evaluation remains required. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
+With Phases 0–6 complete, Milestone D's browser prototype works over the gated, pinned corpus of 269 reviewed chunks from 16 documents, including six PDFs. API, CLI and browser share `AnswerService`; Groq selects compact evidence IDs while local validation preserves complete claims and citations. Next implement P7.1 evaluation expansion and the remaining Phase 7 evaluation/operation tasks. Retain BGE-small, the passing hybrid configuration and 350/50 chunking. Broader semantic/release evaluation remains required. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
 
 Keep the following outside the initial build: individual-food nutrient database integration, personalized diet/weight plans, persistent chat memory, arbitrary user document ingestion, live web search at answer time, distributed ingestion jobs and multiple API workers. Optional FTS5 search or reranking should be added only when measured retrieval failures justify them. A separate scientific/medical reference experiment must not expand the consumer chatbot's permitted advice scope.

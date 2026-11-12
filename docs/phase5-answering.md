@@ -1,10 +1,12 @@
 # Phase 5: grounded answering and citation validation
 
-P5.1–P5.7 are implemented. The shared `AnswerService` turns an allowed, pinned retrieval request into an evidence decision, a structured draft, validated claims and code-authored citations. `answer-question` provides the cited CLI development workflow. HTTP handlers and the browser interface remain Phase 6.
+P5.1–P5.7 are implemented. The shared `AnswerService` turns an allowed, pinned retrieval request into an evidence decision, a structured draft, validated claims and code-authored citations. `answer-question` provides the cited CLI development workflow. P6.1–P6.3 now expose this workflow through the [Groq API integration](phase6-api.md). P6.4–P6.6 now expose the [browser UI](phase6-ui.md).
 
-The default is an offline **extractive** generator and an independent extractive entailment verifier. It keeps complete source wording, category/value pairs and attached qualifications, and requires no additional model or credentials. The typed adapters support an injected generation provider and a separate semantic provider; no hosted provider is enabled implicitly. The extractive verifier deliberately withholds free-form paraphrases. This is a working conservative development answer path, not a claim of broad semantic coverage or completion of Phase 7 evaluation.
+The original Phase 5 default is an offline **extractive** generator and an independent extractive entailment verifier. It keeps complete source wording, category/value pairs and attached qualifications, and requires no additional model or credentials. The typed adapters support an injected generation provider and a separate semantic provider; no hosted provider is enabled implicitly. The extractive verifier deliberately withholds free-form paraphrases. This is a working conservative development answer path, not a claim of broad semantic coverage or completion of Phase 7 evaluation.
 
 ## Run and inspect an answer
+
+Repository settings now select Groq; append `--offline` to the supported-answer commands below to reproduce the original Phase 5 extractive behavior without credentials. See the [API guide](phase6-api.md) for `.env` setup and hosted token/usage budgets.
 
 Use the compatible active corpus published in Phase 3:
 

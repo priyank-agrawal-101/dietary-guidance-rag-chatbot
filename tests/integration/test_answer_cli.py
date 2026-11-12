@@ -73,6 +73,7 @@ def test_cli_and_shared_service_have_same_validated_claims(
         main(
             [
                 "answer-question",
+                "--offline",
                 question,
                 "--documents",
                 "mn_storage_chart",
@@ -98,6 +99,7 @@ def test_cli_refusal_does_not_require_active_corpus_or_models(tmp_path, capsys):
         main(
             [
                 "answer-question",
+                "--offline",
                 "Set my ideal weight",
                 "--lifecycle-dir",
                 str(tmp_path / "absent"),
@@ -117,6 +119,7 @@ def test_cli_corpus_outage_is_a_service_failure(tmp_path, capsys):
         main(
             [
                 "answer-question",
+                "--offline",
                 "How should I store leftovers?",
                 "--lifecycle-dir",
                 str(tmp_path / "absent"),

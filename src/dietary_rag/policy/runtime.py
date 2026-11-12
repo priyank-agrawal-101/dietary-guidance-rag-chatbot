@@ -7,6 +7,7 @@ from uuid import uuid4
 
 from pydantic import ValidationError
 
+from dietary_rag.api.context import CURRENT_REQUEST
 from dietary_rag.api.contracts import ChatRequest, ChatResponse, service_error
 from dietary_rag.policy.service import ClassificationUnavailable, PolicyService
 from dietary_rag.policy.templates import MESSAGES
@@ -51,8 +52,10 @@ class PolicyRuntime:
 
     @contextmanager
     def prepare(self, payload):
-        request_id = str(uuid4())
+        context = CURRENT_REQUEST.get()
+        request_id = context.request_id if context else str(uuid4())
         started = time.monotonic()
+        deadline = context.deadline if context else started + self.runtime.request_timeout_seconds
         try:
             # Round-trip existing instances too; model_copy/model_construct cannot bypass limits.
             if isinstance(payload, ChatRequest):
@@ -62,6 +65,8 @@ class PolicyRuntime:
             yield service_error(request_id, "invalid_request")
             return
         try:
+            if time.monotonic() >= deadline:
+                raise TimeoutError("request deadline exceeded")
             decision = self.policy.decide(request.question)
         except TimeoutError:
             yield service_error(request_id, "request_timeout")
@@ -69,7 +74,7 @@ class PolicyRuntime:
         except ClassificationUnavailable:
             yield service_error(request_id, "model_unavailable")
             return
-        if time.monotonic() - started > self.runtime.request_timeout_seconds:
+        if time.monotonic() > deadline:
             yield service_error(request_id, "request_timeout")
             return
         if decision.route != "allow":
@@ -85,8 +90,10 @@ class PolicyRuntime:
         with ExitStack() as stack:
             try:
                 evidence_request = stack.enter_context(self.open_request())
+                if time.monotonic() > deadline:
+                    raise TimeoutError("request deadline exceeded")
                 result = evidence_request.search(request.search_request())
-                if time.monotonic() - started > self.runtime.request_timeout_seconds:
+                if time.monotonic() > deadline:
                     raise TimeoutError("request deadline exceeded")
             except TimeoutError:
                 outcome = service_error(request_id, "request_timeout")

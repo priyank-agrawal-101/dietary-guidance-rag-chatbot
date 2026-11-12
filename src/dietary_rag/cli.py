@@ -148,9 +148,34 @@ def main(argv: list[str] | None = None) -> int:
     policy_check.add_argument("question")
     policy_check.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
     policy_check.add_argument("--project-root", type=Path, default=Path.cwd())
+    serve = commands.add_parser("serve", help="serve the validated chat API")
+    serve.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
+    serve.add_argument("--project-root", type=Path, default=Path.cwd())
+    serve.add_argument("--env-file", type=Path)
+    serve.add_argument("--offline", action="store_true")
+    serve.add_argument("--host", default="127.0.0.1")
+    serve.add_argument("--port", type=int, default=8000)
     args = parser.parse_args(argv)
     try:
-        settings = load_settings(args.config, project_root=args.project_root, environ=os.environ)
+        environ = os.environ
+        if args.command in ("answer-question", "serve"):
+            from dietary_rag.api.runtime import load_environment
+
+            environ = load_environment(args.project_root, args.env_file)
+        settings = load_settings(args.config, project_root=args.project_root, environ=environ)
+        if args.command == "serve":
+            import uvicorn
+
+            from dietary_rag.api.app import create_app
+
+            app = create_app(
+                project_root=args.project_root,
+                settings=settings,
+                environ=environ,
+                offline=args.offline,
+            )
+            uvicorn.run(app, host=args.host, port=args.port, log_level="warning", access_log=False)
+            return 0
         if args.command == "check-policy":
             from dietary_rag.api.contracts import ChatRequest
             from dietary_rag.policy.service import PolicyService

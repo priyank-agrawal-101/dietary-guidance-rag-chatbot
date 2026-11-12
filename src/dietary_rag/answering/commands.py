@@ -1,13 +1,10 @@
 """Cited active-corpus CLI; policy executes before model/tokenizer/corpus loading."""
 
 import json
-from contextlib import contextmanager
 from pathlib import Path
 
 from dietary_rag.answering.citations import render_text
-from dietary_rag.answering.service import AnswerService
-from dietary_rag.policy.runtime import PolicyRuntime
-from dietary_rag.policy.service import PolicyService
+from dietary_rag.api.runtime import ActiveRuntime, build_answer_service, load_environment
 
 
 def register_commands(commands):
@@ -22,6 +19,8 @@ def register_commands(commands):
     parser.add_argument("--format", choices=("json", "text"), default="json")
     parser.add_argument("--report", type=Path)
     parser.add_argument("--lifecycle-dir", type=Path)
+    parser.add_argument("--env-file", type=Path)
+    parser.add_argument("--offline", action="store_true", help="use local extractive generation")
     parser.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
     parser.add_argument("--project-root", type=Path, default=Path.cwd())
     for name, default in (
@@ -38,38 +37,34 @@ def run_command(args, settings, registry, write_report):
     def path(value):
         return value if value.is_absolute() else args.project_root / value
 
-    @contextmanager
-    def opener():
-        from dietary_rag.corpus.lifecycle import LifecycleStore
-        from dietary_rag.ingestion.chunk_tokenizer import E5Tokenizer
-        from dietary_rag.providers.embeddings import BGETextProcessor
-        from dietary_rag.retrieval.resolution import DocumentResolver
-
-        pin = LifecycleStore(
-            path(args.lifecycle_dir) if args.lifecycle_dir else settings.data_dir / "active"
-        ).pin()
-        resolver = DocumentResolver(registry, json.loads(path(args.aliases).read_text()))
-        processor = BGETextProcessor(
-            path(args.model_dir), path(args.model_manifest), settings.embedding
-        )
-        tokenizer = E5Tokenizer(path(args.tokenizer_dir), path(args.tokenizer_manifest))
-        if (
-            settings.chunking.tokenizer_model_name != tokenizer.metadata["model_name"]
-            or settings.chunking.tokenizer_revision != tokenizer.metadata["revision"]
-        ):
-            raise ValueError("configured tokenizer differs from historical evidence")
-        with pin.open_request(
-            registry, tokenizer, processor, resolver, settings.runtime
-        ) as request:
-            yield request
-
-    runtime = PolicyRuntime(opener, runtime=settings.runtime, policy=PolicyService(settings.policy))
+    active = ActiveRuntime(
+        settings,
+        registry,
+        args.project_root,
+        **{
+            name: getattr(args, name)
+            for name in (
+                "lifecycle_dir",
+                "aliases",
+                "model_dir",
+                "model_manifest",
+                "tokenizer_dir",
+                "tokenizer_manifest",
+            )
+        },
+    )
+    service, _ledger = build_answer_service(
+        settings,
+        active,
+        environ=load_environment(args.project_root, args.env_file),
+        offline=args.offline,
+    )
     payload = {"question": args.question, "official_only": args.official_only, "limit": args.top_k}
     if args.documents is not None:
         payload["scope"] = {"mode": "selected", "document_ids": args.documents}
     if args.source_tier:
         payload["source_tiers"] = args.source_tier
-    inspection = AnswerService(runtime, settings=settings.answering).inspect(payload)
+    inspection = service.inspect(payload)
     if args.report:
         write_report(path(args.report), inspection.model_dump())
     print(

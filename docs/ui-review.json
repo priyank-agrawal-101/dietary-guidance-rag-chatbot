@@ -1,0 +1,559 @@
+{
+  "version": "ui_review_v1",
+  "review_date": "2026-11-12",
+  "corpus": "real approved active corpus, BGE/hybrid retrieval and shared validated API",
+  "renderer": "real UI controller and renderer exercised in jsdom; native Chrome inspection documented separately",
+  "generation": "extractive_v1",
+  "groq_calls": 0,
+  "ready": {
+    "status": "ready",
+    "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+    "activation_generation": 1,
+    "available_documents": 16,
+    "generation": "extractive_v1"
+  },
+  "cases": [
+    {
+      "case": "full-corpus",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "all"
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "8747736e-e98c-4415-bfd1-33e15b109bde",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_pregnancy_food_safety",
+            "claims": [
+              {
+                "text": "Table: Safer Food Choices for Pregnant People Category: Poultry and Meat Riskier Choice: Raw or undercooked poultry or meat Poultry includes chicken and turkey Meat includes beef, pork, lamb, and veal Unheated deli meat, cold cuts, hot dogs, and fermented or dry sausages Refrigerated p\u00e2t\u00e9 or meat spreads Safer Choice: Poultry and meat cooked to a safe internal temperature. Use a food thermometer to check. All poultry, including ground chicken and turkey, cooked to 165\u00b0F Whole cuts of beef, veal, lamb, and pork cooked to 145\u00b0F (then allow the meat to rest for 3 minutes before carving or eating) Ground meats, such as beef and pork, cooked to 160\u00b0F Deli meat, cold cuts, hot dogs, and fermented or dry sausages heated to 165\u00b0F or until steaming hot P\u00e2t\u00e9 or meat spreads in sealed, airtight containers that don\u2019t need to be kept refrigerated before opening Note: Use the table below as a guide to making safer food choices. Pregnant women should also always follow steps to prevent food poisoning.",
+                "citation_ids": [
+                  "citation_1bb433b92526d328272fb090858fff62927e2ba84c4366db3420f693febd5030"
+                ]
+              }
+            ]
+          },
+          {
+            "document_id": "mn_safe_grilling_pdf",
+            "claims": [
+              {
+                "text": "Table: Safe Grilling Food: Poultry or fowl, whole or parts Safe Internal Temperature: 165\u00b0F Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+                "citation_ids": [
+                  "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c"
+                ]
+              }
+            ]
+          },
+          {
+            "document_id": "mn_safe_temperatures",
+            "claims": [
+              {
+                "text": "- Thoroughly cook raw meat and poultry to destroy bacteria. - Using a thermometer to measure the internal temperature of meat can be used to ensure that it is cooked sufficiently to kill bacteria. Ground beef should be cooked to an internal temperature of 160\u00b0F. - Eggs should be cooked until the yolk is firm. - Use Proper Cooking Temperatures to Ensure Safe Food This printable chart gives cooking temperatures. The key to safe cooking is the proper internal temperature to kill the organisms that might make you sick. Use a thermometer to check temperature. - If you are served an undercooked hamburger or other ground beef product in a restaurant, send it back for further cooking.",
+                "citation_ids": [
+                  "citation_bd7e429f322961bf373a9d5aaf09f5a662381fd2dd8bd3a0b0ab3d18605b9137"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_1bb433b92526d328272fb090858fff62927e2ba84c4366db3420f693febd5030",
+            "document_id": "cdc_pregnancy_food_safety",
+            "document_name": "Food Safety During Pregnancy",
+            "publisher": "CDC",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Jan. 31, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/foods/pregnant-women.html#heading-3zizosiq48",
+            "section_heading": "Safer Food Choices for Pregnant Women > Safer food choices",
+            "chunk_ids": [
+              "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5"
+            ],
+            "support_quotes": [
+              "Table: Safer Food Choices for Pregnant People",
+              "Category: Poultry and Meat\nRiskier Choice: Raw or undercooked poultry or meat Poultry includes chicken and turkey Meat includes beef, pork, lamb, and veal Unheated deli meat, cold cuts, hot dogs, and fermented or dry sausages Refrigerated p\u00e2t\u00e9 or meat spreads\nSafer Choice: Poultry and meat cooked to a safe internal temperature. Use a food thermometer to check. All poultry, including ground chicken and turkey, cooked to 165\u00b0F Whole cuts of beef, veal, lamb, and pork cooked to 145\u00b0F (then allow the meat to rest for 3 minutes before carving or eating) Ground meats, such as beef and pork, cooked to 160\u00b0F Deli meat, cold cuts, hot dogs, and fermented or dry sausages heated to 165\u00b0F or until steaming hot P\u00e2t\u00e9 or meat spreads in sealed, airtight containers that don\u2019t need to be kept refrigerated before opening",
+              "Note: Use the table below as a guide to making safer food choices. Pregnant women should also always follow steps to prevent food poisoning."
+            ]
+          },
+          {
+            "citation_id": "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c",
+            "document_id": "mn_safe_grilling_pdf",
+            "document_name": "Safe Grilling",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": 2007,
+            "date_label": "Created April 2007; modified 2025; printed footer",
+            "format": "pdf",
+            "physical_pages": [
+              1
+            ],
+            "page_urls": [
+              "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1"
+            ],
+            "printed_page_labels": [
+              "1"
+            ],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1",
+            "section_heading": "Safe Grilling",
+            "chunk_ids": [
+              "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+            ],
+            "support_quotes": [
+              "Table: Safe Grilling",
+              "Food: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F",
+              "Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+            ]
+          },
+          {
+            "citation_id": "citation_bd7e429f322961bf373a9d5aaf09f5a662381fd2dd8bd3a0b0ab3d18605b9137",
+            "document_id": "mn_safe_temperatures",
+            "document_name": "Keep Your Food at the Appropriate Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Last Updated: July 15, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/temperature.html#cook",
+            "section_heading": "Keep Your Food at the Appropriate Temperatures Food Safety > Cooking",
+            "chunk_ids": [
+              "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118"
+            ],
+            "support_quotes": [
+              "- Thoroughly cook raw meat and poultry to destroy bacteria.\n    - Using a thermometer to measure the internal temperature of meat can be used to ensure that it is cooked sufficiently to kill bacteria. Ground beef should be cooked to an internal temperature of 160\u00b0F.\n  - Eggs should be cooked until the yolk is firm.\n- Use Proper Cooking Temperatures to Ensure Safe Food This printable chart gives cooking temperatures. The key to safe cooking is the proper internal temperature to kill the organisms that might make you sick. Use a thermometer to check temperature.\n- If you are served an undercooked hamburger or other ground beef product in a restaurant, send it back for further cooking."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": [
+          "cdc_emergency_food_safety (cdc_emergency_food_safety): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "cdc_food_safety (cdc_food_safety): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "dga_2025_2030_pdf (dga_2025_2030_pdf): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "fda_nutrition_label_current (fda_nutrition_label_current): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "fda_produce (fda_produce): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "hhs_kids_teens_pdf (hhs_kids_teens_pdf): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "mn_cold_storage (mn_cold_storage): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "mn_cross_contamination_pdf (mn_cross_contamination_pdf): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "mn_food_thermometers (mn_food_thermometers): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "mn_storage_chart (mn_storage_chart): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf).",
+          "nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf): cooking; no sufficient retrieved evidence. Searched: cdc_emergency_food_safety (cdc_emergency_food_safety), cdc_food_safety (cdc_food_safety), Food Safety During Pregnancy (cdc_pregnancy_food_safety), dga_2025_2030_pdf (dga_2025_2030_pdf), fda_nutrition_label_current (fda_nutrition_label_current), fda_produce (fda_produce), Selecting and Serving Fresh and Frozen Seafood Safely (fda_seafood), hhs_adults_older_adults_pdf (hhs_adults_older_adults_pdf), hhs_kids_teens_pdf (hhs_kids_teens_pdf), mn_cold_storage (mn_cold_storage), mn_cross_contamination_pdf (mn_cross_contamination_pdf), mn_food_thermometers (mn_food_thermometers), Safe Grilling (mn_safe_grilling_pdf), Keep Your Food at the Appropriate Temperatures (mn_safe_temperatures), mn_storage_chart (mn_storage_chart), nhlbi_sodium_tips_pdf (nhlbi_sodium_tips_pdf)."
+        ]
+      },
+      "rendered_heading": "Partly supported by sources",
+      "rendered_answer_documents": [
+        "cdc_pregnancy_food_safety",
+        "mn_safe_grilling_pdf",
+        "mn_safe_temperatures"
+      ],
+      "rendered_claims": 3,
+      "rendered_source_links": 3
+    },
+    {
+      "case": "named-source",
+      "request": {
+        "question": "How long can hard cooked eggs stay in the refrigerator or freezer?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "24497beb-6730-4bce-81cd-1a05b3e0567a",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "Answered from sources",
+      "rendered_answer_documents": [
+        "mn_storage_chart"
+      ],
+      "rendered_claims": 1,
+      "rendered_source_links": 1
+    },
+    {
+      "case": "comparison",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety",
+            "mn_safe_grilling_pdf"
+          ]
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "6b88cbb1-a0da-4a94-8154-1a3c0727d6f6",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "All poultry, including ground chicken and turkey 165\u00b0F",
+                "citation_ids": [
+                  "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd"
+                ]
+              }
+            ]
+          },
+          {
+            "document_id": "mn_safe_grilling_pdf",
+            "claims": [
+              {
+                "text": "Table: Safe Grilling Food: Poultry or fowl, whole or parts Safe Internal Temperature: 165\u00b0F Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+                "citation_ids": [
+                  "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-fl6ehds86y",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Safe internal temperatures for different foods",
+            "chunk_ids": [
+              "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+            ],
+            "support_quotes": [
+              "All poultry, including ground chicken and turkey\n\n165\u00b0F"
+            ]
+          },
+          {
+            "citation_id": "citation_c07cbb991ee653a555508eb301dd427f0c1918446647085c1c1a870a2313904c",
+            "document_id": "mn_safe_grilling_pdf",
+            "document_name": "Safe Grilling",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": 2007,
+            "date_label": "Created April 2007; modified 2025; printed footer",
+            "format": "pdf",
+            "physical_pages": [
+              1
+            ],
+            "page_urls": [
+              "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1"
+            ],
+            "printed_page_labels": [
+              "1"
+            ],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1",
+            "section_heading": "Safe Grilling",
+            "chunk_ids": [
+              "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+            ],
+            "support_quotes": [
+              "Table: Safe Grilling",
+              "Food: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F",
+              "Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety",
+          "mn_safe_grilling_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "Answered from sources",
+      "rendered_answer_documents": [
+        "cdc_food_safety",
+        "mn_safe_grilling_pdf"
+      ],
+      "rendered_claims": 2,
+      "rendered_source_links": 3
+    },
+    {
+      "case": "partial-comparison",
+      "request": {
+        "question": "How long can hard cooked eggs stay in the refrigerator?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart",
+            "mn_safe_grilling_pdf"
+          ]
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "e2627148-a200-47f9-abf5-7cf8806f5dca",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_safe_grilling_pdf",
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": [
+          "Safe Grilling (mn_safe_grilling_pdf): storage duration in the refrigerator; no sufficient retrieved evidence. Searched: Safe Grilling (mn_safe_grilling_pdf), Refrigerator and Freezer Storage Chart: Cold Storage Temperatures (mn_storage_chart)."
+        ]
+      },
+      "rendered_heading": "Partly supported by sources",
+      "rendered_answer_documents": [
+        "mn_safe_grilling_pdf",
+        "mn_storage_chart"
+      ],
+      "rendered_claims": 1,
+      "rendered_source_links": 1
+    },
+    {
+      "case": "evidence-gap",
+      "request": {
+        "question": "What refrigerator storage time does the chart give for TV dinners?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "1c29a4f5-eabb-4aeb-9987-00b6ae688e62",
+        "status": "not_covered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": "The retrieved guidance from the searched documents does not cover the requested information: Refrigerator and Freezer Storage Chart: Cold Storage Temperatures (mn_storage_chart).",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "Not covered by searched sources",
+      "rendered_answer_documents": [],
+      "rendered_claims": 0,
+      "rendered_source_links": 0
+    },
+    {
+      "case": "clarification",
+      "request": {
+        "question": "How long can cooked eggs keep?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "ac6d0170-f919-4baf-98da-7d39c51c443c",
+        "status": "needs_clarification",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": "Please specify refrigerator or freezer storage, egg preparation: hard-cooked, in-shell, separated yolks/whites, or liquid pasteurized.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "A little more detail is needed",
+      "rendered_answer_documents": [],
+      "rendered_claims": 0,
+      "rendered_source_links": 0
+    },
+    {
+      "case": "medical-refusal",
+      "request": {
+        "question": "What diet treats diabetes?",
+        "scope": {
+          "mode": "all"
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "e9e2f255-6c13-401c-9dc2-4d13e97f8f86",
+        "status": "out_of_scope",
+        "corpus_version": null,
+        "message": "I can't provide medical advice or a medically personalized diet. Please consult a qualified clinician or registered dietitian. Ask a separate question about general food selection or household food safety.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "Outside scope",
+      "rendered_answer_documents": [],
+      "rendered_claims": 0,
+      "rendered_source_links": 0
+    },
+    {
+      "case": "structured-data",
+      "request": {
+        "question": "How much protein is in an egg?",
+        "scope": {
+          "mode": "all"
+        }
+      },
+      "http_status": 200,
+      "response": {
+        "request_id": "386f53c4-815d-475b-9b26-522bcdcbbaea",
+        "status": "requires_structured_data",
+        "corpus_version": null,
+        "message": "Individual-food nutrient values require a structured nutrient database, planned for Milestone 3. This capability is not available here, and I can't estimate those values from guidance documents. Ask a separate general guidance question.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      },
+      "rendered_heading": "Nutrient lookup unavailable",
+      "rendered_answer_documents": [],
+      "rendered_claims": 0,
+      "rendered_source_links": 0
+    }
+  ],
+  "passed": true,
+  "verification": {
+    "python_tests_passed": 634,
+    "ui_tests_passed": 42,
+    "native_browser": "Google Chrome",
+    "native_browser_checks": [
+      "16 available sources and 52 unavailable sources visible",
+      "Selected CDC food safety and Minnesota Safe Grilling using checkboxes; submitted comparison",
+      "Separate source cards with exact claims, HTML anchors and physical PDF page links",
+      "Desktop and 390 x 844 responsive layouts inspected without horizontal clipping",
+      "Desktop preview restored after responsive inspection"
+    ],
+    "wheel_assets": "Installed wheel serves HTML and assets outside checkout, reusing locked API dependencies"
+  }
+}

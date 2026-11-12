@@ -23,17 +23,30 @@ runtime:
   per_document_candidates: 3
   request_timeout_seconds: 60
 generation:
-  provider: unconfigured
-  model_name: null
+  provider: groq
+  model_name: openai/gpt-oss-120b
 policy:
   classifier: local_conservative_v1
   minimum_confidence: 0.9
   classifier_timeout_seconds: 10
 answering:
-  generator: extractive_v1
+  generator: configured
   units_per_aspect: 1
   max_claims_per_document: 8
   repair_attempts: 1
   semantic_minimum_confidence: 0.95
   generator_timeout_seconds: 30
   verifier_timeout_seconds: 15
+# Local rolling budgets; adjust to your Groq account limits.
+groq:
+  max_input_tokens: 6000
+  max_completion_tokens: 1024
+  requests_per_minute: 30
+  requests_per_hour: 60
+  requests_per_day: 300
+  tokens_per_minute: 8000
+  tokens_per_hour: 30000
+  tokens_per_day: 100000
+api:
+  max_body_bytes: 16384
+  max_in_flight: 2
