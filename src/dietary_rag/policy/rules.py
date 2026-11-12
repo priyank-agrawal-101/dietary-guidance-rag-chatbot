@@ -38,7 +38,7 @@ PATTERNS = {
     "individual_food_nutrients": (
         r"\b(?:how much|how many|grams? of|amount of|content of)\b.{0,45}\b(?:protein|fat|carb(?:ohydrate)?s?|sodium|sugar|fiber|fibre|calories?|kcal|vitamin|mineral|potassium|calcium|iron)\b.{0,65}\b(?:in|does|has|have|per)\b",
         r"\b(?:nutrient|nutrition|nutritional)\s+(?:values?|content|facts|profile)\b.{0,35}\b(?:of|for|in)\b",
-        r"\b(?:banana|apple|egg|rice|chicken|milk|salmon|bread|broccoli)\b.{0,35}\b(?:protein|carbs?|calories?|sodium|fat)\s*(?:content|amount|grams|count)?\s*\?*$",
+        r"\b(?:banana|apple|egg|rice|chicken|milk|salmon|bread|broccoli)\b(?![^?.]{0,35}\b(?:remove|reduce|avoid|limit|rinse|wash)\b).{0,35}\b(?:protein|carbs?|calories?|sodium|fat)\s*(?:content|amount|grams|count)?\s*\?*$",
     ),
 }
 

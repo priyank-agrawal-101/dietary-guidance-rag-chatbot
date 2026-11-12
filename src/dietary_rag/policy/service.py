@@ -100,5 +100,22 @@ class PolicyService:
                     "generated claim supplies prohibited advice or nutrient values"
                 )
             decision = self.decide(claim)
+            if decision.route == "requires_structured_data" and label_explanation(value):
+                # A declarative explanation of label formats/comparison is not a
+                # database lookup. Numeric nutrient/target guards above still apply.
+                continue
             if decision.route != "allow":
                 raise PolicyViolation("generated claim violates or has unresolved policy scope")
+
+
+def label_explanation(value):
+    """Narrow literacy exception for complete source prose, never question routing."""
+    return bool(
+        re.search(r"dual.column\s+labels?", value)
+        and "per serving" in value
+        and "per package" in value
+        and "indicate the amounts of calories and nutrients" in value
+        or re.search(r"nutrition facts labels?", value)
+        and "compare sodium levels in foods" in value
+        and "no-salt-added" in value
+    )

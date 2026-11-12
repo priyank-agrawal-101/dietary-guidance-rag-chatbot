@@ -105,6 +105,7 @@ class SearchAudit(Contract):
     fused_ranks: list[dict] = Field(default_factory=list)
     budget_omissions: dict[str, str] = Field(default_factory=dict)
     duplicate_omissions: dict[str, str] = Field(default_factory=dict)
+    context_chunks: dict[str, str] = Field(default_factory=dict)
     query_embedding_seconds: Annotated[float, Field(ge=0, allow_inf_nan=False)] = 0.0
     elapsed_seconds: Annotated[float, Field(ge=0, allow_inf_nan=False)] = 0.0
 

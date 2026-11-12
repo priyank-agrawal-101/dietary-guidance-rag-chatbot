@@ -31,7 +31,7 @@ The objective is a US-focused chatbot that retrieves approved dietary and househ
 | Policy service and response contracts | P4.1–P4.6 implemented and verified | Code gates, typed routing/contracts and pinned retrieval integration; [policy foundations](phase4-policy.md). |
 | Grounded answering and citation validation | P5.1–P5.7 implemented and verified | Conservative extractive CLI, typed provider/verifier adapters, canonical citations and bounded repair; [answering foundations](phase5-answering.md). |
 | HTTP API integration | P6.1–P6.3 implemented and verified | Shared CLI/API orchestration, Groq token/usage budgets, health/readiness, source listing and deadline/error handling; [API guide](phase6-api.md). |
-| Browser UI | P6.4–P6.6 implemented and verified | Source selection, comparisons, all response states and safe rendering; [UI guide](phase6-ui.md). Phase 7 remains planned. |
+| Browser UI | P6.4–P6.6 implemented and verified | Source selection, comparisons, all response states and safe rendering; [UI guide](phase6-ui.md). Phase 7 learning-project release is complete under the documented Human–AI assisted gate revision. |
 
 Registry counts reflect the November 11, 2026 source review; Phase 2 completion reflects November 12, 2026. Recompute coverage from the registry and reviewed build reports when sources change; do not hardcode these counts in runtime logic.
 
@@ -514,6 +514,8 @@ Dense retrieval missed the complete restaurant sodium-tips evidence. The hybrid 
 
 ### 7.1 Evaluation and coverage
 
+**Status: P7.1–P7.3 complete for the learning project, November 12, 2026.** The frozen 71-case suite, active-pin diagnostics, indexed eligibility audit and human-review worksheet are documented in [Phase 7 evaluation](phase7-evaluation.md). Automated scoring passes 71/71 frozen cases after fixing all 25 answerability failures; the original 46/71 baseline is retained. The user explicitly authorized a [Human–AI assisted learning-only gate](review-gate-revision.md): 71/71 grounded, 71/71 condition-complete (100%), 71/71 policy-safe and zero critical errors. The three prior completeness findings are resolved; [fix verification](completeness-fix-review.json) records the changes and retained review notes. Independent human review is not claimed. The active index has 16 eligible unique families and six approved official US PDFs. All learning-scope release checks pass.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
 | `P7.1` | Expand the existing small reviewed query set to approximately 60–80 cases. | P3.6, P5.7 | Expected categories, evidence, conditions and forbidden claims cover both formats and all required behaviors. |
@@ -521,6 +523,8 @@ Dense retrieval missed the complete restaurant sodium-tips evidence. The hybrid 
 | `P7.3` | Close the coverage gap and audit final eligibility/exclusions. | P1.7, P7.2 | At least 15 eligible unique consumer families and 5 official PDFs contributing reviewed chunks, or an explicit requirements revision; no quota inflation. |
 
 ### 7.2 Refresh and reproducible release
+
+**Status: P7.4–P7.7 complete for the learning project, November 12, 2026.** Conditional administrative refresh preserves the active pointer, stages changed bytes and persists metadata review flags. Aggregate stage/state metrics and a single-process foreground deployment are implemented. The [operations runbook](operations-runbook.md) covers installation, build/OCR, evaluation, backups, refresh, promotion and rollback. [Refresh verification](refresh-review.json) uses actual approved original bytes with deterministic HTTP responses. The clean-environment runner and fail-closed, checksummed local bundle publisher retain [reproduction](reproduction-review.json) and [release-gate](release-review.json) reports. All 71 automated evaluation cases pass and 672 tests plus offline active-corpus API checks pass in isolated hash-locked wheel reproduction. The learning-only report/snapshot bundle is published at `data/releases/learning-v0.1.1`; [publication proof](learning-release-publication.json) verifies checksums and copied-index integrity. Existing development activation is retained. No live user deployment or independent human review is claimed.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -581,8 +585,8 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | 4 | Complete — P4.1–P4.6 | Reviewed routing, fail-closed classification, typed contracts, actual scope isolation and pinned evidence verified; see [policy foundations](phase4-policy.md). |
 | 5 | Complete — P5.1–P5.7 | Cited active-corpus CLI, 31/31 reviewed cases, per-document gaps and bounded validation/repair verified; see [answering foundations](phase5-answering.md). |
 | 6 | Complete — P6.1–P6.6 | Shared Groq API, source selection, validated comparisons, all response states and safe desktop/mobile UI; [UI review](ui-review.json). |
-| 7 | Not started | Evaluation, coverage, release and reproducibility evidence. |
+| 7 | Complete for learning scope: P7.1–P7.7 | 71/71 automated cases; user-authorized Human–AI assisted review meets original thresholds with all three prior completeness findings resolved. 672 tests, clean reproduction, local report/snapshot publication and checksum/index validation pass. Independent human review is not claimed. See [operations](operations-runbook.md). |
 
-With Phases 0–6 complete, Milestone D's browser prototype works over the gated, pinned corpus of 269 reviewed chunks from 16 documents, including six PDFs. API, CLI and browser share `AnswerService`; Groq selects compact evidence IDs while local validation preserves complete claims and citations. Next implement P7.1 evaluation expansion and the remaining Phase 7 evaluation/operation tasks. Retain BGE-small, the passing hybrid configuration and 350/50 chunking. Broader semantic/release evaluation remains required. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
+With Phases 0–6 complete, Milestone D's browser prototype works over the gated, pinned corpus of 269 reviewed chunks from 16 documents, including six PDFs. API, CLI and browser share `AnswerService`; Groq selects compact evidence IDs while local validation preserves complete claims and citations. The expanded evaluation, refresh, metrics, deployment/runbook and release-gate tooling are implemented. The 25 answerability findings are fixed. P7.2/P7.7 and Milestone E are complete for the learning project under the explicitly revised reviewer requirement; independent human acceptance for actual users remains outside this learning release. Retain BGE-small, the passing hybrid configuration and 350/50 chunking. Broader population and live-provider evaluation would be required for an actual-user release. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
 
 Keep the following outside the initial build: individual-food nutrient database integration, personalized diet/weight plans, persistent chat memory, arbitrary user document ingestion, live web search at answer time, distributed ingestion jobs and multiple API workers. Optional FTS5 search or reranking should be added only when measured retrieval failures justify them. A separate scientific/medical reference experiment must not expand the consumer chatbot's permitted advice scope.

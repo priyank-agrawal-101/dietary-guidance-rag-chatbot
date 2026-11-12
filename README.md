@@ -230,4 +230,12 @@ The HTML/CSS/JavaScript client in `web/` needs no build step. Same-origin servin
 text-only rendering, reviewed citation URLs and CSP protect the interface from
 active source markup. See the [UI guide](docs/phase6-ui.md) and [eight-flow real-corpus review](docs/ui-review.json)
 for behavior, concurrency handling, desktop/mobile inspection and verification.
-634 Python tests and 42 UI tests passed; Phase 7 evaluation and operation remain.
+Phase 6 verification passed 634 Python tests and 42 UI tests. Phase 7 learning-scope verification now passes 672 Python tests and offline active-corpus API checks.
+
+Phase 7 evaluation (P7.1–P7.3): see [evaluation guide](docs/phase7-evaluation.md) for the frozen 71-case offline command, scored findings, human-review worksheet and active indexed coverage audit. All 71 automated cases pass; the user-authorized Human–AI assisted learning review passes; P7.4–P7.7 operations and local learning-only publication are complete.
+
+Operations (P7.4–P7.7): [runbook](docs/operations-runbook.md), [refresh proof](docs/refresh-review.json), [clean reproduction](docs/reproduction-review.json), and [release decision](docs/release-review.json). Use `dietary-rag refresh-sources` for administrative conditional refresh, `/metrics` for aggregate stage/state counters, and `deploy/start-service.sh` for one foreground process. `scripts/check_release.py` only publishes a local immutable bundle after all prespecified automated/human/reproduction gates pass.
+
+The [learning review gate revision](docs/review-gate-revision.md) documents the explicitly authorized AI-assisted acceptance, 71/71 condition-complete verdicts, three resolved findings and retained review notes. Use `scripts/check_release.py --learning-project` for the learning scope; default independent-human approval is unchanged.
+
+The immutable learning bundle is at `data/releases/learning-v0.1.1`; [publication proof](docs/learning-release-publication.json) records checksum and copied-index validation. No live deployment or independent human review is claimed.

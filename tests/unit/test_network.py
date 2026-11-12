@@ -196,3 +196,30 @@ def test_compressed_http_body_is_not_saved_as_original_document():
             )
         ).fetch(URL, HOSTS, 100)
     assert exc.value.code == "unsupported_content_encoding"
+
+
+def test_unsolicited_304_and_invalid_condition_headers_fail():
+    with pytest.raises(DownloadError) as exc:
+        fetch_with(lambda _: httpx.Response(304)).fetch(URL, HOSTS, 100)
+    assert exc.value.code == "unexpected_not_modified"
+    with pytest.raises(DownloadError) as exc:
+        fetch_with(lambda _: httpx.Response(200)).fetch(
+            URL, HOSTS, 100, validators={"Host": "evil.test"}
+        )
+    assert exc.value.code == "invalid_validators"
+
+
+def test_conditional_headers_are_not_forwarded_to_redirect():
+    def handler(request):
+        if request.url.path == "/food":
+            assert request.headers["if-none-match"] == '"reviewed"'
+            return httpx.Response(302, headers={"location": "/new"})
+        assert "if-none-match" not in request.headers
+        return httpx.Response(200, content=b"body")
+
+    assert (
+        fetch_with(handler)
+        .fetch(URL, HOSTS, 100, validators={"If-None-Match": '"reviewed"'})
+        .content
+        == b"body"
+    )

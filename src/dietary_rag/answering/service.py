@@ -13,9 +13,11 @@ from dietary_rag.answering.contracts import AnswerModelUnavailable, AnswerValida
 from dietary_rag.answering.evidence import EvidenceAssessor
 from dietary_rag.api.context import CURRENT_REQUEST, request_context
 from dietary_rag.api.contracts import ChatResponse, ServiceError, service_error
+from dietary_rag.operations.metrics import stage
 from dietary_rag.policy.runtime import PreparedRequest
 from dietary_rag.policy.service import ClassificationUnavailable, PolicyViolation
 from dietary_rag.providers.usage import TokenBudgetExceeded, UsageLimitExceeded
+from dietary_rag.retrieval.context import food_group_context
 from dietary_rag.settings import AnsweringSettings
 
 
@@ -57,9 +59,12 @@ class AnswerService:
             if not isinstance(prepared, PreparedRequest):
                 return AnswerInspection(prepared, audit)
             request_id = prepared.request_id
-            audit["search_audit"] = prepared.search_result.audit.model_dump(mode="json")
             try:
-                assessment = self.assessor.assess(prepared.search_result)
+                with stage("retrieval"):
+                    prepared = food_group_context(prepared, self.runtime.runtime.candidate_chunks)
+                audit["search_audit"] = prepared.search_result.audit.model_dump(mode="json")
+                with stage("assessment"):
+                    assessment = self.assessor.assess(prepared.search_result)
                 audit["assessment"] = assessment.model_dump(mode="json")
                 self._deadline(deadline)
                 searched = prepared.search_result.audit.searched_document_ids
@@ -132,7 +137,8 @@ class AnswerService:
                                 generation.model_dump(mode="python")
                             )
                             stage_started = time.monotonic()
-                            draft = self.generator.generate(provider_input)
+                            with stage("generation"):
+                                draft = self.generator.generate(provider_input)
                             if (
                                 time.monotonic() - stage_started
                                 > self.settings.generator_timeout_seconds
@@ -145,17 +151,19 @@ class AnswerService:
                                 "generation dependency unavailable"
                             ) from exc
                         self._deadline(deadline)
-                        _draft, validated = validate_with_deadline(
-                            draft,
-                            prepared,
-                            generation,
-                            self.verifier,
-                            self.runtime.policy,
-                            self.settings.semantic_minimum_confidence,
-                            deadline,
-                            self.settings.verifier_timeout_seconds,
-                        )
-                        response = render_response(prepared, assessment, validated, unanswered)
+                        with stage("validation"):
+                            _draft, validated = validate_with_deadline(
+                                draft,
+                                prepared,
+                                generation,
+                                self.verifier,
+                                self.runtime.policy,
+                                self.settings.semantic_minimum_confidence,
+                                deadline,
+                                self.settings.verifier_timeout_seconds,
+                            )
+                        with stage("citations"):
+                            response = render_response(prepared, assessment, validated, unanswered)
                         self.runtime.check_response_policy(response)
                         self._deadline(deadline)
                         audit["validated_draft"] = _draft.model_dump(mode="json")

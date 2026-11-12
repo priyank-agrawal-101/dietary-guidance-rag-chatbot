@@ -9,6 +9,7 @@ from pydantic import ValidationError
 
 from dietary_rag.api.context import CURRENT_REQUEST
 from dietary_rag.api.contracts import ChatRequest, ChatResponse, service_error
+from dietary_rag.operations.metrics import stage
 from dietary_rag.policy.service import ClassificationUnavailable, PolicyService
 from dietary_rag.policy.templates import MESSAGES
 from dietary_rag.retrieval.contracts import (
@@ -67,7 +68,8 @@ class PolicyRuntime:
         try:
             if time.monotonic() >= deadline:
                 raise TimeoutError("request deadline exceeded")
-            decision = self.policy.decide(request.question)
+            with stage("policy"):
+                decision = self.policy.decide(request.question)
         except TimeoutError:
             yield service_error(request_id, "request_timeout")
             return
@@ -89,10 +91,12 @@ class PolicyRuntime:
 
         with ExitStack() as stack:
             try:
-                evidence_request = stack.enter_context(self.open_request())
+                with stage("corpus_open"):
+                    evidence_request = stack.enter_context(self.open_request())
                 if time.monotonic() > deadline:
                     raise TimeoutError("request deadline exceeded")
-                result = evidence_request.search(request.search_request())
+                with stage("retrieval"):
+                    result = evidence_request.search(request.search_request())
                 if time.monotonic() > deadline:
                     raise TimeoutError("request deadline exceeded")
             except TimeoutError:

@@ -329,3 +329,25 @@ class PinnedRequest:
         if resolved["chunk"] != self.retriever.chunks[chunk_id]:
             raise ValueError("pinned citation evidence changed")
         return resolved
+
+    def retrieve_food_group_context(self, chunk_id, introduction_id):
+        """Retrieve a reviewed card linked to an already retrieved same-page introduction."""
+        import re
+
+        intro = self.resolve_evidence(introduction_id)["chunk"]
+        chunk = self.retriever.chunks[chunk_id]
+        pages = {loc.physical_page for loc in intro.source_locations if loc.format == "pdf"}
+        if (
+            not re.search(r"food groups:\s*$", intro.text, re.I)
+            or not pages
+            or chunk.document_version_id != intro.document_version_id
+            or chunk.document_id != intro.document_id
+            or not any(re.fullmatch(r"page:\d+:food_group_\d+_\d+", k) for k in chunk.region_keys)
+            or not {loc.physical_page for loc in chunk.source_locations} <= pages
+        ):
+            raise ValueError("food-group context is outside the retrieved introduction")
+        resolved = self.retriever.evidence.resolve_chunk(chunk_id)
+        if resolved["chunk"] != chunk:
+            raise ValueError("pinned context evidence changed")
+        self.returned_chunks.add(chunk_id)
+        return resolved

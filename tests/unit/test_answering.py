@@ -595,3 +595,161 @@ def test_post_generation_policy_is_independent_of_semantic_verdict():
     result = service.inspect({"question": "What internal temperature should fish be cooked to?"})
     assert result.response.code == "answer_validation_failed"
     assert result.audit["validation_codes"] == ["post_generation_policy"] * 2
+
+
+def test_named_food_is_not_substituted_in_new_sodium_topic():
+    service, _ = service_for(
+        [
+            evidence_hit(
+                "doc",
+                "Canned tuna and beans can be rinsed to remove some of the sodium. Cook rice without salt.",
+            )
+        ]
+    )
+    response = service.answer({"question": "Can I rinse canned salmon to remove sodium?"})
+    assert response.status == "not_covered"
+
+
+@pytest.mark.parametrize(
+    "text,question",
+    [
+        (
+            "Check microwave wattage in watts. Use the minimum cooking time. A food thermometer should show 165°F.",
+            "How do microwave wattage and reheating checks work?",
+        ),
+        (
+            "Place a thermometer in the thickest part, away from bone, fat or gristle. Check several places.",
+            "Where should a food thermometer go in a roast, and how should I clean it?",
+        ),
+        (
+            "Keep freezer doors closed. Food stays safe for 24 hours in a half-full freezer at 40°F or below.",
+            "During a power outage, how long can food stay safe in full and half-full freezers?",
+        ),
+        ("Choose vegetables and season them yourself.", "Which vegetable choices reduce sodium?"),
+    ],
+)
+def test_new_topics_withhold_incomplete_conditions(text, question):
+    service, _ = service_for([evidence_hit("doc", text)])
+    response = service.answer({"question": question})
+    assert response.status == "not_covered"
+
+
+def test_blank_storage_value_is_still_withheld_for_new_food_category():
+    text = (
+        "Table: Storage\nProduct: Mayonnaise\nRefrigerator (Days at 40°F): [blank in source]\n"
+        "Freezer (Months at 0°F): don’t freeze\n\nNote: Freezer times protect against taste loss."
+    )
+    service, _ = service_for([evidence_hit("doc", text, kind="table")])
+    response = service.answer({"question": "How long can mayonnaise be refrigerated?"})
+    assert response.status == "not_covered"
+
+
+def food_group_fixture():
+    intro = evidence_hit(
+        "doc", "Choose a variety of healthy foods from these food groups:", format="pdf"
+    )
+    labels = ("Protein foods", "Dairy", "Vegetables", "Fruits", "Healthy fats", "Whole grains")
+    cards = []
+    for index, label in enumerate(labels):
+        card = evidence_hit("doc", label + " — source examples.", format="pdf", rank=index + 2)
+        card = card.model_copy(
+            update={
+                "chunk": card.chunk.model_copy(
+                    update={
+                        "sequence_index": index + 1,
+                        "region_keys": (f"page:1:food_group_{index // 3}_{index % 3}",),
+                    }
+                )
+            }
+        )
+        cards.append(card)
+    return intro, cards
+
+
+def test_food_group_introduction_retrieves_and_cites_all_reviewed_cards():
+    from types import MethodType
+
+    from dietary_rag.corpus.lifecycle import PinnedRequest
+
+    intro, cards = food_group_fixture()
+    service, request = service_for([intro, *cards])
+    canonical = {
+        h.chunk.chunk_id: {"chunk": h.chunk, "build": SimpleNamespace(document=h.document)}
+        for h in [intro, *cards]
+    }
+    request.retriever = SimpleNamespace(
+        chunks={h.chunk.chunk_id: h.chunk for h in [intro, *cards]},
+        evidence=SimpleNamespace(resolve_chunk=canonical.__getitem__),
+    )
+    request.returned_chunks = {intro.chunk.chunk_id}
+    request.resolve_evidence = MethodType(PinnedRequest.resolve_evidence, request)
+    request.retrieve_food_group_context = MethodType(
+        PinnedRequest.retrieve_food_group_context, request
+    )
+    original_search = request.search
+    request.search = lambda payload: original_search(payload).model_copy(update={"hits": (intro,)})
+    result = service.inspect({"question": "How can adults choose a variety of healthy foods?"})
+    assert result.response.status == "answered"
+    assert result.response.unanswered_aspects == ()
+    assert (
+        result.response.document_answers[0]
+        .claims[0]
+        .text.endswith("Protein foods, Dairy, Vegetables, Fruits, Healthy fats, Whole grains.")
+    )
+    assert len(result.response.citations) == 7
+    assert set(result.audit["search_audit"]["context_chunks"]) == {c.chunk.chunk_id for c in cards}
+    assert request.returned_chunks == set(canonical)
+    with pytest.raises(ValueError, match="outside the retrieved introduction"):
+        request.retrieve_food_group_context(intro.chunk.chunk_id, intro.chunk.chunk_id)
+
+
+@pytest.mark.parametrize("problem", ["missing", "other_page", "other_document"])
+def test_food_group_list_never_fills_missing_or_unrelated_cards(problem):
+    intro, cards = food_group_fixture()
+    if problem == "missing":
+        cards.pop()
+    elif problem == "other_page":
+        cards[-1] = cards[-1].model_copy(
+            update={
+                "chunk": cards[-1].chunk.model_copy(
+                    update={
+                        "source_locations": tuple(
+                            loc.model_copy(update={"physical_page": 2})
+                            for loc in cards[-1].chunk.source_locations
+                        ),
+                    }
+                )
+            }
+        )
+    else:
+        other = evidence_hit("other", "Whole grains — source examples.", format="pdf", rank=7)
+        cards[-1] = other.model_copy(
+            update={
+                "chunk": other.chunk.model_copy(
+                    update={
+                        "region_keys": ("page:1:food_group_1_2",),
+                    }
+                )
+            }
+        )
+    service, _ = service_for([intro, *cards])
+    response = service.answer({"question": "How can adults choose a variety of healthy foods?"})
+    assert response.status == "not_covered"
+
+
+@pytest.mark.parametrize("complete", [True, False])
+def test_seasonal_produce_sodium_coverage_requires_the_actual_qualification(complete):
+    text = "Buy produce in season. Frozen, dried, or canned options can be affordable."
+    if complete:
+        text += " Choose options with little or no added sugars or sodium."
+    service, _ = service_for([evidence_hit("doc", text)])
+    response = service.answer(
+        {
+            "question": "How can adults buy affordable produce out of season, "
+            "and what should they check for added sugar or sodium?"
+        }
+    )
+    assert response.status == ("answered" if complete else "not_covered")
+    if complete:
+        assert response.unanswered_aspects == ()
+        assert "little or no added sugars or sodium" in response.document_answers[0].claims[0].text

@@ -1,0 +1,45 @@
+{
+  "version": "learning_release_publication_v1",
+  "date": "2026-11-12",
+  "status": "published_and_verified",
+  "bundle_directory": "data/releases/learning-v0.1.0",
+  "release_scope": "learning_project_only",
+  "independent_human_review": false,
+  "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+  "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+  "review_summary": {
+    "cases_total": 71,
+    "grounded_cases": 71,
+    "conditions_complete_cases": 68,
+    "policy_safe_cases": 71,
+    "critical_errors": 0
+  },
+  "checksummed_files": 34,
+  "checksum_failures": [],
+  "unexpected_files": [],
+  "checksums_sha256": "55003aac1fb62c57db6270e4566a00f2d0564da92df63a99212c4f05f8055d0f",
+  "active_pointer_unchanged": true,
+  "active_pointer_sha256": "dfb8f0400fcdc8f3d135a7e978d4c789ddd54f3da455b11df89246dd79337227",
+  "snapshot_validation_method": "Validated disposable snapshot copy; immutable published files not opened by Chroma. Rechecked all bundle checksums after validation.",
+  "snapshot_validation": {
+    "status": "compatible_candidate_no_activation",
+    "active": false,
+    "snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "chunks": 269,
+    "documents": 16,
+    "pdf_documents": 6,
+    "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+    "checks": {
+      "exact_membership": true,
+      "reviewed_provenance": true,
+      "model_configuration": true,
+      "complete_input_limits": true,
+      "canonical_vectors": true,
+      "scalar_metadata": true
+    },
+    "retrieval_quality_evaluated": false
+  },
+  "strict_independent_human_gate_approved": false,
+  "test_suite": "666 passed; isolated hash-locked installed-wheel reproduction",
+  "deployment": "local immutable learning bundle; no live service deployment"
+}

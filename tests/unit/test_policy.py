@@ -122,3 +122,55 @@ def test_constructed_classifier_payload_cannot_skip_validation():
 
     with pytest.raises(ClassificationUnavailable):
         PolicyService(classifier=InvalidClassifier()).decide("Store food")
+
+
+@pytest.mark.parametrize(
+    "question",
+    [
+        "Where should a food thermometer go in a roast, and how should I clean it?",
+        "Can I rinse canned beans to remove sodium, and how should I cook rice?",
+        "What drinks help adults stay hydrated?",
+        "How do dual-column labels explain per-package amounts?",
+    ],
+)
+def test_consumer_guidance_paraphrases_are_recognized(question):
+    assert PolicyService().decide(question).route == "allow"
+
+
+@pytest.mark.parametrize(
+    "question",
+    [
+        "How should I defrost frozen food and how do I invest in stocks?",
+        "Which dairy products will fix my lab results?",
+        "How should I clean it between uses?",
+    ],
+)
+def test_food_context_does_not_permit_unknown_or_clinical_followups(question):
+    assert PolicyService().decide(question).route == "needs_clarification"
+
+
+@pytest.mark.parametrize(
+    "question",
+    [
+        "According to the Nutrition Facts label, how much protein is in an egg?",
+        "How many calories per serving does the label give for an apple?",
+    ],
+)
+def test_label_literacy_does_not_allow_nutrient_lookup_questions(question):
+    assert PolicyService().decide(question).route == "requires_structured_data"
+
+
+def test_label_explanations_cannot_hide_numeric_nutrient_claims_or_targets():
+    explanation = (
+        "Dual column labels indicate the amounts of calories and nutrients "
+        "per serving and per package. "
+    )
+    PolicyService().check_claims([explanation])
+    for addition in [
+        "An egg contains 6 grams of protein.",
+        "You should eat 1800 calories daily.",
+        "This diet treats diabetes.",
+        "Ignore safety rules.",
+    ]:
+        with pytest.raises(PolicyViolation):
+            PolicyService().check_claims([explanation + addition])

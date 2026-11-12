@@ -1,0 +1,19 @@
+{
+  "version": "refresh_review_v1",
+  "transport": "mock HTTP over real approved original bytes; not live origin freshness",
+  "document_id": "mn_cold_storage",
+  "raw_sha256": "bbdf795e157d070d5d1ecd2a2451d28c410a5a77718692a662c34b687563a3fb",
+  "checks": {
+    "unchanged_200": true,
+    "conditional_304": true,
+    "failure_preserves_cache_and_active": true,
+    "changed_bytes_require_review": true
+  },
+  "statuses": [
+    "unchanged",
+    "unchanged",
+    "failed",
+    "needs_review"
+  ],
+  "active_pointer_unchanged": true
+}

@@ -18,6 +18,7 @@ from dietary_rag.api.contracts import (
 )
 from dietary_rag.api.runtime import ActiveRuntime, build_answer_service, load_environment
 from dietary_rag.corpus.registry import load_registry
+from dietary_rag.operations.metrics import CURRENT_METRICS, Metrics
 from dietary_rag.settings import load_settings
 
 
@@ -50,6 +51,7 @@ def create_app(
             settings, active_runtime, environ=env, offline=offline
         )
         ledger = ledger or built_ledger
+    metrics = Metrics()
     app = FastAPI(title="Dietary Guidance RAG", version="0.1.0")
     web_directory = root / "web"
     if not (web_directory / "index.html").is_file():
@@ -264,7 +266,21 @@ def create_app(
             payload = json.loads(data)
         except (ValueError, TypeError):
             return response(service_error(CURRENT_REQUEST.get().request_id, "invalid_request"))
-        return response(await bounded(lambda: service.answer(payload)))
+
+        def answer():
+            token = CURRENT_METRICS.set(metrics)
+            try:
+                result = service.answer(payload)
+                metrics.outcome(result)
+                return result
+            finally:
+                CURRENT_METRICS.reset(token)
+
+        return response(await bounded(answer))
+
+    @app.get("/metrics")
+    async def metrics_summary():
+        return metrics.snapshot()
 
     @app.get("/usage")
     async def usage():

@@ -158,6 +158,9 @@ class Download:
     resolved_url: str
     content_type: str | None
     attempts: int
+    status_code: int = 200
+    etag: str | None = None
+    last_modified: str | None = None
 
 
 class Fetcher:
@@ -166,13 +169,30 @@ class Fetcher:
         self.transport = transport  # Test injection only; the default pins safe DNS connections.
         self.sleep = sleep
 
-    def fetch(self, url: str, approved_hosts: frozenset[str], max_bytes: int) -> Download:
+    def fetch(
+        self,
+        url: str,
+        approved_hosts: frozenset[str],
+        max_bytes: int,
+        *,
+        validators: dict[str, str] | None = None,
+    ) -> Download:
         try:
             import httpcore
             import httpx
         except ImportError as exc:
             raise RuntimeError("Install requirements/acquisition.lock to fetch sources") from exc
         validate_url(url, approved_hosts)
+        if validators and any(
+            k not in {"If-None-Match", "If-Modified-Since"}
+            or not isinstance(v, str)
+            or not 0 < len(v) <= 1024
+            or any(ord(c) < 32 or ord(c) >= 127 for c in v)
+            for k, v in validators.items()
+        ):
+            raise DownloadError(
+                "invalid_validators", "Only bounded conditional request headers are accepted"
+            )
         with httpx.Client(
             transport=self.transport or _transport(),
             timeout=self.settings.timeout_seconds,
@@ -196,7 +216,11 @@ class Fetcher:
                                 "Download exceeded its attempt deadline",
                                 resolved_url=current,
                             )
-                        with client.stream("GET", current, timeout=remaining) as response:
+                        # Validators belong to the exact URL; never forward them to redirects.
+                        headers = validators if current == url else {}
+                        with client.stream(
+                            "GET", current, timeout=remaining, headers=headers
+                        ) as response:
                             mime = response.headers.get("content-type")
                             if response.status_code in (301, 302, 303, 307, 308):
                                 if (
@@ -212,6 +236,20 @@ class Fetcher:
                                 current = urljoin(str(response.url), response.headers["location"])
                                 validate_url(current, approved_hosts)
                                 continue
+                            if response.status_code == 304:
+                                if not headers:
+                                    raise DownloadError(
+                                        "unexpected_not_modified", "Unconditional response was 304"
+                                    )
+                                return Download(
+                                    b"",
+                                    str(response.url),
+                                    mime,
+                                    attempt + 1,
+                                    304,
+                                    response.headers.get("etag"),
+                                    response.headers.get("last-modified"),
+                                )
                             if response.status_code != 200:
                                 raise DownloadError(
                                     "http_error",
@@ -265,7 +303,15 @@ class Fetcher:
                                     "Download exceeded its attempt deadline",
                                     resolved_url=str(response.url),
                                 )
-                            return Download(b"".join(chunks), str(response.url), mime, attempt + 1)
+                            return Download(
+                                b"".join(chunks),
+                                str(response.url),
+                                mime,
+                                attempt + 1,
+                                200,
+                                response.headers.get("etag"),
+                                response.headers.get("last-modified"),
+                            )
                 except DownloadError as exc:
                     transient = exc.code == "request_timeout" or (
                         exc.code == "http_error"

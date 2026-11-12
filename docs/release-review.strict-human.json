@@ -1,0 +1,308 @@
+{
+  "version": "milestone_release_gate_v1",
+  "release_approved": false,
+  "release_scope": "independent_human_review",
+  "review_type": "human_ai_assisted_learning",
+  "independent_human_review": false,
+  "review_summary": {
+    "cases_total": 71,
+    "grounded_cases": 71,
+    "conditions_complete_cases": 71,
+    "policy_safe_cases": 71,
+    "critical_errors": 0
+  },
+  "checks": {
+    "prespecified_targets": true,
+    "dataset_bound": true,
+    "snapshot_bound": true,
+    "complete_suite": true,
+    "structural_and_policy": true,
+    "required_conditions": true,
+    "indexed_coverage": true,
+    "human_result_bound": true,
+    "human_review_complete": false,
+    "human_grounding_and_conditions": false,
+    "human_policy_and_critical_errors": false,
+    "reproduction_matches_implementation": true,
+    "clean_reproduction": true
+  },
+  "blockers": [
+    "human_review_complete",
+    "human_grounding_and_conditions",
+    "human_policy_and_critical_errors"
+  ],
+  "coverage": {
+    "eligible_indexed_family_count": 16,
+    "official_reviewed_pdf_ids": [
+      "dga_2025_2030_pdf",
+      "hhs_adults_older_adults_pdf",
+      "hhs_kids_teens_pdf",
+      "mn_cross_contamination_pdf",
+      "mn_safe_grilling_pdf",
+      "nhlbi_sodium_tips_pdf"
+    ],
+    "unexpected_indexed_documents": [],
+    "missing_eligible_documents": [],
+    "passes_quota_and_eligibility": true,
+    "documents": [
+      {
+        "document_id": "mn_food_thermometers",
+        "family_id": "mn_food_thermometers",
+        "format": "html",
+        "chunks": 2,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission"
+        ]
+      },
+      {
+        "document_id": "mn_storage_chart",
+        "family_id": "mn_storage_chart",
+        "format": "html",
+        "chunks": 14,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission"
+        ]
+      },
+      {
+        "document_id": "hhs_adults_older_adults_pdf",
+        "family_id": "hhs_adults_older_adults_pdf",
+        "format": "pdf",
+        "chunks": 33,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission"
+        ]
+      },
+      {
+        "document_id": "cdc_food_safety",
+        "family_id": "cdc_food_safety",
+        "format": "html",
+        "chunks": 16,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Symptoms, diagnosis, treatment, risk statistics and linked clinical pages"
+        ]
+      },
+      {
+        "document_id": "fda_produce",
+        "family_id": "fda_produce",
+        "format": "html",
+        "chunks": 9,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "About Foodborne Illness: symptoms, medical action and linked clinical content"
+        ]
+      },
+      {
+        "document_id": "mn_safe_grilling_pdf",
+        "family_id": "mn_safe_grilling",
+        "format": "pdf",
+        "chunks": 19,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.",
+          "Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations."
+        ]
+      },
+      {
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "family_id": "nhlbi_sodium_tips_pdf",
+        "format": "pdf",
+        "chunks": 8,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Blood-pressure treatment/effectiveness claims and DASH program prescriptions",
+          "Physical page 2: individual-food sodium lookup table",
+          "Physical page 1 treatment callouts/footer; page-level approval does not include adjacent clinical claims"
+        ]
+      },
+      {
+        "document_id": "mn_cross_contamination_pdf",
+        "family_id": "mn_cross_contamination",
+        "format": "pdf",
+        "chunks": 21,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission"
+        ]
+      },
+      {
+        "document_id": "cdc_pregnancy_food_safety",
+        "family_id": "cdc_pregnancy_food_safety",
+        "format": "html",
+        "chunks": 10,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Personalized prenatal diets, mercury serving targets, disease likelihood statistics and linked medical treatment"
+        ]
+      },
+      {
+        "document_id": "mn_cold_storage",
+        "family_id": "mn_cold_storage",
+        "format": "html",
+        "chunks": 8,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission"
+        ]
+      },
+      {
+        "document_id": "dga_2025_2030_pdf",
+        "family_id": "dga_2025_2030_pdf",
+        "format": "pdf",
+        "chunks": 51,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Political/administrative foreword",
+          "Body-weight-based protein or individual calorie-based targets",
+          "Disease-specific adaptations and supplement advice"
+        ]
+      },
+      {
+        "document_id": "cdc_emergency_food_safety",
+        "family_id": "cdc_emergency_food_safety",
+        "format": "html",
+        "chunks": 7,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Floodwater bleach recipes and commercial-can reconditioning procedures pending process-specific safety/extraction review",
+          "Unrelated emergency/medical/utility advice"
+        ]
+      },
+      {
+        "document_id": "fda_nutrition_label_current",
+        "family_id": "fda_nutrition_label_current",
+        "format": "html",
+        "chunks": 6,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Calories section and linked MyPlate calorie calculator",
+          "How Daily Values Relate to the %DVs: daily dietary-goal tables and upper/lower intake targets",
+          "Dietary trade-off prescriptions and disease-treatment claims",
+          "Individual-food nutrient values in worked examples; label semantics only"
+        ]
+      },
+      {
+        "document_id": "mn_safe_temperatures",
+        "family_id": "mn_safe_temperatures",
+        "format": "html",
+        "chunks": 8,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.",
+          "Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations."
+        ]
+      },
+      {
+        "document_id": "hhs_kids_teens_pdf",
+        "family_id": "hhs_kids_teens_pdf",
+        "format": "pdf",
+        "chunks": 44,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "Personalized growth/energy and supplement advice; do not apply age-specific limits to adults"
+        ]
+      },
+      {
+        "document_id": "fda_seafood",
+        "family_id": "fda_seafood",
+        "format": "html",
+        "chunks": 13,
+        "excluded_sections": [
+          "Medical treatment or personalized condition-specific diet advice",
+          "Calorie/weight targets and personalized calculators",
+          "Supplement treatment or dosing",
+          "Individual-food nutrient lookup data reserved for Milestone 3",
+          "Navigation, promotions and unrelated linked content",
+          "Images or third-party material without appropriate reuse permission",
+          "No-thermometer visual-doneness alternatives including the contradictory fish flesh is clear line",
+          "Special Health Notes: personalized prenatal/child fish servings and mercury intake targets",
+          "About Foodborne Illness: symptoms, treatment and reporting"
+        ]
+      }
+    ],
+    "limitations": [
+      "FoodSafety.gov federal cold-storage chart and USDA leftovers page still return HTTP 403; Minnesota storage/leftovers coverage retained with source-specific dates.",
+      "MyPlate and NIA locators remain unverified; no access or rights approval inferred.",
+      "Food allergy, infant feeding, home canning and shellfish regional advisories are not claimed as comprehensive coverage.",
+      "Extraction exclusions, table fidelity, conditions, OCR and publication/retrieval gates still need Phase 2+ validation."
+    ]
+  },
+  "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+  "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+  "dataset_sha256": "a904da99586eea02c57d658bce9e5b41937b65e65d32467b5cc55b3683c5e599",
+  "results_sha256": "8caf649493c9e8145632a02a0b9f759127da5bb0c59c7c274c40a912958778bc",
+  "publication_requested": false
+}

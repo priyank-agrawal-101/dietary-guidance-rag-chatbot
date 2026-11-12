@@ -33,11 +33,60 @@ FOODS = {
     "shellfish": r"\bshellfish\b",
     "milk": r"\bmilk\b",
     "cheese": r"\bcheese\w*\b",
-    "melon": r"\bmelon\b",
+    "melon": r"\b(?:water)?melons?\b",
+    "mayonnaise": r"\bmayonnaise\b",
+    "deli salad": r"\bdeli salads?\b",
+    "soups": r"\b(?:soups?|stews?)\b",
+    "juice": r"\b(?:juice|cider)\b",
+    "dough": r"\b(?:dough|batter|flour)\b",
     "leftovers": r"\bleftovers?\b",
     "tv dinners": r"\btv dinners?\b",
-    "produce": r"\b(?:produce|fruits?|vegetables?)\b",
+    "produce": r"\b(?:produce|fruits?|vegetables?|lettuce|mushrooms|cucumbers|salad greens)\b",
 }
+
+FOOD_GROUPS = ("Protein foods", "Dairy", "Vegetables", "Fruits", "Healthy fats", "Whole grains")
+
+
+def food_group_units(hits):
+    """Join an introduction to exact group labels, without unrelated card claims."""
+    units = []
+    for hit in hits:
+        if not re.search(r"food groups:\s*$", hit.chunk.text, re.I):
+            continue
+        pages = {loc.physical_page for loc in hit.chunk.source_locations if loc.format == "pdf"}
+        support = [Support(chunk_id=hit.chunk.chunk_id, support_quote=hit.chunk.text)]
+        for label in FOOD_GROUPS:
+            card = next(
+                (
+                    candidate
+                    for candidate in hits
+                    if candidate.chunk.document_version_id == hit.chunk.document_version_id
+                    and candidate.chunk.document_id == hit.chunk.document_id
+                    and any(
+                        re.fullmatch(r"page:\d+:food_group_\d+_\d+", k)
+                        for k in candidate.chunk.region_keys
+                    )
+                    and {loc.physical_page for loc in candidate.chunk.source_locations} <= pages
+                    and re.search(r"(?:^|\n)" + re.escape(label) + r"\s*—", candidate.chunk.text)
+                ),
+                None,
+            )
+            if card is None:
+                break
+            support.append(Support(chunk_id=card.chunk.chunk_id, support_quote=label))
+        if len(support) != len(FOOD_GROUPS) + 1:
+            continue
+        payload = {
+            "document_id": hit.chunk.document_id,
+            "chunk_id": hit.chunk.chunk_id,
+            "claim_text": whitespace(support[0].support_quote)
+            + " "
+            + ", ".join(s.support_quote for s in support[1:])
+            + ".",
+            "evidence": [s.model_dump() for s in support],
+        }
+        units.append(EvidenceUnit(unit_id=stable_id("evidence_unit", payload), **payload))
+    return units
 
 
 def units_for_hit(hit):
@@ -83,6 +132,9 @@ def units_for_hit(hit):
 def parse_aspects(question):
     q = normalize(question)
     foods = tuple(name for name, pattern in FOODS.items() if re.search(pattern, q))
+    # A prepared mixed-food row is its own category, not raw/shell egg storage.
+    if "deli salad" in foods:
+        foods = ("deli salad",)
     # The reference question can name food outside the supported ontology. Never
     # substitute a familiar category just because its evidence ranks highly.
     unknown_food = re.search(r"\b(?:raw|cooked|fresh)\s+([a-z]+)\b", q)
@@ -100,9 +152,24 @@ def parse_aspects(question):
         and not re.search(r"refrigerat|freez|frozen", q)
     ):
         duration = False
+    if re.search(r"\b(?:power (?:cut|outage)|electricity|without power)\b", q):
+        topics.append(("outage", None, ()))
+        duration = False
+    if re.search(r"\bmicrowav\w*\b", q):
+        topics.append(("microwave", None, ()))
+    if re.search(r"\b(?:probe |food )?thermometer\b", q) and re.search(
+        r"\b(?:probe|place|where|clean|uses)\b", q
+    ):
+        topics.append(("thermometer", None, ()))
+    if re.search(r"\b(?:hydration|hydrated|drinks?|water)\b", q) and re.search(
+        r"\b(?:adults?|guide|hydration|hydrated)\b", q
+    ):
+        topics.append(("hydration", None, ()))
+    if re.search(r"\b(?:dairy|caffeinat\w*)\b", q):
+        topics.append(("dairy" if "dairy" in q else "caffeine", None, ()))
     if duration and not re.search(r"\b(?:out|picnic|room temperature|90\s*°?\s*f)\b", q):
         methods = []
-        if re.search(r"\b(?:refrigerat\w*|fridge)\b", q):
+        if re.search(r"\b(?:refrigerat\w*|fridge|chilled|chilling)\b", q):
             methods.append("refrigerator")
         if re.search(r"\b(?:freez\w*|frozen)\b", q):
             methods.append("freezer")
@@ -132,21 +199,37 @@ def parse_aspects(question):
         r"\b(?:cook\w*|grill\w*|internal|deli|rest)\b", q
     ):
         topics.append(("cooking", None, () if foods else ("food or food category",)))
-    if re.search(r"\b(?:label|daily value|%dv|serving size)\b", q):
+    if re.search(r"\b(?:labels?|daily values?|%dv|serving sizes?)\b", q):
         topics.append(("label", None, ()))
     if "pregnan" in q and foods:
         topics.append(("pregnancy_choices", None, ()))
-    if re.search(r"\b(?:wash\w*|soap|detergent|pre.washed|ready.to.eat)\b", q):
+    if re.search(r"\b(?:wash\w*|scrub\w*|soap|detergent|pre.washed|ready.to.eat)\b", q):
         topics.append(("washing", None, ()))
-    if re.search(r"\b(?:restaurant|dining|special requests|sodium)\b", q):
+    if re.search(r"\b(?:restaurant|dining|special requests)\b", q):
         topics.append(("dining", None, ()))
+    elif re.search(r"\b(?:sodium|salt|salty|herbs?|citrus|seasonings?|flavorings)\b", q):
+        topics.append(("sodium", None, ()))
+    if re.search(
+        r"\b(?:buy\w*|shop\w*|grocery|affordable|in season|out of season)\b", q
+    ) and re.search(r"\b(?:produce|watermelon|salad greens|vegetables?|fruits?)\b", q):
+        topics.append(("produce_selection", None, ()))
+    if re.search(r"\b(?:cold|refrigerat\w*|fridge)\b", q) and re.search(
+        r"\b(?:lettuce|mushrooms|pre-cut|packaged produce)\b", q
+    ):
+        topics.append(("produce_storage", None, ()))
+    if (
+        re.search(r"\b(?:hot|warm)\b", q)
+        and re.search(r"\b(?:portions?|containers?|leftovers?)\b", q)
+        and not duration
+    ):
+        topics.append(("hot_leftovers", None, ()))
     if not topics and re.search(
         r"\b(?:food groups|balanced|healthy eating|vegetables|dietary guidelines|choose|selection)\b",
         q,
     ):
         topics.append(("food_selection", None, ()))
     if not topics and re.search(
-        r"\b(?:store|storage|refrigerate|leftovers|handling|cross.contamination|thaw|freez|separat\w*)\b",
+        r"\b(?:store|storage|refrigerat\w*|leftovers|handling|cross.contamination|thaw\w*|defrost\w*|refreez\w*|freez\w*|frozen|separat\w*)\b",
         q,
     ):
         topics.append(("handling", None, ()))
@@ -210,10 +293,25 @@ def matches(unit, aspect, question):
             "deli",
         )
     ]
-    if food_terms and not all(
-        re.search(FOODS.get(t, r"\b" + re.escape(t) + r"\b"), text) for t in food_terms
+    if (
+        topic not in {"outage", "thermometer"}
+        and food_terms
+        and not all(re.search(FOODS.get(t, r"\b" + re.escape(t) + r"\b"), text) for t in food_terms)
     ):
         return False
+    if topic in {
+        "outage",
+        "microwave",
+        "thermometer",
+        "hydration",
+        "dairy",
+        "caffeine",
+        "sodium",
+        "produce_selection",
+        "produce_storage",
+        "hot_leftovers",
+    }:
+        return matches_guidance(text, q, topic)
     for term in aspect.terms:
         if term in (
             "ground",
@@ -266,7 +364,28 @@ def matches(unit, aspect, question):
             and ("90" not in q or "90" in text)
         )
     if topic == "label":
-        if "serving size" in q:
+        if re.search(r"compar\w*", q):
+            return (
+                "compare" in text
+                and "serving size is the same" in text
+                and "higher in nutrients" in text
+                and "lower in nutrients" in text
+            )
+        if re.search(r"dual.column|per-serving|per-package", q):
+            return (
+                bool(re.search(r"dual.column", text))
+                and "per serving" in text
+                and "per package" in text
+                and "entire package" in text
+            )
+        if re.search(r"honey|maple syrup|single.ingredient", q):
+            return (
+                "not required" in text
+                and "grams of added sugars" in text
+                and "must still include" in text
+                and "percent daily value" in text
+            )
+        if re.search(r"serving sizes?", q):
             return "serving size" in text and "not a recommendation" in text
         if "low" in q or "high" in q:
             return "5%" in text and "20%" in text and "per serving" in text
@@ -274,6 +393,10 @@ def matches(unit, aspect, question):
     if topic == "pregnancy_choices":
         return "riskier choice" in text and "safer choice" in text
     if topic == "washing":
+        if "scrub" in q:
+            return (
+                "scrub" in text and "produce brush" in text and ("dry" not in q or "towel" in text)
+            )
         if "soap" in q or "detergent" in q:
             return ("soap" in text or "detergent" in text) and bool(
                 re.search(r"not recommended|do not|don't", text)
@@ -282,11 +405,113 @@ def matches(unit, aspect, question):
             return "without further washing" in text and "unclean" in text
         return "wash" in text or "rinse" in text
     if topic == "dining":
+        if re.search(r"menu|online|research", q):
+            return "menu" in text and "online nutrition information" in text and "avoid" in text
         return "special requests" in text and "salt" in text
     if topic == "food_selection":
+        if re.search(r"food groups|variety of healthy foods", q):
+            return "food groups:" in text and all(normalize(label) in text for label in FOOD_GROUPS)
         return bool(re.search(r"food groups|vegetables|balanced|choose|healthy eating", text))
     if topic == "handling":
+        if re.search(r"thaw|defrost", q):
+            return (
+                "thaw" in text
+                and "refrigerator" in text
+                and "cold water" in text
+                and "microwave" in text
+                and "never thaw" in text
+            )
         return bool(re.search(r"stor|refrigerat|freez|leftover|handling|thaw|separat", text))
+    return False
+
+
+def matches_guidance(text, question, topic):
+    """Topic-specific completeness over one intact evidence unit, never model knowledge."""
+    if topic == "microwave":
+        if re.search(r"stand|standing", question):
+            return "standing times" in text and "cold spots" in text and "hotter areas" in text
+        return (
+            "wattage" in text
+            and "watts" in text
+            and "minimum cooking time" in text
+            and "maximum cooking time" in text
+            and "thermometer" in text
+            and "165" in text
+        )
+    if topic == "thermometer":
+        return (
+            "thickest part" in text
+            and "away from bone" in text
+            and "fat" in text
+            and "gristle" in text
+            and "several places" in text
+            and ("clean" not in question or "soap and water" in text)
+        )
+    if topic == "outage":
+        if re.search(r"refreez|ice crystals|electricity returns", question):
+            return (
+                "ice crystals" in text
+                and "refreeze" in text
+                and "never taste" in text
+                and bool(re.search(r"40\s*°\s*f or below", text))
+            )
+        return (
+            "doors" in text
+            and "closed" in text
+            and bool(re.search(r"(?<![-\w])full freezer", text))
+            and "half-full freezer" in text
+            and bool(re.search(r"40\s*°\s*f or below", text))
+        )
+    if topic == "hydration":
+        return "water" in text and "unsweetened drinks" in text and "water in foods" in text
+    if topic == "dairy":
+        return (
+            "dairy" in text
+            and "milk" in text
+            and "fortified dairy alternatives" in text
+            and (not re.search(r"kids|children|under", question) or "age 10 and under" in text)
+        )
+    if topic == "caffeine":
+        return (
+            "caffeinated drinks" in text
+            and "age 10 and younger" in text
+            and "older kids" in text
+            and "avoid energy drinks" in text
+        )
+    if topic == "sodium":
+        if re.search(r"affordable|out of season|in season", question) and re.search(
+            r"produce|vegetables?|fruits?", question
+        ):
+            return matches_guidance(text, question, "produce_selection")
+        if re.search(r"herbs|citrus|seasonings|flavor", question):
+            return "herbs" in text and "salt-free seasoning" in text and "instead of salt" in text
+        if re.search(r"canned tuna|beans|rice|pasta|rinse|remove", question):
+            return (
+                "rinsed" in text and "remove some of the sodium" in text and "without salt" in text
+            )
+        if re.search(r"vegetables?", question):
+            return (
+                "vegetables" in text
+                and "low-sodium or no-salt-added" in text
+                and "season them yourself" in text
+            )
+        return False
+    if topic == "produce_selection":
+        if re.search(r"affordable|out of season|in season", question):
+            return (
+                "in season" in text
+                and "frozen, dried, or canned" in text
+                and "little or no added sugars or sodium" in text
+            )
+        return (
+            "pre-cut" in text
+            and "refrigerated or surrounded by ice" in text
+            and "separately from raw meat" in text
+        )
+    if topic == "produce_storage":
+        return "refrigerator thermometer" in text and "40" in text and "pre-cut or packaged" in text
+    if topic == "hot_leftovers":
+        return "shallow containers" in text and "small portions of hot food" in text
     return False
 
 
@@ -297,6 +522,7 @@ class EvidenceAssessor:
     def assess(self, result):
         aspects = parse_aspects(result.audit.resolved_question)
         candidates = [unit for hit in result.hits for unit in units_for_hit(hit)]
+        candidates = food_group_units(result.hits) + candidates
         documents = {h.document.document_id: h.document for h in result.hits}
         question = normalize(result.audit.resolved_question)
         units, coverage = {}, []

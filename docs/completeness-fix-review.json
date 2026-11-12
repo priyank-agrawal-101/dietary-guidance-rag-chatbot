@@ -1,0 +1,22 @@
+{
+  "version": "completeness_findings_fix_v1",
+  "resolved_case_ids": [
+    "adults-pdf",
+    "children-pdf",
+    "expanded-adult-seasonal-produce"
+  ],
+  "unchanged_response_count": 68,
+  "frozen_dataset_unchanged": true,
+  "case_file_sha256": "a904da99586eea02c57d658bce9e5b41937b65e65d32467b5cc55b3683c5e599",
+  "results_sha256": "8caf649493c9e8145632a02a0b9f759127da5bb0c59c7c274c40a912958778bc",
+  "automated_cases_passed": 71,
+  "reviewed_conditions_complete": 71,
+  "source_snapshot_unchanged": true,
+  "review_method": "Case-by-case AI semantic/policy review of all complete responses and quotes, exact approved HTML bytes/table rows, canonical metadata, and visual inspection of all nine cited PDF physical pages. User supplied learning-scope acceptance authorization, not independent case-by-case judgments. Follow-up: compared all 71 response bodies/citations/gaps against the prior reviewed release, excluding request IDs; 68 are identical and retain their judgments. Re-reviewed the three changed responses against canonical source quotes and the previously inspected original PDF pages. No new source bytes or corpus activation.",
+  "regressions": "Complete same-page group context; missing card, wrong page, wrong document; required sodium qualification present/absent.",
+  "tests_passed": 672,
+  "isolated_reproduction_passed": true,
+  "release_approved": true,
+  "bundle_directory": "data/releases/learning-v0.1.1",
+  "checksum_verified": true
+}

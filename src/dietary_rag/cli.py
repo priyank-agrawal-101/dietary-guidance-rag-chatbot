@@ -61,7 +61,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     fetch.add_argument("document_ids", nargs="*")
     fetch.add_argument("--all-eligible", action="store_true")
-    for command in (importer, fetch):
+    refresh = commands.add_parser(
+        "refresh-sources", help="conditionally refresh reviewed sources; never activates"
+    )
+    refresh.add_argument("document_ids", nargs="*")
+    refresh.add_argument("--all-eligible", action="store_true")
+    for command in (importer, fetch, refresh):
         command.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
         command.add_argument("--project-root", type=Path, default=Path.cwd())
         command.add_argument("--report", type=Path, help="also save an atomic JSON report")
@@ -199,6 +204,17 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command != "check-settings":
             registry = load_registry(settings.source_registry)
+        if args.command == "refresh-sources":
+            from dietary_rag.operations.refresh import RefreshService
+
+            if bool(args.document_ids) == bool(args.all_eligible):
+                raise ValueError("Choose explicit document IDs OR --all-eligible")
+            ids = args.document_ids or [s.document_id for s in registry.consumer_sources()]
+            report = RefreshService(registry, settings).run(list(dict.fromkeys(ids)), _write_report)
+            if args.report:
+                _write_report(_rooted(args.report, args.project_root), report)
+            print(json.dumps(report, indent=2))
+            return 0 if all(r["status"] == "unchanged" for r in report["results"]) else 1
         if args.command == "answer-question":
             from dietary_rag.answering.commands import run_command
 

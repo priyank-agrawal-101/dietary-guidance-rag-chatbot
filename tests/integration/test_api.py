@@ -412,3 +412,24 @@ def test_waiting_for_corpus_access_obeys_the_request_deadline(api_runtime):
                 pytest.fail("expired request opened corpus resources")
     finally:
         active._corpus_lock.release()
+
+
+def test_aggregate_metrics_record_stages_without_question_text(api_runtime):
+    with client_for(api_runtime) as client:
+        assert client.post("/chat", json=PAYLOAD).json()["status"] == "answered"
+        assert (
+            client.post("/chat", json={"question": "What diet treats diabetes?"}).json()["status"]
+            == "out_of_scope"
+        )
+        metrics = client.get("/metrics").json()
+        assert metrics["chat_states"] == {"answered": 1, "out_of_scope": 1}
+        assert {
+            "policy",
+            "corpus_open",
+            "retrieval",
+            "assessment",
+            "generation",
+            "validation",
+            "citations",
+        } <= metrics["stages"].keys()
+        assert QUESTION not in json.dumps(metrics)

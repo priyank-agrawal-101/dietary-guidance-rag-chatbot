@@ -1,0 +1,74 @@
+{
+  "version": "clean_reproduction_v1",
+  "isolated_environment": true,
+  "implementation_sha256": "f6f69c3aea93414386d867dd1274293a33a1d8982491b9519df91bdf3a6a03d4",
+  "status": "passed",
+  "tests_passed": true,
+  "python": "3.13.16",
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "work_directory": "/private/tmp/dietary-phase7-reproduction",
+  "checks": [
+    {
+      "check": "wheel_build",
+      "passed": true,
+      "seconds": 0.39275683300365927
+    },
+    {
+      "check": "venv",
+      "passed": true,
+      "seconds": 0.6468052500058548
+    },
+    {
+      "check": "locked_install",
+      "passed": true,
+      "seconds": 0.4033230829954846
+    },
+    {
+      "check": "wheel_install",
+      "passed": true,
+      "seconds": 0.24074920800194377
+    },
+    {
+      "check": "dependency_check",
+      "passed": true,
+      "seconds": 0.16136804199777544
+    },
+    {
+      "check": "settings",
+      "passed": true,
+      "seconds": 0.141945957999269
+    },
+    {
+      "check": "registry",
+      "passed": true,
+      "seconds": 0.2044937079990632
+    },
+    {
+      "check": "installed_import",
+      "passed": true,
+      "seconds": 0.017529042001115158
+    },
+    {
+      "check": "tests",
+      "passed": true,
+      "seconds": 94.88898904199596
+    },
+    {
+      "check": "active_api",
+      "passed": true,
+      "seconds": 17.60443933300121
+    }
+  ],
+  "lock_hashes": {
+    "core": "a1195219163737d40107f9020e636a30161f1bcb359374b0f0dadb2170f32e8d",
+    "dev": "bc79fa878c908f1bf4f325d3ba260cc34dd1a9d41c7718b88b449a96e91a469a",
+    "acquisition": "c841a9ef66b6e60b1d57473e64f3bb6560d3a8e6364fbd41acfc0989c3262fe0",
+    "html": "0a9f0814f4b7d0256bf2bd83937c3aaad2f3b37c653edb3b0fbc97dc886ca3aa",
+    "pdf": "640bc24d4f9403eda649a378d4265e20c8572d9300fd63fc050f2d5f37c09090",
+    "ocr": "8f2fff7041b15ef452efece832c23b47bad0bb994571224e21ee56292291750e",
+    "chunking": "3ef4dc9a1fc3cec014bba4bacb2bfc0ce3b9a526947f4dacf65071e656a19e6d",
+    "embeddings": "abd66ad615300b96e504284e302b12597e967414244be0a0585fe8327b24329c",
+    "api": "a2762dd43ec3bac53fe2aa99d78e53702882112b87269f592f746789ed40aa67"
+  },
+  "wheel_sha256": "0205c98d375d5928d009a16505381b395c55752f239a07b37e1fcd134ae57f72"
+}
