@@ -31,11 +31,13 @@ class FetchSettings(SettingsModel):
 
 
 class EmbeddingSettings(SettingsModel):
-    model_name: NonEmpty = "intfloat/e5-base-v2"
-    revision: NonEmpty | None = None
+    model_name: NonEmpty = "BAAI/bge-small-en-v1.5"
+    revision: NonEmpty = "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
 
 
 class ChunkingSettings(SettingsModel):
+    tokenizer_model_name: NonEmpty = "intfloat/e5-base-v2"
+    tokenizer_revision: NonEmpty = "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
     target_tokens: PositiveInt = 350
     overlap_tokens: Annotated[int, Field(strict=True, ge=0)] = 50
 
@@ -65,6 +67,22 @@ class GenerationSettings(SettingsModel):
         return self
 
 
+class PolicySettings(SettingsModel):
+    classifier: Literal["local_conservative_v1"] = "local_conservative_v1"
+    minimum_confidence: Annotated[float, Field(gt=0, le=1, allow_inf_nan=False)] = 0.9
+    classifier_timeout_seconds: Annotated[float, Field(gt=0, allow_inf_nan=False)] = 10
+
+
+class AnsweringSettings(SettingsModel):
+    generator: Literal["extractive_v1", "configured"] = "extractive_v1"
+    units_per_aspect: Annotated[int, Field(strict=True, ge=1, le=3)] = 1
+    max_claims_per_document: Annotated[int, Field(strict=True, ge=1, le=20)] = 8
+    repair_attempts: Annotated[int, Field(strict=True, ge=0, le=1)] = 1
+    semantic_minimum_confidence: Annotated[float, Field(gt=0, le=1, allow_inf_nan=False)] = 0.95
+    generator_timeout_seconds: Annotated[float, Field(gt=0, allow_inf_nan=False)] = 30
+    verifier_timeout_seconds: Annotated[float, Field(gt=0, allow_inf_nan=False)] = 15
+
+
 class Settings(SettingsModel):
     data_dir: Path = Path("data")
     source_registry: Path = Path("config/sources.yaml")
@@ -74,6 +92,8 @@ class Settings(SettingsModel):
     chunking: ChunkingSettings = Field(default_factory=ChunkingSettings)
     runtime: RuntimeSettings = Field(default_factory=RuntimeSettings)
     generation: GenerationSettings = Field(default_factory=GenerationSettings)
+    policy: PolicySettings = Field(default_factory=PolicySettings)
+    answering: AnsweringSettings = Field(default_factory=AnsweringSettings)
 
     @field_validator("data_dir", "source_registry", mode="before")
     @classmethod

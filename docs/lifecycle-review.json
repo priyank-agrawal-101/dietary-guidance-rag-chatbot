@@ -1,0 +1,164 @@
+{
+  "review_date": "2026-11-12",
+  "status": "P3.7_implemented_and_local_pair_activated",
+  "active": true,
+  "workspace_state": {
+    "version": "active_corpus_v1",
+    "generation": 1,
+    "active_release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+    "previous_release_id": null
+  },
+  "active_release": {
+    "version": "corpus_release_v1",
+    "snapshot_directory": "/Users/priyank/Downloads/Priyank Explore/dietary-guidance-rag-chatbot/data/staging/indexes/corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+    "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+    "configuration": {
+      "version": "retrieval_v1",
+      "strategy": "hybrid",
+      "resolution_configuration_id": "document_resolution_6d09630581da722a16f073a9d654e0e9b025b054fb8f413f502a59df2dd13943",
+      "branch_candidates": 20,
+      "candidate_chunks": 20,
+      "per_document_candidates": 3,
+      "rrf_constant": 60,
+      "bm25_k1": 1.2,
+      "bm25_b": 0.75,
+      "lexical_preprocessing": "ascii_alnum_casefold_v1",
+      "deduplication": "same_document_span_containment_v1",
+      "scope_policy": "reviewed_us_consumer_v1"
+    },
+    "selection_report_id": "retrieval_selection_0c35e1fe905e506f2b56f8d11d341c415c69ee907c07a1cd82424bc8764a855c",
+    "selection_sha256": "90ac447fd4a3113e06d32ad4f2d9812b0ddf930638e2e16f78b2b4bede8780b3",
+    "manifest_sha256": "da6ccdef525765f27f095d6fe3af3faf9c545dfe8f563e553d6999b3e61060b7",
+    "case_file_hashes": {
+      "freeze.json": "dd24ec3be1171562cfe453f400489061b825f0a93fd2b5a06f573bb015b6b759",
+      "heldout.json": "a5c13f7db47753751496e70c5789f2b6252392cac5dc355d4e367ffddfe56429",
+      "regressions.json": "4136f9e3e89466ca6841e634f72cf20a7bf6e058d6dffadcbe22421509d670b8"
+    },
+    "validation": {
+      "active": false,
+      "checks": {
+        "canonical_vectors": true,
+        "complete_input_limits": true,
+        "exact_membership": true,
+        "model_configuration": true,
+        "reviewed_provenance": true,
+        "scalar_metadata": true
+      },
+      "chunks": 269,
+      "documents": 16,
+      "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+      "pdf_documents": 6,
+      "retrieval_quality_evaluated": false,
+      "snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+      "status": "compatible_candidate_no_activation"
+    }
+  },
+  "activation_report": "data/staging/corpus-activation-report.json",
+  "lifecycle_pointer": "data/active/active.json",
+  "isolated_rollback_demonstration": {
+    "directory": "data/staging/lifecycle-verification",
+    "first": {
+      "version": "active_corpus_v1",
+      "generation": 1,
+      "active_release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+      "previous_release_id": null
+    },
+    "second": {
+      "version": "active_corpus_v1",
+      "generation": 2,
+      "active_release_id": "corpus_release_5cfa242ec8fc143cb26f4012b731449e5b1a3f33771066a4744cf9b15f882460",
+      "previous_release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f"
+    },
+    "rolled_back": {
+      "version": "active_corpus_v1",
+      "generation": 3,
+      "active_release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+      "previous_release_id": "corpus_release_5cfa242ec8fc143cb26f4012b731449e5b1a3f33771066a4744cf9b15f882460"
+    },
+    "restored_pair": {
+      "version": "corpus_release_v1",
+      "snapshot_directory": "/Users/priyank/Downloads/Priyank Explore/dietary-guidance-rag-chatbot/data/staging/indexes/corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+      "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+      "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+      "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+      "configuration": {
+        "version": "retrieval_v1",
+        "strategy": "hybrid",
+        "resolution_configuration_id": "document_resolution_6d09630581da722a16f073a9d654e0e9b025b054fb8f413f502a59df2dd13943",
+        "branch_candidates": 20,
+        "candidate_chunks": 20,
+        "per_document_candidates": 3,
+        "rrf_constant": 60,
+        "bm25_k1": 1.2,
+        "bm25_b": 0.75,
+        "lexical_preprocessing": "ascii_alnum_casefold_v1",
+        "deduplication": "same_document_span_containment_v1",
+        "scope_policy": "reviewed_us_consumer_v1"
+      },
+      "selection_report_id": "retrieval_selection_0c35e1fe905e506f2b56f8d11d341c415c69ee907c07a1cd82424bc8764a855c",
+      "selection_sha256": "90ac447fd4a3113e06d32ad4f2d9812b0ddf930638e2e16f78b2b4bede8780b3",
+      "manifest_sha256": "da6ccdef525765f27f095d6fe3af3faf9c545dfe8f563e553d6999b3e61060b7",
+      "case_file_hashes": {
+        "freeze.json": "dd24ec3be1171562cfe453f400489061b825f0a93fd2b5a06f573bb015b6b759",
+        "heldout.json": "a5c13f7db47753751496e70c5789f2b6252392cac5dc355d4e367ffddfe56429",
+        "regressions.json": "4136f9e3e89466ca6841e634f72cf20a7bf6e058d6dffadcbe22421509d670b8"
+      },
+      "validation": {
+        "active": false,
+        "checks": {
+          "canonical_vectors": true,
+          "complete_input_limits": true,
+          "exact_membership": true,
+          "model_configuration": true,
+          "reviewed_provenance": true,
+          "scalar_metadata": true
+        },
+        "chunks": 269,
+        "documents": 16,
+        "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+        "pdf_documents": 6,
+        "retrieval_quality_evaluated": false,
+        "snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "status": "compatible_candidate_no_activation"
+      }
+    },
+    "scope": "Real validated release proofs for the same winning pair; distinct corpus/configuration switches additionally covered in tests."
+  },
+  "checks": {
+    "atomic_pair_publication": true,
+    "immutable_proof_and_frozen_files": true,
+    "compare_and_swap_and_concurrent_publishers": true,
+    "failed_validation_preserves_pointer": true,
+    "request_and_later_evidence_pinning": true,
+    "rollback_revalidation_and_pair_restore": true,
+    "candidate_snapshots_preserved": true
+  },
+  "verification": {
+    "focused_tests": "23 new lifecycle tests pass (publication mechanics, real Chroma requests, and actual frozen proof checks).",
+    "full_suite": "435 passed in 86.68s (0:01:26); no skips.",
+    "lint": "Ruff check and format passed; git diff whitespace check passed.",
+    "dependencies": "pip check: No broken requirements found.",
+    "wheel": "Built successfully without isolation.",
+    "idempotent_activation": "Repeating the identical validated pair retained generation 1 and its rollback state.",
+    "active_full_corpus_search": {
+      "report": "data/staging/active-search-verification.json",
+      "generation": 1,
+      "searched_documents": 16,
+      "top_document": "nhlbi_sodium_tips_pdf",
+      "complete_salt_MSG_evidence": true
+    },
+    "active_named_search": {
+      "report": "data/staging/active-named-search-verification.json",
+      "generation": 1,
+      "searched_documents": [
+        "mn_storage_chart"
+      ],
+      "cross_document_leakage": false
+    }
+  },
+  "retention": "Release proofs/frozen files copied; immutable snapshots retained at their original paths; no garbage collection.",
+  "boundaries": "Unix local publication; active search still retrieval-only. Policy and generated answers remain Phase 4-5.",
+  "next_task": "P4.1 deterministic policy categories and refusal/capability routing."
+}

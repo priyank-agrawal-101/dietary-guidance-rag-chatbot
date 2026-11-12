@@ -1,17 +1,11 @@
 """Small offline BM25 diagnostic for chunk boundaries, not a dense E5 benchmark."""
 
 import json
-import math
-import re
-from collections import Counter
 from pathlib import Path
 
 from dietary_rag.corpus.identity import sha256_bytes
 from dietary_rag.ingestion.chunk_contracts import ChunkBuild
-
-
-def terms(text):
-    return re.findall(r"[a-z0-9]+", text.casefold())
+from dietary_rag.retrieval.lexical import BM25
 
 
 def evaluate(builds, cases, *, k=5):
@@ -20,28 +14,17 @@ def evaluate(builds, cases, *, k=5):
         raise ValueError("evaluation requires chunks, cases and positive k")
     if any(b.role != "consumer" or b.state != "ready" for b in builds):
         raise ValueError("evaluation accepts ready consumer evidence only")
-    frequencies = [Counter(terms(c.embedding_text)) for c in chunks]
-    lengths = [sum(f.values()) for f in frequencies]
-    average = sum(lengths) / len(lengths)
-    df = Counter(t for f in frequencies for t in f)
+    lexical = BM25({c.chunk_id: c.embedding_text for c in chunks})
+    lookup = {c.chunk_id: c for c in chunks}
     results = []
     for case in cases:
         expected = [c for c in chunks if matches(c, case)]
         if not expected:
             raise ValueError(f"case {case['id']} lacks attributable expected evidence")
-        query = set(terms(case["question"]))
-        scores = []
-        for c, f, length in zip(chunks, frequencies, lengths, strict=True):
-            score = sum(
-                math.log(1 + (len(chunks) - df[t] + 0.5) / (df[t] + 0.5))
-                * f[t]
-                * 2.2
-                / (f[t] + 1.2 * (0.25 + 0.75 * length / average))
-                for t in query
-                if f[t]
-            )
-            scores.append((score, c))
-        ranked = sorted(scores, key=lambda p: (-p[0], p[1].chunk_id))[:k]
+        ranked = [
+            (score, lookup[identifier])
+            for identifier, score in lexical.rank(case["question"], include_zero=True)[:k]
+        ]
         hit = any(matches(c, case) for score, c in ranked)
         results.append(
             {

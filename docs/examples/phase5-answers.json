@@ -1,0 +1,816 @@
+{
+  "version": "phase5_examples_v1",
+  "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+  "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+  "examples": [
+    {
+      "case_id": "storage-eggs",
+      "response": {
+        "request_id": "36c644dc-ebc5-4882-b553-5bb4e9d42555",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "generation_attempts": 1,
+      "validation_codes": [],
+      "claim_evidence": {
+        "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e": {
+          "document_id": "mn_storage_chart",
+          "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+          "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+          "text_sha256": "ce35e05ee94d5b33506478608a934a0959573ad52fb53e622bcc97671fb50d95",
+          "source_locations": [
+            {
+              "format": "html",
+              "source_anchor": "block-bootstrap-mdh-content",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            }
+          ],
+          "spans": [],
+          "table_rows": {
+            "block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+            "original_table_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+            "row_indices": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        }
+      }
+    },
+    {
+      "case_id": "storage-blank",
+      "response": {
+        "request_id": "4c95ace0-ce79-4ae0-a8bd-b4075ad80bd7",
+        "status": "not_covered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": "The retrieved guidance from the searched documents does not cover the requested information: Refrigerator and Freezer Storage Chart: Cold Storage Temperatures (mn_storage_chart).",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "generation_attempts": 0,
+      "validation_codes": [],
+      "claim_evidence": {}
+    },
+    {
+      "case_id": "grilling-qualification",
+      "response": {
+        "request_id": "32c6e9ba-4bbc-4809-baeb-d475c59897b3",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_safe_grilling_pdf",
+            "claims": [
+              {
+                "text": "Table: Safe Grilling Food: Fish and shellfish, all kinds Safe Internal Temperature: 145\u00b0F Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+                "citation_ids": [
+                  "citation_eb7c0109b568e2ad6abb0cde8fea9da1586f0ab2cef88961c7136b88a5283164"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_eb7c0109b568e2ad6abb0cde8fea9da1586f0ab2cef88961c7136b88a5283164",
+            "document_id": "mn_safe_grilling_pdf",
+            "document_name": "Safe Grilling",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": 2007,
+            "date_label": "Created April 2007; modified 2025; printed footer",
+            "format": "pdf",
+            "physical_pages": [
+              1
+            ],
+            "page_urls": [
+              "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1"
+            ],
+            "printed_page_labels": [
+              "1"
+            ],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf#page=1",
+            "section_heading": "Safe Grilling",
+            "chunk_ids": [
+              "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+            ],
+            "support_quotes": [
+              "Table: Safe Grilling",
+              "Food: Fish and shellfish, all kinds\nSafe Internal Temperature: 145\u00b0F",
+              "Note: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "mn_safe_grilling_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "generation_attempts": 1,
+      "validation_codes": [],
+      "claim_evidence": {
+        "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777": {
+          "document_id": "mn_safe_grilling_pdf",
+          "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+          "raw_sha256": "4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391",
+          "text_sha256": "37380694823ce4f9960c190889066e519c82edb2f58a6a873b3095b8921a1e79",
+          "source_locations": [
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                364.2,
+                413.76,
+                539.7,
+                684.72
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                72.0,
+                657.0,
+                358.0,
+                692.0
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            }
+          ],
+          "spans": [],
+          "table_rows": {
+            "block_id": "normalized_block_cdd2743055673b7e5624a90d70a33fb50878fa2235db742159314a6cae134733",
+            "original_table_id": "pdf_table_372f315a93113d51c1774c94456cd6efecb04abfb5862c55344f556fd8f6bd7b",
+            "row_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        }
+      }
+    },
+    {
+      "case_id": "one-document-gap",
+      "response": {
+        "request_id": "bf6c9fcb-a629-4555-afe2-fbbef7ba24ba",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "All poultry, including ground chicken and turkey 165\u00b0F",
+                "citation_ids": [
+                  "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-fl6ehds86y",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Safe internal temperatures for different foods",
+            "chunk_ids": [
+              "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+            ],
+            "support_quotes": [
+              "All poultry, including ground chicken and turkey\n\n165\u00b0F"
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety",
+          "fda_nutrition_label_current"
+        ],
+        "unanswered_aspects": [
+          "How to Understand and Use the Nutrition Facts Label (fda_nutrition_label_current): cooking; no sufficient retrieved evidence. Searched: Food safety prevention (cdc_food_safety), How to Understand and Use the Nutrition Facts Label (fda_nutrition_label_current)."
+        ]
+      },
+      "generation_attempts": 1,
+      "validation_codes": [],
+      "claim_evidence": {
+        "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5": {
+          "document_id": "cdc_food_safety",
+          "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+          "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+          "text_sha256": "b1116617aaf65c3f0cf04547c11019d9a30eacc0557672be96cf7148e31f6e9e",
+          "source_locations": [
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > h3:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            }
+          ],
+          "spans": [
+            {
+              "block_id": "normalized_block_9a21edf6ba2d4daa83a8f474558f4372d4c6b375abc1153dcedf03fbef7970b8",
+              "start": 0,
+              "end": 61,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_29356ba2f65c5ef1d8760184423215948d330bf621b9074897a8bc7d7a5a5e83",
+              "start": 0,
+              "end": 74,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_a15341ec0ee707a7ed292ed5f8bda026bb834292b293d09cc710439197664129",
+              "start": 0,
+              "end": 14,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_73969b0582b97fef52a7ff431b9ad1737340515f5f886604706430017b7f2656",
+              "start": 0,
+              "end": 72,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_f8586459ba939c9abae8dfef1d458422774c5b52a331aa1438624c42610dc280",
+              "start": 0,
+              "end": 35,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_854595bc8024860c3e17b16d78fd2fafb02fb480c645202d1c4b9354484e587d",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_cb864b11595b88c3e045bc117de010255d1a88acd27e63ef1ed7600bfe3e4920",
+              "start": 0,
+              "end": 48,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_49a3957c07fabc3a7f74a9f255b24d8c54f24456a9e6161f2c099af57bbec5ea",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_6bb5ee91ba3aa7c01a53ab46006bb18853cb25d66fa4995378634187bed0908f",
+              "start": 0,
+              "end": 24,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_2e58f3f0a3c27b7077fe42cbce84cd430daa9139b091b2d6e8307574ed85e969",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_4a5d97cdd93a7fadcb4373b5dc97e9b86ff3570015c3d083b3af87193ae3a751",
+              "start": 0,
+              "end": 8,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_53a1c5116b3817b623f29e262bf4099bb32a71010aff3414eb395b2fb4e27088",
+              "start": 0,
+              "end": 102,
+              "overlap": false
+            }
+          ],
+          "table_rows": null
+        }
+      }
+    },
+    {
+      "case_id": "missing-storage-details",
+      "response": {
+        "request_id": "0d32be45-05b9-410d-b818-f297ddca3a53",
+        "status": "needs_clarification",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": "Please specify refrigerator or freezer storage, egg preparation: hard-cooked, in-shell, separated yolks/whites, or liquid pasteurized.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [
+          "mn_storage_chart"
+        ],
+        "unanswered_aspects": []
+      },
+      "generation_attempts": 0,
+      "validation_codes": [],
+      "claim_evidence": {}
+    },
+    {
+      "case_id": "generator-invalid_numeric",
+      "response": {
+        "request_id": "7c6d06d6-cb10-45b2-be6b-4233c4e6a70e",
+        "code": "answer_validation_failed",
+        "message": "The generated answer failed validation and has been withheld.",
+        "document_ids": [],
+        "scope_issues": []
+      },
+      "generation_attempts": 2,
+      "validation_codes": [
+        "numeric_or_unit_mismatch",
+        "numeric_or_unit_mismatch"
+      ],
+      "claim_evidence": {}
+    },
+    {
+      "case_id": "generator-repaired",
+      "response": {
+        "request_id": "8541cd3d-c553-422b-af9f-e10c47be57ce",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "All poultry, including ground chicken and turkey 165\u00b0F",
+                "citation_ids": [
+                  "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_0cd19a18b32653bb8da2f96bdba799aed85be4a57fdc6eff708471e4428c46fd",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-fl6ehds86y",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Safe internal temperatures for different foods",
+            "chunk_ids": [
+              "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+            ],
+            "support_quotes": [
+              "All poultry, including ground chicken and turkey\n\n165\u00b0F"
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety"
+        ],
+        "unanswered_aspects": []
+      },
+      "generation_attempts": 2,
+      "validation_codes": [
+        "numeric_or_unit_mismatch"
+      ],
+      "claim_evidence": {
+        "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5": {
+          "document_id": "cdc_food_safety",
+          "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+          "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+          "text_sha256": "b1116617aaf65c3f0cf04547c11019d9a30eacc0557672be96cf7148e31f6e9e",
+          "source_locations": [
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(4) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(1) > div:nth-of-type(5) > div:nth-of-type(2) > p:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > h3:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            },
+            {
+              "format": "html",
+              "source_anchor": "heading-fl6ehds86y",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(5) > div:nth-of-type(2) > div:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "reviewed"
+            }
+          ],
+          "spans": [
+            {
+              "block_id": "normalized_block_9a21edf6ba2d4daa83a8f474558f4372d4c6b375abc1153dcedf03fbef7970b8",
+              "start": 0,
+              "end": 61,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_29356ba2f65c5ef1d8760184423215948d330bf621b9074897a8bc7d7a5a5e83",
+              "start": 0,
+              "end": 74,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_a15341ec0ee707a7ed292ed5f8bda026bb834292b293d09cc710439197664129",
+              "start": 0,
+              "end": 14,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_73969b0582b97fef52a7ff431b9ad1737340515f5f886604706430017b7f2656",
+              "start": 0,
+              "end": 72,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_f8586459ba939c9abae8dfef1d458422774c5b52a331aa1438624c42610dc280",
+              "start": 0,
+              "end": 35,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_854595bc8024860c3e17b16d78fd2fafb02fb480c645202d1c4b9354484e587d",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_cb864b11595b88c3e045bc117de010255d1a88acd27e63ef1ed7600bfe3e4920",
+              "start": 0,
+              "end": 48,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_49a3957c07fabc3a7f74a9f255b24d8c54f24456a9e6161f2c099af57bbec5ea",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_6bb5ee91ba3aa7c01a53ab46006bb18853cb25d66fa4995378634187bed0908f",
+              "start": 0,
+              "end": 24,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_2e58f3f0a3c27b7077fe42cbce84cd430daa9139b091b2d6e8307574ed85e969",
+              "start": 0,
+              "end": 5,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_4a5d97cdd93a7fadcb4373b5dc97e9b86ff3570015c3d083b3af87193ae3a751",
+              "start": 0,
+              "end": 8,
+              "overlap": false
+            },
+            {
+              "block_id": "normalized_block_53a1c5116b3817b623f29e262bf4099bb32a71010aff3414eb395b2fb4e27088",
+              "start": 0,
+              "end": 102,
+              "overlap": false
+            }
+          ],
+          "table_rows": null
+        }
+      }
+    },
+    {
+      "case_id": "generator-unavailable",
+      "response": {
+        "request_id": "d07a13ab-14bf-451c-ba6d-31ce7d8d53cf",
+        "code": "model_unavailable",
+        "message": "The intent or generation dependency is unavailable.",
+        "document_ids": [],
+        "scope_issues": []
+      },
+      "generation_attempts": 1,
+      "validation_codes": [],
+      "claim_evidence": {}
+    }
+  ]
+}

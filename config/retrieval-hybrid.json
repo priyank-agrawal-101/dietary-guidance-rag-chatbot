@@ -1,0 +1,19 @@
+{
+  "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+  "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+  "configuration": {
+    "version": "retrieval_v1",
+    "strategy": "hybrid",
+    "resolution_configuration_id": "document_resolution_6d09630581da722a16f073a9d654e0e9b025b054fb8f413f502a59df2dd13943",
+    "branch_candidates": 20,
+    "candidate_chunks": 20,
+    "per_document_candidates": 3,
+    "rrf_constant": 60,
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "lexical_preprocessing": "ascii_alnum_casefold_v1",
+    "deduplication": "same_document_span_containment_v1",
+    "scope_policy": "reviewed_us_consumer_v1"
+  },
+  "active": false
+}

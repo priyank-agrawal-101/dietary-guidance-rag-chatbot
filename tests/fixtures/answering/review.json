@@ -1,0 +1,530 @@
+{
+  "version": "answer_review_cases_v1",
+  "description": "Project-authored conditions and expected values from reviewed evidence; a Phase 5 development review, not release evaluation.",
+  "cases": [
+    {
+      "id": "poultry-temperature",
+      "request": {
+        "question": "What internal temperature should chicken and turkey reach?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "165\u00b0F",
+        "poultry"
+      ]
+    },
+    {
+      "id": "whole-meat-rest",
+      "request": {
+        "question": "How hot should whole cuts of beef pork lamb be cooked, and how long should they rest?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "145\u00b0F",
+        "3 minutes"
+      ]
+    },
+    {
+      "id": "ground-meat",
+      "request": {
+        "question": "What safe internal temperature is recommended for ground beef?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "ground",
+        "160\u00b0F"
+      ]
+    },
+    {
+      "id": "storage-eggs",
+      "request": {
+        "question": "How long can hard cooked eggs stay in the refrigerator or freezer?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "hard cooked",
+        "7",
+        "don\u2019t freeze",
+        "40\u00b0F",
+        "0\u00b0F",
+        "taste loss"
+      ]
+    },
+    {
+      "id": "storage-beef",
+      "request": {
+        "question": "How many days can fresh beef be refrigerated and how many months frozen?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "beef",
+        "3 to 5",
+        "6 to 12",
+        "40\u00b0F",
+        "0\u00b0F",
+        "taste loss"
+      ]
+    },
+    {
+      "id": "storage-blank",
+      "request": {
+        "question": "What refrigerator storage time does the chart give for TV dinners?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "expected_status": "not_covered",
+      "required_phrases": []
+    },
+    {
+      "id": "hot-weather",
+      "request": {
+        "question": "How long can perishable food stay out at a picnic above 90\u00b0F?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "2 hours",
+        "1 hour",
+        "90\u00b0F"
+      ]
+    },
+    {
+      "id": "pregnancy-melon",
+      "request": {
+        "question": "Which cut melon choices are safer during pregnancy, including in hot weather?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_pregnancy_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "Cut melon",
+        "2 hours",
+        "1 hour",
+        "90\u00b0F",
+        "7 or fewer days",
+        "Riskier Choice",
+        "Safer Choice"
+      ]
+    },
+    {
+      "id": "pregnancy-milk",
+      "request": {
+        "question": "During pregnancy, is raw milk safe and which milk should I choose instead?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_pregnancy_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "Category: Milk",
+        "Unpasteurized (raw) milk",
+        "Pasteurized milk",
+        "Riskier Choice",
+        "Safer Choice"
+      ]
+    },
+    {
+      "id": "pregnancy-cheese",
+      "request": {
+        "question": "Which cheeses are safer during pregnancy, and how should deli sliced cheese be heated?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_pregnancy_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "Category: Cheese",
+        "165\u00b0F",
+        "pasteurized",
+        "Riskier Choice",
+        "Safer Choice"
+      ]
+    },
+    {
+      "id": "label-dv",
+      "request": {
+        "question": "What percentages of Daily Value are considered low and high per serving?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "fda_nutrition_label_current"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "5% DV or less",
+        "20% DV or more"
+      ]
+    },
+    {
+      "id": "label-serving",
+      "request": {
+        "question": "Does the serving size on the Nutrition Facts label recommend how much I should eat?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "fda_nutrition_label_current"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "serving size reflects",
+        "not a recommendation"
+      ]
+    },
+    {
+      "id": "produce-soap",
+      "request": {
+        "question": "Should I wash fruits and vegetables with soap or detergent?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "fda_produce"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "running water",
+        "not recommended",
+        "make you sick"
+      ]
+    },
+    {
+      "id": "prewashed-produce",
+      "request": {
+        "question": "Do I need to wash bagged produce marked pre-washed or ready-to-eat again?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "fda_produce"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "without further washing",
+        "unclean surfaces"
+      ]
+    },
+    {
+      "id": "dining-sodium",
+      "request": {
+        "question": "What special requests can I make at a restaurant to reduce sodium?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "nhlbi_sodium_tips_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "Make special requests",
+        "without added salt",
+        "MSG"
+      ]
+    },
+    {
+      "id": "grilling-qualification",
+      "request": {
+        "question": "What home grilling temperature is recommended for fish and shellfish and why might regulated facilities use different temperatures?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_safe_grilling_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "Fish and shellfish",
+        "145\u00b0F",
+        "Regulated facilities",
+        "time and temperature"
+      ]
+    },
+    {
+      "id": "adults-pdf",
+      "request": {
+        "question": "How can adults choose a variety of healthy foods?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "hhs_adults_older_adults_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "food groups"
+      ]
+    },
+    {
+      "id": "children-pdf",
+      "request": {
+        "question": "How can kids and teens choose a variety of healthy foods?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "hhs_kids_teens_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "food groups"
+      ]
+    },
+    {
+      "id": "dga-pdf",
+      "request": {
+        "question": "How should I choose vegetables and fruits?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "dga_2025_2030_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "vegetables",
+        "fruits"
+      ]
+    },
+    {
+      "id": "cross-contamination-pdf",
+      "request": {
+        "question": "What food safety guidance applies to separating raw meat from other food in a grocery cart?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_cross_contamination_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "raw meat",
+        "grocery-shopping cart"
+      ]
+    },
+    {
+      "id": "two-document-comparison",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety",
+            "mn_safe_grilling_pdf"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "165\u00b0F"
+      ],
+      "expected_answer_documents": [
+        "cdc_food_safety",
+        "mn_safe_grilling_pdf"
+      ]
+    },
+    {
+      "id": "one-document-gap",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety",
+            "fda_nutrition_label_current"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "required_phrases": [
+        "165\u00b0F"
+      ],
+      "expected_answer_documents": [
+        "cdc_food_safety"
+      ]
+    },
+    {
+      "id": "missing-storage-details",
+      "request": {
+        "question": "How long can cooked eggs keep?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "mn_storage_chart"
+          ]
+        }
+      },
+      "expected_status": "needs_clarification",
+      "required_phrases": []
+    },
+    {
+      "id": "medical-refusal",
+      "request": {
+        "question": "What diet treats diabetes?"
+      },
+      "expected_status": "out_of_scope",
+      "required_phrases": []
+    },
+    {
+      "id": "nutrient-capability",
+      "request": {
+        "question": "How much protein is in an egg?"
+      },
+      "expected_status": "requires_structured_data",
+      "required_phrases": []
+    },
+    {
+      "id": "unknown-selection",
+      "request": {
+        "question": "How should I store leftovers?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "unknown_doc"
+          ]
+        }
+      },
+      "expected_status": "unknown_document",
+      "required_phrases": []
+    },
+    {
+      "id": "unavailable-selection",
+      "request": {
+        "question": "How should I store leftovers?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "fda_safe_handling_pdf"
+          ]
+        }
+      },
+      "expected_status": "source_unavailable",
+      "required_phrases": []
+    },
+    {
+      "id": "generator-invalid_numeric",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answer_validation_failed",
+      "expected_generation_attempts": 2,
+      "generator_mode": "invalid_numeric",
+      "required_phrases": []
+    },
+    {
+      "id": "generator-repaired",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "answered",
+      "expected_generation_attempts": 2,
+      "generator_mode": "repaired",
+      "required_phrases": [
+        "165\u00b0F"
+      ]
+    },
+    {
+      "id": "generator-unavailable",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "model_unavailable",
+      "expected_generation_attempts": 1,
+      "generator_mode": "unavailable",
+      "required_phrases": []
+    },
+    {
+      "id": "generator-timeout",
+      "request": {
+        "question": "What internal temperature should chicken be cooked to?",
+        "scope": {
+          "mode": "selected",
+          "document_ids": [
+            "cdc_food_safety"
+          ]
+        }
+      },
+      "expected_status": "request_timeout",
+      "expected_generation_attempts": 1,
+      "generator_mode": "timeout",
+      "required_phrases": []
+    }
+  ]
+}

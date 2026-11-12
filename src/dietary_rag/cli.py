@@ -130,13 +130,68 @@ def main(argv: list[str] | None = None) -> int:
     from dietary_rag.ingestion.chunk_commands import register_commands
 
     register_commands(commands)
+    from dietary_rag.ingestion.index_commands import register_commands as register_index_commands
+
+    register_index_commands(commands)
+    from dietary_rag.ingestion.retrieval_commands import register_commands as register_retrieval
+
+    register_retrieval(commands)
+    from dietary_rag.ingestion.lifecycle_commands import register_commands as register_lifecycle
+
+    register_lifecycle(commands)
+    from dietary_rag.answering.commands import register_commands as register_answering
+
+    register_answering(commands)
+    policy_check = commands.add_parser(
+        "check-policy", help="inspect policy routing without retrieval"
+    )
+    policy_check.add_argument("question")
+    policy_check.add_argument("--config", type=Path, default=Path("config/settings.yaml"))
+    policy_check.add_argument("--project-root", type=Path, default=Path.cwd())
     args = parser.parse_args(argv)
     try:
         settings = load_settings(args.config, project_root=args.project_root, environ=os.environ)
+        if args.command == "check-policy":
+            from dietary_rag.api.contracts import ChatRequest
+            from dietary_rag.policy.service import PolicyService
+            from dietary_rag.policy.templates import MESSAGES
+
+            request = ChatRequest.model_validate(
+                {"question": args.question}, context={"runtime": settings.runtime}
+            )
+            decision = PolicyService(settings.policy).decide(request.question)
+            print(
+                json.dumps(
+                    {
+                        "decision": decision.model_dump(mode="json"),
+                        "message": MESSAGES[decision.template] if decision.template else None,
+                        "searched_documents": [],
+                        "citations": [],
+                    },
+                    indent=2,
+                )
+            )
+            return 0
         if args.command != "check-settings":
             registry = load_registry(settings.source_registry)
+        if args.command == "answer-question":
+            from dietary_rag.answering.commands import run_command
+
+            return run_command(args, settings, registry, _write_report)
         if args.command in ("prepare-tokenizer", "chunk-sources", "compare-chunks"):
             from dietary_rag.ingestion.chunk_commands import run_command
+
+            return run_command(args, settings, registry, _write_report)
+        if args.command in ("prepare-embeddings", "build-index", "validate-index"):
+            from dietary_rag.ingestion.index_commands import run_command
+
+            return run_command(args, settings, registry, _write_report)
+        if args.command in ("search-corpus", "evaluate-retrieval"):
+            from dietary_rag.ingestion.retrieval_commands import run_command
+
+            return run_command(args, settings, registry, _write_report)
+        if args.command in ("activate-corpus", "rollback-corpus", "corpus-status"):
+            from dietary_rag.ingestion.lifecycle_commands import run_command
 
             return run_command(args, settings, registry, _write_report)
         if args.command == "normalize-extractions":
@@ -509,6 +564,9 @@ def main(argv: list[str] | None = None) -> int:
     except ValidationError as exc:
         for error in exc.errors(include_input=False, include_url=False):
             print(f"Invalid setting {'.'.join(map(str, error['loc']))}: {error['msg']}")
+        return 2
+    except ImportError as exc:
+        print(f"Optional dependency unavailable: {exc}; install the required dependency lock")
         return 2
     except (OSError, ValueError, KeyError, RuntimeError, sqlite3.Error) as exc:
         print(f"Cannot complete command: {exc}")

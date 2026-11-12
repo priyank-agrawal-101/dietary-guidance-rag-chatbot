@@ -25,7 +25,12 @@ The objective is a US-focused chatbot that retrieves approved dietary and househ
 | OCR fallback | P2O.1–P2O.3 implemented and verified in isolation | Nine-page project-created fixture, bounded region OCR, confidence/provenance and numeric/unit quarantine. See [OCR foundations](phase2-ocr-extraction.md). |
 | Shared normalization and exclusions | P2N.1–P2N.3 implemented and verified | 443 default canonical blocks, 54 comparison blocks, 250 retained table values compared and exact review receipts; [normalization foundations](phase2-normalization.md). |
 | Structure-aware chunking and staging persistence | P2C.1–P2C.3 implemented and verified | 269 reviewed default chunks, pinned 512-token E5 limit and SQLite/JSON inspection; [chunking foundations](phase2-chunking.md). |
-| Active vector corpus/index, policy service, API and UI | Not implemented | Phases 3–7 remain planned. |
+| BGE-small embeddings and paired candidate indexing | P3.1–P3.3 implemented and verified | 269 normalized 384-dimensional vectors, complete-input checks and canonical SQLite/Chroma compatibility validation; [indexing foundations](phase3-indexing.md). |
+| Scoped retrieval and strategy selection | P3.4–P3.6 implemented and verified | Dense/BM25/hybrid search, resolution and audits; hybrid passes 16/16 regressions and 32/32 held-out hits@5; [retrieval review](phase3-retrieval.md). |
+| Active corpus lifecycle | P3.7 implemented and verified | Atomic validated publication, request/evidence pinning, retained proof and rollback; [lifecycle review](phase3-lifecycle.md). |
+| Policy service and response contracts | P4.1–P4.6 implemented and verified | Code gates, typed routing/contracts and pinned retrieval integration; [policy foundations](phase4-policy.md). |
+| Grounded answering and citation validation | P5.1–P5.7 implemented and verified | Conservative extractive CLI, typed provider/verifier adapters, canonical citations and bounded repair; [answering foundations](phase5-answering.md). |
+| HTTP API and UI | Not implemented | Phases 6–7 remain planned. |
 
 Registry counts reflect the November 11, 2026 source review; Phase 2 completion reflects November 12, 2026. Recompute coverage from the registry and reviewed build reports when sources change; do not hardcode these counts in runtime logic.
 
@@ -256,7 +261,7 @@ Headings provide context/metadata rather than standalone embeddings. Merge prose
 
 For tables, group Minnesota storage rows within the same category and budget, repeating temperature headers and the quality note while preserving blanks. Use one CDC pregnancy category row with both choices and pregnancy context. Keep the six-row Minnesota grilling table together when the labeled input fits, otherwise use row groups with its qualification repeated. Serialize deterministically and preserve original HTML/PDF attribution.
 
-Consume fidelity-reviewed default evidence only; comparison snapshots stay separate and quarantined OCR remains unavailable. Compare 350 against 250 using cooking/storage, hot-weather, pregnancy and label questions before changing defaults; the current offline BM25 result is diagnostic, with dense E5 evaluation planned in Phase 3.
+Consume fidelity-reviewed default evidence only; comparison snapshots stay separate and quarantined OCR remains unavailable. Compare 350 against 250 using cooking/storage, hot-weather, pregnancy and label questions before changing defaults; the current offline BM25 result is diagnostic, with dense BGE-small evaluation planned in Phase 3.
 
 Attach document/version IDs, block IDs, section path, canonical text, hashes, source dates/edition, format, URL, audience/role/family eligibility, table conditions and PDF page/geometry/extraction provenance. Generate deterministic chunk IDs from version, location, content and chunker configuration.
 
@@ -264,7 +269,7 @@ Attach document/version IDs, block IDs, section path, canonical text, hashes, so
 
 **Validation:** Identical inputs/settings produce stable chunks; meaningful content changes produce new identities. Every chunk fits the real tokenizer limit and resolves to original blocks. Table rows cannot lose refrigerator/freezer distinctions or safety-versus-quality qualifiers.
 
-**Status: complete — P2C.1–P2C.3, November 12, 2026.** The accepted structure-aware baseline uses a 350-token preferred target and up to 50 tokens of complete-sentence prose overlap. Exact block slices, nested/numbered lists and introductions, independent reviewed PDF cards, and labeled table rows retain qualifications and original locations. The pinned E5 revision verifies a 512-token full-input limit with truncation disabled. The 16 reviewed default sources produce 269 chunks (96 prose, 152 list, 21 table); maximum full input is 337 tokens. Three alternate sources produce 42 separate comparison chunks; quarantined OCR remains unavailable. A separate transactional SQLite store and deterministic JSON build/snapshot exports preserve canonical/native evidence links. The 250-token alternative produces 274 chunks; both achieve 16/16 complete-evidence hits@5 in a small authored offline BM25 diagnostic, so defaults stay 350/50 pending dense E5 evaluation in Phase 3. Verification: 336 tests with the real pinned tokenizer, reproducible default/comparison/rejection exports, Ruff, dependency checks, registry validation and wheel build. See [chunking foundations and commands](phase2-chunking.md), [review evidence](chunking-review.json) and [inspection examples](examples/chunking/inspection.json).
+**Status: complete — P2C.1–P2C.3, November 12, 2026.** The accepted structure-aware baseline uses a 350-token preferred target and up to 50 tokens of complete-sentence prose overlap. Exact block slices, nested/numbered lists and introductions, independent reviewed PDF cards, and labeled table rows retain qualifications and original locations. The pinned E5 revision verifies a 512-token full-input limit with truncation disabled. The 16 reviewed default sources produce 269 chunks (96 prose, 152 list, 21 table); maximum full input is 337 tokens. Three alternate sources produce 42 separate comparison chunks; quarantined OCR remains unavailable. A separate transactional SQLite store and deterministic JSON build/snapshot exports preserve canonical/native evidence links. The 250-token alternative produces 274 chunks; both achieve 16/16 complete-evidence hits@5 in a small authored offline BM25 diagnostic, so defaults stay 350/50 pending dense BGE-small evaluation in Phase 3. Verification: 336 tests with the real pinned tokenizer, reproducible default/comparison/rejection exports, Ruff, dependency checks, registry validation and wheel build. See [chunking foundations and commands](phase2-chunking.md), [review evidence](chunking-review.json) and [inspection examples](examples/chunking/inspection.json).
 
 ### Phase 2 exit gate
 
@@ -281,49 +286,111 @@ Attach document/version IDs, block IDs, section path, canonical text, hashes, so
 
 ## 6. Phase 3: Embeddings, Versioned Index and Retrieval
 
+**Status: Phase 3 complete — P3.1–P3.7, November 12, 2026.** The selected **[BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5)** model has MIT-licensed, open-source weights for local inference without API fees; local hardware and hosting costs still apply. Explicit hash-verified preparation, offline embeddings, separate historical chunking settings, paired candidate SQLite/Chroma snapshots and compatibility validation are implemented. The reviewed consumer candidate contains 269 vectors across 16 documents, including six official PDFs; BGE full-input lengths are 18 / 59 / 335 tokens with no truncation. See [indexing foundations](phase3-indexing.md), [embedding verification](embedding-index-review.json), [retrieval commands and measured selection](phase3-retrieval.md) and [retrieval verification](retrieval-review.json). Scoped dense/BM25/hybrid retrieval, name resolution and canonical search audits are implemented. Hybrid is the selected passing configuration; P3.7 implements validated atomic activation, request pinning and rollback. See the [snapshot lifecycle](phase3-lifecycle.md). Model comparisons remain optional follow-up work.
+
 **Goal:** Retrieve inspectable, eligible evidence across the corpus or within named documents before adding generated answers.
+
+### Model decision and chunk compatibility
+
+| Setting | Selected value |
+| --- | --- |
+| Model | `BAAI/bge-small-en-v1.5` |
+| Revision | `5c38ec7c405ec4b44b94cc5a9bb96e735b38267a` |
+| License | MIT |
+| Vector representation | 384 dimensions, CLS pooling, L2-normalized vectors |
+| Distance metric | Cosine, configured consistently at build and query time |
+| Complete input limit | 512 tokens, including special tokens and query instructions or passage context |
+
+The [reviewed chunking baseline](chunking-review.json) contains **269 consumer chunks across 16 sources, including six approved official US PDFs**: 96 prose, 152 list and 21 table chunks. Retain the **350-token preferred target / 50-token overlap**. Full input lengths of 20 / 61 / 337 tokens (minimum / median / maximum) were measured with E5's tokenizer, not BGE's. Both the 350/50 and 250/50 builds achieved 16/16 complete-evidence hits@5 on the authored BM25 diagnostic; this does not establish dense retrieval or answer accuracy.
+
+Preserve existing chunk IDs, canonical text, evidence links and historical E5 preprocessing/token-count records. Derive each BGE passage input by removing only the leading `passage: ` from the stored `embedding_text`, retaining the exact document, section, audience context and evidence body. Do not add an instruction to passages. Prefix each query exactly once with:
+
+`Represent this sentence for searching relevant passages: `
+
+The query prefix includes the trailing space after the colon. Record BGE-specific complete input hashes and token counts separately from the immutable Phase 2 chunk records. Verify every passage and query against the pinned BGE tokenizer and 512-token limit before inference, with truncation disabled. Reject over-limit inputs; do not silently shorten evidence or questions. If an existing atomic evidence unit cannot fit, report the incompatibility and require a separately reviewed rebuild.
+
+Explicit model preparation downloads and hash-verifies the pinned weights, tokenizer and model/pooling metadata. Record dependency versions and preprocessing identity; subsequent embedding and search use verified local artifacts offline. Update runtime embedding settings to BGE-small as part of P3.1, while retaining the historical E5 tokenizer configuration needed to validate Phase 2 artifacts.
 
 ### 3.1 Embedding and candidate corpus
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
-| `P3.1` | Implement the embedding adapter with pinned E5 preprocessing. | P2C.1, P2C.2 | Query/passage prefixes, tokenizer limit, revision, dimensions and metric are recorded and compatible. |
-| `P3.2` | Build SQLite evidence and Chroma vectors into one candidate snapshot. | P3.1, P2C.3 | Manifest and stores agree; every vector resolves to canonical text and complete provenance. |
-| `P3.3` | Add corpus/index compatibility validation. | P3.2 | Missing chunks, dimensions/config mismatches and mixed versions fail before querying. |
+| `P3.1` | Implement the pinned BGE-small adapter, explicit model preparation and runtime embedding settings. | P2C.1, P2C.2 | Verified local artifacts, passage/query preprocessing, tokenizer checks, CLS pooling, 384-dimensional normalized vectors and cosine metric are reproducible; no implicit downloads or truncation. |
+| `P3.2` | Build SQLite evidence and persistent local Chroma vectors into one complete candidate snapshot. | P3.1, P2C.3 | Manifest records the exact reviewed chunk snapshot, model/tokenizer revisions, preprocessing, input hashes/counts, dimensions, metric and dependency versions; every vector resolves to canonical evidence and provenance. |
+| `P3.3` | Add corpus/index compatibility validation. | P3.2 | Exact vector/chunk membership and provenance are verified; missing/extra vectors, model/preprocessing/dimension/metric mismatches and mixed versions fail before querying. |
 
 ### 3.2 Scoped search and inspection
 
+**Retrieval strategy decision: compare before selecting a default.** Keep the pinned BGE-small model, existing chunk identities, 350/50 chunking and paired candidate snapshots. Compare BGE-small dense retrieval, deterministic BM25 lexical retrieval and dense-plus-BM25 hybrid retrieval through one scoped interface. Any of the three may become the default if it passes the same evidence, scope and provenance gates; dense retrieval alone is not required to pass activation gates when another strategy is selected.
+
+An exploratory diagnostic over the 269 reviewed chunks produced:
+
+| Strategy | Complete-evidence hits@5 |
+| --- | --- |
+| BGE-small dense | 15/16 |
+| Existing BM25 diagnostic | 16/16 |
+| Dense + BM25 rank fusion | 16/16 |
+
+Dense retrieval missed the complete restaurant sodium-tips evidence. The hybrid experiment used equal-weight reciprocal rank fusion with constant 60 and the top 20 candidates from each branch. These are **exploratory results**, using exact cosine ranking over stored vectors and the existing authored questions, not scoped Chroma retrieval or frozen held-out evaluation. The lexical diagnostic used historical chunk embedding text; the planned BM25 retriever uses canonical context plus body without model-specific prefixes. Neither the preliminary scores nor the earlier chunking diagnostic establish a final winner.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
-| `P3.4` | Implement corpus-wide and selected-document retrieval with eligibility filters. | P3.3, P1.1 | US audience, consumer role, rights, source tier and family restrictions are applied inside retrieval. |
-| `P3.5` | Resolve names/aliases and produce the actual search audit. | P3.4 | Unknown/inactive selections remain explicit; a named source never silently becomes a broader search. |
-| `P3.6` | Add retrieval inspection and a small evidence-based query set. | P3.5 | Expected prose/table hits and near-miss failures are inspectable; deduplication and bounded candidate budgets work. |
+| `P3.4` | Implement comparable dense, BM25 and hybrid corpus-wide/selected-document retrieval behind a shared interface. | P3.3, P1.1 | Identical resolved document/version scope, US audience, consumer role, rights, source tier and family restrictions apply before ranking in every mode; candidate budgets and evidence-preserving deduplication are bounded. |
+| `P3.5` | Resolve names/aliases and produce strategy-aware search inspection and audits. | P3.4 | Unknown, ambiguous and unavailable selections remain explicit; audits record searched documents, strategy/configuration, branch/fused ranks and canonical evidence without silent scope expansion. |
+| `P3.6` | Compare all three strategies on regressions and frozen held-out questions, then select the best passing default. | P3.5 | A reviewed selection report records identical snapshots/scopes/budgets, complete-evidence hit@5, MRR@5, failures and performance; the selected versioned retrieval configuration passes all activation gates. |
+
+### Retrieval strategy and budgets
+
+**P3.4–P3.6 completion evidence:** actual scoped Chroma retrieval, prefix-free BM25 and RRF were compared over the same 269-chunk snapshot. All 48 quality questions were searched corpus-wide, with explicit document selections tested separately. BM25 achieved 16/16 regression and 31/32 held-out hits@5 (held-out MRR 0.878); dense achieved 15/16 and 32/32 (MRR 0.984); hybrid achieved 16/16 and 32/32 (MRR 0.984). Every strategy passed 104 scope checks with complete provenance resolution. Hybrid wins among passing strategies by held-out hit count; dense fails the regression gate. Frozen question/evidence receipts, failures, configuration identities and performance are recorded in the [retrieval review](retrieval-review.json). This is a small project-authored evidence diagnostic, with no claim of answer accuracy or independent external evaluation. P3.7 activation/rollback checks are implemented and verified separately in the [lifecycle review](phase3-lifecycle.md).
+
+- Reuse the existing deterministic BM25 scoring approach over canonical document/section/audience context plus body, without E5 passage prefixes or BGE query instructions. Cache lexical statistics in memory for this small corpus. Do not add FTS5 or another persistent lexical index yet; all branches use the same eligible snapshot/scope.
+- Start ordinary searches with **20 candidates per branch**. Dense ranks by cosine similarity; BM25 ranks by its lexical score. Hybrid uses equal-weight reciprocal rank fusion, summing `1 / (60 + rank)` across branches with ranks starting at 1, and returns at most 20 candidates. Never add raw cosine and BM25 scores together.
+- For explicit comparisons and broad multi-document searches, preserve the planned **three-candidate contribution per document** and bounded overall budget, applying the same scope and contribution limits to all compared strategies. Audit documents searched and evidence omitted due to budgets separately. Deduplicate overlapping evidence without losing conditions/qualifications or combining different table rows.
+- Version the retrieval strategy, lexical preprocessing/scoring, fusion settings and candidate/contribution budgets independently of the existing immutable embedding snapshot. Record the tested configuration in the selection report; a later configuration change requires compatible validation and evaluation before activation.
+
+### Retrieval comparison, validation and selection
+
+- Reuse the existing 16 questions in `tests/fixtures/chunking/queries.json` as regressions. Add 32 independently authored held-out questions: four each covering temperatures/rest periods, storage, handling exceptions, pregnancy, labels, produce, sodium and adult/child guidance. Include paraphrases, exact food names, numeric/unit distinctions, near-miss rows, conditions and original blanks. Freeze questions and reviewed expected evidence before evaluating held-out performance.
+- Compare all three strategies on identical snapshots, resolved scopes, questions and candidate budgets. Existing case `document_ids` are acceptable evidence labels, **not automatic search restrictions**. Evaluate full-corpus retrieval separately from explicit document selections.
+- Every eligible default must achieve **16/16 regression complete-evidence hits@5**, **at least 29/32 held-out hits**, **zero scope leakage** and **complete provenance resolution** before activation. A hit requires all expected facts and qualifications in one attributable chunk; a related but incomplete passage or incorrect table row is not a hit. Apply these gates to the selected strategy, not dense retrieval alone.
+- Select among passing strategies by highest held-out complete-evidence hit@5, then highest **MRR@5 rounded to three decimals**. MRR@5 averages the reciprocal rank of the first complete-evidence hit within five results, using zero for misses. On equal quality, prefer **BM25, then dense, then hybrid** to minimize operational complexity. Tune only against regressions before evaluating the frozen held-out questions; record failures and block activation if no strategy passes.
+- Keep results for every strategy, including dense, visible in the selection report. Report hit@5 and MRR@5 by prose/list/table type and guidance category, expected evidence, branch/fused ranks and near-miss failures. Measure warm end-to-end query latency, startup cost, memory and index size on the same machine; record query-embedding cost where applicable and the machine/dependency configuration used.
+- Test table-row confusion, missing conditions/qualifications, original blank cells, excluded/comparison evidence, quarantined OCR, unknown/unavailable selections, official-only and named-document scope, model/configuration mismatches, corrupted snapshots and rollback. Activation requires zero scope leakage and complete vector-to-evidence provenance resolution.
+- Defer model comparisons, cross-encoder reranking, query expansion, hierarchical retrieval and rechunking until measured failures justify additional experiments. Similarity scores measure relevance, not whether evidence supports an answer. Do not silently lower validation gates.
 
 ### 3.3 Snapshot lifecycle
 
+**Status: complete — P3.7.** Activation rechecks candidate compatibility, frozen selection claims and the winning versioned configuration before atomically publishing one pair. Release records retain proof and frozen case files; requests pin the pointer once and resolve later evidence against the same repository. Rollback revalidates and restores the previous pair without moving in-flight requests. The reviewed hybrid pair is activated locally; isolated rollback and concurrent/failure cases are verified. See [lifecycle commands and checks](phase3-lifecycle.md) and [verification](lifecycle-review.json).
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
-| `P3.7` | Implement atomic development activation, snapshot pinning and rollback. | P3.3, P3.6 | In-flight evidence/citations use one version; invalid builds cannot become active. |
+| `P3.7` | Implement atomic activation of a compatible snapshot and passing versioned retrieval configuration, request pinning and rollback. | P3.3, P3.6 | Activation selects both versions together; in-flight evidence/citations use the pinned pair and the previous snapshot/configuration pair remains available for rollback. |
 
 ### Deliverables
 
-- Embedding adapter and reproducible corpus builder.
-- Snapshot manifest, SQLite evidence, Chroma index and validation report.
-- Full-corpus/named-document retriever, resolver and search audit.
-- Retrieval-only inspection workflow and a small reviewed question/evidence set.
+- Pinned BGE-small adapter, explicit preparation workflow and reproducible corpus builder.
+- Snapshot manifest, SQLite evidence, persistent local Chroma index and compatibility validation report.
+- Shared dense/BM25/hybrid full-corpus/named-document retriever, resolver and strategy-aware search audit.
+- Retrieval-only inspection workflow, 16 regression cases, 32 frozen held-out question/evidence cases, a three-strategy quality/performance comparison and reviewed selection report.
+- Versioned retrieval configuration paired with the compatible corpus snapshot for activation, request pinning and rollback.
 
 ### Exit gate
 
 - A development snapshot includes useful eligible chunks from both HTML and PDF, with at least 5 approved official US PDF assets contributing reviewed chunks to the consumer ingestion/indexing demonstration.
 - Named-document queries never return another document's evidence; official-only requests exclude secondary sources.
 - Audience/role/rights filters and duplicate-family defaults are enforced before evidence reaches answering.
-- Every retrieved vector resolves to canonical text and complete provenance from the same snapshot.
-- Reviewed queries find expected prose and table evidence; near-miss rows and ranking failures are recorded for correction.
+- Every retrieved chunk, and every vector used by dense/hybrid retrieval, resolves to canonical text and complete provenance from the same snapshot. Snapshot compatibility checks remain required even if BM25 becomes the default.
+- BGE-small uses the pinned revision, verified 512-token complete-input limit, CLS pooling, 384-dimensional normalized vectors and cosine distance; no inputs are truncated and historical Phase 2 evidence remains immutable.
+- All three strategies are compared under identical snapshots/scopes/budgets. The selected strategy achieves 16/16 regression and at least 29/32 held-out complete-evidence hits@5, with selection by held-out hit@5, MRR@5 and the documented tie preference. Reports retain dense results, near-miss rows, ranking failures and latency/startup/memory/index-size measurements.
+- Comparison-only chunks and quarantined OCR remain outside consumer indexes; scope tests show zero leakage and vector-to-evidence resolution is complete.
 - Changing embedding configuration requires a compatible rebuild; activation cannot mix old vectors with new metadata.
+- Failed validation or the absence of a passing strategy prevents activation; the tested versioned retrieval configuration is activated and pinned with its compatible snapshot, and rollback restores both versions together.
 
 **Learning outcome:** Understand vector search, metadata filtering, candidate ranking and reproducible corpus versions.
 
 ## 7. Phase 4: Code-Enforced Policy and Response Contracts
+
+**Status: complete — November 12, 2026.** P4.1–P4.6 implement deterministic prohibitions, a conservative offline typed classifier and injectable validated adapter, fixed templates, five conversational states and separate service errors. Policy precedes lazy pinned retrieval; invalid/unavailable scope cannot invoke ranking or fall back to the full corpus. The reusable post-generation policy hook withholds prohibited or uncertain claims. See [policy foundations](phase4-policy.md) for contracts, integration, review cases and limitations. Verification: 36/36 reviewed routing cases and 98 focused Phase 4 tests; full suite 529 passed, followed by 153 final policy/retrieval/settings/import checks. Ruff, dependency consistency and wheel build passed; [review report](policy-review.json). Generation/grounding remains Phase 5.
 
 **Goal:** Control which questions may reach answering and distinguish conversational outcomes from service failures.
 
@@ -360,6 +427,8 @@ Attach document/version IDs, block IDs, section path, canonical text, hashes, so
 **Learning outcome:** Understand the difference between scope restrictions, evidence insufficiency, clarification and operational failure.
 
 ## 8. Phase 5: Grounded Answering and Citation Validation
+
+**Status: complete — November 12, 2026.** P5.1–P5.7 implement condition-aware evidence decisions, structured per-document drafts, typed generator/verifier boundaries, canonical scope/snapshot/quote validation, numeric/qualifier and post-generation policy checks, code-authored HTML/PDF citations, one bounded repair and the active-corpus `answer-question` CLI. The default is an offline extractive generator and independent extractive entailment verifier; free-form provider-backed paraphrases require an explicitly injected semantic verifier. [Answering foundations](phase5-answering.md) documents the implementation and conservative coverage limits. The [active-corpus review](answering-review.json) passes 31/31 cases across all six active PDFs, source comparisons, gaps, refusals, validation/repair and dependency failures. Verification: 576 full-suite tests, 43 focused Phase 5 tests and 152 final integration/contract checks passed; Ruff, dependency consistency, wheel build and wheel CLI smoke passed.
 
 **Goal:** Convert retrieved passages into understandable, supported claims with trustworthy source references.
 
@@ -503,12 +572,12 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | 0 | Complete: P0.1–P0.5 | 44 passing tests, lint/format checks, settings CLI, locked installs, wheel smoke check and registry baseline; see Phase 0 completion record. |
 | 1 | Complete: P1.1–P1.7 | Registry/provenance, file inspection, bounded fetch, commands and coverage audit verified. Current-snapshot stored bytes match all 16 selected assets, including 6 official PDFs. Acquisition gate passes; extraction/release checks remain Phase 2+. |
 | 2 | Complete: P2H.1–P2H.3, P2P.1–P2P.4, P2O.1–P2O.3, P2N.1–P2N.3 and P2C.1–P2C.3 | Reviewed default HTML/PDF evidence yields 269 attributable staging chunks with pinned token limits; OCR quarantine and comparison separation pass the ingestion development gate. See the chunking review. |
-| 3 | Not started | Compatible snapshot and filtered retrieval demonstrations. |
-| 4 | Not started | Code gates and reviewed routing/error behavior. |
-| 5 | Not started | Supported claims with validated source/page citations. |
+| 3 | Complete — P3.1–P3.7 | Hybrid selected on frozen questions; validated atomic publication, pinned requests and rollback verified over the reviewed mixed corpus. |
+| 4 | Complete — P4.1–P4.6 | Reviewed routing, fail-closed classification, typed contracts, actual scope isolation and pinned evidence verified; see [policy foundations](phase4-policy.md). |
+| 5 | Complete — P5.1–P5.7 | Cited active-corpus CLI, 31/31 reviewed cases, per-document gaps and bounded validation/repair verified; see [answering foundations](phase5-answering.md). |
 | 6 | Not started | Integrated API/UI and source-separated comparisons. |
 | 7 | Not started | Evaluation, coverage, release and reproducibility evidence. |
 
-With Phases 0–2 complete, Milestone A's HTML/PDF-to-inspectable-chunks slice is available. Continue toward Milestone B with P3.1–P3.6: pinned dense embeddings, compatible vector/evidence snapshots and filtered retrieval. Compare 350/250 with dense E5 and broader held-out questions before changing chunking defaults. Phases 3–7 remain planned. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
+With Phases 0–5 complete, Milestone C's cited CLI development answer works over the gated, pinned corpus of 269 reviewed chunks from 16 documents, including six PDFs. The default extractive path preserves complete source conditions; typed adapters are available for explicitly configured provider-backed experiments. Next implement P6.1 health/readiness/document listing and the remaining Phase 6 API/UI integration around the shared `AnswerService`. Retain BGE-small, the passing hybrid configuration and 350/50 chunking. Phases 6–7 remain planned; broader semantic/release evaluation remains required. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
 
 Keep the following outside the initial build: individual-food nutrient database integration, personalized diet/weight plans, persistent chat memory, arbitrary user document ingestion, live web search at answer time, distributed ingestion jobs and multiple API workers. Optional FTS5 search or reranking should be added only when measured retrieval failures justify them. A separate scientific/medical reference experiment must not expand the consumer chatbot's permitted advice scope.

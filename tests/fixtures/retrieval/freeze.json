@@ -1,0 +1,106 @@
+{
+  "version": "retrieval_case_freeze_v1",
+  "reviewer": "Project-authored canonical-evidence review",
+  "scope": "Full expected facts/conditions verified against reviewed chunks before retrieval; not independent external evaluation.",
+  "heldout_sha256": "a5c13f7db47753751496e70c5789f2b6252392cac5dc355d4e367ffddfe56429",
+  "regressions_sha256": "4136f9e3e89466ca6841e634f72cf20a7bf6e058d6dffadcbe22421509d670b8",
+  "chunk_snapshot_id": "chunk_snapshot_e9e8b804e406477b528835fd71163f40bcffa5bf85c3552168300ecef26fe921",
+  "expected_chunk_ids": {
+    "thermometer-location": [
+      "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb"
+    ],
+    "microwave-reheating": [
+      "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee"
+    ],
+    "microwave-standing": [
+      "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27"
+    ],
+    "finned-fish": [
+      "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+    ],
+    "storage-mayonnaise": [
+      "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4"
+    ],
+    "storage-fresh-poultry": [
+      "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583"
+    ],
+    "storage-deli-salad": [
+      "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8"
+    ],
+    "storage-soups": [
+      "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091"
+    ],
+    "outage-doors": [
+      "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c"
+    ],
+    "outage-refreeze": [
+      "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225"
+    ],
+    "thawing-counter": [
+      "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a"
+    ],
+    "hot-leftovers-containers": [
+      "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133"
+    ],
+    "pregnancy-juice": [
+      "chunk_4225dbc1c9885a10a7d41003aaf2da18b603290078b8c23ad52bbb5605788d8a"
+    ],
+    "pregnancy-eggs-dishes": [
+      "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362"
+    ],
+    "pregnancy-smoked-seafood": [
+      "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67"
+    ],
+    "pregnancy-raw-dough": [
+      "chunk_44a9b730c58d03a61e0547f34da7cc51a679f82a3a094ddfd9c1e75313a7beed"
+    ],
+    "label-comparing-portions": [
+      "chunk_e814aac50f85176f007443505d44257fed47a8d3929e7fe26ba8a45775702de5"
+    ],
+    "label-dual-column": [
+      "chunk_1ddb1284ec35c93d41eca7ad5d55453da31297f06ba3ddf341fff817e169cd97"
+    ],
+    "label-honey-syrup": [
+      "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4"
+    ],
+    "label-dv-not-sum": [
+      "chunk_054a824b197d987f8a4d8008a432e2a142cd163160f5ecbec2a4a3a5542bbc05"
+    ],
+    "produce-firm-brush": [
+      "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b"
+    ],
+    "produce-buying-cut": [
+      "chunk_08d769eec98730e19a06ae0959c2be1e597055bc3347dca6788ee014597c2294"
+    ],
+    "produce-peeling": [
+      "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b"
+    ],
+    "produce-fridge-thermometer": [
+      "chunk_7f8f5b06267d1051ef1b0f8447098976bef026be21cc7cd1c8d771aeb09f72f6"
+    ],
+    "sodium-rinse-cans": [
+      "chunk_358abff20d3b32c4bf354ff609cfc82054fa4fcbb936831140a944830a7515d6"
+    ],
+    "sodium-menu-research": [
+      "chunk_a847c7ab546b9f7f5784655ed4580fd409d1edc007f5c72bf777b4952bc48a28"
+    ],
+    "sodium-herbs-citrus": [
+      "chunk_358abff20d3b32c4bf354ff609cfc82054fa4fcbb936831140a944830a7515d6"
+    ],
+    "sodium-vegetable-options": [
+      "chunk_ef75c5c47be1a0e703d83c8f2a11814993c4956f87396e15df3c939b3ae62883"
+    ],
+    "kids-dairy-age": [
+      "chunk_0a22c74457667e1c35ee1669c62a91bd0d3ccc051aff66fcf46954ea4a03d85d"
+    ],
+    "kids-caffeine-age": [
+      "chunk_4bb71ceba904286fa510a78ada8e28540f999301e05e225d63488eed5f586c3d"
+    ],
+    "adult-hydration-foods": [
+      "chunk_31902230a0b5e0dcffc4daf7a4928722c47c63b8eca003d3df57addac2e39854"
+    ],
+    "adult-seasonal-produce": [
+      "chunk_3ab7289770f2035913d65e5a7e84c1fda5fad64339207a10c7554a452f7a3f03"
+    ]
+  }
+}

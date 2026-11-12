@@ -190,7 +190,10 @@ def test_cli_pending_review_invalid_budget_and_wrong_revision_fail(
     output.write_text(normalizer.normalize(native).model_dump_json())
     assert main(args) == 1 and not database.exists()
     monkeypatch.setattr(
-        "dietary_rag.cli.load_settings", lambda *a, **k: Settings(data_dir=tmp_path / "data")
+        "dietary_rag.cli.load_settings",
+        lambda *a, **k: Settings(
+            data_dir=tmp_path / "data", chunking={"tokenizer_revision": "unreviewed"}
+        ),
     )
     assert main(args) == 2
     assert "revision differs" in capsys.readouterr().out

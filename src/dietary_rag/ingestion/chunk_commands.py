@@ -66,10 +66,12 @@ def run_command(args, settings, registry, write_report):
     manifest_path = path(args.tokenizer_manifest)
     manifest = json.loads(manifest_path.read_text())
     if (
-        settings.embedding.model_name != manifest["model_name"]
-        or settings.embedding.revision != manifest["revision"]
+        settings.chunking.tokenizer_model_name != manifest["model_name"]
+        or settings.chunking.tokenizer_revision != manifest["revision"]
     ):
-        raise ValueError("configured embedding model/revision differs from pinned tokenizer")
+        raise ValueError(
+            "configured chunking tokenizer model/revision differs from pinned tokenizer"
+        )
     if args.command == "prepare-tokenizer":
         prepare_tokenizer(manifest_path, path(args.tokenizer_dir))
         tokenizer = E5Tokenizer(path(args.tokenizer_dir), manifest_path)

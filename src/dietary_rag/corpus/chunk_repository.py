@@ -205,6 +205,30 @@ class ChunkRepository:
             )
         )
 
+    def get_snapshot(self, snapshot_id):
+        row = self.connection.execute(
+            "SELECT payload_json FROM snapshots WHERE snapshot_id=?", (snapshot_id,)
+        ).fetchone()
+        if row is None:
+            raise ValueError("unknown chunk snapshot")
+        manifest = json.loads(row[0])
+        if stable_id("chunk_snapshot", manifest) != snapshot_id:
+            raise ValueError("chunk snapshot identity mismatch")
+        builds = self.snapshot_builds(snapshot_id)
+        if (
+            not builds
+            or sorted(b.build_id for b in builds) != manifest["build_ids"]
+            or sorted(b.document.document_id for b in builds) != manifest["documents"]
+            or sorted(b.normalization_id for b in builds) != manifest["normalization_ids"]
+            or sum(len(b.chunks) for b in builds) != manifest["chunks"]
+            or any(
+                b.configuration_id != manifest["configuration_id"] or b.role != manifest["role"]
+                for b in builds
+            )
+        ):
+            raise ValueError("chunk snapshot membership/configuration mismatch")
+        return {"snapshot_id": snapshot_id, **manifest}
+
     def get_native(self, extraction_id):
         row = self.connection.execute(
             "SELECT payload_json FROM native_inputs WHERE extraction_id=?", (extraction_id,)

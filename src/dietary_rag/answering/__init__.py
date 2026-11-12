@@ -1,1 +1,1 @@
-"""Reserved for evidence assessment, claims and citations in Phase 5."""
+"""Gated evidence assessment, supported claims, canonical citations and answer inspection."""

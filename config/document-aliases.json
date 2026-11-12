@@ -1,0 +1,20 @@
+{
+  "version": "document_aliases_v1",
+  "aliases": {
+    "CDC": ["cdc_food_safety", "cdc_pregnancy_food_safety", "cdc_emergency_food_safety"],
+    "CDC food safety": ["cdc_food_safety"],
+    "CDC pregnancy food safety": ["cdc_pregnancy_food_safety"],
+    "CDC emergency food safety": ["cdc_emergency_food_safety"],
+    "Nutrition Facts label": ["fda_nutrition_label_current"],
+    "FDA produce safety": ["fda_produce"],
+    "Minnesota storage chart": ["mn_storage_chart"],
+    "Minnesota food thermometers": ["mn_food_thermometers"],
+    "Minnesota safe grilling": ["mn_safe_grilling_pdf"],
+    "Sodium tips": ["nhlbi_sodium_tips_pdf"],
+    "Healthy eating for adults": ["hhs_adults_older_adults_pdf"],
+    "Healthy eating for kids and teens": ["hhs_kids_teens_pdf"],
+    "Dietary Guidelines for Americans": ["dga_2025_2030_pdf"],
+    "DGA 2025-2030": ["dga_2025_2030_pdf"],
+    "Healthy Eating Plate": ["harvard_healthy_plate"]
+  }
+}

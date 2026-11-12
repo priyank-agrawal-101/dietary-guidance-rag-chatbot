@@ -4,7 +4,7 @@ Build a prototype for a US audience using **HTML pages and PDF documents**, prio
 
 The [source registry](config/sources.yaml) records 68 inspected candidate URLs and retains all 20 earlier IDs. The [source review](docs/sourceReview.md) and [P1.7 coverage review](docs/phase1-coverage.md) document access, audience, currency, rights, alternate formats and 12 verified official PDFs; 9 PDFs are approved with exclusions. The default selection has **16 eligible consumer families: 10 HTML assets and 6 PDFs**, all imported and byte-verified under the current review snapshot. This meets the initial acquisition coverage target; extraction/indexing gates remain separate.
 
-See the [problem statement](docs/problemStatement.md) and [architecture](docs/architecture.md) for HTML/PDF extraction, OCR fallback, cleaning, normalization, chunking, indexing and citation requirements. Phase 0 provides the Python package, settings, contracts and identity helpers. P1.1/P1.2 add registry eligibility, immutable raw-byte artifacts and SQLite provenance storage. **P1.3–P1.6 implement reviewed-file imports, actual-format inspection, bounded HTTPS fetching and acquisition commands/reports.** **Phase 2.1 implements HTML extraction for all ten selected HTML assets.** **Phase 2.2 implements native PDF extraction through P2P.4.** **Phase 2.3 implements OCR fallback through P2O.3.** **Phase 2.4 implements shared normalization and exclusions through P2N.3.** **Phase 2.5 implements structure-aware chunking through P2C.3.** Embeddings, retrieval and the chatbot remain planned. Downloaded source snapshots, acquisition outputs and inspection renders are ignored by Git.
+See the [problem statement](docs/problemStatement.md) and [architecture](docs/architecture.md) for HTML/PDF extraction, OCR fallback, cleaning, normalization, chunking, indexing and citation requirements. Phase 0 provides the Python package, settings, contracts and identity helpers. P1.1/P1.2 add registry eligibility, immutable raw-byte artifacts and SQLite provenance storage. **P1.3–P1.6 implement reviewed-file imports, actual-format inspection, bounded HTTPS fetching and acquisition commands/reports.** **Phase 2.1 implements HTML extraction for all ten selected HTML assets.** **Phase 2.2 implements native PDF extraction through P2P.4.** **Phase 2.3 implements OCR fallback through P2O.3.** **Phase 2.4 implements shared normalization and exclusions through P2N.3.** **Phase 2.5 implements structure-aware chunking through P2C.3.** **P3.1–P3.6 implement BGE-small candidate indexing, scoped dense/BM25/hybrid retrieval and frozen strategy selection.** **P3.7 implements atomic activation, request pinning and rollback.** Policy and the chatbot remain planned. Downloaded source snapshots, acquisition outputs and inspection renders are ignored by Git.
 
 Follow the [phase-wise implementation plan](docs/implementation-plan.md) for build dependencies, tasks, deliverables, learning outcomes and completion gates.
 
@@ -27,7 +27,7 @@ python -m ruff check src tests
 python -m ruff format --check src tests
 ```
 
-See [Phase 0 foundations](docs/phase0-foundations.md) for configuration precedence, synthetic contract examples, identity/version rules, dependency groups and wheel installation. Core, development, acquisition, HTML, native PDF, OCR and tokenizer Python dependencies are hash-locked; API and embedding-weight dependencies are reserved for later phases. OCR requires a separately installed Tesseract executable and language data. Acquisition does not require model/API credentials.
+See [Phase 0 foundations](docs/phase0-foundations.md) for configuration precedence, synthetic contract examples, identity/version rules, dependency groups and wheel installation. Core, development, acquisition, HTML, native PDF, OCR and tokenizer dependencies are hash-locked; embeddings/indexing now have a separate macOS ARM64/Python 3.13 wheel lock. API dependencies remain reserved for later phases. OCR requires a separately installed Tesseract executable and language data. Acquisition does not require model/API credentials.
 
 See [P1.1/P1.2 corpus foundations](docs/phase1-corpus-foundation.md) for consumer selection reasons, original-byte storage, SQLite usage and provenance checks. The registry check is read-only; repository initialization and writes require explicit API calls. It does not import the review cache or activate a corpus.
 
@@ -114,4 +114,94 @@ dietary-rag chunk-sources \
 
 The **350-token target / 50-token sentence overlap** produces **269 default chunks** across 16 sources, with a maximum full E5 input of **337 tokens** against the verified **512-token limit**. Complete cards, recommendations, conditions and table rows define boundaries; short evidence stays short. Tokens include `passage:`, context and special tokens. The tokenizer/model revision is pinned; preparation downloads tokenizer metadata only. Builds are offline, deterministic and traceable through exact block slices, native table rows and original PDF regions/geometry in a separate staging SQLite store plus JSON exports.
 
-The 250-token alternative produces 274 chunks. Both achieve 16/16 complete-evidence hits at five results in the authored offline BM25 diagnostic. Keep 350/50; dense E5 and broader retrieval evaluation remain Phase 3. Comparison evidence has separate snapshots; quarantined OCR and exclusions remain enforced. No active index or chatbot is created. See the phase guide for comparison commands, inspection examples, test/cache requirements and trade-offs.
+The 250-token alternative produces 274 chunks. Both achieve 16/16 complete-evidence hits at five results in the authored offline BM25 diagnostic. Keep 350/50; the frozen P3.6 retrieval comparison selected hybrid. Comparison evidence has separate snapshots; quarantined OCR and exclusions remain enforced. No active index or chatbot is created. See the phase guide for comparison commands, inspection examples, test/cache requirements and trade-offs.
+
+## BGE-small candidate indexing (P3.1–P3.3)
+
+Pinned BGE-small embeddings, explicit model preparation and paired candidate
+SQLite/Chroma snapshots are implemented. The reviewed candidate has **269
+normalized 384-dimensional vectors across 16 documents, including six PDFs**.
+Complete BGE inputs measure **18 / 59 / 335 tokens**, within the verified
+512-token limit without truncation. Canonical evidence and historical E5 chunk
+records remain unchanged.
+
+```sh
+python -m pip install --require-hashes -r requirements/embeddings.lock
+dietary-rag prepare-embeddings
+dietary-rag build-index \
+  --chunk-snapshot chunk_snapshot_e9e8b804e406477b528835fd71163f40bcffa5bf85c3552168300ecef26fe921 \
+  --report data/staging/index-build-report.json
+dietary-rag validate-index --snapshot-dir <snapshot_dir from the build report>
+```
+
+The dependency lock is specific to macOS ARM64/Python 3.13; other environments
+need separate resolution and verification. Model preparation explicitly downloads
+hash-pinned MIT-licensed weights. Subsequent embedding and validation work offline.
+Compatibility validation checks exact membership, reviewed provenance, model
+configuration, full input limits, canonical vectors and scalar metadata.
+Candidates stay inactive; scoped search and strategy selection are implemented
+through P3.7, including validated activation and rollback. See [indexing foundations](docs/phase3-indexing.md) and
+[verification evidence](docs/embedding-index-review.json).
+
+## Scoped retrieval and selection (P3.4–P3.6)
+
+Search the reviewed candidate with `dense`, `bm25` or `hybrid`. Every mode
+resolves the same scope before ranking and returns canonical evidence, source
+locations, actual searched documents and branch/fused ranks.
+
+```sh
+dietary-rag search-corpus "What requests reduce sodium at a restaurant?" --strategy hybrid
+dietary-rag search-corpus "How long can hard cooked eggs keep?" \
+  --strategy bm25 --documents mn_storage_chart
+dietary-rag search-corpus "According to Nutrition Facts label, what is a low Daily Value?" \
+  --strategy hybrid
+dietary-rag evaluate-retrieval --regressions-only
+dietary-rag evaluate-retrieval --output-dir data/staging/retrieval/p3-review
+```
+
+The frozen comparison selected **hybrid**: 16/16 regression and 32/32 held-out
+complete-evidence hits@5. BM25 scored 16/16 and 31/32; dense scored 15/16 and
+32/32. All three passed scope/provenance checks. The selected pair is activated locally through the separate lifecycle pointer. See [retrieval guide](docs/phase3-retrieval.md)
+and [review report](docs/retrieval-review.json) for frozen evidence, failures,
+performance, versioned configuration use and test coverage. P3.7 activation and rollback are implemented; policy and grounded answering are implemented below.
+
+## Active corpus lifecycle (P3.7)
+
+See [terminal testing and output explanations](docs/terminal-testing.md) for
+step-by-step commands, stored embedding inspection and how we verified search.
+
+The validated hybrid pair is activated locally. Current state is recorded in
+`data/active/active.json`; immutable candidate build reports retain their original
+status. Requests pin both versions, and previous releases remain available for
+validated rollback.
+
+```sh
+dietary-rag corpus-status
+dietary-rag search-corpus "What special requests reduce restaurant sodium?" --active
+dietary-rag search-corpus "How long can hard cooked eggs keep?" --active --documents mn_storage_chart
+```
+
+See [lifecycle guide](docs/phase3-lifecycle.md) for activation, rollback, atomic
+publication, retained proof and request-scoped evidence resolution. Phase 3 is
+complete; deterministic policy routing in P4.1 is next.
+
+## Phase 4 policy and response contracts
+
+[Policy foundations](docs/phase4-policy.md) documents the implemented P4.1–P4.6 scope gates, typed intent adapter, fixed refusal/capability messages, request/response/error contracts and pinned retrieval preparation context. Run `.venv/bin/dietary-rag check-policy "How should I store leftovers?"` to inspect routing without retrieval. Medical and calorie/weight requests are declined with professional referral; individual-food nutrient values route to Milestone 3; uncertain intent asks for clarification. Grounded answering is implemented below; the HTTP API/UI remain Phase 6.
+
+## Phase 5 grounded answering
+
+[Answering foundations](docs/phase5-answering.md) documents P5.1–P5.7, the typed generator/verifier adapters, condition-aware evidence decisions, canonical citations and one bounded repair. The default offline extractive generator preserves complete source conditions; no hosted model is enabled implicitly.
+
+```bash
+.venv/bin/dietary-rag answer-question \
+  'How long can hard cooked eggs stay in the refrigerator or freezer?' \
+  --documents mn_storage_chart --format text \
+  --report data/staging/answering/eggs.json
+
+.venv/bin/dietary-rag answer-question \
+  'What internal temperature should chicken be cooked to?' \
+  --documents cdc_food_safety mn_safe_grilling_pdf --format text
+```
+
+Answers require the compatible active corpus from Phase 3. JSON is the default output; `--format text` attaches complete citations beside each claim. Medical/calorie/weight and nutrient-capability responses still work without opening the corpus. Dependency failures and repeatedly invalid drafts are service errors, while evidence gaps identify the actual searched scope. The [31-case review](docs/answering-review.json) includes all six active PDFs, comparisons, partial answers, refusals and error/repair examples. HTTP endpoints and UI remain Phase 6.

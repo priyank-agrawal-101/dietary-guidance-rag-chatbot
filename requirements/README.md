@@ -65,10 +65,9 @@ The real-engine tests explicitly skip when the binary is missing; deterministic
 OCR routing/quality unit tests still run. Fixture generation needs the `pdf-dev`
 extra already included in `pdf.lock`.
 
-Remaining API and embeddings extras have bounded version ranges.
-They are **not yet locked or required for acquisition**; resolve and
-lock each activated group when its implementation begins. Do not install large model
-dependencies just to validate settings or source metadata.
+The API extra remains unactivated. The embeddings extra is now activated for
+P3.1–P3.3 through the platform-specific lock described below. Acquisition and
+settings validation still do not require model dependencies.
 
 
 `chunking.lock` activates the small Rust-backed `tokenizers` dependency (verified
@@ -88,4 +87,30 @@ Tokenizer files have their own pinned manifest and are not Python packages.
 Real-tokenizer integration checks skip explicitly if the cache is missing;
 unit boundary checks use a clearly labeled deterministic test counter. Install
 and prepare this group to run the complete Phase 2 verification offline.
-Sentence Transformers, Chroma and model weights remain unactivated Phase 3 work.
+Sentence Transformers, Chroma and model weights are activated separately by
+the Phase 3 commands; E5 tokenizer preparation remains independent.
+
+## Embedding and vector-index dependencies
+
+`embeddings.lock` pins Sentence Transformers, Transformers, CPU PyTorch and
+Chroma plus their transitive dependencies using the SHA-256 of each selected
+wheel. This lock is **specific to macOS ARM64/Python 3.13**. Shared packages are
+constrained by all existing locks. Other environments require separate lock
+resolution and verification before claiming support.
+
+```sh
+python -m pip install --require-hashes -r requirements/embeddings.lock
+python scripts/lock_embeddings.py
+dietary-rag prepare-embeddings
+```
+
+The lock script explicitly resolves binary wheels through pip's dry-run report;
+it avoids downloading every platform's large model-runtime wheels just to hash
+them. The lock contains versions and hashes, without environment-specific index
+URLs or credentials. An explicit `--resolution-report` can regenerate it offline
+from a previously saved pip resolution report. Review and test regenerated locks.
+
+BGE model artifacts are separately pinned by
+`config/embedding-bge-small-en-v1.5.json`; they are not Python dependencies.
+See [Phase 3 indexing](../docs/phase3-indexing.md) for model/cache contracts,
+candidate build and compatibility validation commands.

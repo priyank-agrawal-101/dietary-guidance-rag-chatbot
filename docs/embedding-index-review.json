@@ -1,0 +1,230 @@
+{
+  "review_date": "2026-11-12",
+  "tasks": [
+    "P3.1",
+    "P3.2",
+    "P3.3"
+  ],
+  "scope": "Pinned local model, canonical evidence/vector compatibility and candidate build only; scoped retrieval, relevance evaluation and activation remain P3.4\u2013P3.7.",
+  "model": {
+    "model_name": "BAAI/bge-small-en-v1.5",
+    "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "license": "MIT",
+    "dimensions": 384,
+    "max_tokens": 512,
+    "pooling": "cls",
+    "normalize": true,
+    "metric": "cosine",
+    "files": {
+      "config.json": {
+        "sha256": "094f8e891b932f2000c92cfc663bac4c62069f5d8af5b5278c4306aef3084750",
+        "size": 743
+      },
+      "tokenizer.json": {
+        "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+        "size": 711396
+      },
+      "tokenizer_config.json": {
+        "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+        "size": 366
+      },
+      "special_tokens_map.json": {
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+        "size": 125
+      },
+      "vocab.txt": {
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "size": 231508
+      },
+      "sentence_bert_config.json": {
+        "sha256": "84e39fda68ccbff05bfa723ae9c0e70e23e2ec373b76e0f8c6e71af72a693cbf",
+        "size": 52
+      },
+      "modules.json": {
+        "sha256": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "size": 349
+      },
+      "1_Pooling/config.json": {
+        "sha256": "d1caf60c96f5fba2157c0c26b76d80818fad6cf0b8eb5e73ec372ff9818eba5c",
+        "size": 190
+      },
+      "model.safetensors": {
+        "sha256": "3c9f31665447c8911517620762200d2245a2518d6e7208acc78cd9db317e21ad",
+        "size": 133466304
+      }
+    },
+    "preprocessing": "bge_v1_remove_e5_passage_prefix",
+    "query_prefix": "Represent this sentence for searching relevant passages: ",
+    "device": "cpu",
+    "dtype": "float32",
+    "dependencies": {
+      "sentence-transformers": "5.7.0",
+      "transformers": "5.22.2",
+      "torch": "2.15.0",
+      "tokenizers": "0.23.3",
+      "numpy": "2.5.4",
+      "chromadb": "1.5.9"
+    }
+  },
+  "historical_chunk_snapshot": "chunk_snapshot_e9e8b804e406477b528835fd71163f40bcffa5bf85c3552168300ecef26fe921",
+  "candidate_snapshot": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+  "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+  "active": false,
+  "chunks": 269,
+  "documents": 16,
+  "official_pdf_documents": 6,
+  "bge_full_input_tokens": {
+    "minimum": 18,
+    "median": 59,
+    "maximum": 335,
+    "total": 21725,
+    "count_over_limit": 0
+  },
+  "sources": [
+    {
+      "document_id": "cdc_emergency_food_safety",
+      "document_version_id": "docv_664dde305d7d460a6a84c222004481a941f0234eda8564c7fcf9fc838aaf1e2f",
+      "format": "html",
+      "chunks": 7
+    },
+    {
+      "document_id": "cdc_food_safety",
+      "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+      "format": "html",
+      "chunks": 16
+    },
+    {
+      "document_id": "cdc_pregnancy_food_safety",
+      "document_version_id": "docv_1396c4d6f8e66c246bdcb6f0b2ba9884fb92cefa6c81b84d207625550bccbefb",
+      "format": "html",
+      "chunks": 10
+    },
+    {
+      "document_id": "dga_2025_2030_pdf",
+      "document_version_id": "docv_1db0dbfc8831feeb8d3686251fd8da910222794f5e928955e4db13b2e723a358",
+      "format": "pdf",
+      "chunks": 51
+    },
+    {
+      "document_id": "fda_nutrition_label_current",
+      "document_version_id": "docv_76fdedd6ab1a93d033b1dc00892ef67db636f1a7eee64da302d50aab07702d35",
+      "format": "html",
+      "chunks": 6
+    },
+    {
+      "document_id": "fda_produce",
+      "document_version_id": "docv_f0802ed3fca14dc810fadd80d4e71f45960319df73bd8a820761b0cbe0c24f39",
+      "format": "html",
+      "chunks": 9
+    },
+    {
+      "document_id": "fda_seafood",
+      "document_version_id": "docv_f717d00e9d67aa91f45a193ecd7c38f22d685ae5d9eb4b9d64ee2864b0d85cab",
+      "format": "html",
+      "chunks": 13
+    },
+    {
+      "document_id": "hhs_adults_older_adults_pdf",
+      "document_version_id": "docv_f099f05ee058c0c418974fadee498c7d761c4641b54703dfc97471279f29c172",
+      "format": "pdf",
+      "chunks": 33
+    },
+    {
+      "document_id": "hhs_kids_teens_pdf",
+      "document_version_id": "docv_9f71a66f5a01c88e54d647b3d9792c1ac362627f35cd6bd3db7641fc0d54aed7",
+      "format": "pdf",
+      "chunks": 44
+    },
+    {
+      "document_id": "mn_cold_storage",
+      "document_version_id": "docv_dbecf7a2b8fa0d45ea342f13f9d4f893c601f31f4c0cdf88cfe31965a9e81d3f",
+      "format": "html",
+      "chunks": 8
+    },
+    {
+      "document_id": "mn_cross_contamination_pdf",
+      "document_version_id": "docv_073fd92cd5bd55b2017a2c3f4181980a086b84d4c21dc22709ea7dc2ca7a7c7a",
+      "format": "pdf",
+      "chunks": 21
+    },
+    {
+      "document_id": "mn_food_thermometers",
+      "document_version_id": "docv_00818768b5b500afd6bbd37ff3acd966198a95d489e2936b414f25aa0fc9ab22",
+      "format": "html",
+      "chunks": 2
+    },
+    {
+      "document_id": "mn_safe_grilling_pdf",
+      "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+      "format": "pdf",
+      "chunks": 19
+    },
+    {
+      "document_id": "mn_safe_temperatures",
+      "document_version_id": "docv_d8982ec70f5e1234669ca10f62d535d7fab066455583b5010985e95b9bd8061a",
+      "format": "html",
+      "chunks": 8
+    },
+    {
+      "document_id": "mn_storage_chart",
+      "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+      "format": "html",
+      "chunks": 14
+    },
+    {
+      "document_id": "nhlbi_sodium_tips_pdf",
+      "document_version_id": "docv_915ecafb2cb9f537cc1b9bf914a0af50f041c1cf8d619003c1358c05188b6c90",
+      "format": "pdf",
+      "chunks": 8
+    }
+  ],
+  "compatibility_validation": {
+    "status": "compatible_candidate_no_activation",
+    "active": false,
+    "snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "chunks": 269,
+    "documents": 16,
+    "pdf_documents": 6,
+    "embedding_configuration_id": "embedding_config_3c0d91ff87e3aaf42ca0e07f5d39f043e447e9a62a47849f18ccc9da59c6ca65",
+    "checks": {
+      "exact_membership": true,
+      "reviewed_provenance": true,
+      "model_configuration": true,
+      "complete_input_limits": true,
+      "canonical_vectors": true,
+      "scalar_metadata": true
+    },
+    "retrieval_quality_evaluated": false
+  },
+  "artifacts": {
+    "model_manifest": "config/embedding-bge-small-en-v1.5.json",
+    "dependency_lock": "requirements/embeddings.lock",
+    "candidate_directory": "data/staging/indexes/corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "build_report": "data/staging/index-build-report.json",
+    "validation_report": "data/staging/index-validation-report.json",
+    "guide": "docs/phase3-indexing.md"
+  },
+  "hashes": {
+    "config/embedding-bge-small-en-v1.5.json": "27523f299e2fd04144a04ca0e9e742fd98eae911218fd647930d4892499b6fbb",
+    "requirements/embeddings.lock": "abd66ad615300b96e504284e302b12597e967414244be0a0585fe8327b24329c"
+  },
+  "verification": {
+    "tests_passed": 371,
+    "new_embedding_index_checks": 35,
+    "skipped": 0,
+    "real_model_prepared": true,
+    "real_model_inference": "passed",
+    "independent_offline_candidate_validation": "passed",
+    "ruff_lint": "passed",
+    "ruff_format": "passed",
+    "dependency_consistency": "passed",
+    "registry_validation": "passed",
+    "wheel_build": "passed"
+  },
+  "remaining": [
+    "P3.4 scoped retrieval and mandatory search filters",
+    "P3.5 name/alias resolution and search audit",
+    "P3.6 regression/held-out dense retrieval quality and performance gates",
+    "P3.7 activation, snapshot pinning and rollback"
+  ]
+}

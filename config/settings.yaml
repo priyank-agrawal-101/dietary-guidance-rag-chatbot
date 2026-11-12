@@ -9,9 +9,11 @@ fetch:
   max_html_bytes: 5242880
   max_pdf_bytes: 62914560
 embedding:
-  model_name: intfloat/e5-base-v2
-  revision: f52bf8ec8c7124536f0efb74aca902b2995e5bcd  # Shared tokenizer/model revision; weights remain Phase 3.
+  model_name: BAAI/bge-small-en-v1.5
+  revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
 chunking:
+  tokenizer_model_name: intfloat/e5-base-v2  # Historical Phase 2 chunk identities remain immutable.
+  tokenizer_revision: f52bf8ec8c7124536f0efb74aca902b2995e5bcd
   target_tokens: 350
   overlap_tokens: 50
 runtime:
@@ -23,3 +25,15 @@ runtime:
 generation:
   provider: unconfigured
   model_name: null
+policy:
+  classifier: local_conservative_v1
+  minimum_confidence: 0.9
+  classifier_timeout_seconds: 10
+answering:
+  generator: extractive_v1
+  units_per_aspect: 1
+  max_claims_per_document: 8
+  repair_attempts: 1
+  semantic_minimum_confidence: 0.95
+  generator_timeout_seconds: 30
+  verifier_timeout_seconds: 15

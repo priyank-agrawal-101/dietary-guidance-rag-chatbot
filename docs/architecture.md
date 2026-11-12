@@ -25,7 +25,7 @@ Recommended technologies and starting parameters are architecture decisions. The
 | Inspect relevance, currency, audience and reuse | Record source selection and rights decisions; isolate clinical, scientific, historical and regulatory references; keep failed and restricted candidates unindexed. |
 | Preserve source and location provenance | Store publisher, verified date/edition labels, direct/resolved URLs, retrieval time, format and PDF physical pages; never invent missing publication years. |
 | Avoid splitting meaningful recommendations | Chunk by section and content block; preserve lists and table row context. |
-| Support full-corpus and named-document retrieval | Apply document and corpus-version filters inside vector retrieval. |
+| Support full-corpus and named-document retrieval | Apply identical document/corpus-version and eligibility restrictions before ranking in dense, BM25 and hybrid retrieval. |
 | Answer only from retrieved passages | Generate structured claims with evidence references and validate them before display. |
 | Cite every factual claim | Construct citations in application code from stored metadata. |
 | Keep sources separate | Group evidence and final claims by document ID, including sources from the same publisher. |
@@ -131,11 +131,12 @@ Suppose a user asks, "According to the Minnesota health department’s Cold Stor
 | Metadata and extracted content | SQLite | Stores document versions, blocks, chunks, provenance, and ingestion records locally. |
 | Vector index | Chroma in persistent local mode | Provides similarity search and metadata filters without a separate service for the prototype. |
 | Embeddings | Sentence Transformers behind an adapter | Allows local English-language embeddings and reproducible model configuration. |
+| Retrieval strategy | Compared dense, deterministic BM25 and equal-weight rank fusion | Selects the best passing strategy from the actual corpus; BM25-only is eligible to become the default. |
 | Generation and semantic assessment | Provider-neutral language-model adapter | Keeps orchestration independent of a specific hosted or local model. |
 | Interface | Small HTML/JavaScript chat page served by the API | Provides document selection and readable citations with minimal frontend infrastructure. |
 | Validation | pytest plus a curated question/evidence dataset | Checks behavior, extraction, retrieval, policy gates, and evidence support. |
 
-The selected embedding model is `intfloat/e5-base-v2`, pinned to revision `f52bf8ec8c7124536f0efb74aca902b2995e5bcd`. Phase 2 chunking uses its hash-verified tokenizer and a verified 512-token input limit; embedding weights and dense retrieval remain Phase 3 work. Use its required query/passage prefixes and measure the complete input with its tokenizer. Other models can be substituted through the adapter, but changing the model or preprocessing requires rebuilding the index.
+The selected embedding model is `BAAI/bge-small-en-v1.5`, pinned to revision `5c38ec7c405ec4b44b94cc5a9bb96e735b38267a`: 384-dimensional normalized CLS vectors, a verified 512-token input limit and cosine distance. P3.1–P3.3 implement explicit model preparation, offline embeddings and compatible candidate evidence/vector snapshots; scoped retrieval and activation remain later Phase 3 tasks. Phase 2 retains its historical hash-verified `intfloat/e5-base-v2` tokenizer at revision `f52bf8ec8c7124536f0efb74aca902b2995e5bcd`. BGE passages remove only the stored E5 `passage: ` prefix; queries use `Represent this sentence for searching relevant passages: `. Recount complete inputs with BGE's tokenizer without truncation. See [indexing foundations](phase3-indexing.md). Changing the model or preprocessing requires rebuilding the index.
 
 No orchestration framework is required. Keep the ingestion, retrieval, policy, and citation logic explicit so their behavior can be inspected and tested.
 
@@ -351,7 +352,7 @@ Count the **complete embedding input**: `passage:`, original document/compact se
 
 Consumer builds accept exact fidelity-reviewed default normalization and revalidate native artifacts. Comparisons have separate explicit snapshots and do not increase consumer coverage; quarantined OCR and project-created fixtures are unavailable to consumer chunking. Deterministic IDs and SQLite/JSON exports make blocks, rows, locations and configurations inspectable.
 
-The reviewed baseline produces **269 chunks**, with full input lengths of **20 / 61 / 337 tokens** (minimum / median / maximum). The **250-token** alternative produces **274 chunks**, with a maximum of 263 tokens for a complete pregnancy row. Both achieve 16/16 complete-evidence hits@5 on the authored offline BM25 diagnostic. Retain 350/50; evaluate dense E5 retrieval and broader held-out questions before changing defaults. The lexical diagnostic does not establish dense retrieval or answer accuracy.
+The reviewed baseline produces **269 chunks**, with full historical E5 input lengths of **20 / 61 / 337 tokens** (minimum / median / maximum). The **250-token** alternative produces **274 chunks**, with a maximum of 263 tokens for a complete pregnancy row. Both achieve 16/16 complete-evidence hits@5 on the authored offline BM25 diagnostic. Retain 350/50; evaluate dense BGE-small retrieval and broader held-out questions before changing defaults. BGE candidate inputs measure **18 / 59 / 335 tokens** without truncation. The lexical diagnostic and candidate compatibility checks do not establish dense retrieval or answer accuracy.
 
 | Decision | Benefit | Cost or risk |
 | --- | --- | --- |
@@ -365,13 +366,13 @@ The [README](../README.md) and [chunking guide](phase2-chunking.md) report the c
 
 ## 10. Embedding and Index Publication
 
-Embed the canonical chunk representation with the pinned passage preprocessing. Embed questions with the corresponding query preprocessing. Store the model name, revision, tokenizer configuration, normalization setting, vector dimension, and distance metric in the snapshot manifest.
+Embed the canonical chunk representation with the pinned passage preprocessing. Dense and hybrid retrieval embed questions with the corresponding query preprocessing; BM25-only retrieval uses the question's lexical terms without loading query-embedding weights. Store the model name, revision, tokenizer configuration, normalization setting, vector dimension, and distance metric in the snapshot manifest. Keep the existing paired evidence/vector snapshots and compatibility checks regardless of the selected retrieval mode.
 
 Configure cosine similarity consistently with the embedding representation. A query adapter must reject incompatible model/index configurations instead of comparing mismatched vectors.
 
 Build a new SQLite database and Chroma directory together under a staging snapshot. Verify that every indexed chunk resolves to the same snapshot's canonical text and metadata and that every selected-document filter excludes other document IDs.
 
-Publish by atomically replacing the active-version pointer after validation. Keep the previous snapshot available for in-flight requests and rollback. Do not mutate the active vector index while its metadata database remains at a different version.
+Version retrieval strategy, lexical preprocessing/scoring, fusion settings and candidate/contribution budgets separately from the immutable corpus/embedding snapshot. The selection report must identify the tested retrieval configuration. Publish by atomically selecting the compatible corpus snapshot and passing retrieval configuration together after validation. Pin each request to both versions; keep the previous pair available for in-flight requests and rollback. Do not mutate the active vector index while its metadata database remains at a different version, or silently change an active retrieval configuration without validating and evaluating it.
 
 For this small corpus, rebuilding a complete snapshot is preferable to introducing complex incremental updates. Content hashes can skip unnecessary embedding work, but metadata-only changes must still produce a traceable document/snapshot version.
 
@@ -415,25 +416,34 @@ Distinguish unknown IDs from known but unavailable sources. An unavailable selec
 
 ### 12.2 Retrieve Candidate Evidence
 
-1. Embed the resolved question using the snapshot's query configuration.
-2. Search with mandatory `corpus_version`, eligible-chunk, and `target_audience=US` restrictions, plus selected document and source-type filters where applicable. Enforce default consumer content roles, rights approval and one canonical asset per family; source type alone cannot admit medical/regulatory material.
-3. Begin with approximately 20 candidate chunks for ordinary questions; tune this against the expanded corpus rather than assuming the earlier smaller-corpus settings remain sufficient.
-4. For explicit cross-document questions, retrieve a small candidate set per selected document, such as three chunks each, so one long document cannot crowd out the others.
-5. Deduplicate overlapping evidence and resolve canonical chunks from SQLite.
-6. Optionally rerank candidates with a local cross-encoder; validate the improvement before adding it to the baseline.
-7. Select complete evidence units within the generation model's context budget, retaining required qualifications and table notes.
+**Implemented through P3.6:** the shared candidate retriever uses actual scoped Chroma queries, prefix-free in-memory BM25 and equal-weight RRF. On the frozen 16-regression/32-held-out comparison, hybrid passed 16/16 and 32/32 complete-evidence hits@5 and was selected; BM25 passed 16/16 and 31/32, while dense failed its 15/16 regression gate despite 32/32 held-out hits. All strategies passed scope/provenance checks. See [measured retrieval review and commands](phase3-retrieval.md). P3.7 now atomically activates a validated winning pair, pins requests and evidence resolution to one release, retains its frozen proof and supports validated rollback. See [implemented lifecycle](phase3-lifecycle.md).
 
-For broad multi-source questions without a selected list, run the per-document step across eligible active sources. The candidate budget grows with active document count, and a long PDF can dominate similarity hits; cap per-document/family contributions, then rerank and deduplicate before filling the model context. For an explicit large comparison, process document groups within a bounded request budget or ask for a narrower comparison. Evidence omitted because of context/time limits must not be mislabeled as guidance that was searched and did not cover the question.
+Compare **BGE-small dense, deterministic BM25 lexical and dense-plus-BM25 hybrid retrieval** through a shared scoped interface. Any strategy, including BM25-only, may become the default if it wins the comparison and passes the same evidence, scope and provenance gates. Keep BGE-small, reviewed chunk identities, 350/50 chunking and paired candidate snapshots unchanged.
+
+1. Resolve the search scope and apply mandatory `corpus_version`, eligible-chunk and `target_audience=US` restrictions, plus selected document and source-type filters where applicable, **before ranking in every branch**. Enforce default consumer roles, rights approval and one canonical asset per family; source type alone cannot admit medical/regulatory material.
+2. For dense/hybrid retrieval, embed the question using the pinned snapshot query configuration and rank Chroma vectors by cosine similarity. For BM25/hybrid retrieval, reuse the deterministic BM25 approach over canonical document/section/audience context plus body, without model-specific prefixes/instructions. Cache lexical statistics in memory for this small corpus; do not add FTS5 or another persistent lexical index yet.
+3. Begin ordinary searches with **20 candidates per branch**. Hybrid sums equal-weight reciprocal ranks, `1 / (60 + rank)` with ranks starting at 1, and returns at most 20 candidates. Never combine raw cosine and BM25 scores.
+4. For explicit comparisons and broad multi-document searches, preserve **three-candidate contributions per document** and a bounded overall budget, applying identical scope and contribution rules to all strategies so a long document cannot crowd out the others.
+5. Deduplicate overlapping evidence and resolve canonical chunks from SQLite without dropping conditions/qualifications or combining different table rows.
+6. Select complete evidence units within the generation model's context budget, retaining required qualifications and table notes. Cross-encoder reranking, query expansion, hierarchical retrieval and rechunking remain deferred until measured failures justify additional experiments.
+
+For broad multi-source questions without a selected list, run the per-document step across eligible active sources. Candidate collection grows with active document count; cap per-document/family contributions and the final budget, then deduplicate before filling the model context. For an explicit large comparison, process document groups within a bounded request budget or ask for a narrower comparison. Audit documents searched and evidence omitted because of context/time limits separately; omitted evidence must not be mislabeled as guidance that was searched and did not cover the question.
 
 Within relevant candidates, preserve source type and prioritize applicable government evidence for food-safety/regulatory claims. Explicit official-guidance requests restrict retrieval to `official_guidance`. Named-document restrictions still take precedence over an unsolicited fallback to other publishers. Sources without sufficient evidence receive no invented claims.
 
-The baseline requires vector retrieval. An optional SQLite FTS5 search can improve matching of exact food labels, section names, and units. If added, apply the same document/version restrictions to both retrieval paths and merge ranks rather than treating their raw scores as comparable.
+An exploratory diagnostic on the 269 reviewed chunks found complete evidence at five results for **15/16 dense**, **16/16 existing BM25** and **16/16 hybrid** cases. Dense missed the complete restaurant sodium-tips evidence; hybrid used constant 60 and 20 candidates per branch. These results used exact cosine ranking over stored vectors and the existing authored questions, not scoped Chroma or frozen held-out evaluation. The existing lexical diagnostic included historical embedding text; planned BM25 preprocessing omits model-specific prefixes. This motivates the comparison, not a preselected winner.
+
+Compare all strategies on identical snapshots, resolved scopes, questions and candidate budgets. Reuse 16 regressions and freeze 32 independently authored held-out questions covering the eight planned guidance categories before held-out evaluation. Include paraphrases, exact food names, numeric/unit distinctions, near-miss rows, conditions, source blanks and adult/child guidance. Existing regression `document_ids` identify acceptable evidence sources, not automatic search restrictions; evaluate full-corpus and explicitly selected-document searches separately.
+
+Every eligible default must achieve **16/16 regression complete-evidence hits@5**, **at least 29/32 held-out hits**, **zero scope leakage** and **complete provenance resolution**. Among passing strategies, select highest held-out complete-evidence hit@5, then highest **MRR@5 rounded to three decimals**; on equal quality prefer **BM25, then dense, then hybrid**. MRR@5 uses the reciprocal rank of the first complete-evidence hit in the first five results, or zero for a miss. Tune only against regressions before testing frozen held-out questions. If no strategy passes, record failures and block activation rather than lowering gates. The selected strategy must pass; dense results remain visible even if another strategy becomes the default.
+
+The reviewed selection report records all strategies' quality by evidence type and guidance category, branch/fused ranks, expected evidence and failures. Measure warm end-to-end query latency, startup cost, memory and index size on the same machine, identifying query-embedding cost where applicable and the tested dependency/configuration versions.
 
 Do not use a universal similarity cutoff such as "0.7 means supported." Similarity measures relevance, not whether a passage answers the question. Calibrate candidate counts and any score thresholds on labeled queries for the actual model and corpus.
 
 ### 12.3 Record What Was Searched
 
-Record the full active or selected document set searched, not just the documents producing top hits. Keep unavailable candidates separate from successfully searched documents. Use this audit to generate accurate evidence-gap messages and debugging traces.
+Record the full active or selected document set searched, not just the documents producing top hits, along with the strategy/versioned retrieval configuration, branch/fused ranks and canonical returned evidence. Preserve explicit unknown, ambiguous and unavailable selections; keep unavailable candidates and budget omissions separate from successfully searched documents. Use this audit to generate accurate evidence-gap messages and debugging traces without silent scope expansion.
 
 ## 13. Evidence Sufficiency and Clarification
 
@@ -651,7 +661,7 @@ Error bodies contain a request ID, stable error code, and a concise message, wit
 
 ## 18. Proposed Repository Layout
 
-The registry, validator, Phase 0 foundations and P1.1/P1.2 registry/artifact/SQLite provenance modules/tests now exist. Other component directories have scaffolding; acquisition adapters, parsing, vectors/models, API handlers and UI implementations remain planned.
+The registry, validator, Phase 0 foundations and P1.1/P1.2 registry/artifact/SQLite provenance modules/tests now exist. Acquisition, extraction/chunking, indexing/retrieval, active lifecycle, policy and grounded answering are implemented through Phase 5; see [answering foundations](phase5-answering.md). API handlers and UI implementations remain Phase 6.
 
 ```text
 docs/

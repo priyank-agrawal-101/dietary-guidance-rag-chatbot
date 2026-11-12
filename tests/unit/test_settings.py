@@ -61,5 +61,7 @@ def test_repository_settings_load():
     root = Path(__file__).resolve().parents[2]
     settings = load_settings(Path("config/settings.yaml"), project_root=root)
     assert settings.source_registry.is_file()
-    assert settings.embedding.revision == "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
+    assert settings.embedding.model_name == "BAAI/bge-small-en-v1.5"
+    assert settings.embedding.revision == "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a"
+    assert settings.chunking.tokenizer_revision == "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
     assert settings.chunking.target_tokens == 350
