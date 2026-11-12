@@ -1,0 +1,126 @@
+{
+  "raw_sha256": "c500d03c105cdb68476aa7898c8e6fd56868bef41b1f08ad0d3ed5cfef6b8727",
+  "document_version_id": "docv_project_mixed_scan",
+  "fixture_kind": "project_created_scan",
+  "review_note": "Synthetic project-owned fixture, not a naturally scanned official publication. Pages 2/9 blank, 3 sparse cover; image instructions have explicit reading rectangles. Page 8 deliberately degraded numeric/unit content.",
+  "pages": [
+    {
+      "physical_page": 2,
+      "intentional_blank": true,
+      "printed_page_label": null,
+      "regions": []
+    },
+    {
+      "physical_page": 4,
+      "intentional_blank": false,
+      "printed_page_label": "7",
+      "regions": [
+        {
+          "key": "instructions",
+          "bbox": [
+            40.0,
+            233.75,
+            560.0,
+            380.0
+          ],
+          "section": "Project fixture instructions",
+          "kind": "prose",
+          "rotation": 0,
+          "skew_degrees": 0.0
+        }
+      ]
+    },
+    {
+      "physical_page": 5,
+      "intentional_blank": false,
+      "printed_page_label": null,
+      "regions": [
+        {
+          "key": "instructions",
+          "bbox": [
+            40.0,
+            233.75,
+            560.0,
+            380.0
+          ],
+          "section": "Project fixture instructions",
+          "kind": "prose",
+          "rotation": 0,
+          "skew_degrees": 0.0
+        }
+      ]
+    },
+    {
+      "physical_page": 6,
+      "intentional_blank": false,
+      "printed_page_label": null,
+      "regions": [
+        {
+          "key": "instructions",
+          "bbox": [
+            200.0,
+            150.0,
+            346.25,
+            670.0
+          ],
+          "section": "Project fixture instructions",
+          "kind": "prose",
+          "rotation": 90,
+          "skew_degrees": 0.0
+        }
+      ]
+    },
+    {
+      "physical_page": 7,
+      "intentional_blank": false,
+      "printed_page_label": null,
+      "regions": [
+        {
+          "key": "instructions",
+          "bbox": [
+            40.0,
+            233.75,
+            560.0,
+            380.0
+          ],
+          "section": "Project fixture instructions",
+          "kind": "prose",
+          "rotation": 0,
+          "skew_degrees": 2.0
+        }
+      ]
+    },
+    {
+      "physical_page": 8,
+      "intentional_blank": false,
+      "printed_page_label": null,
+      "regions": [
+        {
+          "key": "instructions",
+          "bbox": [
+            40.0,
+            233.75,
+            560.0,
+            380.0
+          ],
+          "section": "Project fixture instructions",
+          "kind": "prose",
+          "rotation": 0,
+          "skew_degrees": 0.0
+        }
+      ]
+    },
+    {
+      "physical_page": 9,
+      "intentional_blank": true,
+      "printed_page_label": null,
+      "regions": []
+    }
+  ],
+  "dpi": 300,
+  "language": "eng",
+  "page_segmentation_mode": 6,
+  "timeout_seconds": 15,
+  "minimum_confidence": 85.0,
+  "critical_confidence": 95.0
+}

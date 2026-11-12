@@ -1,0 +1,244 @@
+{
+  "review_date": "2026-11-12",
+  "scope": "P2O.1\u2013P2O.3 OCR fixture fidelity and quarantine; no consumer corpus activation or shared normalization claimed.",
+  "fixture_kind": "project_created_scan",
+  "fixture_sha256": "c500d03c105cdb68476aa7898c8e6fd56868bef41b1f08ad0d3ed5cfef6b8727",
+  "configuration_id": "ocr_config_5bd1ec9fc88fe2ca0524be54868815f7afda11f573029b44304a5ff7a3df5d34",
+  "extraction_id": "ocr_extraction_72c656c694267030210105ebb765724694aff13b77baa3fdcf91cd5f977dfee6",
+  "engine": {
+    "name": "tesseract",
+    "version": "tesseract 5.5.4\n leptonica-1.87.0\n  libgif 6.1.3 : libjpeg 8d (libjpeg-turbo 3.2.0) : libpng 1.6.59 : libtiff 4.7.2 : zlib 1.2.12 : libwebp 1.6.0 : libopenjp2 2.5.4\n Found NEON\n Found libarchive 3.8.11 zlib/1.2.12 liblzma/5.8.4 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 expat/expat_2.7.4 CommonCrypto/system libb2/system\n Found libcurl/8.7.1 SecureTransport (LibreSSL/3.3.6) zlib/1.2.12 nghttp2/1.69.0",
+    "binary_sha256": "f8fb33c200730d1e78624df1be72805b74f486f46127d14382633fc51c1c7c41",
+    "language": "eng",
+    "eng_traineddata_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+  },
+  "pages": [
+    {
+      "physical_page": 1,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 14,
+      "native_quality": 1.0,
+      "image_area_fraction": 0.0,
+      "classification": "native",
+      "route": "native_only",
+      "reason": "14 usable native words; 0 raster images; reviewed regions=0"
+    },
+    {
+      "physical_page": 2,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.0,
+      "classification": "blank",
+      "route": "skip_blank",
+      "reason": "0 usable native words; 0 raster images; reviewed regions=0"
+    },
+    {
+      "physical_page": 3,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 3,
+      "native_quality": 1.0,
+      "image_area_fraction": 0.0,
+      "classification": "sparse_native",
+      "route": "native_only",
+      "reason": "3 usable native words; 0 raster images; reviewed regions=0"
+    },
+    {
+      "physical_page": 4,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.1596875,
+      "classification": "scanned",
+      "route": "ocr_regions",
+      "reason": "0 usable native words; 2 raster images; reviewed regions=1"
+    },
+    {
+      "physical_page": 5,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 5,
+      "native_quality": 1.0,
+      "image_area_fraction": 0.1584375,
+      "classification": "mixed",
+      "route": "ocr_regions",
+      "reason": "5 usable native words; 1 raster images; reviewed regions=1"
+    },
+    {
+      "physical_page": 6,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.1584375,
+      "classification": "scanned",
+      "route": "ocr_regions",
+      "reason": "0 usable native words; 1 raster images; reviewed regions=1"
+    },
+    {
+      "physical_page": 7,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.1584375,
+      "classification": "scanned",
+      "route": "ocr_regions",
+      "reason": "0 usable native words; 1 raster images; reviewed regions=1"
+    },
+    {
+      "physical_page": 8,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.1584375,
+      "classification": "scanned",
+      "route": "ocr_regions",
+      "reason": "0 usable native words; 1 raster images; reviewed regions=1"
+    },
+    {
+      "physical_page": 9,
+      "width": 600.0,
+      "height": 800.0,
+      "rotation": 0,
+      "native_word_count": 0,
+      "native_quality": 0.0,
+      "image_area_fraction": 0.1584375,
+      "classification": "blank",
+      "route": "skip_blank",
+      "reason": "0 usable native words; 1 raster images; reviewed regions=0"
+    }
+  ],
+  "images": [
+    {
+      "physical_page": 4,
+      "image_id": "ocr_image_64074a8ea05a24109b87fdadd65157aa0705ac1d34b5e195d723b426279dc53f",
+      "original_page_png_sha256": "86cc5e6a7f39e977df2be26a22be0bfe5c7463d08131be09d678b0a288eaaa06",
+      "processed_png_sha256": "4c77ff222a079820387a3dce90d3242f1f592492a963ca5f11123397bba4780b",
+      "rotation_correction": 0,
+      "skew_correction": 0.0,
+      "visual_review": "Original/corrected crops and inverse word-box placement inspected; no clipped retained words."
+    },
+    {
+      "physical_page": 5,
+      "image_id": "ocr_image_68233df41e92a75a4de0af3207ff02fa172a414f6643de5564b22cc812b7e532",
+      "original_page_png_sha256": "8e62e4552add93d3f89666aa1839abc81ecd6ab56e8a07c5b4854a73dd27e06d",
+      "processed_png_sha256": "00088e0296dffb0b3f3562cd4a9963c263ba89353c1e9d7667d9745e5518b6d7",
+      "rotation_correction": 0,
+      "skew_correction": 0.0,
+      "visual_review": "Original/corrected crops and inverse word-box placement inspected; no clipped retained words."
+    },
+    {
+      "physical_page": 6,
+      "image_id": "ocr_image_c0a93bf3e3615cb4670330c895bf0ceca612ec197660031392e827c89ad05f9a",
+      "original_page_png_sha256": "c949ba368df6b04871ca96dd1f6dbe8dd59dc33e88313b935abbaad428ad501f",
+      "processed_png_sha256": "b2983ca2ea706453e172ac97812e0e9a3bddf1d3e073ee4ba4da4e9bdbcb2440",
+      "rotation_correction": 90,
+      "skew_correction": 0.0,
+      "visual_review": "Original/corrected crops and inverse word-box placement inspected; no clipped retained words."
+    },
+    {
+      "physical_page": 7,
+      "image_id": "ocr_image_1fe2cda771276d683de7d9e783533c8251933e59fd4659f91f7ee7e76116f70b",
+      "original_page_png_sha256": "b4c7d7230529bd12f326cb0ad1be104fac18e0a3a78d8e74d478393d10f04ef6",
+      "processed_png_sha256": "5599beffb713cde6c798173a6d3876a7b85736211a64fac25f4159dc11a43951",
+      "rotation_correction": 0,
+      "skew_correction": 2.0,
+      "visual_review": "Original/corrected crops and inverse word-box placement inspected; no clipped retained words."
+    },
+    {
+      "physical_page": 8,
+      "image_id": "ocr_image_8413dd75270671ddd2b0162e903db8867bd3b7b1ec4e8cc0221196014671c2ad",
+      "original_page_png_sha256": "82c1be7981cec5e8eb8dc64399fb8af30f41e0c44924fa9b3089b04903685785",
+      "processed_png_sha256": "a23c9cf764d6353d7bd47be89af9cbd69317c74d250deef086aec9d1a48d11bb",
+      "rotation_correction": 0,
+      "skew_correction": 0.0,
+      "visual_review": "Original/corrected crops and inverse word-box placement inspected; no clipped retained words."
+    }
+  ],
+  "retained_blocks": 4,
+  "quarantined_candidates": [
+    {
+      "candidate_id": "ocr_candidate_416ddd3025cb4e9f43023820aff044fef95fe65142057edde5c4b2dbc46b2585",
+      "image_id": "ocr_image_8413dd75270671ddd2b0162e903db8867bd3b7b1ec4e8cc0221196014671c2ad",
+      "text": "Store at 40 F for 2 hours",
+      "word_ids": [
+        "ocr_word_50f527befbf1e85d2374d14b5d0fcaa606b44cc702017f16fd706f38ed5f5edd",
+        "ocr_word_547b86257522fec612fdc70808b2a7d8a2eb104c0ea4d3e7ae4588d1c1ca44b7",
+        "ocr_word_e1c1c3eb2e73e5ee2be9749ba9cb1b9c97f403a51bcf7ded6af4459b90acc770",
+        "ocr_word_4361498fa641ab77ed500781bf757022b03a080b1f7f6bf51cdb842d418c083c",
+        "ocr_word_b8c0637becfc40f23c64b2f8ce1cffb49c9289bd6e326280082dc386605f9199",
+        "ocr_word_a6e9b3a52028813fa93fe2dc25ff45108aa3117aa9534f9755b23a484830c60a",
+        "ocr_word_ccaefdc4879d65648fe5bba892e082bdfa4966ad69da69daf4919ff1cc438fab"
+      ],
+      "source_location": {
+        "format": "pdf",
+        "source_anchor": null,
+        "dom_path": null,
+        "physical_page": 8,
+        "printed_page_label": null,
+        "bbox": [
+          61.919999999999995,
+          256.748650269946,
+          190.79999999999998,
+          270.4259148170366
+        ],
+        "extraction_method": "ocr",
+        "ocr_confidence": 91.033035,
+        "review_state": "quarantined"
+      },
+      "state": "quarantined",
+      "reasons": [
+        "uncertain_numeric_or_unit"
+      ],
+      "block_id": null
+    }
+  ],
+  "comparisons": [
+    {
+      "physical_page": 4,
+      "original_project_text": "Keep food chilled. Use clean utensils.",
+      "ocr_text": "Keep food chilled. Use clean utensils.",
+      "matches": true
+    },
+    {
+      "physical_page": 5,
+      "original_project_text": "Wash hands before preparing food. Keep utensils clean.",
+      "ocr_text": "Wash hands before preparing food. Keep utensils clean.",
+      "matches": true
+    },
+    {
+      "physical_page": 6,
+      "original_project_text": "Separate raw and cooked foods.",
+      "ocr_text": "Separate raw and cooked foods.",
+      "matches": true
+    },
+    {
+      "physical_page": 7,
+      "original_project_text": "Keep food chilled. Use clean utensils.",
+      "ocr_text": "Keep food chilled. Use clean utensils.",
+      "matches": true
+    },
+    {
+      "physical_page": 8,
+      "original_project_text": "Store at 40 F for 2 hours.",
+      "ocr_text": "Store at 40 F for 2 hours",
+      "note": "OCR dropped the final period; numeric/unit confidence failed the gate. No block retained."
+    }
+  ],
+  "review_state": "quarantined",
+  "sample_png_sha256": "37e02ec343683c9368eaf01012db91e511464381092217c2371c143f4a536304"
+}

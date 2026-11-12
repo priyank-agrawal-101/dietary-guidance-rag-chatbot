@@ -1,0 +1,1981 @@
+{
+  "review_date": "2026-11-12",
+  "tasks": [
+    "P2C.1",
+    "P2C.2",
+    "P2C.3"
+  ],
+  "chunker_version": "structure_chunker_v3",
+  "scope": "Reviewed ingestion development corpus; structural/fidelity/token/eligibility review. No dense E5 retrieval or answer accuracy claim.",
+  "tokenizer": {
+    "model_name": "intfloat/e5-base-v2",
+    "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+    "files": {
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "ae83fa6ca0333117ff12606020af925d648667ef70d92ff7f27d781ba0ca4544",
+      "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "config.json": "01cc39aa39538a8179aa131c8a16adc03b506c92009f091502e4eb0c702f5f78",
+      "sentence_bert_config.json": "948201d8329907aae938fa62f9ceeed53f5694dacc2b87b9f3b78b37ee986529"
+    },
+    "max_tokens": 512,
+    "source": "https://huggingface.co/intfloat/e5-base-v2",
+    "license": "MIT (model repository metadata)",
+    "tokenizers_version": "0.23.3"
+  },
+  "input_limit": 512,
+  "baseline": {
+    "role": "consumer",
+    "snapshot": {
+      "snapshot_id": "chunk_snapshot_e9e8b804e406477b528835fd71163f40bcffa5bf85c3552168300ecef26fe921",
+      "configuration_id": "chunk_config_ce66e26edd413a5e06432e0effff5bfdb82b91bd86bbaa8b543c437e04c57360",
+      "role": "consumer",
+      "active": false,
+      "build_ids": [
+        "chunk_build_022643d411cf620c53f77e3efa9e9747603ad5b38e5fb6eb331c3861e20e97a5",
+        "chunk_build_13cc8cae8cd4f553f27f982a4795e931d866552fdaf07c1b0c2dadb03cb3440a",
+        "chunk_build_1523536149964ce97a43812acfcdc2c40172b517eb575f32953c1efad34f9ab2",
+        "chunk_build_1d2d02fd481fd2eb7ee3900f005642555dcce00aaaaa8c1e486eba5f72250ad4",
+        "chunk_build_2beca82097fb2f7066c9484a6c9a646f3473f4eaa55504a1c66f48094903ca42",
+        "chunk_build_3c98730fed749c5a83ffb9108ef3811e698e3d195e0df74b95b13ae055f5286e",
+        "chunk_build_41f6225eb8e27903db628e1ebc3aa09ab6c72a659e94ab1e4e27b5fb507db834",
+        "chunk_build_427b2e79e006839178940866a4fc80ed167ec3b27a9563c8914dc070c7391609",
+        "chunk_build_84d828848b78c4d25956b5a1ef568fa476989248fbbe22e56a64e33af1c6f1dc",
+        "chunk_build_91929e88fee7ed9b33ba39eb333c2d3811986161dd72e0f45d2d1b4af95123ed",
+        "chunk_build_a10833768d7391aed694e9259d3c4551f7badb3fc30b91084618093220fea2ff",
+        "chunk_build_b12fe1b58e1d431a7f1cd2a2d8af1e027d0a228eec6af253c35e85a2bcf91849",
+        "chunk_build_d55ee6054092fe14a1898269df2b0fbdbfc1243fbfcc4bcde872bb01e9692dd8",
+        "chunk_build_da4a4d5c0035a88b0df32dd221cdabce18fc0fc934b4877af26735cd8bf39db7",
+        "chunk_build_ef8f259568e3353e22ab4fc57876281f32f826c01c300db1542e7224990737fb",
+        "chunk_build_fac1280dc0b5a52248f2626fb58f26e48b92992584590b21bc82b55670569c2b"
+      ],
+      "documents": [
+        "cdc_emergency_food_safety",
+        "cdc_food_safety",
+        "cdc_pregnancy_food_safety",
+        "dga_2025_2030_pdf",
+        "fda_nutrition_label_current",
+        "fda_produce",
+        "fda_seafood",
+        "hhs_adults_older_adults_pdf",
+        "hhs_kids_teens_pdf",
+        "mn_cold_storage",
+        "mn_cross_contamination_pdf",
+        "mn_food_thermometers",
+        "mn_safe_grilling_pdf",
+        "mn_safe_temperatures",
+        "mn_storage_chart",
+        "nhlbi_sodium_tips_pdf"
+      ],
+      "normalization_ids": [
+        "normalization_03c814ecb1ee9f83e6ff08d3ae4d1280e733e4a23d09f6eb96ba1d12bd6970d6",
+        "normalization_205c926704bbd473d511d49c1763f456c7a36cd560e77eb591484fcd7826c221",
+        "normalization_2ad25847742c9e1dd22b8fe7b34dc117e8890b26ba8910fe379c3d4d2b6a0898",
+        "normalization_2b9620a4e5f8b88127ec0f8c72b355a827f2f7be3c55b9a364095edf6e47aa5b",
+        "normalization_33eaaea836415a79d99794884de2ab1d0758a05de4d67b8d8ee6bd4695498ca0",
+        "normalization_4351e82b82b3bfbd6327ab0112aa6299807b2f1501bb58ab5dca8accf18bc412",
+        "normalization_48c3450a4952d8decbca2bf4a8271c45210917493d73fc33859f630e4de25b4f",
+        "normalization_4d5761d0f931fafa1f6a689d052ed03ed1ba3970646c107fb434fe06fb3e9fc3",
+        "normalization_6509eeb6dd59d4b1d52c256d3c857a67c165e1339d0874a52bc664eb085cf4ed",
+        "normalization_8551f34886efd1285a4e4430c2763c096e71439724f5ff27ca9835dadad1ccf3",
+        "normalization_87b01f7514b57c64578f57aba01ae645360f0da1d7d4ca4eb076afa2b1b8080e",
+        "normalization_a6f12fe37be75736bfc6f0a72144643ded06398bb968dc3b5c97552463937f29",
+        "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+        "normalization_b36ab5ea87c95280858fdab9e34a27ef7ac121ecd80df3619c14e00488d7b325",
+        "normalization_c80109ba4b1509dd52f45c207101cffb277cda81d88053256ee7e81e9dddaa93",
+        "normalization_ebac3b5e27ba71820555a2f9d8b77c12bdc19fcf0ee975eb1a631201c13a8565"
+      ],
+      "chunks": 269
+    },
+    "target_tokens": 350,
+    "overlap_tokens": 50,
+    "token_counts": {
+      "minimum": 20,
+      "median": 61,
+      "maximum": 337,
+      "count_over_hard_limit": 0,
+      "count_over_preferred_target": 0
+    },
+    "chunk_types": {
+      "prose": 96,
+      "list": 152,
+      "table": 21
+    },
+    "sources": [
+      {
+        "document_id": "cdc_food_safety",
+        "build_id": "chunk_build_1d2d02fd481fd2eb7ee3900f005642555dcce00aaaaa8c1e486eba5f72250ad4",
+        "normalization_id": "normalization_8551f34886efd1285a4e4430c2763c096e71439724f5ff27ca9835dadad1ccf3",
+        "original_extraction_id": "html_extraction_691a4cbff7c34a187c9e846ba2deee723f7aeb8740a615a938922398943fa5a0",
+        "canonical_blocks": 52,
+        "chunks": 16,
+        "table_chunks": 0,
+        "maximum_tokens": 181,
+        "ready": true
+      },
+      {
+        "document_id": "mn_safe_temperatures",
+        "build_id": "chunk_build_da4a4d5c0035a88b0df32dd221cdabce18fc0fc934b4877af26735cd8bf39db7",
+        "normalization_id": "normalization_6509eeb6dd59d4b1d52c256d3c857a67c165e1339d0874a52bc664eb085cf4ed",
+        "original_extraction_id": "html_extraction_dc7582d2752b3876e887c788b5b3c6ad147774d042b0d84783e7d56bddabbe58",
+        "canonical_blocks": 11,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 337,
+        "ready": true
+      },
+      {
+        "document_id": "mn_cold_storage",
+        "build_id": "chunk_build_91929e88fee7ed9b33ba39eb333c2d3811986161dd72e0f45d2d1b4af95123ed",
+        "normalization_id": "normalization_a6f12fe37be75736bfc6f0a72144643ded06398bb968dc3b5c97552463937f29",
+        "original_extraction_id": "html_extraction_7f12aa180d16c0ada21ad03859345ffa466c691b134857cfd8d97441a0e9d47b",
+        "canonical_blocks": 15,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 187,
+        "ready": true
+      },
+      {
+        "document_id": "mn_storage_chart",
+        "build_id": "chunk_build_13cc8cae8cd4f553f27f982a4795e931d866552fdaf07c1b0c2dadb03cb3440a",
+        "normalization_id": "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+        "original_extraction_id": "html_extraction_f621479c6059f7eaa8decee22b48f6e7369a642af9a47deeb86d82e54df3bb4f",
+        "canonical_blocks": 8,
+        "chunks": 14,
+        "table_chunks": 11,
+        "maximum_tokens": 318,
+        "ready": true
+      },
+      {
+        "document_id": "mn_food_thermometers",
+        "build_id": "chunk_build_022643d411cf620c53f77e3efa9e9747603ad5b38e5fb6eb331c3861e20e97a5",
+        "normalization_id": "normalization_205c926704bbd473d511d49c1763f456c7a36cd560e77eb591484fcd7826c221",
+        "original_extraction_id": "html_extraction_45b59be46999f4fda0590e82df1885ea95f6e7513e8fdea8efec463976d64010",
+        "canonical_blocks": 6,
+        "chunks": 2,
+        "table_chunks": 0,
+        "maximum_tokens": 174,
+        "ready": true
+      },
+      {
+        "document_id": "fda_seafood",
+        "build_id": "chunk_build_fac1280dc0b5a52248f2626fb58f26e48b92992584590b21bc82b55670569c2b",
+        "normalization_id": "normalization_48c3450a4952d8decbca2bf4a8271c45210917493d73fc33859f630e4de25b4f",
+        "original_extraction_id": "html_extraction_4e8330e5dea65cbb34bc436c50b42a73b025a10ed9d17d8fc007b02db7e86a4f",
+        "canonical_blocks": 31,
+        "chunks": 13,
+        "table_chunks": 0,
+        "maximum_tokens": 321,
+        "ready": true
+      },
+      {
+        "document_id": "fda_produce",
+        "build_id": "chunk_build_2beca82097fb2f7066c9484a6c9a646f3473f4eaa55504a1c66f48094903ca42",
+        "normalization_id": "normalization_87b01f7514b57c64578f57aba01ae645360f0da1d7d4ca4eb076afa2b1b8080e",
+        "original_extraction_id": "html_extraction_9cbc75d49c12be726c0ca68bbc2871a0168634f91af1874c450789d5474dbe27",
+        "canonical_blocks": 16,
+        "chunks": 9,
+        "table_chunks": 0,
+        "maximum_tokens": 261,
+        "ready": true
+      },
+      {
+        "document_id": "cdc_pregnancy_food_safety",
+        "build_id": "chunk_build_84d828848b78c4d25956b5a1ef568fa476989248fbbe22e56a64e33af1c6f1dc",
+        "normalization_id": "normalization_2ad25847742c9e1dd22b8fe7b34dc117e8890b26ba8910fe379c3d4d2b6a0898",
+        "original_extraction_id": "html_extraction_a0aac80f62d730c9225e306b80221a0874b8df3f3ef91ade49c50586b9a0f5e7",
+        "canonical_blocks": 4,
+        "chunks": 10,
+        "table_chunks": 9,
+        "maximum_tokens": 263,
+        "ready": true
+      },
+      {
+        "document_id": "fda_nutrition_label_current",
+        "build_id": "chunk_build_d55ee6054092fe14a1898269df2b0fbdbfc1243fbfcc4bcde872bb01e9692dd8",
+        "normalization_id": "normalization_03c814ecb1ee9f83e6ff08d3ae4d1280e733e4a23d09f6eb96ba1d12bd6970d6",
+        "original_extraction_id": "html_extraction_6e92973a0df4e609e5fc2953ac3bc3738fd5caffb8ed1ac962360e67913caf41",
+        "canonical_blocks": 20,
+        "chunks": 6,
+        "table_chunks": 0,
+        "maximum_tokens": 289,
+        "ready": true
+      },
+      {
+        "document_id": "cdc_emergency_food_safety",
+        "build_id": "chunk_build_b12fe1b58e1d431a7f1cd2a2d8af1e027d0a228eec6af253c35e85a2bcf91849",
+        "normalization_id": "normalization_b36ab5ea87c95280858fdab9e34a27ef7ac121ecd80df3619c14e00488d7b325",
+        "original_extraction_id": "html_extraction_84675f9859337589ab9fc20af9278e08586d41a9160e5ec4743ea81cd3a8ecdf",
+        "canonical_blocks": 15,
+        "chunks": 7,
+        "table_chunks": 0,
+        "maximum_tokens": 189,
+        "ready": true
+      },
+      {
+        "document_id": "dga_2025_2030_pdf",
+        "build_id": "chunk_build_a10833768d7391aed694e9259d3c4551f7badb3fc30b91084618093220fea2ff",
+        "normalization_id": "normalization_2b9620a4e5f8b88127ec0f8c72b355a827f2f7be3c55b9a364095edf6e47aa5b",
+        "original_extraction_id": "pdf_extraction_8ac34beae11f7879245697154066f6ff7657567de6df16e20cc5fd6b855a5509",
+        "canonical_blocks": 65,
+        "chunks": 51,
+        "table_chunks": 0,
+        "maximum_tokens": 137,
+        "ready": true
+      },
+      {
+        "document_id": "hhs_adults_older_adults_pdf",
+        "build_id": "chunk_build_1523536149964ce97a43812acfcdc2c40172b517eb575f32953c1efad34f9ab2",
+        "normalization_id": "normalization_ebac3b5e27ba71820555a2f9d8b77c12bdc19fcf0ee975eb1a631201c13a8565",
+        "original_extraction_id": "pdf_extraction_3014f1f635dee950e89511c97159633ecff48bd75ef6d47f2ffc6e9980df1138",
+        "canonical_blocks": 57,
+        "chunks": 33,
+        "table_chunks": 0,
+        "maximum_tokens": 119,
+        "ready": true
+      },
+      {
+        "document_id": "hhs_kids_teens_pdf",
+        "build_id": "chunk_build_ef8f259568e3353e22ab4fc57876281f32f826c01c300db1542e7224990737fb",
+        "normalization_id": "normalization_33eaaea836415a79d99794884de2ab1d0758a05de4d67b8d8ee6bd4695498ca0",
+        "original_extraction_id": "pdf_extraction_9c5fa1c1e65078de0563b0ff95187de7e3a98c592cd31171e708cf5ad5d79051",
+        "canonical_blocks": 73,
+        "chunks": 44,
+        "table_chunks": 0,
+        "maximum_tokens": 248,
+        "ready": true
+      },
+      {
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "build_id": "chunk_build_41f6225eb8e27903db628e1ebc3aa09ab6c72a659e94ab1e4e27b5fb507db834",
+        "normalization_id": "normalization_c80109ba4b1509dd52f45c207101cffb277cda81d88053256ee7e81e9dddaa93",
+        "original_extraction_id": "pdf_extraction_a8490c92ea38d76680088b6c73553f04cbb3888261800ada5b55eb7a424bd157",
+        "canonical_blocks": 14,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 214,
+        "ready": true
+      },
+      {
+        "document_id": "mn_cross_contamination_pdf",
+        "build_id": "chunk_build_427b2e79e006839178940866a4fc80ed167ec3b27a9563c8914dc070c7391609",
+        "normalization_id": "normalization_4351e82b82b3bfbd6327ab0112aa6299807b2f1501bb58ab5dca8accf18bc412",
+        "original_extraction_id": "pdf_extraction_777101ea4d0c2d98bb97d7608847390be89e492bae67af816d24589391bba697",
+        "canonical_blocks": 31,
+        "chunks": 21,
+        "table_chunks": 0,
+        "maximum_tokens": 65,
+        "ready": true
+      },
+      {
+        "document_id": "mn_safe_grilling_pdf",
+        "build_id": "chunk_build_3c98730fed749c5a83ffb9108ef3811e698e3d195e0df74b95b13ae055f5286e",
+        "normalization_id": "normalization_4d5761d0f931fafa1f6a689d052ed03ed1ba3970646c107fb434fe06fb3e9fc3",
+        "original_extraction_id": "pdf_extraction_414aeeffee4251e9210c2f24882415b1524f7ebba3b522065e66162bab7ff5c4",
+        "canonical_blocks": 25,
+        "chunks": 19,
+        "table_chunks": 1,
+        "maximum_tokens": 139,
+        "ready": true
+      }
+    ]
+  },
+  "candidate": {
+    "role": "consumer",
+    "snapshot": {
+      "snapshot_id": "chunk_snapshot_732dc3fc3b6b880a51b31ff50a3deb6778ca6f310df6233da32c163d6a0d5063",
+      "configuration_id": "chunk_config_d068a43013c7e6c47dab01ab2fc9ba9545347afab689bd33394cbc20c5c3e7c9",
+      "role": "consumer",
+      "active": false,
+      "build_ids": [
+        "chunk_build_03fca4adaf8debddee17bd84460f4d3f554fcf9052417ada14fe46cf47fef0ca",
+        "chunk_build_112f72c890eaa922931f2dfcae79b71da2f6924be2d45c1ab41db7ede122dbca",
+        "chunk_build_16d4cc828f094989dc77bc49f783e4746db9e399824dc1b187764693dc7d8322",
+        "chunk_build_3a50c2c798a3d28c074fc79d06ea6b77088ebcf0f7e31a5dfca55b43f549f917",
+        "chunk_build_40d3c0daeab96e5532aacb42c2a5c2b93cf3809eed09d974a32162b7c719cc2d",
+        "chunk_build_49e60b6a29d423dc11b4552d08e32bcc2dd94855cb1e00825a0ac35885280109",
+        "chunk_build_5d07ab4fc0553baa13f3fb4d650b38e32ca0f336b85136e6f14e581541a554f6",
+        "chunk_build_5fa832886a1eadb5cb34ca899a860edcddac64f21bf47a1f47feb1edb618cd77",
+        "chunk_build_6c3c541fe66c768fe58a313e6464931bb625a22e47f43d3f97b93ff99785d2e4",
+        "chunk_build_8372a024773eb1de51a276a8702685093553047258e07dce1b5b110417f0a2ca",
+        "chunk_build_8591b9a898fcdc9ef3118d8c1418bda9cab6f9a61bbfe238a3b0ba3207495fef",
+        "chunk_build_93304a3c9a4fc8a96701ab94f352c30124c0c7c1bde0724743375d94a056177e",
+        "chunk_build_9b223089bb31f5e61be6110352ac623b065a9465d9dbebc80c552825f0e0603a",
+        "chunk_build_a27c358c6339dd5857111616e4e7ae1f8609cb79ae74dfa698e62679e0c0adc5",
+        "chunk_build_bf174f76131d57ebbe23628507e6962ba18115f0db2046ad37bcc0ba8362771e",
+        "chunk_build_c05a82c5f9f4db0247ec2be4572a5399d8843c901255382779dac02fab7ecc09"
+      ],
+      "documents": [
+        "cdc_emergency_food_safety",
+        "cdc_food_safety",
+        "cdc_pregnancy_food_safety",
+        "dga_2025_2030_pdf",
+        "fda_nutrition_label_current",
+        "fda_produce",
+        "fda_seafood",
+        "hhs_adults_older_adults_pdf",
+        "hhs_kids_teens_pdf",
+        "mn_cold_storage",
+        "mn_cross_contamination_pdf",
+        "mn_food_thermometers",
+        "mn_safe_grilling_pdf",
+        "mn_safe_temperatures",
+        "mn_storage_chart",
+        "nhlbi_sodium_tips_pdf"
+      ],
+      "normalization_ids": [
+        "normalization_03c814ecb1ee9f83e6ff08d3ae4d1280e733e4a23d09f6eb96ba1d12bd6970d6",
+        "normalization_205c926704bbd473d511d49c1763f456c7a36cd560e77eb591484fcd7826c221",
+        "normalization_2ad25847742c9e1dd22b8fe7b34dc117e8890b26ba8910fe379c3d4d2b6a0898",
+        "normalization_2b9620a4e5f8b88127ec0f8c72b355a827f2f7be3c55b9a364095edf6e47aa5b",
+        "normalization_33eaaea836415a79d99794884de2ab1d0758a05de4d67b8d8ee6bd4695498ca0",
+        "normalization_4351e82b82b3bfbd6327ab0112aa6299807b2f1501bb58ab5dca8accf18bc412",
+        "normalization_48c3450a4952d8decbca2bf4a8271c45210917493d73fc33859f630e4de25b4f",
+        "normalization_4d5761d0f931fafa1f6a689d052ed03ed1ba3970646c107fb434fe06fb3e9fc3",
+        "normalization_6509eeb6dd59d4b1d52c256d3c857a67c165e1339d0874a52bc664eb085cf4ed",
+        "normalization_8551f34886efd1285a4e4430c2763c096e71439724f5ff27ca9835dadad1ccf3",
+        "normalization_87b01f7514b57c64578f57aba01ae645360f0da1d7d4ca4eb076afa2b1b8080e",
+        "normalization_a6f12fe37be75736bfc6f0a72144643ded06398bb968dc3b5c97552463937f29",
+        "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+        "normalization_b36ab5ea87c95280858fdab9e34a27ef7ac121ecd80df3619c14e00488d7b325",
+        "normalization_c80109ba4b1509dd52f45c207101cffb277cda81d88053256ee7e81e9dddaa93",
+        "normalization_ebac3b5e27ba71820555a2f9d8b77c12bdc19fcf0ee975eb1a631201c13a8565"
+      ],
+      "chunks": 274
+    },
+    "target_tokens": 250,
+    "overlap_tokens": 50,
+    "token_counts": {
+      "minimum": 20,
+      "median": 61.0,
+      "maximum": 263,
+      "count_over_hard_limit": 0,
+      "count_over_preferred_target": 1
+    },
+    "chunk_types": {
+      "prose": 98,
+      "list": 154,
+      "table": 22
+    },
+    "sources": [
+      {
+        "document_id": "cdc_food_safety",
+        "build_id": "chunk_build_03fca4adaf8debddee17bd84460f4d3f554fcf9052417ada14fe46cf47fef0ca",
+        "normalization_id": "normalization_8551f34886efd1285a4e4430c2763c096e71439724f5ff27ca9835dadad1ccf3",
+        "original_extraction_id": "html_extraction_691a4cbff7c34a187c9e846ba2deee723f7aeb8740a615a938922398943fa5a0",
+        "canonical_blocks": 52,
+        "chunks": 16,
+        "table_chunks": 0,
+        "maximum_tokens": 181,
+        "ready": true
+      },
+      {
+        "document_id": "mn_safe_temperatures",
+        "build_id": "chunk_build_49e60b6a29d423dc11b4552d08e32bcc2dd94855cb1e00825a0ac35885280109",
+        "normalization_id": "normalization_6509eeb6dd59d4b1d52c256d3c857a67c165e1339d0874a52bc664eb085cf4ed",
+        "original_extraction_id": "html_extraction_dc7582d2752b3876e887c788b5b3c6ad147774d042b0d84783e7d56bddabbe58",
+        "canonical_blocks": 11,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 243,
+        "ready": true
+      },
+      {
+        "document_id": "mn_cold_storage",
+        "build_id": "chunk_build_6c3c541fe66c768fe58a313e6464931bb625a22e47f43d3f97b93ff99785d2e4",
+        "normalization_id": "normalization_a6f12fe37be75736bfc6f0a72144643ded06398bb968dc3b5c97552463937f29",
+        "original_extraction_id": "html_extraction_7f12aa180d16c0ada21ad03859345ffa466c691b134857cfd8d97441a0e9d47b",
+        "canonical_blocks": 15,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 187,
+        "ready": true
+      },
+      {
+        "document_id": "mn_storage_chart",
+        "build_id": "chunk_build_9b223089bb31f5e61be6110352ac623b065a9465d9dbebc80c552825f0e0603a",
+        "normalization_id": "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+        "original_extraction_id": "html_extraction_f621479c6059f7eaa8decee22b48f6e7369a642af9a47deeb86d82e54df3bb4f",
+        "canonical_blocks": 8,
+        "chunks": 15,
+        "table_chunks": 12,
+        "maximum_tokens": 238,
+        "ready": true
+      },
+      {
+        "document_id": "mn_food_thermometers",
+        "build_id": "chunk_build_112f72c890eaa922931f2dfcae79b71da2f6924be2d45c1ab41db7ede122dbca",
+        "normalization_id": "normalization_205c926704bbd473d511d49c1763f456c7a36cd560e77eb591484fcd7826c221",
+        "original_extraction_id": "html_extraction_45b59be46999f4fda0590e82df1885ea95f6e7513e8fdea8efec463976d64010",
+        "canonical_blocks": 6,
+        "chunks": 2,
+        "table_chunks": 0,
+        "maximum_tokens": 174,
+        "ready": true
+      },
+      {
+        "document_id": "fda_seafood",
+        "build_id": "chunk_build_3a50c2c798a3d28c074fc79d06ea6b77088ebcf0f7e31a5dfca55b43f549f917",
+        "normalization_id": "normalization_48c3450a4952d8decbca2bf4a8271c45210917493d73fc33859f630e4de25b4f",
+        "original_extraction_id": "html_extraction_4e8330e5dea65cbb34bc436c50b42a73b025a10ed9d17d8fc007b02db7e86a4f",
+        "canonical_blocks": 31,
+        "chunks": 14,
+        "table_chunks": 0,
+        "maximum_tokens": 242,
+        "ready": true
+      },
+      {
+        "document_id": "fda_produce",
+        "build_id": "chunk_build_8591b9a898fcdc9ef3118d8c1418bda9cab6f9a61bbfe238a3b0ba3207495fef",
+        "normalization_id": "normalization_87b01f7514b57c64578f57aba01ae645360f0da1d7d4ca4eb076afa2b1b8080e",
+        "original_extraction_id": "html_extraction_9cbc75d49c12be726c0ca68bbc2871a0168634f91af1874c450789d5474dbe27",
+        "canonical_blocks": 16,
+        "chunks": 10,
+        "table_chunks": 0,
+        "maximum_tokens": 247,
+        "ready": true
+      },
+      {
+        "document_id": "cdc_pregnancy_food_safety",
+        "build_id": "chunk_build_bf174f76131d57ebbe23628507e6962ba18115f0db2046ad37bcc0ba8362771e",
+        "normalization_id": "normalization_2ad25847742c9e1dd22b8fe7b34dc117e8890b26ba8910fe379c3d4d2b6a0898",
+        "original_extraction_id": "html_extraction_a0aac80f62d730c9225e306b80221a0874b8df3f3ef91ade49c50586b9a0f5e7",
+        "canonical_blocks": 4,
+        "chunks": 10,
+        "table_chunks": 9,
+        "maximum_tokens": 263,
+        "ready": true
+      },
+      {
+        "document_id": "fda_nutrition_label_current",
+        "build_id": "chunk_build_40d3c0daeab96e5532aacb42c2a5c2b93cf3809eed09d974a32162b7c719cc2d",
+        "normalization_id": "normalization_03c814ecb1ee9f83e6ff08d3ae4d1280e733e4a23d09f6eb96ba1d12bd6970d6",
+        "original_extraction_id": "html_extraction_6e92973a0df4e609e5fc2953ac3bc3738fd5caffb8ed1ac962360e67913caf41",
+        "canonical_blocks": 20,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 216,
+        "ready": true
+      },
+      {
+        "document_id": "cdc_emergency_food_safety",
+        "build_id": "chunk_build_5d07ab4fc0553baa13f3fb4d650b38e32ca0f336b85136e6f14e581541a554f6",
+        "normalization_id": "normalization_b36ab5ea87c95280858fdab9e34a27ef7ac121ecd80df3619c14e00488d7b325",
+        "original_extraction_id": "html_extraction_84675f9859337589ab9fc20af9278e08586d41a9160e5ec4743ea81cd3a8ecdf",
+        "canonical_blocks": 15,
+        "chunks": 7,
+        "table_chunks": 0,
+        "maximum_tokens": 189,
+        "ready": true
+      },
+      {
+        "document_id": "dga_2025_2030_pdf",
+        "build_id": "chunk_build_5fa832886a1eadb5cb34ca899a860edcddac64f21bf47a1f47feb1edb618cd77",
+        "normalization_id": "normalization_2b9620a4e5f8b88127ec0f8c72b355a827f2f7be3c55b9a364095edf6e47aa5b",
+        "original_extraction_id": "pdf_extraction_8ac34beae11f7879245697154066f6ff7657567de6df16e20cc5fd6b855a5509",
+        "canonical_blocks": 65,
+        "chunks": 51,
+        "table_chunks": 0,
+        "maximum_tokens": 137,
+        "ready": true
+      },
+      {
+        "document_id": "hhs_adults_older_adults_pdf",
+        "build_id": "chunk_build_16d4cc828f094989dc77bc49f783e4746db9e399824dc1b187764693dc7d8322",
+        "normalization_id": "normalization_ebac3b5e27ba71820555a2f9d8b77c12bdc19fcf0ee975eb1a631201c13a8565",
+        "original_extraction_id": "pdf_extraction_3014f1f635dee950e89511c97159633ecff48bd75ef6d47f2ffc6e9980df1138",
+        "canonical_blocks": 57,
+        "chunks": 33,
+        "table_chunks": 0,
+        "maximum_tokens": 119,
+        "ready": true
+      },
+      {
+        "document_id": "hhs_kids_teens_pdf",
+        "build_id": "chunk_build_c05a82c5f9f4db0247ec2be4572a5399d8843c901255382779dac02fab7ecc09",
+        "normalization_id": "normalization_33eaaea836415a79d99794884de2ab1d0758a05de4d67b8d8ee6bd4695498ca0",
+        "original_extraction_id": "pdf_extraction_9c5fa1c1e65078de0563b0ff95187de7e3a98c592cd31171e708cf5ad5d79051",
+        "canonical_blocks": 73,
+        "chunks": 44,
+        "table_chunks": 0,
+        "maximum_tokens": 248,
+        "ready": true
+      },
+      {
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "build_id": "chunk_build_93304a3c9a4fc8a96701ab94f352c30124c0c7c1bde0724743375d94a056177e",
+        "normalization_id": "normalization_c80109ba4b1509dd52f45c207101cffb277cda81d88053256ee7e81e9dddaa93",
+        "original_extraction_id": "pdf_extraction_a8490c92ea38d76680088b6c73553f04cbb3888261800ada5b55eb7a424bd157",
+        "canonical_blocks": 14,
+        "chunks": 8,
+        "table_chunks": 0,
+        "maximum_tokens": 214,
+        "ready": true
+      },
+      {
+        "document_id": "mn_cross_contamination_pdf",
+        "build_id": "chunk_build_a27c358c6339dd5857111616e4e7ae1f8609cb79ae74dfa698e62679e0c0adc5",
+        "normalization_id": "normalization_4351e82b82b3bfbd6327ab0112aa6299807b2f1501bb58ab5dca8accf18bc412",
+        "original_extraction_id": "pdf_extraction_777101ea4d0c2d98bb97d7608847390be89e492bae67af816d24589391bba697",
+        "canonical_blocks": 31,
+        "chunks": 21,
+        "table_chunks": 0,
+        "maximum_tokens": 65,
+        "ready": true
+      },
+      {
+        "document_id": "mn_safe_grilling_pdf",
+        "build_id": "chunk_build_8372a024773eb1de51a276a8702685093553047258e07dce1b5b110417f0a2ca",
+        "normalization_id": "normalization_4d5761d0f931fafa1f6a689d052ed03ed1ba3970646c107fb434fe06fb3e9fc3",
+        "original_extraction_id": "pdf_extraction_414aeeffee4251e9210c2f24882415b1524f7ebba3b522065e66162bab7ff5c4",
+        "canonical_blocks": 25,
+        "chunks": 19,
+        "table_chunks": 1,
+        "maximum_tokens": 139,
+        "ready": true
+      }
+    ]
+  },
+  "comparison": {
+    "role": "comparison",
+    "snapshot": {
+      "snapshot_id": "chunk_snapshot_341590974b5c276a2a6529dd421b0d3502d0591a1875c5a278cd0991e74f0e31",
+      "configuration_id": "chunk_config_ce1cc8fb182a2d03d016b3d0be87262fd5b365fd9b23bbe4fe9cf15fa0244e79",
+      "role": "comparison",
+      "active": false,
+      "build_ids": [
+        "chunk_build_3bc494138880bf7c3c8fd64f205ddf5ab11c0104d72afc5af84db45e95474bf8",
+        "chunk_build_9b7827e10d93afc24c767847ba76a60d21847e482983a4039c554615373daaf9",
+        "chunk_build_de7e572c9c7389881aa341e15db626f4033c2e1b8b8a231124699405ba1277e6"
+      ],
+      "documents": [
+        "fda_produce_pdf",
+        "fda_safe_handling_pdf",
+        "mn_storage_chart_pdf"
+      ],
+      "normalization_ids": [
+        "normalization_01994fe8b26e346ba649e1c1a1a656e644ede02d1647c2e6cd7a38eec622f515",
+        "normalization_5886b1844f2dfe38fab5946fc8b24b3cab80022bd52e891c76bbb65680281821",
+        "normalization_6751188b856443620276ca5b88fcd41f750206a5459457d9c34150e4a481fdb9"
+      ],
+      "chunks": 42
+    },
+    "target_tokens": 350,
+    "overlap_tokens": 50,
+    "token_counts": {
+      "minimum": 21,
+      "median": 67.0,
+      "maximum": 330,
+      "count_over_hard_limit": 0,
+      "count_over_preferred_target": 0
+    },
+    "chunk_types": {
+      "prose": 15,
+      "table": 13,
+      "list": 14
+    },
+    "sources": [
+      {
+        "document_id": "mn_storage_chart_pdf",
+        "build_id": "chunk_build_9b7827e10d93afc24c767847ba76a60d21847e482983a4039c554615373daaf9",
+        "normalization_id": "normalization_01994fe8b26e346ba649e1c1a1a656e644ede02d1647c2e6cd7a38eec622f515",
+        "original_extraction_id": "pdf_extraction_67d7ad46b129126055cca8b9fd8e203a6595742451abcb6f793869eb30426201",
+        "canonical_blocks": 5,
+        "chunks": 13,
+        "table_chunks": 11,
+        "maximum_tokens": 284,
+        "ready": true
+      },
+      {
+        "document_id": "fda_safe_handling_pdf",
+        "build_id": "chunk_build_de7e572c9c7389881aa341e15db626f4033c2e1b8b8a231124699405ba1277e6",
+        "normalization_id": "normalization_5886b1844f2dfe38fab5946fc8b24b3cab80022bd52e891c76bbb65680281821",
+        "original_extraction_id": "pdf_extraction_2afce375e1d1f1fbb0e0a5236bfe2677ca3a32b966106c2498f5cab815031f57",
+        "canonical_blocks": 22,
+        "chunks": 8,
+        "table_chunks": 2,
+        "maximum_tokens": 330,
+        "ready": true
+      },
+      {
+        "document_id": "fda_produce_pdf",
+        "build_id": "chunk_build_3bc494138880bf7c3c8fd64f205ddf5ab11c0104d72afc5af84db45e95474bf8",
+        "normalization_id": "normalization_6751188b856443620276ca5b88fcd41f750206a5459457d9c34150e4a481fdb9",
+        "original_extraction_id": "pdf_extraction_3a7a386ba83412125275d5ea95ed24b7e52931f458636594f37d956bdb3b8507",
+        "canonical_blocks": 27,
+        "chunks": 21,
+        "table_chunks": 0,
+        "maximum_tokens": 119,
+        "ready": true
+      }
+    ]
+  },
+  "checks": {
+    "complete_embedding_inputs_fit": true,
+    "no_truncation": true,
+    "meaningful_nonheading_block_text_covered": true,
+    "retained_table_rows_covered_exactly_once": true,
+    "exact_slice_and_table_serialization_revalidated": true,
+    "original_source_locations_revalidated": true,
+    "hhs_food_group_cards_and_nhlbi_dining_regions_separate": true,
+    "headings_not_embedded_alone": true,
+    "numbering_nested_explanations_and_introductions_retained": true,
+    "prose_overlap_complete_sentence_condition_groups_only": true,
+    "exclusions_comparison_eligibility_and_fixture_roles_enforced": true,
+    "quarantined_ocr_unavailable": true,
+    "identical_full_default_build_report_reproduced": true,
+    "atomic_sqlite_snapshot_conflict_rollback_tested": true
+  },
+  "repeated_default_report_sha256": "9fced6d1448acf8baa32d057eb2d5033511295dcfd7890fe9e1c3dc5a1a13d09",
+  "ocr_rejection": {
+    "status": "chunk_build_rejected",
+    "document_id": "project_mixed_scan",
+    "reason": "Whole normalized OCR artifact is quarantined despite four clear candidates; no chunk snapshot created."
+  },
+  "retrieval_diagnostic": {
+    "method": "offline_bm25",
+    "parameters": {
+      "k1": 1.2,
+      "b": 0.75,
+      "k": 5
+    },
+    "limitation": "Small authored lexical diagnostic; not dense E5 retrieval, answer accuracy or a representative benchmark.",
+    "cases_sha256": "4136f9e3e89466ca6841e634f72cf20a7bf6e058d6dffadcbe22421509d670b8",
+    "baseline": {
+      "target_tokens": 350,
+      "chunks": 269,
+      "k": 5,
+      "cases": 16,
+      "complete_evidence_hits": 16,
+      "complete_evidence_hit_rate": 1.0,
+      "results": [
+        {
+          "case_id": "poultry-temperature",
+          "question": "What internal temperature should chicken and turkey reach?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+            "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+            "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362",
+            "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 13.957595,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.723508,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 9.961195,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 9.092473,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+              "document_id": "cdc_food_safety",
+              "score": 9.004028,
+              "matches": true
+            }
+          ]
+        },
+        {
+          "case_id": "whole-meat-rest",
+          "question": "How hot should whole cuts of beef pork lamb be cooked, and how long should they rest?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+            "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 27.823976,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+              "document_id": "cdc_food_safety",
+              "score": 22.352773,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 12.08598,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 11.820168,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 11.026617,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "ground-meat",
+          "question": "What safe internal temperature is recommended for ground beef?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+            "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+            "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 21.060906,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 19.481376,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+              "document_id": "cdc_food_safety",
+              "score": 14.332269,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 11.338067,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 11.274825,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-eggs",
+          "question": "How long can hard cooked eggs stay in the refrigerator or freezer?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+              "document_id": "mn_storage_chart",
+              "score": 18.273725,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+              "document_id": "mn_cold_storage",
+              "score": 15.812416,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_c22186d87ca37e075e3fb69de4754a9c867020f59fdac42c1bca557454fe8bc3",
+              "document_id": "mn_storage_chart",
+              "score": 14.133268,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a265ee7738149c48ef37814e95dc133cb9d41e27f713454ccc7890a1f1ce5fd8",
+              "document_id": "mn_storage_chart",
+              "score": 13.707084,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 13.37026,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-beef",
+          "question": "How many days can fresh beef be refrigerated and how many months frozen?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_d35f94db19c087c35298c4e9650aa10605675d576e12959903938d3882acb1a0"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_d35f94db19c087c35298c4e9650aa10605675d576e12959903938d3882acb1a0",
+              "document_id": "mn_storage_chart",
+              "score": 13.253881,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_89959e83038e6ce62f99d5262703db5b0d60296df31cd04372487971ebc37c98",
+              "document_id": "fda_seafood",
+              "score": 9.756274,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+              "document_id": "mn_storage_chart",
+              "score": 9.724537,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_3ab7289770f2035913d65e5a7e84c1fda5fad64339207a10c7554a452f7a3f03",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 9.708241,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_bf90664ffbfdc86fa58c82e9e4e8854137c73b4ce30b15927b60d39326e57238",
+              "document_id": "mn_storage_chart",
+              "score": 8.499773,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-blank",
+          "question": "What refrigerator storage time does the chart give for TV dinners?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+              "document_id": "mn_storage_chart",
+              "score": 27.190803,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+              "document_id": "mn_cold_storage",
+              "score": 15.261086,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+              "document_id": "mn_storage_chart",
+              "score": 14.817247,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+              "document_id": "mn_storage_chart",
+              "score": 14.763321,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+              "document_id": "mn_storage_chart",
+              "score": 14.55984,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "hot-weather",
+          "question": "How long can perishable food stay out at a picnic above 90\u00b0F?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+            "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+            "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+              "document_id": "cdc_food_safety",
+              "score": 21.803318,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec",
+              "document_id": "fda_seafood",
+              "score": 18.18503,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+              "document_id": "cdc_food_safety",
+              "score": 17.164441,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 15.85858,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 14.703182,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-melon",
+          "question": "Which cut melon choices are safer during pregnancy, including in hot weather?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 27.74991,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_496dcbadb2b40ae50226d4d125582fbc33ff4d9f25ff89cbb75c83750b0fd70c",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 16.36574,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_b5372206965d7fd4ab7d5e8c9efed6d1a33e610544dcee14762a5549cc1e03ce",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.395603,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_2e940b39a0a11c418aaf6565b2c9d0427565d252cfa098a5873642dfc7dfcea5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.330689,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.053264,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-milk",
+          "question": "During pregnancy, is raw milk safe and which milk should I choose instead?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_2e940b39a0a11c418aaf6565b2c9d0427565d252cfa098a5873642dfc7dfcea5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_2e940b39a0a11c418aaf6565b2c9d0427565d252cfa098a5873642dfc7dfcea5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.507311,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_44a9b730c58d03a61e0547f34da7cc51a679f82a3a094ddfd9c1e75313a7beed",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 12.763425,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_0ef9f868f1dcedb37441757ad5375cbf63db131312d3402fa99350c6a326accd",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.931848,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_0961106c5dbee3679224155fb1067a14de2688de5d0b14178c3472a0967ce4e4",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 10.487566,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.049516,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-cheese",
+          "question": "Which cheeses are safer during pregnancy, and how should deli sliced cheese be heated?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_0ef9f868f1dcedb37441757ad5375cbf63db131312d3402fa99350c6a326accd"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_0ef9f868f1dcedb37441757ad5375cbf63db131312d3402fa99350c6a326accd",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 33.980472,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_b5372206965d7fd4ab7d5e8c9efed6d1a33e610544dcee14762a5549cc1e03ce",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 18.791881,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_60ee31c0699891d55394a5626453d03b53cd8fc6db7ffdec43222241f1df16f5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.090604,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_496dcbadb2b40ae50226d4d125582fbc33ff4d9f25ff89cbb75c83750b0fd70c",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 14.183658,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_2e940b39a0a11c418aaf6565b2c9d0427565d252cfa098a5873642dfc7dfcea5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 12.859432,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "label-dv",
+          "question": "What percentages of Daily Value are considered low and high per serving?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_c9dc643a20fd30b1291f6cd664e2a0dc605681d84cc7c30a1611f97e57866ab6"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_c9dc643a20fd30b1291f6cd664e2a0dc605681d84cc7c30a1611f97e57866ab6",
+              "document_id": "fda_nutrition_label_current",
+              "score": 30.148379,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_054a824b197d987f8a4d8008a432e2a142cd163160f5ecbec2a4a3a5542bbc05",
+              "document_id": "fda_nutrition_label_current",
+              "score": 22.279025,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_1e11f9e2420e0bdf9a73547e601aeb90e60d2d8153f3ca24af50a4804a4d5157",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 20.882847,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e78fc7d723a0c6358ff795c38ee5fe9cf39a4d0671bf29686ec5b1b56a58b27f",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 20.297931,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4",
+              "document_id": "fda_nutrition_label_current",
+              "score": 15.551839,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "label-serving",
+          "question": "Does the serving size on the Nutrition Facts label recommend how much I should eat?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_69bfc1cf04374b8ec98e95702b563b01695edcd5b20e390720bed433ca25099a"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_69bfc1cf04374b8ec98e95702b563b01695edcd5b20e390720bed433ca25099a",
+              "document_id": "fda_nutrition_label_current",
+              "score": 30.534781,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_1ddb1284ec35c93d41eca7ad5d55453da31297f06ba3ddf341fff817e169cd97",
+              "document_id": "fda_nutrition_label_current",
+              "score": 19.337733,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_c9dc643a20fd30b1291f6cd664e2a0dc605681d84cc7c30a1611f97e57866ab6",
+              "document_id": "fda_nutrition_label_current",
+              "score": 18.061826,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4",
+              "document_id": "fda_nutrition_label_current",
+              "score": 17.585374,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_054a824b197d987f8a4d8008a432e2a142cd163160f5ecbec2a4a3a5542bbc05",
+              "document_id": "fda_nutrition_label_current",
+              "score": 17.097534,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "produce-soap",
+          "question": "Should I wash fruits and vegetables with soap or detergent?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_fe40440fc2b81c0af7740701b5a78f559d2572e47dc81e98b37a8599865825d0",
+              "document_id": "cdc_food_safety",
+              "score": 15.256031,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+              "document_id": "fda_produce",
+              "score": 15.221351,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 12.799112,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_76cdd20c68cf8c7247bc16bbf0969da0066a7526fea0b3af3a17f6dea030ed7c",
+              "document_id": "mn_cross_contamination_pdf",
+              "score": 11.175915,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_3ab7289770f2035913d65e5a7e84c1fda5fad64339207a10c7554a452f7a3f03",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 10.976315,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "prewashed-produce",
+          "question": "Do I need to wash bagged produce marked pre-washed or ready-to-eat again?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_6031c00a88a03deb1f4a18d254e8b8fb7ba84ae4eca646021ab6e68ff82dd198"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_6031c00a88a03deb1f4a18d254e8b8fb7ba84ae4eca646021ab6e68ff82dd198",
+              "document_id": "fda_produce",
+              "score": 36.250083,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_08d769eec98730e19a06ae0959c2be1e597055bc3347dca6788ee014597c2294",
+              "document_id": "fda_produce",
+              "score": 15.959559,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+              "document_id": "fda_produce",
+              "score": 12.118011,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_24c36a7829d5a26d268574abf2fe0d588fff0d2f5a9f9eef45088ba7b45f3789",
+              "document_id": "cdc_food_safety",
+              "score": 12.047582,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_7f8f5b06267d1051ef1b0f8447098976bef026be21cc7cd1c8d771aeb09f72f6",
+              "document_id": "fda_produce",
+              "score": 9.187019,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "dining-sodium",
+          "question": "What special requests can I make at a restaurant to reduce sodium?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_42475c2bc2ca483faf70db63d6c961dea25040b7180b02f46376e684f89fd95b"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_42475c2bc2ca483faf70db63d6c961dea25040b7180b02f46376e684f89fd95b",
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "score": 21.187046,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_9aa423ba68132bda99752b64bfd6e193467becf9556bb6738b470d0bf37049be",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 13.694386,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_34ec19a243f762c250c0fae50e93c9f42fa4d4fe73f86e6fb8994f15004e046f",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 12.991501,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a847c7ab546b9f7f5784655ed4580fd409d1edc007f5c72bf777b4952bc48a28",
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "score": 11.530934,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 8.856131,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "grilling-qualification",
+          "question": "What home grilling temperature is recommended for fish and shellfish and why might regulated facilities use different temperatures?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 28.117012,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 26.513192,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 18.998956,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 12.992479,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+              "document_id": "cdc_food_safety",
+              "score": 12.711887,
+              "matches": false
+            }
+          ]
+        }
+      ]
+    },
+    "candidate": {
+      "target_tokens": 250,
+      "chunks": 274,
+      "k": 5,
+      "cases": 16,
+      "complete_evidence_hits": 16,
+      "complete_evidence_hit_rate": 1.0,
+      "results": [
+        {
+          "case_id": "poultry-temperature",
+          "question": "What internal temperature should chicken and turkey reach?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+            "chunk_137588c0e490f2ee6f2382f7a2bb9f8a06560d0c21505a61273071d60871ef32",
+            "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+            "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 14.002306,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.719555,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_d926b3e5d7b1bd1407934fd3d0f2a28c1f14c83ba2220a4ed9d8dbe6cb3c3ae6",
+              "document_id": "mn_safe_temperatures",
+              "score": 9.976801,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_a5a8436d10c496f15e56c2bb331e2690f3644e2ba95c50b19ea245f0a1a03bd9",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 9.115695,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+              "document_id": "cdc_food_safety",
+              "score": 9.006604,
+              "matches": true
+            }
+          ]
+        },
+        {
+          "case_id": "whole-meat-rest",
+          "question": "How hot should whole cuts of beef pork lamb be cooked, and how long should they rest?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+            "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 27.831442,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+              "document_id": "cdc_food_safety",
+              "score": 22.349732,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 12.076768,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_d926b3e5d7b1bd1407934fd3d0f2a28c1f14c83ba2220a4ed9d8dbe6cb3c3ae6",
+              "document_id": "mn_safe_temperatures",
+              "score": 11.767745,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_5ae4dc39d98f1cd9497bd88b844ee54a27d90f9bb141b699ea6c4064af89e96c",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 10.957755,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "ground-meat",
+          "question": "What safe internal temperature is recommended for ground beef?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+            "chunk_d926b3e5d7b1bd1407934fd3d0f2a28c1f14c83ba2220a4ed9d8dbe6cb3c3ae6",
+            "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 21.159622,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_d926b3e5d7b1bd1407934fd3d0f2a28c1f14c83ba2220a4ed9d8dbe6cb3c3ae6",
+              "document_id": "mn_safe_temperatures",
+              "score": 19.519224,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+              "document_id": "cdc_food_safety",
+              "score": 14.364355,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_66e24995c169022c70c1895c2022a4d8a44a9a7f226d66634d191e015651148a",
+              "document_id": "cdc_food_safety",
+              "score": 11.349295,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 11.308774,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-eggs",
+          "question": "How long can hard cooked eggs stay in the refrigerator or freezer?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_346b1ebd4869f4c904897fcf9f967f7529a9a2f86ca03d7a459082c74f9c2980"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_346b1ebd4869f4c904897fcf9f967f7529a9a2f86ca03d7a459082c74f9c2980",
+              "document_id": "mn_storage_chart",
+              "score": 18.142519,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_5eef6eb99abb06715a8a8a6bd1431658cfb5cc226724e9216bfccdda0ff0b2cd",
+              "document_id": "mn_cold_storage",
+              "score": 15.637299,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_624f68ce888a5221cc4927605a725d8cee9d038729d2293b0317c09d1c250603",
+              "document_id": "mn_storage_chart",
+              "score": 13.991708,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_446fb0e610a692722d74003d97ff03ac6330ccb9e4d89477c7a958c115f768e4",
+              "document_id": "mn_storage_chart",
+              "score": 13.559213,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_7a718d49f06f159115c5a2754806c310236abf1eef48200e12d2eeca34ecedf5",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 13.25598,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-beef",
+          "question": "How many days can fresh beef be refrigerated and how many months frozen?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_156727279619b332a50698299592b2cdc225f3d9cd0859a12ca155422453f65c"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_156727279619b332a50698299592b2cdc225f3d9cd0859a12ca155422453f65c",
+              "document_id": "mn_storage_chart",
+              "score": 12.760384,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_ecba02c5d82256187ac25c7303c16591da8643961e4d3e7982b0a870d6c067eb",
+              "document_id": "fda_seafood",
+              "score": 10.172175,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_74af2a5fe1ae4c4aa4d1db8617c571ab7fad771b1ccdba30f18b4e23ae40b831",
+              "document_id": "fda_seafood",
+              "score": 9.600398,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_fa7a25de7b5b404b86c1a32ac59b7300a01e7a027799f17c192571eb344b0638",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 9.540849,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_346b1ebd4869f4c904897fcf9f967f7529a9a2f86ca03d7a459082c74f9c2980",
+              "document_id": "mn_storage_chart",
+              "score": 9.517284,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "storage-blank",
+          "question": "What refrigerator storage time does the chart give for TV dinners?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_2b82be41885e6576e97016df62a9bcddc40c5f0aa454337201850275edc8c766"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_2b82be41885e6576e97016df62a9bcddc40c5f0aa454337201850275edc8c766",
+              "document_id": "mn_storage_chart",
+              "score": 27.042253,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_5eef6eb99abb06715a8a8a6bd1431658cfb5cc226724e9216bfccdda0ff0b2cd",
+              "document_id": "mn_cold_storage",
+              "score": 15.119763,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_9fcb1625fb77b92ed41ebf52d6656670f2bc8da49ab0c5c244bcecd298cff7f5",
+              "document_id": "mn_storage_chart",
+              "score": 14.644249,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e8051dd244c605ecf526206c577e68010f5dc6d5322728ce764f2d8986785591",
+              "document_id": "mn_storage_chart",
+              "score": 14.59254,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_6257ced639cb9dec89a678857d6ad085625dede390bf9454ca13ea8a08beb677",
+              "document_id": "mn_storage_chart",
+              "score": 14.390653,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "hot-weather",
+          "question": "How long can perishable food stay out at a picnic above 90\u00b0F?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_32a94bc87fed16163707ff4645f4e83f9c75974b919c37a8461161437a1677c5",
+            "chunk_4a8470a45a794afc96b04ac60f726d3d38761523a18383fb321fa26de730b88b",
+            "chunk_6d4e29e7a14b1ae6ba49f4e9fabd81f564fc4489290d3bc3ed62a8297519a9a5"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_6d4e29e7a14b1ae6ba49f4e9fabd81f564fc4489290d3bc3ed62a8297519a9a5",
+              "document_id": "cdc_food_safety",
+              "score": 21.824309,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_4a8470a45a794afc96b04ac60f726d3d38761523a18383fb321fa26de730b88b",
+              "document_id": "fda_seafood",
+              "score": 18.186127,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_32a94bc87fed16163707ff4645f4e83f9c75974b919c37a8461161437a1677c5",
+              "document_id": "cdc_food_safety",
+              "score": 17.173541,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_9b91c9427fd6313f10e5581ded20932ee7edb8dfabd7769722fb5cf2fe079a28",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 15.896059,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_fd2dd977b3a7dbc53aeeaa620d0ec889c2da7e3a554669d36daeef15749810ac",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 14.700176,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-melon",
+          "question": "Which cut melon choices are safer during pregnancy, including in hot weather?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_b8f2df85c689df284b1568484b78c972676c9e6b621cd373e3f2fa851e3a783d"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_b8f2df85c689df284b1568484b78c972676c9e6b621cd373e3f2fa851e3a783d",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 27.7925,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_66b823504325a450b2049f7ae489ab0bbbe69d21568179bd0f9fa37223f7da87",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 16.434993,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_659e391662b8b20b083ed13a60195588ced90f67967bc2a719c33440525693fc",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.456141,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_41a3990baf23577c2e0b3fc5b8140442190356ddf8e6d02ba7f6743abd81cda8",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.390738,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_ce473fd63f3af162a7d71ad25591531d68e4b369843a0dd9b96c6e55c1ee15a0",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.07285,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-milk",
+          "question": "During pregnancy, is raw milk safe and which milk should I choose instead?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_41a3990baf23577c2e0b3fc5b8140442190356ddf8e6d02ba7f6743abd81cda8"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_41a3990baf23577c2e0b3fc5b8140442190356ddf8e6d02ba7f6743abd81cda8",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.546527,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_715b677cf5376de60c8a3162a2e59fdf982b406d453db1a1968402e599d285dc",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 12.756597,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_c5b8d6ce446192290d78279c1d78b52eacbeee947016bbe4b13e4ba9df2b2f6a",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.948189,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_df6a8b2c838c4492ef7c35ec6c908519d6215a8cf878b5952bbcd58342af070d",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 10.520818,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_db7cd4a34c02a0b4e58b427e441643f57d7f2ddce4606adf892b826f2f0230b5",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 10.024249,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "pregnancy-cheese",
+          "question": "Which cheeses are safer during pregnancy, and how should deli sliced cheese be heated?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_c5b8d6ce446192290d78279c1d78b52eacbeee947016bbe4b13e4ba9df2b2f6a"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_c5b8d6ce446192290d78279c1d78b52eacbeee947016bbe4b13e4ba9df2b2f6a",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 34.026656,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_659e391662b8b20b083ed13a60195588ced90f67967bc2a719c33440525693fc",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 18.832763,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_0be5c4204aee3f5e599ccf675ae8f950cfa2a730fb3b99f363f51ea710de0ac9",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 15.077654,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_66b823504325a450b2049f7ae489ab0bbbe69d21568179bd0f9fa37223f7da87",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 14.211943,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_41a3990baf23577c2e0b3fc5b8140442190356ddf8e6d02ba7f6743abd81cda8",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 12.878001,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "label-dv",
+          "question": "What percentages of Daily Value are considered low and high per serving?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_69260b3df32e618092e576f5c71eaa95028a08a787ba961a7ee05223f7d4f977"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_69260b3df32e618092e576f5c71eaa95028a08a787ba961a7ee05223f7d4f977",
+              "document_id": "fda_nutrition_label_current",
+              "score": 29.62179,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_242a5a6a60e897077a25b37cc19fbe6218329b026057643eb5a06c0c6619f8e9",
+              "document_id": "fda_nutrition_label_current",
+              "score": 21.120048,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_6caaedbe2318be1b56308a910a56cf0bb8ba8538d7469ab22bf23bce6da3647d",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 20.471414,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e1d8be866bd2ac0247f159c13c9eda89c365a9a4a878da5970e115079cfb32b8",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 19.896522,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_0c630ed36d80f2a44dfa783e36ab57bdadea2a4a080b69cdbdd37bbcb8f365c9",
+              "document_id": "fda_nutrition_label_current",
+              "score": 19.11355,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "label-serving",
+          "question": "Does the serving size on the Nutrition Facts label recommend how much I should eat?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_3551b740de122de8bb76e67009c7f848d7d30227df823bfb927d16062bfaba7a"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_3551b740de122de8bb76e67009c7f848d7d30227df823bfb927d16062bfaba7a",
+              "document_id": "fda_nutrition_label_current",
+              "score": 29.72587,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_efd2beaab70610870593d2c1dc9500df2b7f6253a9f50c1428dcb81899e68fcf",
+              "document_id": "fda_nutrition_label_current",
+              "score": 18.601948,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_b484bcfd71d494b86bb330ed15d09c211d44f70db489b283d013f82e224ea93e",
+              "document_id": "fda_nutrition_label_current",
+              "score": 18.382128,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_242a5a6a60e897077a25b37cc19fbe6218329b026057643eb5a06c0c6619f8e9",
+              "document_id": "fda_nutrition_label_current",
+              "score": 17.289024,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_69260b3df32e618092e576f5c71eaa95028a08a787ba961a7ee05223f7d4f977",
+              "document_id": "fda_nutrition_label_current",
+              "score": 17.262683,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "produce-soap",
+          "question": "Should I wash fruits and vegetables with soap or detergent?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_fa8ea1faeea79b928a3431097c9b663cd09da8ecfd80a506a031cd0ed2cca314"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_fa8ea1faeea79b928a3431097c9b663cd09da8ecfd80a506a031cd0ed2cca314",
+              "document_id": "fda_produce",
+              "score": 15.692517,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_09b497b70368a02e26972672cfa91d102bad90639cf7b5dc634c33b4ea8304c4",
+              "document_id": "cdc_food_safety",
+              "score": 15.294958,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e22e7f4d2d8ee948e37ab8ee9d037b101d8c4163f855c7d663be62fb85e79d01",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 12.827328,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_2a72dc3dc634e799a14a3d24414e7f9b0b02d9a38daa92509c13cf26482c0c47",
+              "document_id": "mn_cross_contamination_pdf",
+              "score": 11.18741,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_fa7a25de7b5b404b86c1a32ac59b7300a01e7a027799f17c192571eb344b0638",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 10.998864,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "prewashed-produce",
+          "question": "Do I need to wash bagged produce marked pre-washed or ready-to-eat again?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_a161d22920da3675eb7967c2fff073ed0974645e429c3088ce7b574e2b5182ff"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_a161d22920da3675eb7967c2fff073ed0974645e429c3088ce7b574e2b5182ff",
+              "document_id": "fda_produce",
+              "score": 36.248149,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_21eaf923e71a4e5e67598bf67bc7463754e2af64774b1c1fa81b85a7a5f4cd9d",
+              "document_id": "fda_produce",
+              "score": 15.90085,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_fa8ea1faeea79b928a3431097c9b663cd09da8ecfd80a506a031cd0ed2cca314",
+              "document_id": "fda_produce",
+              "score": 12.241569,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_7078680b8cedc2a54a91790c7d082916232cd6af5c8790dd0bbaf8af6595e333",
+              "document_id": "cdc_food_safety",
+              "score": 12.084583,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_d3b24b1fdedf268bd0a1598dfcabbbc2ed6d71551004872232092ae5fd11ad29",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 9.154312,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "dining-sodium",
+          "question": "What special requests can I make at a restaurant to reduce sodium?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_7472d36b1413104b851da5fcc7491776d4c5490d62a5f8494b4880d1a7475a4f"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_7472d36b1413104b851da5fcc7491776d4c5490d62a5f8494b4880d1a7475a4f",
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "score": 21.248542,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_d3b24b1fdedf268bd0a1598dfcabbbc2ed6d71551004872232092ae5fd11ad29",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 13.676914,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_e6e399bf2bb4f3b4d6980433b06c6344034340c1fc70cd734b60d9256a069dff",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 13.007721,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_d5c1d688e968c73531441ff4d0a230dbef17ddbd4f515bd24c73021d25c22a7d",
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "score": 11.569803,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_4a3d217d32c36f1ebf361456b2c40104508e92311312fb2f9a9667b9bedae3bd",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 8.86566,
+              "matches": false
+            }
+          ]
+        },
+        {
+          "case_id": "grilling-qualification",
+          "question": "What home grilling temperature is recommended for fish and shellfish and why might regulated facilities use different temperatures?",
+          "complete_evidence_hit": true,
+          "expected_chunk_ids": [
+            "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7"
+          ],
+          "top_chunks": [
+            {
+              "chunk_id": "chunk_a5a8436d10c496f15e56c2bb331e2690f3644e2ba95c50b19ea245f0a1a03bd9",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 28.129487,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_eaa5d021bbb1152bee83a204b1790ad9f136efe1ec0c3ca8e33dd4f186ebd4a7",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 26.478729,
+              "matches": true
+            },
+            {
+              "chunk_id": "chunk_5ae4dc39d98f1cd9497bd88b844ee54a27d90f9bb141b699ea6c4064af89e96c",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 18.902585,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_d926b3e5d7b1bd1407934fd3d0f2a28c1f14c83ba2220a4ed9d8dbe6cb3c3ae6",
+              "document_id": "mn_safe_temperatures",
+              "score": 12.927793,
+              "matches": false
+            },
+            {
+              "chunk_id": "chunk_351a622d716d8b6ba9da08e52649246da58886546e4283aae5a2e4781ac8dfb5",
+              "document_id": "cdc_food_safety",
+              "score": 12.64523,
+              "matches": false
+            }
+          ]
+        }
+      ]
+    },
+    "default_target_tokens": 350,
+    "decision": "Retain 350; run dense E5 and broader held-out retrieval evaluation in Phase 3 before changing defaults."
+  },
+  "artifacts": {
+    "database": "data/staging/chunks.sqlite",
+    "default_report": "data/staging/chunks/350-report.json",
+    "candidate_report": "data/staging/chunks/250-report.json",
+    "comparison_report": "data/staging/chunks/comparison-report.json",
+    "evaluation_report": "data/staging/chunks/evaluation.json",
+    "inspection_examples": "docs/examples/chunking/inspection.json"
+  },
+  "validation": {
+    "tests": 336,
+    "new_chunking_checks": 71,
+    "real_tokenizer_prepared": true,
+    "ruff": "passed",
+    "dependency_consistency": "passed",
+    "registry": "passed",
+    "wheel_build": "passed"
+  },
+  "remaining": "Dense embeddings, held-out retrieval precision/coverage, active vector/evidence snapshot, answers/citations and release evaluations follow in Phases 3\u20137."
+}

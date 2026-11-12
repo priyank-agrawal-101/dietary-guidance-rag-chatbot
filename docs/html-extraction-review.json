@@ -1,0 +1,179 @@
+{
+  "review_date": "2026-11-12",
+  "scope": "P2H.1\u2013P2H.3 native HTML extraction; pending downstream normalization/semantic activation review",
+  "sources": [
+    {
+      "document_id": "cdc_food_safety",
+      "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+      "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+      "extraction_id": "html_extraction_691a4cbff7c34a187c9e846ba2deee723f7aeb8740a615a938922398943fa5a0",
+      "configuration_id": "html_config_0e6df75a9a59bd5f9de7d727b998dea638d9e6da3d45efe559a2ed9ff92a4293",
+      "blocks": 52,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_section": 3,
+        "furniture_removed": 2,
+        "hidden_removed": 8,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "mn_safe_temperatures",
+      "raw_sha256": "6e761d72f67fe304f7dcc98d7b49f5d6f9f66ddd3332091abd6b38fc70d33914",
+      "document_version_id": "docv_d8982ec70f5e1234669ca10f62d535d7fab066455583b5010985e95b9bd8061a",
+      "extraction_id": "html_extraction_dc7582d2752b3876e887c788b5b3c6ad147774d042b0d84783e7d56bddabbe58",
+      "configuration_id": "html_config_c7e672cfeb8be95d7dddfb962a39787da2e61a26bd7435eb41f65997ac59c0e2",
+      "blocks": 11,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_text": 1,
+        "navigation_removed": 1,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "mn_cold_storage",
+      "raw_sha256": "bbdf795e157d070d5d1ecd2a2451d28c410a5a77718692a662c34b687563a3fb",
+      "document_version_id": "docv_dbecf7a2b8fa0d45ea342f13f9d4f893c601f31f4c0cdf88cfe31965a9e81d3f",
+      "extraction_id": "html_extraction_7f12aa180d16c0ada21ad03859345ffa466c691b134857cfd8d97441a0e9d47b",
+      "configuration_id": "html_config_951bd7e13467829151ff66f655f217ea0b41a3a2fa6eee8ef200f2ff9226b15e",
+      "blocks": 15,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "navigation_removed": 1,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "mn_storage_chart",
+      "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+      "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+      "extraction_id": "html_extraction_f621479c6059f7eaa8decee22b48f6e7369a642af9a47deeb86d82e54df3bb4f",
+      "configuration_id": "html_config_395eac4c9d2b30565d08212a2bb30b1f626d4f393b0bc39c0639f30446872b51",
+      "blocks": 8,
+      "tables": 1,
+      "table_comparisons": [
+        {
+          "original_cells_compared": 128,
+          "logical_data_rows": 28,
+          "all_spans_and_numeric_tokens_preserved": true,
+          "cells_changed_only_by_reviewed_mercury_exclusions": []
+        }
+      ],
+      "diagnostic_counts": {
+        "furniture_removed": 1,
+        "layout_table": 1,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "mn_food_thermometers",
+      "raw_sha256": "5285f02183267b596a18706e0b47a60e449185fa1be222f58b36b1334c489359",
+      "document_version_id": "docv_00818768b5b500afd6bbd37ff3acd966198a95d489e2936b414f25aa0fc9ab22",
+      "extraction_id": "html_extraction_45b59be46999f4fda0590e82df1885ea95f6e7513e8fdea8efec463976d64010",
+      "configuration_id": "html_config_f87ae0c3baf7f516cf127e110bd783934e322da352c7198a14d40e426a2d7faa",
+      "blocks": 6,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "furniture_removed": 1,
+        "layout_table": 1,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "fda_seafood",
+      "raw_sha256": "f2f74671298ca6a95104b174b9ea15450883f985ee7aba2a1dc4a67245f97e90",
+      "document_version_id": "docv_f717d00e9d67aa91f45a193ecd7c38f22d685ae5d9eb4b9d64ee2864b0d85cab",
+      "extraction_id": "html_extraction_4e8330e5dea65cbb34bc436c50b42a73b025a10ed9d17d8fc007b02db7e86a4f",
+      "configuration_id": "html_config_2801b4e00f46e44e4f6c4e62089cd487a1464cee4511ce99d80bc35049dca048",
+      "blocks": 31,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_section": 7,
+        "excluded_text": 5,
+        "furniture_removed": 4,
+        "review_pending": 1,
+        "source_duplicate_removed": 1
+      }
+    },
+    {
+      "document_id": "fda_produce",
+      "raw_sha256": "489b428c6f1faf39d692345e907b52effb21e29bf9c2eb3e3c5f437b4af91525",
+      "document_version_id": "docv_f0802ed3fca14dc810fadd80d4e71f45960319df73bd8a820761b0cbe0c24f39",
+      "extraction_id": "html_extraction_9cbc75d49c12be726c0ca68bbc2871a0168634f91af1874c450789d5474dbe27",
+      "configuration_id": "html_config_37592c3e1416d64282f1035dead6cbe55c81d94a7d594e4306979c39113f65ac",
+      "blocks": 16,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_section": 3,
+        "furniture_removed": 3,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "cdc_pregnancy_food_safety",
+      "raw_sha256": "3f21a62dd84a3d5bc138ef039ea4cc97af208c9294b92089563e16ea3d311f03",
+      "document_version_id": "docv_1396c4d6f8e66c246bdcb6f0b2ba9884fb92cefa6c81b84d207625550bccbefb",
+      "extraction_id": "html_extraction_a0aac80f62d730c9225e306b80221a0874b8df3f3ef91ade49c50586b9a0f5e7",
+      "configuration_id": "html_config_8b74315f6b8c01692e10ef480c6385e791c212a594a62fdb756998312c5579b6",
+      "blocks": 4,
+      "tables": 1,
+      "table_comparisons": [
+        {
+          "original_cells_compared": 45,
+          "logical_data_rows": 9,
+          "all_spans_and_numeric_tokens_preserved": true,
+          "cells_changed_only_by_reviewed_mercury_exclusions": [
+            38,
+            39
+          ]
+        }
+      ],
+      "diagnostic_counts": {
+        "excluded_section": 3,
+        "excluded_text": 2,
+        "furniture_removed": 4,
+        "hidden_removed": 2,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "fda_nutrition_label_current",
+      "raw_sha256": "7d78e44efc16fd3da627a9b3d729ab1f563d8849f12337c87dd94120d835866e",
+      "document_version_id": "docv_76fdedd6ab1a93d033b1dc00892ef67db636f1a7eee64da302d50aab07702d35",
+      "extraction_id": "html_extraction_6e92973a0df4e609e5fc2953ac3bc3738fd5caffb8ed1ac962360e67913caf41",
+      "configuration_id": "html_config_5c9d1e6fa4fd10f7d7255da1fc506fab508a83814591db01dc6f48612943575d",
+      "blocks": 20,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_section": 3,
+        "furniture_removed": 10,
+        "outside_text_allowlist": 27,
+        "review_pending": 1
+      }
+    },
+    {
+      "document_id": "cdc_emergency_food_safety",
+      "raw_sha256": "fb236f0203b52f208aae8f01a469db86c1a3ebf6b6bb3d175ecd6e8670dc56ae",
+      "document_version_id": "docv_664dde305d7d460a6a84c222004481a941f0234eda8564c7fcf9fc838aaf1e2f",
+      "extraction_id": "html_extraction_84675f9859337589ab9fc20af9278e08586d41a9160e5ec4743ea81cd3a8ecdf",
+      "configuration_id": "html_config_73873ee3ee46d5d48940d2c4801d54e9c4a97f3f24e719f92965dbb9bb726043",
+      "blocks": 15,
+      "tables": 0,
+      "table_comparisons": [],
+      "diagnostic_counts": {
+        "excluded_section": 5,
+        "furniture_removed": 2,
+        "hidden_removed": 3,
+        "review_pending": 1
+      }
+    }
+  ]
+}

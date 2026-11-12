@@ -152,7 +152,7 @@ Chunking must account for the structure of the source material. Fixed-size split
 
 The README must explain the chosen chunking approach and what it costs. Relevant trade-offs include preserving complete sections versus retrieving focused passages, adding overlap versus duplicating text, and retaining table context versus increasing chunk size.
 
-**Implementation suggestions:** Consider heading-aware chunks, keep related recommendations together, and retain table headers with the entries they describe. The brief does not prescribe a particular chunk size, overlap, or parsing library.
+**Implemented design choice (P2C.1–P2C.3):** Structure-aware chunks retain complete recommendations, reviewed card boundaries, nested lists and labeled table rows. The chosen baseline is a 350-token preferred target with up to 50 tokens of complete-sentence prose overlap, using the pinned E5 tokenizer and a verified 512-token full-input limit without truncation. Comparison sources stay separate and quarantined OCR remains unavailable. See [architecture §9](architecture.md#9-chunking-strategy) and [chunking foundations/results](phase2-chunking.md). The original brief does not prescribe these parameters; they are the accepted implementation choice, pending broader dense retrieval evaluation.
 
 ### 5.3 Vector Retrieval
 

@@ -61,5 +61,5 @@ def test_repository_settings_load():
     root = Path(__file__).resolve().parents[2]
     settings = load_settings(Path("config/settings.yaml"), project_root=root)
     assert settings.source_registry.is_file()
-    assert settings.embedding.revision is None
+    assert settings.embedding.revision == "f52bf8ec8c7124536f0efb74aca902b2995e5bcd"
     assert settings.chunking.target_tokens == 350

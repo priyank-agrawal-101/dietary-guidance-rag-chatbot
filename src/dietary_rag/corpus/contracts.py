@@ -171,6 +171,7 @@ class DocumentVersion(Contract):
 class SourceLocation(Contract):
     format: SourceFormat
     source_anchor: NonEmpty | None = None
+    dom_path: NonEmpty | None = None
     physical_page: PositiveInt | None = None  # One-based physical PDF page index.
     printed_page_label: NonEmpty | None = None
     bbox: tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat] | None = None
@@ -186,6 +187,8 @@ class SourceLocation(Contract):
                 for value in (self.physical_page, self.printed_page_label, self.bbox)
             ):
                 raise ValueError("HTML locations cannot carry PDF page/geometry fields")
+        elif self.dom_path is not None:
+            raise ValueError("DOM paths belong only to HTML locations")
         elif self.physical_page is None or self.extraction_method == "html":
             raise ValueError("PDF locations require a physical page and PDF/OCR extraction method")
         if self.ocr_confidence is not None and self.extraction_method != "ocr":
@@ -208,7 +211,7 @@ class TableContext(Contract):
 class ContentBlock(Contract):
     block_id: Identifier
     document_version_id: Identifier
-    block_type: Literal["paragraph", "recommendation_list", "table", "table_row", "note"]
+    block_type: Literal["heading", "paragraph", "recommendation_list", "table", "table_row", "note"]
     heading_path: tuple[NonEmpty, ...] = ()
     sequence_index: NonnegativeInt
     text: NonEmpty

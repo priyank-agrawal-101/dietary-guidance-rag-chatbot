@@ -11,12 +11,16 @@ requires-python = ">=3.11"
 dependencies = ["pydantic>=2.10,<3", "PyYAML>=6.0,<7"]
 
 [project.optional-dependencies]
+chunking = ["tokenizers>=0.21,<1"]
+pdf = ["pdfplumber>=0.11,<1", "pypdf>=5,<7", "pypdfium2>=5.9,<6", "Pillow>=12.2,<13"]
+pdf-dev = ["reportlab>=4,<5"]
+html = ["beautifulsoup4>=4.13,<5"]
 acquisition = ["httpx>=0.28,<1", "pypdf>=5,<7"]
 dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1.2,<2", "pip-tools>=7.4,<8", "setuptools>=75,<83", "wheel>=0.45,<1"]
 ingestion = ["httpx>=0.28,<1", "beautifulsoup4>=4.13,<5", "lxml>=5.3,<7", "pypdf>=5,<7", "pdfplumber>=0.11,<1"]
 api = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1"]
 embeddings = ["sentence-transformers>=3.4,<6", "chromadb>=1,<2"]
-ocr = ["pytesseract>=0.3.13,<1", "Pillow>=11,<13"]
+ocr = ["pdfplumber>=0.11,<1", "pypdf>=5,<7", "pypdfium2>=5.9,<6", "Pillow>=12.2,<13"]
 
 [project.scripts]
 dietary-rag = "dietary_rag.cli:main"

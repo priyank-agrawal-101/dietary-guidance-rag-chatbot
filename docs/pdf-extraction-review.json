@@ -1,0 +1,5011 @@
+{
+  "review_date": "2026-11-12",
+  "scope": "P2P.1–P2P.4 native extraction fidelity; pending downstream semantic/normalization review, no corpus activation.",
+  "cell_comparison_method": "Independent pdfplumber cropped source-cell extract_text, whitespace-normalized, compared against native cell text; numeric tokens also compared. Raw excluded cells remain administrative evidence.",
+  "default_sources": 6,
+  "comparison_sources": 3,
+  "physical_pages_reviewed": 37,
+  "native_blocks": 319,
+  "source_cells_compared": 146,
+  "sources": [
+    {
+      "document_id": "dga_2025_2030_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_1db0dbfc8831feeb8d3686251fd8da910222794f5e928955e4db13b2e723a358",
+      "raw_sha256": "f27d3c96d51db4847b6087c068ec2d3dca400ef35e5e94c4c3ac77e8fd66e36c",
+      "extraction_id": "pdf_extraction_8ac34beae11f7879245697154066f6ff7657567de6df16e20cc5fd6b855a5509",
+      "configuration_id": "pdf_config_6f0acf64acf4e1817868296706662024bd01b4633efab7775e82a88a8ae52e4a",
+      "blocks": 65,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": null,
+          "pdf_page_label": "1",
+          "label_origin": "unknown",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 22,
+          "image_count": 45,
+          "status": "excluded"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "1",
+          "pdf_page_label": "1",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 484,
+          "image_count": 3,
+          "status": "excluded"
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "2",
+          "pdf_page_label": "2",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 281,
+          "image_count": 6,
+          "status": "native"
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "3",
+          "pdf_page_label": "3",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 262,
+          "image_count": 5,
+          "status": "native"
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "4",
+          "pdf_page_label": "4",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 270,
+          "image_count": 4,
+          "status": "native"
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "5",
+          "pdf_page_label": "5",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 161,
+          "image_count": 4,
+          "status": "native"
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "6",
+          "pdf_page_label": "6",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 384,
+          "image_count": 3,
+          "status": "excluded"
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "7",
+          "pdf_page_label": "7",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 300,
+          "image_count": 2,
+          "status": "native"
+        },
+        {
+          "physical_page": 9,
+          "printed_page_label": "8",
+          "pdf_page_label": "8",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 310,
+          "image_count": 3,
+          "status": "excluded"
+        },
+        {
+          "physical_page": 10,
+          "printed_page_label": "9",
+          "pdf_page_label": "9",
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 245,
+          "image_count": 3,
+          "status": "native"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "45 raster images, 295 curves and 24 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Visual cover and duplicate text layers omitted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 13 curves and 7 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 1",
+          "physical_page": 2,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Political/administrative foreword excluded.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "10 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "6 raster images, 23 curves and 9 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 2",
+          "physical_page": 3,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_70",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            70.0,
+            578.0,
+            94.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ The calories you need depend on your age, sex, height, weight, and level of physical activity.",
+          "physical_page": 3,
+          "bbox": [
+            124.0,
+            104.8262,
+            311.368,
+            148.8182
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ Pay attention to portion sizes, particularly for foods and beverages higher in calories.",
+          "physical_page": 3,
+          "bbox": [
+            124.0,
+            157.3142,
+            334.8976,
+            185.3102
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_70_left",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            95.0,
+            340.0,
+            200.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_70_right",
+          "physical_page": 3,
+          "bbox": [
+            340.0,
+            95.0,
+            578.0,
+            200.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_204",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            204.0,
+            578.0,
+            228.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_204_left",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            229.0,
+            340.0,
+            430.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ Protein serving goals: 1.2–1.6 grams of protein per kilogram of body weight per day, adjusting as needed based on your individual caloric requirements.",
+          "physical_page": 3,
+          "bbox": [
+            360.0,
+            307.3248,
+            555.756,
+            367.3128
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_204_right",
+          "physical_page": 3,
+          "bbox": [
+            340.0,
+            229.0,
+            578.0,
+            430.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_437",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            437.0,
+            578.0,
+            461.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_437_left",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            462.0,
+            340.0,
+            549.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ Dairy serving goals: 3 servings per day as part of a 2,000-calorie dietary pattern, adjusting as needed based on your individual caloric requirements.",
+          "physical_page": 3,
+          "bbox": [
+            360.0012,
+            472.2706,
+            560.9532,
+            532.2586
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_437_right",
+          "physical_page": 3,
+          "bbox": [
+            340.0,
+            462.0,
+            578.0,
+            549.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "gut_health",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            552.0,
+            578.0,
+            711.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "9 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "5 raster images, 21 curves and 9 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 3",
+          "physical_page": 4,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_76",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            76.0,
+            578.0,
+            100.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_76_left",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            101.0,
+            340.0,
+            292.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ Vegetables and fruits serving goals for a 2,000-calorie dietary pattern, adjusting as needed based on your individual caloric requirements:",
+          "physical_page": 4,
+          "bbox": [
+            360.4927,
+            166.4586,
+            573.4087,
+            226.4626
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_76_right",
+          "physical_page": 4,
+          "bbox": [
+            340.0,
+            101.0,
+            578.0,
+            292.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_301",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            301.0,
+            578.0,
+            325.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_301_left",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            326.0,
+            340.0,
+            475.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ In general, saturated fat consumption should not exceed 10% of total daily calories. Significantly limiting highly processed foods will help meet this goal. More high-quality research is needed to determine which types of dietary fats best support long-term health.",
+          "physical_page": 4,
+          "bbox": [
+            359.4942,
+            339.0656,
+            566.9502,
+            447.0496
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_301_right",
+          "physical_page": 4,
+          "bbox": [
+            340.0,
+            326.0,
+            578.0,
+            475.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_485",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            485.0,
+            578.0,
+            509.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_485_left",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            510.0,
+            340.0,
+            715.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_485_right",
+          "physical_page": 4,
+          "bbox": [
+            340.0,
+            510.0,
+            578.0,
+            715.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "4 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "4 raster images, 17 curves and 7 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 4",
+          "physical_page": 5,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_64",
+          "physical_page": 5,
+          "bbox": [
+            35.0,
+            64.0,
+            578.0,
+            108.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "+ Limit foods and beverages that include artificial flavors, petroleum-based dyes, artificial preservatives, and low-calorie non-nutritive sweeteners.",
+          "physical_page": 5,
+          "bbox": [
+            119.7261,
+            241.4027,
+            313.7661,
+            301.4307
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_64_left",
+          "physical_page": 5,
+          "bbox": [
+            35.0,
+            109.0,
+            340.0,
+            350.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_64_right",
+          "physical_page": 5,
+          "bbox": [
+            340.0,
+            109.0,
+            578.0,
+            350.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "added_sugars",
+          "physical_page": 5,
+          "bbox": [
+            35.0,
+            360.0,
+            578.0,
+            570.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "4 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "4 raster images, 17 curves and 6 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 5",
+          "physical_page": 6,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "heading_74",
+          "physical_page": 6,
+          "bbox": [
+            35.0,
+            74.0,
+            578.0,
+            98.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_74_left",
+          "physical_page": 6,
+          "bbox": [
+            35.0,
+            99.0,
+            340.0,
+            230.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "amount they drink, and people taking medications or with medical conditions that can interact with alcohol. For those with a family history of alcoholism, be mindful of alcohol consumption and associated addictive behaviors.",
+          "physical_page": 6,
+          "bbox": [
+            360.2275,
+            117.6595,
+            547.8535,
+            209.6595
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "body_74_right",
+          "physical_page": 6,
+          "bbox": [
+            340.0,
+            99.0,
+            578.0,
+            230.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "sodium",
+          "physical_page": 6,
+          "bbox": [
+            35.0,
+            239.0,
+            578.0,
+            470.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 12 curves and 7 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 6",
+          "physical_page": 7,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Infant feeding, supplements and specialist guidance held for later section review.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "4 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "2 raster images, 14 curves and 8 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 7",
+          "physical_page": 8,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "developmental_readiness",
+          "physical_page": 8,
+          "bbox": [
+            35.0,
+            62.0,
+            578.0,
+            329.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "middle_heading",
+          "physical_page": 8,
+          "bbox": [
+            35.0,
+            338.0,
+            578.0,
+            360.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "middle_left",
+          "physical_page": 8,
+          "bbox": [
+            35.0,
+            361.0,
+            325.0,
+            480.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "middle_right",
+          "physical_page": 8,
+          "bbox": [
+            325.0,
+            361.0,
+            578.0,
+            480.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 9,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 12 curves and 10 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 9,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 9,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "Dietary Guidelines for Americans, 2025–2030 | 8",
+          "physical_page": 9,
+          "bbox": [
+            380.9873,
+            762.1287,
+            576.2773,
+            772.1287
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Mixed pregnancy/lactation, clinical and supplement passages held for later section review.",
+          "physical_page": 9,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "2 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 10,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 12 curves and 8 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 10,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 10,
+          "bbox": null
+        },
+        {
+          "code": "text_region",
+          "detail": "vegetarian_heading",
+          "physical_page": 10,
+          "bbox": [
+            35.0,
+            224.0,
+            578.0,
+            246.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "vegetarian_foods",
+          "physical_page": 10,
+          "bbox": [
+            35.0,
+            248.0,
+            322.0,
+            410.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 10,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": null,
+          "original_png_sha256": "4d93181c8c0b86a24e22bb2ad504ea6d963c341eee06493947c6cf6943846efc",
+          "overlay_png_sha256": "4d93181c8c0b86a24e22bb2ad504ea6d963c341eee06493947c6cf6943846efc",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "1",
+          "original_png_sha256": "3c9cd5243ff1a2c0d787bafd09aa6ca164b08d59a87e0192a276cbb05ade7e37",
+          "overlay_png_sha256": "3c9cd5243ff1a2c0d787bafd09aa6ca164b08d59a87e0192a276cbb05ade7e37",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "2",
+          "original_png_sha256": "82cfd9e39b73b50cc89b451ac4ec07ad47207fc8d6b47fdbe3a78b55ab9710e6",
+          "overlay_png_sha256": "1376b8a29ce8a979d83850975d538b3a616caddeeb5e727b5f6ed3e24bf35b8b",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "3",
+          "original_png_sha256": "4e1d9544cdb42b664bca64362a777a43ff387868009fc8305c84ef1d61ea496b",
+          "overlay_png_sha256": "2d9810f32fd152af9455f2bd9c9426c546bf019caf336821292f7cb9be069a56",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "4",
+          "original_png_sha256": "15aada6c18801fada6bc55f4dae73b266793ff7594bcb9628102ac81ae175e1e",
+          "overlay_png_sha256": "fe64852630cb5df7df040ba6b7e53be8b787dd115958635861f56841567b51d9",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "5",
+          "original_png_sha256": "4ea645f34d385445fb2ba3bbb2c40f150401f4a6c4500195846e6334c1f41718",
+          "overlay_png_sha256": "c8295e6c3cb69aaee76d0e4e8bc87070b1dda5c711757254dd17b3f608e59741",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "6",
+          "original_png_sha256": "e35df4c346999a3bd6972e88f935e5096c6efd3965323b2ef7188a01671fe92b",
+          "overlay_png_sha256": "e35df4c346999a3bd6972e88f935e5096c6efd3965323b2ef7188a01671fe92b",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "7",
+          "original_png_sha256": "6870043074ab8a15f2c3c5edd182777f3c853368998c72a741fd236587cedb22",
+          "overlay_png_sha256": "94e423d236a212ee7e82cbb11553e3f6a235e8b3a775a40c465f35010943b4b5",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 9,
+          "printed_page_label": "8",
+          "original_png_sha256": "cc6f700c913cdf7748ae24d9773fc46d8ee9deb186c91034d66fc9b13ccfa9d6",
+          "overlay_png_sha256": "cc6f700c913cdf7748ae24d9773fc46d8ee9deb186c91034d66fc9b13ccfa9d6",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 10,
+          "printed_page_label": "9",
+          "original_png_sha256": "27ab4aa30338c8e74839128477142b05691b6de50e72bba481d2169c77b0fdc8",
+          "overlay_png_sha256": "d767ba9d58777be0fba83d41ad2a5f1a720e86159f105998526549769da4e94c",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "hhs_adults_older_adults_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_f099f05ee058c0c418974fadee498c7d761c4641b54703dfc97471279f29c172",
+      "raw_sha256": "503e78136fa6b9f46a967028e25e76de2cdca768c823eb59d59a49870761c8e7",
+      "extraction_id": "pdf_extraction_3014f1f635dee950e89511c97159633ecff48bd75ef6d47f2ffc6e9980df1138",
+      "configuration_id": "pdf_config_1307bafb82d0ac88b2e404463f8f30368035dd36a36d0815b85e013863819497",
+      "blocks": 57,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 165,
+          "image_count": 33,
+          "status": "native"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 243,
+          "image_count": 5,
+          "status": "native"
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 301,
+          "image_count": 6,
+          "status": "native"
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 130,
+          "image_count": 3,
+          "status": "native"
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "5",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 321,
+          "image_count": 0,
+          "status": "native"
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "6",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 201,
+          "image_count": 3,
+          "status": "native"
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "7",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 232,
+          "image_count": 1,
+          "status": "native"
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "8",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 220,
+          "image_count": 1,
+          "status": "native"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "1",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "7 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "33 raster images, 57 curves and 2 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 1",
+          "physical_page": 1,
+          "bbox": [
+            488.5693,
+            760.424,
+            565.9201,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "title_and_intro",
+          "physical_page": 1,
+          "bbox": [
+            35.0,
+            10.0,
+            578.0,
+            370.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_0",
+          "physical_page": 1,
+          "bbox": [
+            40.0,
+            375.0,
+            210.0,
+            620.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_1",
+          "physical_page": 1,
+          "bbox": [
+            220.0,
+            375.0,
+            380.0,
+            620.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_2",
+          "physical_page": 1,
+          "bbox": [
+            390.0,
+            375.0,
+            575.0,
+            620.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_0",
+          "physical_page": 1,
+          "bbox": [
+            40.0,
+            625.0,
+            210.0,
+            735.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_1",
+          "physical_page": 1,
+          "bbox": [
+            220.0,
+            625.0,
+            380.0,
+            735.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_2",
+          "physical_page": 1,
+          "bbox": [
+            390.0,
+            625.0,
+            575.0,
+            735.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "4 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "5 raster images, 58 curves and 2 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 2",
+          "physical_page": 2,
+          "bbox": [
+            485.6414,
+            760.424,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "nutrient_caption",
+          "physical_page": 2,
+          "bbox": [
+            35.0,
+            345.0,
+            578.0,
+            429.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "fiber",
+          "physical_page": 2,
+          "bbox": [
+            35.0,
+            435.0,
+            578.0,
+            503.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "calcium",
+          "physical_page": 2,
+          "bbox": [
+            35.0,
+            530.0,
+            578.0,
+            605.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "Vitamin D helps your body absorb calcium to keep your bones strong. Choose dairy products, including milk and yogurt. Many kinds of fish, such as mackerel, salmon, and trout, also have vitamin D. Some adults may need a vitamin D supplement to get enough of this important nutrient.",
+          "physical_page": 2,
+          "bbox": [
+            54.9954,
+            652.5839,
+            480.2466,
+            712.5719
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "vitamin_d",
+          "physical_page": 2,
+          "bbox": [
+            35.0,
+            632.0,
+            578.0,
+            716.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "5 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "6 raster images, 60 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 3",
+          "physical_page": 3,
+          "bbox": [
+            485.3294,
+            760.424,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "potassium",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            35.0,
+            578.0,
+            131.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "folate",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            153.0,
+            578.0,
+            240.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "iron",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            258.0,
+            578.0,
+            379.0
+          ]
+        },
+        {
+          "code": "excluded_paragraph",
+          "detail": "for older adults (age 65 and over) to prioritize vitamin B12. Choose protein foods such as meat, seafood, and eggs. Dairy products including milk and yogurt, as well as fortified dairy alternatives, are also good sources of vitamin B12. Some older adults may need a supplement to get enough vitamin B12.",
+          "physical_page": 3,
+          "bbox": [
+            54.9991,
+            402.4638,
+            482.3515,
+            462.4518
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "b12",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            397.0,
+            578.0,
+            468.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "enjoying_meals",
+          "physical_page": 3,
+          "bbox": [
+            222.0,
+            506.0,
+            550.0,
+            710.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 61 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 4",
+          "physical_page": 4,
+          "bbox": [
+            484.7413,
+            760.424,
+            565.9201,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "processed_foods",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            35.0,
+            578.0,
+            745.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "0 raster images, 56 curves and 4 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 5",
+          "physical_page": 5,
+          "bbox": [
+            485.4614,
+            760.424,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "label_semantics",
+          "physical_page": 5,
+          "bbox": [
+            70.0,
+            58.0,
+            368.0,
+            282.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 52 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 6",
+          "physical_page": 6,
+          "bbox": [
+            485.2812,
+            760.424,
+            565.92,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "healthy_aging",
+          "physical_page": 6,
+          "bbox": [
+            70.0,
+            63.0,
+            500.0,
+            356.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 52 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 7",
+          "physical_page": 7,
+          "bbox": [
+            485.6894,
+            760.424,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "budget",
+          "physical_page": 7,
+          "bbox": [
+            35.0,
+            78.0,
+            578.0,
+            742.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 51 curves and 1 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 8",
+          "physical_page": 8,
+          "bbox": [
+            485.3173,
+            760.424,
+            565.9201,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "safety_hydration",
+          "physical_page": 8,
+          "bbox": [
+            35.0,
+            40.0,
+            578.0,
+            285.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "91301ddc401c3c45ff438db36d0b3d6879db1a10b83481ae471ac269420adaf4",
+          "overlay_png_sha256": "f9adf54923d63a3d6aab287df1c03ceaeb3c884f0005cf483fb5423023d88705",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "original_png_sha256": "cd20868e88a726d75b91de2d483116238ed3f6d4e9a854ce93c164ace8a651cf",
+          "overlay_png_sha256": "d9e6213d18d9947da9822eddfe05f1718d8a2a3b682049d381efdf5f7289fa87",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "original_png_sha256": "69eb82e5f856f243e49bfc33bc8f81ddccfa058d1e4b55253d7aaf7f125366fb",
+          "overlay_png_sha256": "75a4c88d49f4f7c62633de515d68b3b0d3f1ba26d41272ce94418a117bf43ed0",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "original_png_sha256": "fd3befb543f16a0d0449dfb6ef24750b3af2501455a4794b9bebefd7acdcc882",
+          "overlay_png_sha256": "fd4b0df460959bf676c5c72f38baaf54a4730019051479bbe41f692fbbc5c2c1",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "5",
+          "original_png_sha256": "e2c101f33826e588338fd426a838556a34b71f75581732db08f950428d66608a",
+          "overlay_png_sha256": "83bcec27e396de1b516a7c5a27231d0fded002c06837eb6a32750ea6af14d599",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "6",
+          "original_png_sha256": "3fd16cdb5eb46d52dc299b30d54eca817599a66ee18a9c922615311bc8357c46",
+          "overlay_png_sha256": "83f17c9335bfefe46b16b6f41ba4c33014a490be3cee96457886aef181776ebc",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "7",
+          "original_png_sha256": "806b45c690fb5adc8b8695a96b1c46e03491c70993fc0770fcff290208f2e152",
+          "overlay_png_sha256": "8c2cbfe5213b32b38d4bb8ab96f7ef345bf34abab236df900ad37567a3c090c7",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "8",
+          "original_png_sha256": "2a285af226189ae21d0239f8c54a32eda9422dc5cd037cd2201a3a9d481e2035",
+          "overlay_png_sha256": "727dc80ac48455678c36f74d5c858b77a486d69c9ea86e99888c9c0fe8bfa0ca",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "hhs_kids_teens_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_9f71a66f5a01c88e54d647b3d9792c1ac362627f35cd6bd3db7641fc0d54aed7",
+      "raw_sha256": "410363b45c679c2cb956da81cb2d58e3667d85f91369c8618a0b4c6b8cc6a0f3",
+      "extraction_id": "pdf_extraction_9c5fa1c1e65078de0563b0ff95187de7e3a98c592cd31171e708cf5ad5d79051",
+      "configuration_id": "pdf_config_fc0bd3accc5e94601f830d966292f7ce9ca4457ce9d3a62c0fa23fee83da3ad4",
+      "blocks": 73,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 204,
+          "image_count": 33,
+          "status": "native"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 301,
+          "image_count": 6,
+          "status": "native"
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 291,
+          "image_count": 3,
+          "status": "native"
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 310,
+          "image_count": 1,
+          "status": "native"
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "5",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 134,
+          "image_count": 3,
+          "status": "native"
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "6",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 180,
+          "image_count": 1,
+          "status": "native"
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "7",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 377,
+          "image_count": 0,
+          "status": "native"
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "8",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 192,
+          "image_count": 2,
+          "status": "native"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "page_layout",
+          "detail": "7 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "33 raster images, 57 curves and 2 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 1",
+          "physical_page": 1,
+          "bbox": [
+            490.8854,
+            760.352,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "title_and_intro",
+          "physical_page": 1,
+          "bbox": [
+            35.0,
+            10.0,
+            578.0,
+            346.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_0",
+          "physical_page": 1,
+          "bbox": [
+            40.0,
+            351.0,
+            210.0,
+            610.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_1",
+          "physical_page": 1,
+          "bbox": [
+            220.0,
+            351.0,
+            380.0,
+            610.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_0_2",
+          "physical_page": 1,
+          "bbox": [
+            390.0,
+            351.0,
+            575.0,
+            610.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_0",
+          "physical_page": 1,
+          "bbox": [
+            40.0,
+            615.0,
+            210.0,
+            735.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_1",
+          "physical_page": 1,
+          "bbox": [
+            220.0,
+            615.0,
+            380.0,
+            735.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "food_group_1_2",
+          "physical_page": 1,
+          "bbox": [
+            390.0,
+            615.0,
+            575.0,
+            735.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "6 raster images, 63 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 2",
+          "physical_page": 2,
+          "bbox": [
+            487.9575,
+            760.352,
+            565.9203,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "nutrients",
+          "physical_page": 2,
+          "bbox": [
+            35.0,
+            62.0,
+            578.0,
+            742.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "2 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 55 curves and 2 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 3",
+          "physical_page": 3,
+          "bbox": [
+            487.6455,
+            760.352,
+            565.9203,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "healthy_fats",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            40.0,
+            578.0,
+            138.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "picky_eaters",
+          "physical_page": 3,
+          "bbox": [
+            35.0,
+            408.0,
+            578.0,
+            745.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 52 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 4",
+          "physical_page": 4,
+          "bbox": [
+            487.0574,
+            760.352,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "family_habits",
+          "physical_page": 4,
+          "bbox": [
+            35.0,
+            84.0,
+            578.0,
+            730.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 61 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 5",
+          "physical_page": 5,
+          "bbox": [
+            487.7775,
+            760.352,
+            565.9203,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "processed_foods",
+          "physical_page": 5,
+          "bbox": [
+            35.0,
+            35.0,
+            578.0,
+            745.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 5,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "4 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 53 curves and 0 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 6",
+          "physical_page": 6,
+          "bbox": [
+            487.5974,
+            760.352,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "smoothie_intro",
+          "physical_page": 6,
+          "bbox": [
+            35.0,
+            91.0,
+            578.0,
+            302.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "recipe_left",
+          "physical_page": 6,
+          "bbox": [
+            70.0,
+            303.0,
+            345.0,
+            548.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "recipe_optional",
+          "physical_page": 6,
+          "bbox": [
+            345.0,
+            402.0,
+            540.0,
+            548.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "recipe_preparation",
+          "physical_page": 6,
+          "bbox": [
+            35.0,
+            555.0,
+            578.0,
+            690.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 6,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "1 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "0 raster images, 56 curves and 4 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "3 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 7",
+          "physical_page": 7,
+          "bbox": [
+            488.0055,
+            760.352,
+            565.9203,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "label_semantics",
+          "physical_page": 7,
+          "bbox": [
+            70.0,
+            69.0,
+            409.0,
+            273.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 7,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "2 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "2 raster images, 51 curves and 1 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "realfood.gov | 8",
+          "physical_page": 8,
+          "bbox": [
+            487.6334,
+            760.352,
+            565.9202,
+            772.604
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "safety",
+          "physical_page": 8,
+          "bbox": [
+            42.0,
+            50.0,
+            387.0,
+            234.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "caffeine_juice",
+          "physical_page": 8,
+          "bbox": [
+            35.0,
+            241.0,
+            578.0,
+            505.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 8,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "19e572dfa05430100fb0015e97263dd6deb197348be4c5683a53aafd297466a0",
+          "overlay_png_sha256": "2244ce445e52f030ed10586298b539829f35c0df89fcac6f554c0518d06cacdc",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "original_png_sha256": "c9e6460f29b89340db8fbb32cd85c788f11df19d3db48519dcf70d6b2179094a",
+          "overlay_png_sha256": "aa916810924fe66fb66571f585b1f87d8e52ded6484e6fe770932f77630b606a",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "original_png_sha256": "c668d58aa194b417f2cc246d391e54b09309b7ccc1f4764bb31f17a6de6063ee",
+          "overlay_png_sha256": "55bad187c2054a2053daaf2ae2bf483c05fa91e01bfc35adb34d17d57284514a",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "original_png_sha256": "b9f1a56c6aeb139735641ac3ec283011b525466c953f92c1ae1961d316065c7e",
+          "overlay_png_sha256": "97314cfb3a57c58a9ff311b6f268cb3b67f72594ab301648163cf3213a78931e",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 5,
+          "printed_page_label": "5",
+          "original_png_sha256": "63b700781b2d2103d5da05c6768c2df85be7d28e946e68946279227e4daa0906",
+          "overlay_png_sha256": "1452f44fe52823f6dfdd6a99d9c4e545c645abd4f99399df1d5bf84f2944e965",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 6,
+          "printed_page_label": "6",
+          "original_png_sha256": "6d8e2a72506a44cc43f6a1f96e48e24a286d6a7e5749f8f001225da084489c4f",
+          "overlay_png_sha256": "cd783bce308770e4c230bef6eab401c63c70625f78d207a7ae86d9b6838a7cd3",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 7,
+          "printed_page_label": "7",
+          "original_png_sha256": "d0ddf87480663827c3a9d05aff55f1058e13ddf0725b5c84405153006c614fb8",
+          "overlay_png_sha256": "b3c6b701a3eb802589623d7866845e388fe80ae4860cce993931990809d19a41",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 8,
+          "printed_page_label": "8",
+          "original_png_sha256": "44b6045ef13f9c5782d127a9048b1d157189532f68db12194a1a4d246010d259",
+          "overlay_png_sha256": "571eb7fb510441bd2765989a9604f204da94b2639b7ec6d246c00225ab150c99",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "nhlbi_sodium_tips_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_915ecafb2cb9f537cc1b9bf914a0af50f041c1cf8d619003c1358c05188b6c90",
+      "raw_sha256": "30f97a37299f9f6d9d55d9c2f2222820120d3d4d4f9a66ca0bb66c04e0c6f307",
+      "extraction_id": "pdf_extraction_ba2f8b4dbfc51eb84b769715bd0d6156c48eeb9e0817770cbceea0924a1069f0",
+      "configuration_id": "pdf_config_b80cff5f51c7c944d5cc1bacc3751161e5b2501fbb0f64a83432f6a74e74835e",
+      "blocks": 14,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 435,
+          "image_count": 1,
+          "status": "native"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 229,
+          "image_count": 1,
+          "status": "excluded"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "1",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "9 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 168 curves and 14 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "text_region",
+          "detail": "title",
+          "physical_page": 1,
+          "bbox": [
+            30.0,
+            63.0,
+            340.0,
+            195.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "shopping_preparation",
+          "physical_page": 1,
+          "bbox": [
+            217.0,
+            216.0,
+            393.0,
+            539.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "seasoning",
+          "physical_page": 1,
+          "bbox": [
+            405.0,
+            216.0,
+            580.0,
+            539.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_caption",
+          "physical_page": 1,
+          "bbox": [
+            30.0,
+            548.0,
+            580.0,
+            584.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_0",
+          "physical_page": 1,
+          "bbox": [
+            30.0,
+            590.0,
+            134.0,
+            690.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_1",
+          "physical_page": 1,
+          "bbox": [
+            146.0,
+            590.0,
+            250.0,
+            690.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_2",
+          "physical_page": 1,
+          "bbox": [
+            262.0,
+            590.0,
+            366.0,
+            690.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_3",
+          "physical_page": 1,
+          "bbox": [
+            378.0,
+            590.0,
+            482.0,
+            690.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "dining_4",
+          "physical_page": 1,
+          "bbox": [
+            494.0,
+            590.0,
+            598.0,
+            690.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 170 curves and 48 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "3 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Entire page excluded: individual-food sodium lookup and clinical/footer content.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "d07c95bbcf0898cf3e5c05aef3392cb04df3010613557927176efc9a904ec8fe",
+          "overlay_png_sha256": "406658a95be11be97931fac915499a6e22a6739f7c55d22e932621061177b565",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "original_png_sha256": "26d2deebc584f67d5fd5c3cdce2d7b3e0ca42724ce7c25a3c8a5a8f1de7027e7",
+          "overlay_png_sha256": "26d2deebc584f67d5fd5c3cdce2d7b3e0ca42724ce7c25a3c8a5a8f1de7027e7",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "mn_cross_contamination_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_073fd92cd5bd55b2017a2c3f4181980a086b84d4c21dc22709ea7dc2ca7a7c7a",
+      "raw_sha256": "dd44a22d78752af0e9c7972b32aff5f146808ea86b55a2adeea4ba637d423f8b",
+      "extraction_id": "pdf_extraction_777101ea4d0c2d98bb97d7608847390be89e492bae67af816d24589391bba697",
+      "configuration_id": "pdf_config_153defd621645d30a83cdd88043cfa4c3e352ea90faf4f544c34bdc62d4bc2fe",
+      "blocks": 31,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 436,
+          "image_count": 0,
+          "status": "native"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "page_layout",
+          "detail": "5 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "0 raster images, 26 curves and 1 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "text_region",
+          "detail": "intro",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            78.0,
+            543.0,
+            347.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "clean",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            348.0,
+            255.0,
+            647.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "boards_marinating_produce",
+          "physical_page": 1,
+          "bbox": [
+            265.0,
+            348.0,
+            545.0,
+            647.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "serving",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            650.0,
+            543.0,
+            708.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_dates",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            710.0,
+            543.0,
+            738.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "ad5a973fa8a6075e70c7dfbe4ece2d9cc360c99f3b81a13b72f5cd25c26a780d",
+          "overlay_png_sha256": "5423b09e7916c4af4228ab2febf7171e50e3a9e3a47bdc552a7330e8693a043b",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "mn_safe_grilling_pdf",
+      "comparison_only": false,
+      "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+      "raw_sha256": "4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391",
+      "extraction_id": "pdf_extraction_414aeeffee4251e9210c2f24882415b1524f7ebba3b522065e66162bab7ff5c4",
+      "configuration_id": "pdf_config_a78fd5dc9fd8446b751963add8f6c14e3ab4a4aaf0b3e8a967e19f40f1c8f793",
+      "blocks": 25,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 381,
+          "image_count": 0,
+          "status": "native"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "pdf_table_372f315a93113d51c1774c94456cd6efecb04abfb5862c55344f556fd8f6bd7b",
+          "state": "pending",
+          "cells_compared": 16,
+          "cells": [
+            {
+              "physical_page": 1,
+              "row": 0,
+              "column": 0,
+              "status": "present",
+              "source_text": "Food",
+              "extracted_text": "Food",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 0,
+              "column": 1,
+              "status": "present",
+              "source_text": "Safe Internal Temperature",
+              "extracted_text": "Safe Internal Temperature",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 1,
+              "column": 0,
+              "status": "present",
+              "source_text": "Poultry or fowl, whole or parts",
+              "extracted_text": "Poultry or fowl, whole or parts",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 1,
+              "column": 1,
+              "status": "present",
+              "source_text": "165°F",
+              "extracted_text": "165°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 2,
+              "column": 0,
+              "status": "present",
+              "source_text": "Ground poultry or fowl",
+              "extracted_text": "Ground poultry or fowl",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 2,
+              "column": 1,
+              "status": "present",
+              "source_text": "165°F",
+              "extracted_text": "165°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 3,
+              "column": 0,
+              "status": "present",
+              "source_text": "Ground beef, veal, pork, lamb or venison",
+              "extracted_text": "Ground beef, veal, pork, lamb or venison",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 3,
+              "column": 1,
+              "status": "present",
+              "source_text": "160°F",
+              "extracted_text": "160°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 4,
+              "column": 0,
+              "status": "present",
+              "source_text": "Fresh beef, veal, pork, lamb, or venison",
+              "extracted_text": "Fresh beef, veal, pork, lamb, or venison",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 4,
+              "column": 1,
+              "status": "present",
+              "source_text": "145°F",
+              "extracted_text": "145°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 5,
+              "column": 0,
+              "status": "present",
+              "source_text": "Fish and shellfish, all kinds",
+              "extracted_text": "Fish and shellfish, all kinds",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 5,
+              "column": 1,
+              "status": "present",
+              "source_text": "145°F",
+              "extracted_text": "145°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 6,
+              "column": 0,
+              "status": "present",
+              "source_text": "Egg dishes",
+              "extracted_text": "Egg dishes",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 6,
+              "column": 1,
+              "status": "present",
+              "source_text": "160°F",
+              "extracted_text": "160°F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 7,
+              "column": 0,
+              "status": "present",
+              "source_text": "Eggs",
+              "extracted_text": "Eggs",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 7,
+              "column": 1,
+              "status": "present",
+              "source_text": "Until yolk and white are firm",
+              "extracted_text": "Until yolk and white are firm",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            }
+          ],
+          "parts": [
+            {
+              "physical_page": 1,
+              "header_origin": "native_cells",
+              "column_headers": [
+                "Food",
+                "Safe Internal Temperature"
+              ],
+              "retained_rows": 6,
+              "category_rows": 0,
+              "excluded_rows": [
+                {
+                  "source_row": 4,
+                  "values": [
+                    "Fresh beef, veal, pork, lamb, or venison",
+                    "145°F"
+                  ],
+                  "category": null,
+                  "state": "excluded",
+                  "reason": "Reviewed row exclusion: incomplete qualification or out-of-scope content."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "code": "page_layout",
+          "detail": "5 ordered text regions; 1 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "0 raster images, 26 curves and 89 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "2 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "explicit_table_geometry",
+          "detail": "Restored source-aligned columns and row boundaries",
+          "physical_page": 1,
+          "bbox": [
+            364.2,
+            413.76,
+            539.7,
+            684.72
+          ]
+        },
+        {
+          "code": "excluded_table_row",
+          "detail": "Fresh beef, veal, pork, lamb, or venison | 145°F",
+          "physical_page": 1,
+          "bbox": [
+            364.2,
+            549.24,
+            475.0,
+            586.08
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "intro",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            96.0,
+            543.0,
+            229.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "hot_precook_reheat",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            233.0,
+            359.0,
+            654.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "marinating",
+          "physical_page": 1,
+          "bbox": [
+            359.0,
+            235.0,
+            543.0,
+            409.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "facility_qualification",
+          "physical_page": 1,
+          "bbox": [
+            72.0,
+            657.0,
+            358.0,
+            692.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_dates",
+          "physical_page": 1,
+          "bbox": [
+            70.0,
+            699.0,
+            543.0,
+            730.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "de725dba4ae2794d36773fcac31dae9ede55fa5feca58057e6287f4881273672",
+          "overlay_png_sha256": "929b8817140c6faaa8d6f913fafc70a869284ae1f690a254e1791027859c7332",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "mn_storage_chart_pdf",
+      "comparison_only": true,
+      "document_version_id": "docv_pdf_comparison_01731805b03bd7312f24c7c4a96a8ba221f2dcaf446457f490bb47cdb09d294e",
+      "raw_sha256": "47d4085e42748549115136c5982416ed09067acb1b9660d0ed39476f619f5e25",
+      "extraction_id": "pdf_extraction_67d7ad46b129126055cca8b9fd8e203a6595742451abcb6f793869eb30426201",
+      "configuration_id": "pdf_config_6c716ef77fea8671a2e2a8fc22623f5ecb1ad6b82c372e44e8ed652148bd95d8",
+      "blocks": 5,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": null,
+          "pdf_page_label": "1",
+          "label_origin": "unknown",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 265,
+          "image_count": 0,
+          "status": "native"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "pdf_table_d5a9be2ae9baa0f40245a378ccfab7a3d60d998c2a1f2fcee99f4ae72d39e4bf",
+          "state": "pending",
+          "cells_compared": 105,
+          "cells": [
+            {
+              "physical_page": 1,
+              "row": 0,
+              "column": 0,
+              "status": "present",
+              "source_text": "Product",
+              "extracted_text": "Product",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 0,
+              "column": 1,
+              "status": "present",
+              "source_text": "Refrigerator (Days at 40°F)",
+              "extracted_text": "Refrigerator (Days at 40°F)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 0,
+              "column": 2,
+              "status": "present",
+              "source_text": "Freezer (Months at 0°F)",
+              "extracted_text": "Freezer (Months at 0°F)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 1,
+              "column": 0,
+              "status": "present",
+              "source_text": "Eggs",
+              "extracted_text": "Eggs",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 1,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 1,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 2,
+              "column": 0,
+              "status": "present",
+              "source_text": "liquid pasteurized eggs (unopened)",
+              "extracted_text": "liquid pasteurized eggs (unopened)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 2,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 10",
+              "extracted_text": "3 to 10",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 2,
+              "column": 2,
+              "status": "present",
+              "source_text": "12",
+              "extracted_text": "12",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 3,
+              "column": 0,
+              "status": "present",
+              "source_text": "fresh in shell",
+              "extracted_text": "fresh in shell",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 3,
+              "column": 1,
+              "status": "present",
+              "source_text": "21",
+              "extracted_text": "21",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 3,
+              "column": 2,
+              "status": "present",
+              "source_text": "don’t freeze",
+              "extracted_text": "don’t freeze",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 4,
+              "column": 0,
+              "status": "present",
+              "source_text": "raw yolk and whites",
+              "extracted_text": "raw yolk and whites",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 4,
+              "column": 1,
+              "status": "present",
+              "source_text": "2 to 4",
+              "extracted_text": "2 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 4,
+              "column": 2,
+              "status": "present",
+              "source_text": "12",
+              "extracted_text": "12",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 5,
+              "column": 0,
+              "status": "present",
+              "source_text": "hard cooked",
+              "extracted_text": "hard cooked",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 5,
+              "column": 1,
+              "status": "present",
+              "source_text": "7",
+              "extracted_text": "7",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 5,
+              "column": 2,
+              "status": "present",
+              "source_text": "don’t freeze",
+              "extracted_text": "don’t freeze",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 6,
+              "column": 0,
+              "status": "present",
+              "source_text": "Fresh meats",
+              "extracted_text": "Fresh meats",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 6,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 6,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 7,
+              "column": 0,
+              "status": "present",
+              "source_text": "beef",
+              "extracted_text": "beef",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 7,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 7,
+              "column": 2,
+              "status": "present",
+              "source_text": "6 to 12",
+              "extracted_text": "6 to 12",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 8,
+              "column": 0,
+              "status": "present",
+              "source_text": "lamb",
+              "extracted_text": "lamb",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 8,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 8,
+              "column": 2,
+              "status": "present",
+              "source_text": "6 to 9",
+              "extracted_text": "6 to 9",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 9,
+              "column": 0,
+              "status": "present",
+              "source_text": "pork",
+              "extracted_text": "pork",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 9,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 9,
+              "column": 2,
+              "status": "present",
+              "source_text": "4 to 8",
+              "extracted_text": "4 to 8",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 10,
+              "column": 0,
+              "status": "present",
+              "source_text": "veal",
+              "extracted_text": "veal",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 10,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 10,
+              "column": 2,
+              "status": "present",
+              "source_text": "4 to 8",
+              "extracted_text": "4 to 8",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 11,
+              "column": 0,
+              "status": "present",
+              "source_text": "hamburger",
+              "extracted_text": "hamburger",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 11,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 11,
+              "column": 2,
+              "status": "present",
+              "source_text": "3 to 4",
+              "extracted_text": "3 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 12,
+              "column": 0,
+              "status": "present",
+              "source_text": "sausage",
+              "extracted_text": "sausage",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 12,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 12,
+              "column": 2,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 13,
+              "column": 0,
+              "status": "present",
+              "source_text": "Cooked meats",
+              "extracted_text": "Cooked meats",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 13,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 13,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 14,
+              "column": 0,
+              "status": "present",
+              "source_text": "meat dishes",
+              "extracted_text": "meat dishes",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 14,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 4",
+              "extracted_text": "3 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 14,
+              "column": 2,
+              "status": "present",
+              "source_text": "2 to 3",
+              "extracted_text": "2 to 3",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 15,
+              "column": 0,
+              "status": "present",
+              "source_text": "gravy, broth",
+              "extracted_text": "gravy, broth",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 15,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 15,
+              "column": 2,
+              "status": "present",
+              "source_text": "2 to 3",
+              "extracted_text": "2 to 3",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 16,
+              "column": 0,
+              "status": "present",
+              "source_text": "Processed meat",
+              "extracted_text": "Processed meat",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 16,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 16,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 17,
+              "column": 0,
+              "status": "present",
+              "source_text": "bacon",
+              "extracted_text": "bacon",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 17,
+              "column": 1,
+              "status": "present",
+              "source_text": "7",
+              "extracted_text": "7",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 17,
+              "column": 2,
+              "status": "present",
+              "source_text": "1",
+              "extracted_text": "1",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 18,
+              "column": 0,
+              "status": "present",
+              "source_text": "franks",
+              "extracted_text": "franks",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 18,
+              "column": 1,
+              "status": "present",
+              "source_text": "7",
+              "extracted_text": "7",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 18,
+              "column": 2,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 19,
+              "column": 0,
+              "status": "present",
+              "source_text": "ham",
+              "extracted_text": "ham",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 19,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 19,
+              "column": 2,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 20,
+              "column": 0,
+              "status": "present",
+              "source_text": "lunch meat",
+              "extracted_text": "lunch meat",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 20,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 20,
+              "column": 2,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 21,
+              "column": 0,
+              "status": "present",
+              "source_text": "Fresh poultry (all)",
+              "extracted_text": "Fresh poultry (all)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 21,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 21,
+              "column": 2,
+              "status": "present",
+              "source_text": "6 to 9",
+              "extracted_text": "6 to 9",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 22,
+              "column": 0,
+              "status": "present",
+              "source_text": "Cooked poultry",
+              "extracted_text": "Cooked poultry",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 22,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 22,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 23,
+              "column": 0,
+              "status": "present",
+              "source_text": "in broth",
+              "extracted_text": "in broth",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 23,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 23,
+              "column": 2,
+              "status": "present",
+              "source_text": "6",
+              "extracted_text": "6",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 24,
+              "column": 0,
+              "status": "present",
+              "source_text": "pieces",
+              "extracted_text": "pieces",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 24,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 4",
+              "extracted_text": "3 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 24,
+              "column": 2,
+              "status": "present",
+              "source_text": "1",
+              "extracted_text": "1",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 25,
+              "column": 0,
+              "status": "present",
+              "source_text": "hotdish",
+              "extracted_text": "hotdish",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 25,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 4",
+              "extracted_text": "3 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 25,
+              "column": 2,
+              "status": "present",
+              "source_text": "4 to 6",
+              "extracted_text": "4 to 6",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 26,
+              "column": 0,
+              "status": "present",
+              "source_text": "fried chicken",
+              "extracted_text": "fried chicken",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 26,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 4",
+              "extracted_text": "3 to 4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 26,
+              "column": 2,
+              "status": "present",
+              "source_text": "4",
+              "extracted_text": "4",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 27,
+              "column": 0,
+              "status": "present",
+              "source_text": "Game",
+              "extracted_text": "Game",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 27,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 27,
+              "column": 2,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 28,
+              "column": 0,
+              "status": "present",
+              "source_text": "deer",
+              "extracted_text": "deer",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 28,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 28,
+              "column": 2,
+              "status": "present",
+              "source_text": "6 to 12",
+              "extracted_text": "6 to 12",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 29,
+              "column": 0,
+              "status": "present",
+              "source_text": "rabbit",
+              "extracted_text": "rabbit",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 29,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 29,
+              "column": 2,
+              "status": "present",
+              "source_text": "12",
+              "extracted_text": "12",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 30,
+              "column": 0,
+              "status": "present",
+              "source_text": "duck, goose",
+              "extracted_text": "duck, goose",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 30,
+              "column": 1,
+              "status": "present",
+              "source_text": "1 to 2",
+              "extracted_text": "1 to 2",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 30,
+              "column": 2,
+              "status": "present",
+              "source_text": "6",
+              "extracted_text": "6",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 31,
+              "column": 0,
+              "status": "present",
+              "source_text": "Mayonnaise",
+              "extracted_text": "Mayonnaise",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 31,
+              "column": 1,
+              "status": "present",
+              "source_text": "60",
+              "extracted_text": "60",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 31,
+              "column": 2,
+              "status": "present",
+              "source_text": "don’t freeze",
+              "extracted_text": "don’t freeze",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 32,
+              "column": 0,
+              "status": "present",
+              "source_text": "TV dinners",
+              "extracted_text": "TV dinners",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 32,
+              "column": 1,
+              "status": "empty",
+              "source_text": "",
+              "extracted_text": "",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 32,
+              "column": 2,
+              "status": "present",
+              "source_text": "6",
+              "extracted_text": "6",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 33,
+              "column": 0,
+              "status": "present",
+              "source_text": "Deli salad (egg, tuna, macaroni)",
+              "extracted_text": "Deli salad (egg, tuna, macaroni)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 33,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 33,
+              "column": 2,
+              "status": "present",
+              "source_text": "don’t freeze",
+              "extracted_text": "don’t freeze",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 34,
+              "column": 0,
+              "status": "present",
+              "source_text": "Soups, stews",
+              "extracted_text": "Soups, stews",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 34,
+              "column": 1,
+              "status": "present",
+              "source_text": "3 to 5",
+              "extracted_text": "3 to 5",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 1,
+              "row": 34,
+              "column": 2,
+              "status": "present",
+              "source_text": "2 to 3",
+              "extracted_text": "2 to 3",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            }
+          ],
+          "parts": [
+            {
+              "physical_page": 1,
+              "header_origin": "native_cells",
+              "column_headers": [
+                "Product",
+                "Refrigerator (Days at 40°F)",
+                "Freezer (Months at 0°F)"
+              ],
+              "retained_rows": 28,
+              "category_rows": 6,
+              "excluded_rows": []
+            }
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "41",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "2 ordered text regions; 1 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "0 raster images, 35 curves and 39 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "explicit_table_geometry",
+          "detail": "Restored source-aligned columns and row boundaries",
+          "physical_page": 1,
+          "bbox": [
+            49.0,
+            145.0,
+            582.0,
+            729.05
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "title_caption_qualification",
+          "physical_page": 1,
+          "bbox": [
+            35.0,
+            42.0,
+            578.0,
+            143.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_date",
+          "physical_page": 1,
+          "bbox": [
+            545.0,
+            755.0,
+            580.0,
+            778.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": null,
+          "original_png_sha256": "9a2c7d5efc2ca26241070b999ef17d2b2b07a4d1ba4fbd4533102173454ee603",
+          "overlay_png_sha256": "f98d490f818c25d8e596f9ce44ef6c0775157567c89246db61269b4d63a0fc8b",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "fda_safe_handling_pdf",
+      "comparison_only": true,
+      "document_version_id": "docv_pdf_comparison_e9300ebefd55cd18e46a8e8da86ab94a0b1c22fce0e0300e3ea6f03bf2302ecc",
+      "raw_sha256": "41d19d5b61e42629b4d3268a03743bd1009ce354f03004cdeb4e1e1ce47133d3",
+      "extraction_id": "pdf_extraction_2afce375e1d1f1fbb0e0a5236bfe2677ca3a32b966106c2498f5cab815031f57",
+      "configuration_id": "pdf_config_4e3434b17a22b2e7ebc7675e282b1f6796befdd32c6b6e2e17a776e3557aacb8",
+      "blocks": 22,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 420,
+          "image_count": 1,
+          "status": "native"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 496,
+          "image_count": 1,
+          "status": "native"
+        }
+      ],
+      "tables": [
+        {
+          "table_id": "pdf_table_136c6e36ad6922807be30625fb86985c23e1c245d208fe8587583d360de83eef",
+          "state": "pending",
+          "cells_compared": 25,
+          "cells": [
+            {
+              "physical_page": 2,
+              "row": 0,
+              "column": 0,
+              "status": "present",
+              "source_text": "Safe Minimium Internal Temperatures as measured with a food thermometer",
+              "extracted_text": "Safe Minimium Internal Temperatures as measured with a food thermometer",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 1,
+              "column": 0,
+              "status": "present",
+              "source_text": "Beef, Pork, Veal, and Lamb (chops, roasts, steaks)",
+              "extracted_text": "Beef, Pork, Veal, and Lamb (chops, roasts, steaks)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 1,
+              "column": 1,
+              "status": "present",
+              "source_text": "145 °F with a 3 minute rest time",
+              "extracted_text": "145 °F with a 3 minute rest time",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 2,
+              "column": 0,
+              "status": "present",
+              "source_text": "Ground Meat",
+              "extracted_text": "Ground Meat",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 2,
+              "column": 1,
+              "status": "present",
+              "source_text": "160 °F",
+              "extracted_text": "160 °F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 3,
+              "column": 0,
+              "status": "present",
+              "source_text": "Ham, uncooked (fresh or smoked)",
+              "extracted_text": "Ham, uncooked (fresh or smoked)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 3,
+              "column": 1,
+              "status": "present",
+              "source_text": "145 °F with a 3 minute rest time",
+              "extracted_text": "145 °F with a 3 minute rest time",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 4,
+              "column": 0,
+              "status": "present",
+              "source_text": "Ham, fully cooked (to reheat)",
+              "extracted_text": "Ham, fully cooked (to reheat)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 4,
+              "column": 1,
+              "status": "present",
+              "source_text": "140 °F",
+              "extracted_text": "140 °F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 5,
+              "column": 0,
+              "status": "present",
+              "source_text": "Poultry (ground, parts, whole, and stuffing)",
+              "extracted_text": "Poultry (ground, parts, whole, and stuffing)",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 5,
+              "column": 1,
+              "status": "present",
+              "source_text": "165 °F",
+              "extracted_text": "165 °F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 6,
+              "column": 0,
+              "status": "present",
+              "source_text": "Eggs",
+              "extracted_text": "Eggs",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 6,
+              "column": 1,
+              "status": "present",
+              "source_text": "Cook until yolk and white are firm",
+              "extracted_text": "Cook until yolk and white are firm",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 7,
+              "column": 0,
+              "status": "present",
+              "source_text": "Egg Dishes",
+              "extracted_text": "Egg Dishes",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 7,
+              "column": 1,
+              "status": "present",
+              "source_text": "160 °F",
+              "extracted_text": "160 °F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 8,
+              "column": 0,
+              "status": "present",
+              "source_text": "Fin Fish",
+              "extracted_text": "Fin Fish",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 8,
+              "column": 1,
+              "status": "present",
+              "source_text": "145 °F or flesh is opaque and separates easily with a fork",
+              "extracted_text": "145 °F or flesh is opaque and separates easily with a fork",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 9,
+              "column": 0,
+              "status": "present",
+              "source_text": "Shrimp, Lobster, and Crabs",
+              "extracted_text": "Shrimp, Lobster, and Crabs",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 9,
+              "column": 1,
+              "status": "present",
+              "source_text": "Flesh is pearly and opaque",
+              "extracted_text": "Flesh is pearly and opaque",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 10,
+              "column": 0,
+              "status": "present",
+              "source_text": "Clams, Oysters, and Mussels",
+              "extracted_text": "Clams, Oysters, and Mussels",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 10,
+              "column": 1,
+              "status": "present",
+              "source_text": "Shells open during cooking",
+              "extracted_text": "Shells open during cooking",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 11,
+              "column": 0,
+              "status": "present",
+              "source_text": "Scallops",
+              "extracted_text": "Scallops",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 11,
+              "column": 1,
+              "status": "present",
+              "source_text": "Flesh is milky white or opaque and firm",
+              "extracted_text": "Flesh is milky white or opaque and firm",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 12,
+              "column": 0,
+              "status": "present",
+              "source_text": "Leftovers and Casseroles",
+              "extracted_text": "Leftovers and Casseroles",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            },
+            {
+              "physical_page": 2,
+              "row": 12,
+              "column": 1,
+              "status": "present",
+              "source_text": "165 °F",
+              "extracted_text": "165 °F",
+              "text_matches": true,
+              "numeric_tokens_match": true
+            }
+          ],
+          "parts": [
+            {
+              "physical_page": 2,
+              "header_origin": "reviewed_column_roles",
+              "column_headers": [
+                "Food (reviewed column role)",
+                "Safe Minimium Internal Temperatures"
+              ],
+              "retained_rows": 12,
+              "category_rows": 0,
+              "excluded_rows": []
+            }
+          ]
+        }
+      ],
+      "diagnostics": [
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "1",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "3 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 114 curves and 26 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "5 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "F D FACTS",
+          "physical_page": 1,
+          "bbox": [
+            44.4567,
+            22.9371,
+            385.7139,
+            75.5517
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "clean",
+          "physical_page": 1,
+          "bbox": [
+            53.0,
+            436.0,
+            319.0,
+            724.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "separate",
+          "physical_page": 1,
+          "bbox": [
+            333.0,
+            436.0,
+            578.0,
+            724.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_date",
+          "physical_page": 1,
+          "bbox": [
+            500.0,
+            747.0,
+            562.0,
+            762.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "3 ordered text regions; 1 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 86 curves and 8 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "3 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "repeated_furniture_removed",
+          "detail": "F D FACTS",
+          "physical_page": 2,
+          "bbox": [
+            44.9334,
+            35.2489,
+            238.4252,
+            65.0627
+          ]
+        },
+        {
+          "code": "explicit_table_geometry",
+          "detail": "Restored source-aligned columns and row boundaries",
+          "physical_page": 2,
+          "bbox": [
+            63.5,
+            375.81,
+            322.1,
+            698.9
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "cook",
+          "physical_page": 2,
+          "bbox": [
+            63.0,
+            81.0,
+            321.0,
+            364.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "chill",
+          "physical_page": 2,
+          "bbox": [
+            337.0,
+            81.0,
+            578.0,
+            364.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_date",
+          "physical_page": 2,
+          "bbox": [
+            506.0,
+            707.0,
+            567.0,
+            720.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "0a84b57635d12df1a25751156c35e5f8ef82dd426297f1b6be55e875168d2555",
+          "overlay_png_sha256": "de8d232ab4d32e67ca7f194334d620cc1d509476e5bd8ecf8913ee6f71fd19e6",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "original_png_sha256": "fbd89bcf6f72115cdbb6f4fbcae3999f525cd0f45fbafe0a069a8b743fec4ef4",
+          "overlay_png_sha256": "2f303b8b2936f3685f54e8eba77ecb62af8cb9814e6c971c995bf8e80d49f710",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    },
+    {
+      "document_id": "fda_produce_pdf",
+      "comparison_only": true,
+      "document_version_id": "docv_pdf_comparison_3bb68009aba0266232fcafca6ed4eaca4b512779ff4f2044229e432abe7e9c52",
+      "raw_sha256": "100be676f649677fd530506d83462d6207bbd94703a023e72cfbf31dc4b26445",
+      "extraction_id": "pdf_extraction_3a7a386ba83412125275d5ea95ed24b7e52931f458636594f37d956bdb3b8507",
+      "configuration_id": "pdf_config_03c756c0c59149d6067c4a3897b5e89115fa9a8552a9b35a2dc0d326b00f899f",
+      "blocks": 27,
+      "pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 394,
+          "image_count": 3,
+          "status": "native"
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 362,
+          "image_count": 4,
+          "status": "native"
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 286,
+          "image_count": 2,
+          "status": "excluded"
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "pdf_page_label": null,
+          "label_origin": "visible_footer",
+          "width": 612.0,
+          "height": 792.0,
+          "rotation": 0,
+          "native_word_count": 505,
+          "image_count": 1,
+          "status": "excluded"
+        }
+      ],
+      "tables": [],
+      "diagnostics": [
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "1",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "duplicate_characters_removed",
+          "detail": "1",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "2 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "3 raster images, 34 curves and 9 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "text_region",
+          "detail": "buy_store",
+          "physical_page": 1,
+          "bbox": [
+            259.0,
+            424.0,
+            578.0,
+            740.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_date",
+          "physical_page": 1,
+          "bbox": [
+            500.0,
+            747.0,
+            563.0,
+            761.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 1,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "3 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "4 raster images, 0 curves and 5 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "1 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "text_region",
+          "detail": "separate_prepare",
+          "physical_page": 2,
+          "bbox": [
+            65.0,
+            78.0,
+            578.0,
+            544.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "prewashed",
+          "physical_page": 2,
+          "bbox": [
+            84.0,
+            569.0,
+            520.0,
+            740.0
+          ]
+        },
+        {
+          "code": "text_region",
+          "detail": "source_date",
+          "physical_page": 2,
+          "bbox": [
+            506.0,
+            747.0,
+            568.0,
+            761.0
+          ]
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Outside reviewed text regions: media, page furniture or excluded guidance.",
+          "physical_page": 2,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "2 raster images, 0 curves and 1 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "0 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Excluded illness, symptoms and reporting panel.",
+          "physical_page": 3,
+          "bbox": null
+        },
+        {
+          "code": "page_layout",
+          "detail": "0 ordered text regions; 0 expected guidance table parts",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "visual_only_omitted",
+          "detail": "1 raster images, 121 curves and 24 rectangles observed; images, logos and visual-only guidance are omitted. Only reviewed table geometry is interpreted.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "default_table_detection",
+          "detail": "6 candidates; reviewed geometry decides which are guidance tables",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "outside_reviewed_regions",
+          "detail": "Excluded overlapping general handling infographic.",
+          "physical_page": 4,
+          "bbox": null
+        },
+        {
+          "code": "review_pending",
+          "detail": "Native layout extraction only. Original words/cells can include excluded content; consumers must use retained blocks. Normalization, OCR and activation are separate gates.",
+          "physical_page": null,
+          "bbox": null
+        }
+      ],
+      "rendered_pages": [
+        {
+          "physical_page": 1,
+          "printed_page_label": "1",
+          "original_png_sha256": "918c1765ac3986d49d5522caf693d7e2239ac9d90baf6daa420dee8319de0829",
+          "overlay_png_sha256": "a9416012e8229fb0f8606176eb73928250336c5eae194119467ea49672eccfb0",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 2,
+          "printed_page_label": "2",
+          "original_png_sha256": "a56058c1f2abce693e773741cda1811432722f78bf035b10f83b5925037e3999",
+          "overlay_png_sha256": "cb9079173115e517be8a1ab4b30bffb7c8c0dc32b0693ffbebed601080093766",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 3,
+          "printed_page_label": "3",
+          "original_png_sha256": "bfbace98c3d2d3197bc6550e91255248cd4f03a635162e5ea48119853bcf61a7",
+          "overlay_png_sha256": "bfbace98c3d2d3197bc6550e91255248cd4f03a635162e5ea48119853bcf61a7",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        },
+        {
+          "physical_page": 4,
+          "printed_page_label": "4",
+          "original_png_sha256": "a6f9bd5b46f50c92b021e286d085debf045a915a4dff0cfce71974d187114f37",
+          "overlay_png_sha256": "a6f9bd5b46f50c92b021e286d085debf045a915a4dff0cfce71974d187114f37",
+          "dpi": 110,
+          "visual_review": "Original and overlay reviewed; retained regions, reading order, tables, qualifiers and omissions checked."
+        }
+      ]
+    }
+  ],
+  "subsequent_correction": {
+    "phase": "P2N.3",
+    "source": "nhlbi_sodium_tips_pdf",
+    "superseded_scope": "Earlier dining-card region/reading-order review",
+    "reason": "Earlier x boundaries omitted words and interleaved adjacent dining cards. Native profile corrected and five original-page crops independently compared. Acquisition hashes and table-cell comparisons remain valid.",
+    "review_record": "normalization-review.json"
+  }
+}

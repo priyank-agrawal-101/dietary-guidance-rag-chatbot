@@ -1,0 +1,541 @@
+[
+  {
+    "document_id": "dga_2025_2030_pdf",
+    "fixture_sha256": "08744ee1c7a3e78d0ce1fedf2b2b48dde0f2d453375dad705193a0682ea5c6f3",
+    "original_sha256": "f27d3c96d51db4847b6087c068ec2d3dca400ef35e5e94c4c3ac77e8fd66e36c",
+    "source_url": "https://cdn.realfood.gov/DGA_508.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  },
+  {
+    "document_id": "fda_produce_pdf",
+    "fixture_sha256": "81dfa72ec9a763f77da74c0f0a27775df1b0acb1a8c29c477175f905f54b0eae",
+    "original_sha256": "100be676f649677fd530506d83462d6207bbd94703a023e72cfbf31dc4b26445",
+    "source_url": "https://www.fda.gov/media/77178/download",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  },
+  {
+    "document_id": "fda_safe_handling_pdf",
+    "fixture_sha256": "fc8faba0ed1ecc2076d1c6900b8faadb906bf59c90da16320f19fd2a25ccf715",
+    "original_sha256": "41d19d5b61e42629b4d3268a03743bd1009ce354f03004cdeb4e1e1ce47133d3",
+    "source_url": "https://www.fda.gov/media/91319/download",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": [
+      [
+        {
+          "values": [
+            "Beef, Pork, Veal, and Lamb (chops, roasts, steaks)",
+            "145 \u00b0F with a 3 minute rest time"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Ground Meat",
+            "160 \u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Ham, uncooked (fresh or smoked)",
+            "145 \u00b0F with a 3 minute rest time"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Ham, fully cooked (to reheat)",
+            "140 \u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Poultry (ground, parts, whole, and stuffing)",
+            "165 \u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Eggs",
+            "Cook until yolk and white are firm"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Egg Dishes",
+            "160 \u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Fin Fish",
+            "145 \u00b0F or flesh is opaque and separates easily with a fork"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Shrimp, Lobster, and Crabs",
+            "Flesh is pearly and opaque"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Clams, Oysters, and Mussels",
+            "Shells open during cooking"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Scallops",
+            "Flesh is milky white or opaque and firm"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Leftovers and Casseroles",
+            "165 \u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        }
+      ]
+    ]
+  },
+  {
+    "document_id": "hhs_adults_older_adults_pdf",
+    "fixture_sha256": "364a61d2189045d1b476ed35247495bbecca9d672dd223bfcc32110b3389682c",
+    "original_sha256": "503e78136fa6b9f46a967028e25e76de2cdca768c823eb59d59a49870761c8e7",
+    "source_url": "https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  },
+  {
+    "document_id": "hhs_kids_teens_pdf",
+    "fixture_sha256": "701985ad65e8512335ab235717d2a2f98d7c1b98b969656da9156443e8717e7d",
+    "original_sha256": "410363b45c679c2cb956da81cb2d58e3667d85f91369c8618a0b4c6b8cc6a0f3",
+    "source_url": "https://odphp.health.gov/sites/default/files/2026-10/dga-kids-teens.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  },
+  {
+    "document_id": "mn_cross_contamination_pdf",
+    "fixture_sha256": "51143d8ef10abb53325fcf96e71bdd5b25c958b932ee0870ed56b081901fb05b",
+    "original_sha256": "dd44a22d78752af0e9c7972b32aff5f146808ea86b55a2adeea4ba637d423f8b",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/clean/xcontamination.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  },
+  {
+    "document_id": "mn_safe_grilling_pdf",
+    "fixture_sha256": "cb0187b3644a7d4e50c58317df26723edcac37bafde95d4e436c9c1572d920d8",
+    "original_sha256": "4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": [
+      [
+        {
+          "values": [
+            "Poultry or fowl, whole or parts",
+            "165\u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Ground poultry or fowl",
+            "165\u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Ground beef, veal, pork, lamb or venison",
+            "160\u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Fresh beef, veal, pork, lamb, or venison",
+            "145\u00b0F"
+          ],
+          "category": null,
+          "state": "excluded"
+        },
+        {
+          "values": [
+            "Fish and shellfish, all kinds",
+            "145\u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Egg dishes",
+            "160\u00b0F"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Eggs",
+            "Until yolk and white are firm"
+          ],
+          "category": null,
+          "state": "retained"
+        }
+      ]
+    ]
+  },
+  {
+    "document_id": "mn_storage_chart_pdf",
+    "fixture_sha256": "f51f066a238924c074840be7110e8c66f4ba21bf1601d6fcb5cb1594fdaabb19",
+    "original_sha256": "47d4085e42748549115136c5982416ed09067acb1b9660d0ed39476f619f5e25",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": [
+      [
+        {
+          "values": [
+            "Eggs",
+            "",
+            ""
+          ],
+          "category": "Eggs",
+          "state": "category"
+        },
+        {
+          "values": [
+            "liquid pasteurized eggs (unopened)",
+            "3 to 10",
+            "12"
+          ],
+          "category": "Eggs",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "fresh in shell",
+            "21",
+            "don\u2019t freeze"
+          ],
+          "category": "Eggs",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "raw yolk and whites",
+            "2 to 4",
+            "12"
+          ],
+          "category": "Eggs",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "hard cooked",
+            "7",
+            "don\u2019t freeze"
+          ],
+          "category": "Eggs",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Fresh meats",
+            "",
+            ""
+          ],
+          "category": "Fresh meats",
+          "state": "category"
+        },
+        {
+          "values": [
+            "beef",
+            "3 to 5",
+            "6 to 12"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "lamb",
+            "3 to 5",
+            "6 to 9"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "pork",
+            "3 to 5",
+            "4 to 8"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "veal",
+            "3 to 5",
+            "4 to 8"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "hamburger",
+            "1 to 2",
+            "3 to 4"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "sausage",
+            "1 to 2",
+            "1 to 2"
+          ],
+          "category": "Fresh meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Cooked meats",
+            "",
+            ""
+          ],
+          "category": "Cooked meats",
+          "state": "category"
+        },
+        {
+          "values": [
+            "meat dishes",
+            "3 to 4",
+            "2 to 3"
+          ],
+          "category": "Cooked meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "gravy, broth",
+            "1 to 2",
+            "2 to 3"
+          ],
+          "category": "Cooked meats",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Processed meat",
+            "",
+            ""
+          ],
+          "category": "Processed meat",
+          "state": "category"
+        },
+        {
+          "values": [
+            "bacon",
+            "7",
+            "1"
+          ],
+          "category": "Processed meat",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "franks",
+            "7",
+            "1 to 2"
+          ],
+          "category": "Processed meat",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "ham",
+            "3 to 5",
+            "1 to 2"
+          ],
+          "category": "Processed meat",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "lunch meat",
+            "3 to 5",
+            "1 to 2"
+          ],
+          "category": "Processed meat",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Fresh poultry (all)",
+            "1 to 2",
+            "6 to 9"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Cooked poultry",
+            "",
+            ""
+          ],
+          "category": "Cooked poultry",
+          "state": "category"
+        },
+        {
+          "values": [
+            "in broth",
+            "1 to 2",
+            "6"
+          ],
+          "category": "Cooked poultry",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "pieces",
+            "3 to 4",
+            "1"
+          ],
+          "category": "Cooked poultry",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "hotdish",
+            "3 to 4",
+            "4 to 6"
+          ],
+          "category": "Cooked poultry",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "fried chicken",
+            "3 to 4",
+            "4"
+          ],
+          "category": "Cooked poultry",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Game",
+            "",
+            ""
+          ],
+          "category": "Game",
+          "state": "category"
+        },
+        {
+          "values": [
+            "deer",
+            "3 to 5",
+            "6 to 12"
+          ],
+          "category": "Game",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "rabbit",
+            "1 to 2",
+            "12"
+          ],
+          "category": "Game",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "duck, goose",
+            "1 to 2",
+            "6"
+          ],
+          "category": "Game",
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Mayonnaise",
+            "60",
+            "don\u2019t freeze"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "TV dinners",
+            "",
+            "6"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Deli salad (egg, tuna, macaroni)",
+            "3 to 5",
+            "don\u2019t freeze"
+          ],
+          "category": null,
+          "state": "retained"
+        },
+        {
+          "values": [
+            "Soups, stews",
+            "3 to 5",
+            "2 to 3"
+          ],
+          "category": null,
+          "state": "retained"
+        }
+      ]
+    ]
+  },
+  {
+    "document_id": "nhlbi_sodium_tips_pdf",
+    "fixture_sha256": "3b3c05565d7bd2784a636414f804f7d4f44336639adb0918fce97d5edf9c6281",
+    "original_sha256": "30f97a37299f9f6d9d55d9c2f2222820120d3d4d4f9a66ca0bb66c04e0c6f307",
+    "source_url": "https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf",
+    "description": "Source-derived native-text coordinate fixture; rebuilt with Helvetica, changed square bullets to round bullets, omitted all images/logos/vector art. Not original acquisition bytes.",
+    "expected_tables": []
+  }
+]

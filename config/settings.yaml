@@ -10,7 +10,7 @@ fetch:
   max_pdf_bytes: 62914560
 embedding:
   model_name: intfloat/e5-base-v2
-  revision: null  # Phase 3 must pin the actual revision before building an index.
+  revision: f52bf8ec8c7124536f0efb74aca902b2995e5bcd  # Shared tokenizer/model revision; weights remain Phase 3.
 chunking:
   target_tokens: 350
   overlap_tokens: 50

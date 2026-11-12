@@ -1,0 +1,1205 @@
+{
+  "scope": "Exact reviewed evidence/provenance examples; not generated summaries or an active index",
+  "tokenizer": {
+    "model_name": "intfloat/e5-base-v2",
+    "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+    "files": {
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "ae83fa6ca0333117ff12606020af925d648667ef70d92ff7f27d781ba0ca4544",
+      "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "config.json": "01cc39aa39538a8179aa131c8a16adc03b506c92009f091502e4eb0c702f5f78",
+      "sentence_bert_config.json": "948201d8329907aae938fa62f9ceeed53f5694dacc2b87b9f3b78b37ee986529"
+    },
+    "max_tokens": 512,
+    "source": "https://huggingface.co/intfloat/e5-base-v2",
+    "license": "MIT (model repository metadata)"
+  },
+  "examples": [
+    {
+      "document": {
+        "document_id": "mn_storage_chart",
+        "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+        "family_id": "mn_storage_chart",
+        "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+        "publisher": "Minnesota Department of Health",
+        "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html",
+        "resolved_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html",
+        "format": "html",
+        "dates": {
+          "publication_year": null,
+          "edition": null,
+          "source_stated_dates": [
+            "Revised April 2007",
+            "Last Updated: September 25, 2026"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains relevant; verify retained values and qualifications before indexing."
+        },
+        "retrieved_at": "2026-11-11T12:15:58.864997Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US-MN",
+        "target_audience": "US",
+        "intended_audience": "household consumers",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Reviewed general food guidance and household safety only"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission"
+          ],
+          "notes": [
+            "HTML storage-time table with food categories, temperatures, days, and months.",
+            "HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never count them as independent corroboration.",
+            "P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and original format-specific dates preserved."
+          ]
+        },
+        "rights_review": {
+          "status": "text_reviewed_no_explicit_reuse_barrier_observed",
+          "scope": "Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party artwork.",
+          "policy_url": null,
+          "observations": [
+            "State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label state works federal public domain. Preserve attribution; further rights review required before redistribution."
+          ]
+        },
+        "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": null,
+        "text_classification": null,
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_13cc8cae8cd4f553f27f982a4795e931d866552fdaf07c1b0c2dadb03cb3440a",
+      "normalization_id": "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+      "original_extraction_id": "html_extraction_f621479c6059f7eaa8decee22b48f6e7369a642af9a47deeb86d82e54df3bb4f",
+      "original_artifact_sha256": "e336d5109f82b64678bea42696667d7e72b30e5ce3787a86c3958e1d3f15fd06",
+      "chunk": {
+        "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+        "document_id": "mn_storage_chart",
+        "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+        "family_id": "mn_storage_chart",
+        "sequence_index": 2,
+        "chunk_type": "table",
+        "heading_path": [
+          "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+          "Cold Storage Chart"
+        ],
+        "region_keys": [
+          "table"
+        ],
+        "text": "Table: Cold Storage Chart\nCategory: Eggs\nProduct: [blank in source]\nProduct: liquid pasteurized eggs (unopened)\nRefrigerator (Days at 40\u00b0F): 3 to 10\nFreezer (Months at 0\u00b0F): 12\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: fresh in shell\nRefrigerator (Days at 40\u00b0F): 21\nFreezer (Months at 0\u00b0F): don\u2019t freeze\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: raw yolk and whites\nRefrigerator (Days at 40\u00b0F): 2 to 4\nFreezer (Months at 0\u00b0F): 12\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze\n\nNote: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+        "embedding_text": "passage: Document: Refrigerator and Freezer Storage Chart: Cold Storage Temperatures\nSection: Cold Storage Chart\nAudience: household consumers\n\nTable: Cold Storage Chart\nCategory: Eggs\nProduct: [blank in source]\nProduct: liquid pasteurized eggs (unopened)\nRefrigerator (Days at 40\u00b0F): 3 to 10\nFreezer (Months at 0\u00b0F): 12\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: fresh in shell\nRefrigerator (Days at 40\u00b0F): 21\nFreezer (Months at 0\u00b0F): don\u2019t freeze\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: raw yolk and whites\nRefrigerator (Days at 40\u00b0F): 2 to 4\nFreezer (Months at 0\u00b0F): 12\n\nCategory: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze\n\nNote: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+        "token_count": 238,
+        "text_sha256": "ce35e05ee94d5b33506478608a934a0959573ad52fb53e622bcc97671fb50d95",
+        "spans": [],
+        "table_rows": {
+          "block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+          "original_table_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+          "row_indices": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "table_context": {
+          "title": "Cold Storage Chart",
+          "column_headers": [
+            "Product",
+            "Product",
+            "Refrigerator (Days at 40\u00b0F)",
+            "Freezer (Months at 0\u00b0F)"
+          ],
+          "row_headers": [
+            "Eggs",
+            "Fresh meats",
+            "Cooked meats",
+            "Processed meat",
+            "Fresh poultry (all)",
+            "Cooked poultry",
+            "Game",
+            "Mayonnaise",
+            "TV dinners",
+            "Deli salad (egg, tuna, macaroni)",
+            "Soups, stews"
+          ],
+          "units": [
+            "(Days at 40\u00b0F)",
+            "(Months at 0\u00b0F)"
+          ],
+          "footnotes": [
+            "This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+          ]
+        },
+        "source_locations": [
+          {
+            "format": "html",
+            "source_anchor": "block-bootstrap-mdh-content",
+            "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+            "physical_page": null,
+            "printed_page_label": null,
+            "bbox": null,
+            "extraction_method": "html",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+          "original_text_sha256": "e7e2979bd58f9abc86eab94a8e11c06bfaccbc2afe8144eaab1c6bd3e6b89c2b",
+          "original_locations": [
+            {
+              "format": "html",
+              "source_anchor": "block-bootstrap-mdh-content",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "mn_storage_chart",
+        "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+        "family_id": "mn_storage_chart",
+        "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+        "publisher": "Minnesota Department of Health",
+        "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html",
+        "resolved_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html",
+        "format": "html",
+        "dates": {
+          "publication_year": null,
+          "edition": null,
+          "source_stated_dates": [
+            "Revised April 2007",
+            "Last Updated: September 25, 2026"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Visible HTML date labels; page update does not redate its linked PDF. General consumer content remains relevant; verify retained values and qualifications before indexing."
+        },
+        "retrieved_at": "2026-11-11T12:15:58.864997Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US-MN",
+        "target_audience": "US",
+        "intended_audience": "household consumers",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Reviewed general food guidance and household safety only"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission"
+          ],
+          "notes": [
+            "HTML storage-time table with food categories, temperatures, days, and months.",
+            "HTML/PDF are alternate formats of the same guidance family; compare editions and values before indexing. Never count them as independent corroboration.",
+            "P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and original format-specific dates preserved."
+          ]
+        },
+        "rights_review": {
+          "status": "text_reviewed_no_explicit_reuse_barrier_observed",
+          "scope": "Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party artwork.",
+          "policy_url": null,
+          "observations": [
+            "State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label state works federal public domain. Preserve attribution; further rights review required before redistribution."
+          ]
+        },
+        "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": null,
+        "text_classification": null,
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_13cc8cae8cd4f553f27f982a4795e931d866552fdaf07c1b0c2dadb03cb3440a",
+      "normalization_id": "normalization_a97d58b5c3ba4eaf81a92120c8c86c5f93d23404b1f4a64cbfde195bc87ab7d2",
+      "original_extraction_id": "html_extraction_f621479c6059f7eaa8decee22b48f6e7369a642af9a47deeb86d82e54df3bb4f",
+      "original_artifact_sha256": "e336d5109f82b64678bea42696667d7e72b30e5ce3787a86c3958e1d3f15fd06",
+      "chunk": {
+        "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+        "document_id": "mn_storage_chart",
+        "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+        "family_id": "mn_storage_chart",
+        "sequence_index": 10,
+        "chunk_type": "table",
+        "heading_path": [
+          "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+          "Cold Storage Chart"
+        ],
+        "region_keys": [
+          "table"
+        ],
+        "text": "Table: Cold Storage Chart\nProduct: TV dinners\nProduct: TV dinners\nRefrigerator (Days at 40\u00b0F): [blank in source]\nFreezer (Months at 0\u00b0F): 6\n\nNote: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+        "embedding_text": "passage: Document: Refrigerator and Freezer Storage Chart: Cold Storage Temperatures\nSection: Cold Storage Chart\nAudience: household consumers\n\nTable: Cold Storage Chart\nProduct: TV dinners\nProduct: TV dinners\nRefrigerator (Days at 40\u00b0F): [blank in source]\nFreezer (Months at 0\u00b0F): 6\n\nNote: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+        "token_count": 110,
+        "text_sha256": "cf514e66a63aeb7cdbee3198c7eff1b6fd1e8c627cd7e9829fe2ed89ab03ac25",
+        "spans": [],
+        "table_rows": {
+          "block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+          "original_table_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+          "row_indices": [
+            25
+          ]
+        },
+        "table_context": {
+          "title": "Cold Storage Chart",
+          "column_headers": [
+            "Product",
+            "Product",
+            "Refrigerator (Days at 40\u00b0F)",
+            "Freezer (Months at 0\u00b0F)"
+          ],
+          "row_headers": [
+            "Eggs",
+            "Fresh meats",
+            "Cooked meats",
+            "Processed meat",
+            "Fresh poultry (all)",
+            "Cooked poultry",
+            "Game",
+            "Mayonnaise",
+            "TV dinners",
+            "Deli salad (egg, tuna, macaroni)",
+            "Soups, stews"
+          ],
+          "units": [
+            "(Days at 40\u00b0F)",
+            "(Months at 0\u00b0F)"
+          ],
+          "footnotes": [
+            "This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+          ]
+        },
+        "source_locations": [
+          {
+            "format": "html",
+            "source_anchor": "block-bootstrap-mdh-content",
+            "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+            "physical_page": null,
+            "printed_page_label": null,
+            "bbox": null,
+            "extraction_method": "html",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+          "original_text_sha256": "e7e2979bd58f9abc86eab94a8e11c06bfaccbc2afe8144eaab1c6bd3e6b89c2b",
+          "original_locations": [
+            {
+              "format": "html",
+              "source_anchor": "block-bootstrap-mdh-content",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "cdc_pregnancy_food_safety",
+        "document_version_id": "docv_1396c4d6f8e66c246bdcb6f0b2ba9884fb92cefa6c81b84d207625550bccbefb",
+        "family_id": "cdc_pregnancy_food_safety",
+        "document_name": "Food Safety During Pregnancy",
+        "publisher": "CDC",
+        "source_url": "https://www.cdc.gov/food-safety/foods/pregnant-people.html",
+        "resolved_url": "https://www.cdc.gov/food-safety/foods/pregnant-women.html",
+        "format": "html",
+        "dates": {
+          "publication_year": null,
+          "edition": null,
+          "source_stated_dates": [
+            "Visible page date: Jan. 31, 2025"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Visible source date labels retained; these are not assumed publication dates or replaced with retrieval time."
+        },
+        "retrieved_at": "2026-11-11T17:43:29.580161Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US",
+        "target_audience": "US",
+        "intended_audience": "pregnant household consumers and caregivers; general food-safety education",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Safer food choices table: cooking, pasteurization, produce, deli foods, flour and handling qualifications"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission",
+            "Personalized prenatal diets, mercury serving targets, disease likelihood statistics and linked medical treatment"
+          ],
+          "notes": [
+            "Pregnancy-specific consumer food safety, not a therapeutic diet. Retain pregnancy audience and each row condition; do not generalize restrictions to every user.",
+            "P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and exclusion enforcement remain Phase 2 gates."
+          ]
+        },
+        "rights_review": {
+          "status": "permitted_government_text_with_exclusions",
+          "scope": "Attributed local educational text intake, with source link and acquisition date; exclude agency marks and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.",
+          "policy_url": "https://www.cdc.gov/other/agencymaterials.html",
+          "observations": [
+            "Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on selected government-authored text observed.",
+            "CDC requires attribution, a prominent non-endorsement disclaimer, unchanged substantive content and a statement that the original is available free on its website.",
+            "Images, logos, videos and third-party works are outside this local-text approval."
+          ]
+        },
+        "raw_sha256": "3f21a62dd84a3d5bc138ef039ea4cc97af208c9294b92089563e16ea3d311f03",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": null,
+        "text_classification": null,
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_84d828848b78c4d25956b5a1ef568fa476989248fbbe22e56a64e33af1c6f1dc",
+      "normalization_id": "normalization_2ad25847742c9e1dd22b8fe7b34dc117e8890b26ba8910fe379c3d4d2b6a0898",
+      "original_extraction_id": "html_extraction_a0aac80f62d730c9225e306b80221a0874b8df3f3ef91ade49c50586b9a0f5e7",
+      "original_artifact_sha256": "2866a14012fd830c08c1fc593c33cb6f577a1baaefc31811547a03fcbaf010f0",
+      "chunk": {
+        "chunk_id": "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16",
+        "document_id": "cdc_pregnancy_food_safety",
+        "document_version_id": "docv_1396c4d6f8e66c246bdcb6f0b2ba9884fb92cefa6c81b84d207625550bccbefb",
+        "family_id": "cdc_pregnancy_food_safety",
+        "sequence_index": 3,
+        "chunk_type": "table",
+        "heading_path": [
+          "Safer Food Choices for Pregnant Women",
+          "Safer food choices"
+        ],
+        "region_keys": [
+          "table"
+        ],
+        "text": "Table: Safer Food Choices for Pregnant People\nCategory: Vegetables and Fruits\nRiskier Choice: Any raw or undercooked sprouts, such as alfalfa and bean Unwashed fresh fruits and vegetables, including lettuce and other leafy greens Cut melon left out for more than 2 hours (1 hour if it\u2019s exposed to temperatures hotter than 90\u00b0F, such as a picnic or hot car)\nSafer Choice: Cooked sprouts (until steaming hot) Washed vegetables and fruits (washed and then cooked are safest) Freshly cut melon or cut melon kept refrigerated for 7 or fewer days\n\nNote: Use the table below as a guide to making safer food choices. Pregnant women should also always follow steps to prevent food poisoning.",
+        "embedding_text": "passage: Document: Food Safety During Pregnancy\nSection: Safer food choices\nAudience: pregnant household consumers and caregivers; general food-safety education\n\nTable: Safer Food Choices for Pregnant People\nCategory: Vegetables and Fruits\nRiskier Choice: Any raw or undercooked sprouts, such as alfalfa and bean Unwashed fresh fruits and vegetables, including lettuce and other leafy greens Cut melon left out for more than 2 hours (1 hour if it\u2019s exposed to temperatures hotter than 90\u00b0F, such as a picnic or hot car)\nSafer Choice: Cooked sprouts (until steaming hot) Washed vegetables and fruits (washed and then cooked are safest) Freshly cut melon or cut melon kept refrigerated for 7 or fewer days\n\nNote: Use the table below as a guide to making safer food choices. Pregnant women should also always follow steps to prevent food poisoning.",
+        "token_count": 184,
+        "text_sha256": "6319988b534937bce2aa6975bcc090df98fb561e0019dec10ad0521f3f608b67",
+        "spans": [],
+        "table_rows": {
+          "block_id": "normalized_block_067e78a315aba5d6f2618bcaa7927956556e12f582ecf0e330914f0f2048f820",
+          "original_table_id": "block_8171b7b25c8e0c2f8fb2ead8f269c285c4dce8ce1a3b04282903f26ffc748e88",
+          "row_indices": [
+            2
+          ]
+        },
+        "table_context": {
+          "title": "Safer Food Choices for Pregnant People",
+          "column_headers": [
+            "Riskier Choice",
+            "Safer Choice"
+          ],
+          "row_headers": [
+            "Poultry and Meat",
+            "Deli salads",
+            "Vegetables and Fruits",
+            "Juice",
+            "Milk",
+            "Cheese",
+            "Eggs",
+            "Seafood",
+            "Flour"
+          ],
+          "units": [],
+          "footnotes": [
+            "Use the table below as a guide to making safer food choices. Pregnant women should also always follow steps to prevent food poisoning."
+          ]
+        },
+        "source_locations": [
+          {
+            "format": "html",
+            "source_anchor": "heading-3zizosiq48",
+            "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(1)",
+            "physical_page": null,
+            "printed_page_label": null,
+            "bbox": null,
+            "extraction_method": "html",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_8171b7b25c8e0c2f8fb2ead8f269c285c4dce8ce1a3b04282903f26ffc748e88",
+          "original_text_sha256": "e40b1aeef4aff5c8e7c07f30859f519b17c05214aaf0a26d2513876c850cfb4f",
+          "original_locations": [
+            {
+              "format": "html",
+              "source_anchor": "heading-3zizosiq48",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_067e78a315aba5d6f2618bcaa7927956556e12f582ecf0e330914f0f2048f820",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "mn_safe_grilling_pdf",
+        "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+        "family_id": "mn_safe_grilling",
+        "document_name": "Safe Grilling",
+        "publisher": "Minnesota Department of Health",
+        "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf",
+        "resolved_url": "https://www.health.state.mn.us/people/foodsafety/cook/grill.pdf",
+        "format": "pdf",
+        "dates": {
+          "publication_year": 2007,
+          "edition": null,
+          "source_stated_dates": [
+            "Created April 2007; modified 2025; printed footer"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Dates are format-specific and retain their original label."
+        },
+        "retrieved_at": "2026-11-11T12:19:47.140986Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US-MN",
+        "target_audience": "US",
+        "intended_audience": "household consumers",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Reviewed general food guidance and household safety only"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission",
+            "Whole-cut 145 F rows without the federal three-minute rest qualification; do not emit them as complete recommendations.",
+            "Color/no-longer-pink wording as proof of safe cooking; use thermometer-based qualified recommendations."
+          ],
+          "notes": [
+            "Household handling, grilling and reheating; retain household/regulatory distinction.",
+            "P1.7 comparison: FDA and CDC whole-cut 145 F guidance explicitly includes a three-minute rest. Preserve source differences; unsupported unqualified rows and color-only claims excluded before extraction.",
+            "P1.7 alternate-format comparison recorded in docs/phase1-coverage.md; one default per family retained and original format-specific dates preserved."
+          ]
+        },
+        "rights_review": {
+          "status": "text_reviewed_no_explicit_reuse_barrier_observed",
+          "scope": "Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party artwork.",
+          "policy_url": null,
+          "observations": [
+            "State-issued consumer fact sheet; no explicit reusable license located in inspected content. Do not label state works federal public domain. Preserve attribution; further rights review required before redistribution."
+          ]
+        },
+        "raw_sha256": "4443ecf161554667e600fc9721ff62b26e36f642eeeabbd5b88b8a4764808391",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": 1,
+        "text_classification": "selectable_text",
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_3c98730fed749c5a83ffb9108ef3811e698e3d195e0df74b95b13ae055f5286e",
+      "normalization_id": "normalization_4d5761d0f931fafa1f6a689d052ed03ed1ba3970646c107fb434fe06fb3e9fc3",
+      "original_extraction_id": "pdf_extraction_414aeeffee4251e9210c2f24882415b1524f7ebba3b522065e66162bab7ff5c4",
+      "original_artifact_sha256": "f74cde3f33ac4422cadd6de673efbb09cafe6e29a6303b1768b4a8fffb770e8e",
+      "chunk": {
+        "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+        "document_id": "mn_safe_grilling_pdf",
+        "document_version_id": "docv_a0d96518ffe58e8004627f2a18d3e75b9a6dfb08179725788ec3d6582635806e",
+        "family_id": "mn_safe_grilling",
+        "sequence_index": 16,
+        "chunk_type": "table",
+        "heading_path": [
+          "Safe Grilling"
+        ],
+        "region_keys": [
+          "table"
+        ],
+        "text": "Table: Safe Grilling\nFood: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F\n\nFood: Ground poultry or fowl\nSafe Internal Temperature: 165\u00b0F\n\nFood: Ground beef, veal, pork, lamb or venison\nSafe Internal Temperature: 160\u00b0F\n\nFood: Fish and shellfish, all kinds\nSafe Internal Temperature: 145\u00b0F\n\nFood: Egg dishes\nSafe Internal Temperature: 160\u00b0F\n\nFood: Eggs\nSafe Internal Temperature: Until yolk and white are firm\n\nNote: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+        "embedding_text": "passage: Document: Safe Grilling\nAudience: household consumers\n\nTable: Safe Grilling\nFood: Poultry or fowl, whole or parts\nSafe Internal Temperature: 165\u00b0F\n\nFood: Ground poultry or fowl\nSafe Internal Temperature: 165\u00b0F\n\nFood: Ground beef, veal, pork, lamb or venison\nSafe Internal Temperature: 160\u00b0F\n\nFood: Fish and shellfish, all kinds\nSafe Internal Temperature: 145\u00b0F\n\nFood: Egg dishes\nSafe Internal Temperature: 160\u00b0F\n\nFood: Eggs\nSafe Internal Temperature: Until yolk and white are firm\n\nNote: Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards.",
+        "token_count": 139,
+        "text_sha256": "37380694823ce4f9960c190889066e519c82edb2f58a6a873b3095b8921a1e79",
+        "spans": [],
+        "table_rows": {
+          "block_id": "normalized_block_cdd2743055673b7e5624a90d70a33fb50878fa2235db742159314a6cae134733",
+          "original_table_id": "pdf_table_372f315a93113d51c1774c94456cd6efecb04abfb5862c55344f556fd8f6bd7b",
+          "row_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "table_context": {
+          "title": "Safe Grilling",
+          "column_headers": [
+            "Food",
+            "Safe Internal Temperature"
+          ],
+          "row_headers": [
+            "Poultry or fowl, whole or parts",
+            "Ground poultry or fowl",
+            "Ground beef, veal, pork, lamb or venison",
+            "Fish and shellfish, all kinds",
+            "Egg dishes",
+            "Eggs"
+          ],
+          "units": [],
+          "footnotes": [
+            "Regulated facilities may cook to different temperatures because staff are trained in the use of time and temperature to reach safe standards."
+          ]
+        },
+        "source_locations": [
+          {
+            "format": "pdf",
+            "source_anchor": null,
+            "dom_path": null,
+            "physical_page": 1,
+            "printed_page_label": "1",
+            "bbox": [
+              364.2,
+              413.76,
+              539.7,
+              684.72
+            ],
+            "extraction_method": "native_pdf",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          },
+          {
+            "format": "pdf",
+            "source_anchor": null,
+            "dom_path": null,
+            "physical_page": 1,
+            "printed_page_label": "1",
+            "bbox": [
+              72.0,
+              657.0,
+              358.0,
+              692.0
+            ],
+            "extraction_method": "native_pdf",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_bf831fc74b48b125bf908bd82a08925e7dddf96b94eddf4a2cf9341e78c04c2d",
+          "original_text_sha256": "33db9bc745effd9c3360d7400ec5aa9f770acf52e53610fcceca904a4610d420",
+          "original_locations": [
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                364.2,
+                413.76,
+                539.7,
+                684.72
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            },
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                72.0,
+                657.0,
+                358.0,
+                692.0
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_cdd2743055673b7e5624a90d70a33fb50878fa2235db742159314a6cae134733",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "fda_nutrition_label_current",
+        "document_version_id": "docv_76fdedd6ab1a93d033b1dc00892ef67db636f1a7eee64da302d50aab07702d35",
+        "family_id": "fda_nutrition_label_current",
+        "document_name": "How to Understand and Use the Nutrition Facts Label",
+        "publisher": "U.S. Food and Drug Administration",
+        "source_url": "https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label",
+        "resolved_url": "https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label",
+        "format": "html",
+        "dates": {
+          "publication_year": null,
+          "edition": null,
+          "source_stated_dates": [
+            "Content current as of: 03/05/2024"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Visible source date labels retained; these are not assumed publication dates or replaced with retrieval time."
+        },
+        "retrieved_at": "2026-11-11T17:44:06.489548Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US",
+        "target_audience": "US",
+        "intended_audience": "household consumers",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Serving Information: serving size is not a recommended amount to eat",
+            "Percent Daily Value definition and 5%/20% label interpretation",
+            "Compare Foods and Understand Nutrient Content Claims",
+            "Nutrition Facts Label Variations"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission",
+            "Calories section and linked MyPlate calorie calculator",
+            "How Daily Values Relate to the %DVs: daily dietary-goal tables and upper/lower intake targets",
+            "Dietary trade-off prescriptions and disease-treatment claims",
+            "Individual-food nutrient values in worked examples; label semantics only"
+          ],
+          "notes": [
+            "Verified relocated /food/nutrition-facts-label/ URL; older /food/food-labeling-nutrition/ locator returned 404.",
+            "Label reference semantics do not replace current Dietary Guidelines or prescribe a personal nutrient/calorie target.",
+            "P1.7: source body, audience, dates, duplication and document-specific text reuse reviewed; extraction and exclusion enforcement remain Phase 2 gates."
+          ]
+        },
+        "rights_review": {
+          "status": "permitted_government_text_with_exclusions",
+          "scope": "Attributed local educational text intake, with source link and acquisition date; exclude agency marks and third-party media. No agency endorsement. Preserve substantive recommendations and qualifications.",
+          "policy_url": "https://www.fda.gov/about-fda/about-website/website-policies",
+          "observations": [
+            "Document and linked agency reuse policy inspected on November 11, 2026; no document-specific restriction on selected government-authored text observed.",
+            "FDA permits reuse unless otherwise noted; recommends recording copy date, linking the source, and monitoring revisions.",
+            "Images, logos, videos and third-party works are outside this local-text approval."
+          ]
+        },
+        "raw_sha256": "7d78e44efc16fd3da627a9b3d729ab1f563d8849f12337c87dd94120d835866e",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": null,
+        "text_classification": null,
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_d55ee6054092fe14a1898269df2b0fbdbfc1243fbfcc4bcde872bb01e9692dd8",
+      "normalization_id": "normalization_03c814ecb1ee9f83e6ff08d3ae4d1280e733e4a23d09f6eb96ba1d12bd6970d6",
+      "original_extraction_id": "html_extraction_6e92973a0df4e609e5fc2953ac3bc3738fd5caffb8ed1ac962360e67913caf41",
+      "original_artifact_sha256": "c9c502648bb2f31e8b82e57312538d46f41c08497e0e1f4b83bfec20909c9224",
+      "chunk": {
+        "chunk_id": "chunk_c9dc643a20fd30b1291f6cd664e2a0dc605681d84cc7c30a1611f97e57866ab6",
+        "document_id": "fda_nutrition_label_current",
+        "document_version_id": "docv_76fdedd6ab1a93d033b1dc00892ef67db636f1a7eee64da302d50aab07702d35",
+        "family_id": "fda_nutrition_label_current",
+        "sequence_index": 2,
+        "chunk_type": "list",
+        "heading_path": [
+          "How to Understand and Use the Nutrition Facts Label",
+          "4. The Percent Daily Value (%DV)"
+        ],
+        "region_keys": [
+          "html-section"
+        ],
+        "text": "- 5% DV or less of a nutrient per serving is considered low\n\n- 20% DV or more of a nutrient per serving is considered high",
+        "embedding_text": "passage: Document: How to Understand and Use the Nutrition Facts Label\nSection: 4. The Percent Daily Value (%DV)\nAudience: household consumers\n\n- 5% DV or less of a nutrient per serving is considered low\n\n- 20% DV or more of a nutrient per serving is considered high",
+        "token_count": 62,
+        "text_sha256": "57308d514835a61f71f4f6c937544fa8439d043ce57f3b33a4aa1e9663509f7e",
+        "spans": [
+          {
+            "block_id": "normalized_block_3dba42bcfbe5058b65fee823e0744bef19319d8cee11cd68f44a4ea2acb376bb",
+            "start": 0,
+            "end": 59,
+            "overlap": false
+          },
+          {
+            "block_id": "normalized_block_deefc4b029ede8d0040ffb3cfc7aac1e71468e9f7807843144c8e0d1f598a064",
+            "start": 0,
+            "end": 61,
+            "overlap": false
+          }
+        ],
+        "table_rows": null,
+        "table_context": null,
+        "source_locations": [
+          {
+            "format": "html",
+            "source_anchor": "main-content",
+            "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(3) > li:nth-of-type(1)",
+            "physical_page": null,
+            "printed_page_label": null,
+            "bbox": null,
+            "extraction_method": "html",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          },
+          {
+            "format": "html",
+            "source_anchor": "main-content",
+            "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(3) > li:nth-of-type(2)",
+            "physical_page": null,
+            "printed_page_label": null,
+            "bbox": null,
+            "extraction_method": "html",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_85576616ea844dc21d0d673f533dd25c1926d2783e77a9c32293b4eb5066b6db",
+          "original_text_sha256": "31e046ff392a3c1c94286ed93ed7ce6c5f93779fd21ea9d55ebfa0f37cc81427",
+          "original_locations": [
+            {
+              "format": "html",
+              "source_anchor": "main-content",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(3) > li:nth-of-type(1)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_3dba42bcfbe5058b65fee823e0744bef19319d8cee11cd68f44a4ea2acb376bb",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        },
+        {
+          "original_block_id": "block_ac1514247252576b4e6399551de654cb01541f0189808ef623cce5c55b4bf869",
+          "original_text_sha256": "b3a3b5886634502774ca9b96ad58bf2d0e6db35063a9fdeef7878c22a00af5eb",
+          "original_locations": [
+            {
+              "format": "html",
+              "source_anchor": "main-content",
+              "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > article:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > ul:nth-of-type(3) > li:nth-of-type(2)",
+              "physical_page": null,
+              "printed_page_label": null,
+              "bbox": null,
+              "extraction_method": "html",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_deefc4b029ede8d0040ffb3cfc7aac1e71468e9f7807843144c8e0d1f598a064",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "hhs_adults_older_adults_pdf",
+        "document_version_id": "docv_f099f05ee058c0c418974fadee498c7d761c4641b54703dfc97471279f29c172",
+        "family_id": "hhs_adults_older_adults_pdf",
+        "document_name": "Healthy Eating for Adults & Older Adults",
+        "publisher": "HHS / Office of Disease Prevention and Health Promotion",
+        "source_url": "https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf",
+        "resolved_url": "https://odphp.health.gov/sites/default/files/2026-10/dga-adults.pdf",
+        "format": "pdf",
+        "dates": {
+          "publication_year": 2026,
+          "edition": null,
+          "source_stated_dates": [
+            "2026; linked in official November 4, 2026 announcement"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Dates are format-specific and retain their original label."
+        },
+        "retrieved_at": "2026-11-11T12:24:40.103547Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US",
+        "target_audience": "US",
+        "intended_audience": "adults and older adults",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Reviewed general food guidance and household safety only"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission"
+          ],
+          "notes": [
+            "Practical adult and older-adult food choices, labels and healthy habits."
+          ]
+        },
+        "rights_review": {
+          "status": "permitted_government_text_with_exclusions",
+          "scope": "Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party artwork.",
+          "policy_url": "https://odphp.health.gov/copyright-policy",
+          "observations": [
+            "HHS policy permits copying and distribution with attribution/link; some contributed images require permission; no implied endorsement."
+          ]
+        },
+        "raw_sha256": "503e78136fa6b9f46a967028e25e76de2cdca768c823eb59d59a49870761c8e7",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": 8,
+        "text_classification": "selectable_text",
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_1523536149964ce97a43812acfcdc2c40172b517eb575f32953c1efad34f9ab2",
+      "normalization_id": "normalization_ebac3b5e27ba71820555a2f9d8b77c12bdc19fcf0ee975eb1a631201c13a8565",
+      "original_extraction_id": "pdf_extraction_3014f1f635dee950e89511c97159633ecff48bd75ef6d47f2ffc6e9980df1138",
+      "original_artifact_sha256": "757ecb9bfba2d2d001f4a16dbe5190c664bf0dd7a04266e2dd56c451a599201f",
+      "chunk": {
+        "chunk_id": "chunk_5570f223b6030b435f4effc1f50e7f2d23161a628ef24df231cb5325af75b5d1",
+        "document_id": "hhs_adults_older_adults_pdf",
+        "document_version_id": "docv_f099f05ee058c0c418974fadee498c7d761c4641b54703dfc97471279f29c172",
+        "family_id": "hhs_adults_older_adults_pdf",
+        "sequence_index": 1,
+        "chunk_type": "prose",
+        "heading_path": [
+          "Healthy Eating for Adults & Older Adults"
+        ],
+        "region_keys": [
+          "page:1:food_group_0_0"
+        ],
+        "text": "Protein foods \u2014 such as eggs, poultry, seafood, and meat from animal sources, and plant-based sources, such as beans, peas, lentils, legumes, nuts, seeds, and soy.\n\nFruits \u2014 such as berries,",
+        "embedding_text": "passage: Document: Healthy Eating for Adults & Older Adults\nAudience: adults and older adults\n\nProtein foods \u2014 such as eggs, poultry, seafood, and meat from animal sources, and plant-based sources, such as beans, peas, lentils, legumes, nuts, seeds, and soy.\n\nFruits \u2014 such as berries,",
+        "token_count": 68,
+        "text_sha256": "268c3c1ea84c52a996b400d16eee9da3c34cb19e11b672728b503a8481711f8b",
+        "spans": [
+          {
+            "block_id": "normalized_block_9571e208a62350481c89ea998af3e6479cece0b063364c9633aabacba1f1fb64",
+            "start": 0,
+            "end": 163,
+            "overlap": false
+          },
+          {
+            "block_id": "normalized_block_41dc70a395f16105c400afc163134059912495fefd17b76eb6f31b27e62754c7",
+            "start": 0,
+            "end": 25,
+            "overlap": false
+          }
+        ],
+        "table_rows": null,
+        "table_context": null,
+        "source_locations": [
+          {
+            "format": "pdf",
+            "source_anchor": null,
+            "dom_path": null,
+            "physical_page": 1,
+            "printed_page_label": "1",
+            "bbox": [
+              44.9923,
+              386.3839,
+              210.069,
+              488.3839
+            ],
+            "extraction_method": "native_pdf",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          },
+          {
+            "format": "pdf",
+            "source_anchor": null,
+            "dom_path": null,
+            "physical_page": 1,
+            "printed_page_label": "1",
+            "bbox": [
+              45.0001,
+              608.1799,
+              178.4389,
+              620.4799
+            ],
+            "extraction_method": "native_pdf",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_6f8e2afd03b93324532e2aa67a87fc1481a9f74f4a37164cbb578777c284f184",
+          "original_text_sha256": "f8190d9ed6e27f69a7e836e3bb7945d13d4f7821b679c689febd6d3b7b5b73ba",
+          "original_locations": [
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                44.9923,
+                386.3839,
+                210.069,
+                488.3839
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_9571e208a62350481c89ea998af3e6479cece0b063364c9633aabacba1f1fb64",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        },
+        {
+          "original_block_id": "block_8145ca9c24900ca76a0c85f5bd32355ac16d58af663de4499ac861f381de4cd9",
+          "original_text_sha256": "2c1d56c4e948e27e09f6f62653cb8192c8ce215125b8377559e6e5323076b0b1",
+          "original_locations": [
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                45.0001,
+                608.1799,
+                178.4389,
+                620.4799
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_41dc70a395f16105c400afc163134059912495fefd17b76eb6f31b27e62754c7",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    },
+    {
+      "document": {
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "document_version_id": "docv_915ecafb2cb9f537cc1b9bf914a0af50f041c1cf8d619003c1358c05188b6c90",
+        "family_id": "nhlbi_sodium_tips_pdf",
+        "document_name": "DASH Eating Plan: Tips To Reduce Salt and Sodium",
+        "publisher": "NIH / National Heart, Lung, and Blood Institute",
+        "source_url": "https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf",
+        "resolved_url": "https://www.nhlbi.nih.gov/sites/default/files/publications/TipsToReduceSodium.pdf",
+        "format": "pdf",
+        "dates": {
+          "publication_year": 2019,
+          "edition": null,
+          "source_stated_dates": [
+            "April 2019; official resource page"
+          ],
+          "structured_metadata_observed": [],
+          "notes": "Dates are format-specific and retain their original label."
+        },
+        "retrieved_at": "2026-11-11T12:22:54.443621Z",
+        "source_tier": "official_guidance",
+        "jurisdiction": "US",
+        "target_audience": "US",
+        "intended_audience": "household consumers",
+        "content_role": "consumer_guidance",
+        "eligibility": {
+          "decision": "approved_with_exclusions",
+          "default_index": true,
+          "eligible_sections": [
+            "Physical page 1: shopping, seasoning, preparation and dining tips only, after block review"
+          ],
+          "excluded_sections": [
+            "Medical treatment or personalized condition-specific diet advice",
+            "Calorie/weight targets and personalized calculators",
+            "Supplement treatment or dosing",
+            "Individual-food nutrient lookup data reserved for Milestone 3",
+            "Navigation, promotions and unrelated linked content",
+            "Images or third-party material without appropriate reuse permission",
+            "Blood-pressure treatment/effectiveness claims and DASH program prescriptions",
+            "Physical page 2: individual-food sodium lookup table",
+            "Physical page 1 treatment callouts/footer; page-level approval does not include adjacent clinical claims"
+          ],
+          "notes": [
+            "Select only general shopping, seasoning and dining tips on physical page 1; not DASH treatment recommendations."
+          ]
+        },
+        "rights_review": {
+          "status": "text_reviewed_no_explicit_reuse_barrier_observed",
+          "scope": "Local educational text ingestion only; no blanket clearance for commercial redistribution or third-party artwork.",
+          "policy_url": null,
+          "observations": [
+            "Government affiliation does not automatically license every image or third-party contribution."
+          ]
+        },
+        "raw_sha256": "30f97a37299f9f6d9d55d9c2f2222820120d3d4d4f9a66ca0bb66c04e0c6f307",
+        "content_sha256": null,
+        "parser_version": null,
+        "page_count": 2,
+        "text_classification": "selectable_text",
+        "author": null,
+        "medical_reviewer": null
+      },
+      "build_id": "chunk_build_41f6225eb8e27903db628e1ebc3aa09ab6c72a659e94ab1e4e27b5fb507db834",
+      "normalization_id": "normalization_c80109ba4b1509dd52f45c207101cffb277cda81d88053256ee7e81e9dddaa93",
+      "original_extraction_id": "pdf_extraction_a8490c92ea38d76680088b6c73553f04cbb3888261800ada5b55eb7a424bd157",
+      "original_artifact_sha256": "afc3ee2ea4c40f47f137e049c385eca7fba67d6d3a57f1092ead2975afcc387c",
+      "chunk": {
+        "chunk_id": "chunk_42475c2bc2ca483faf70db63d6c961dea25040b7180b02f46376e684f89fd95b",
+        "document_id": "nhlbi_sodium_tips_pdf",
+        "document_version_id": "docv_915ecafb2cb9f537cc1b9bf914a0af50f041c1cf8d619003c1358c05188b6c90",
+        "family_id": "nhlbi_sodium_tips_pdf",
+        "sequence_index": 5,
+        "chunk_type": "prose",
+        "heading_path": [
+          "DASH Eating Plan: Tips To Reduce Salt and Sodium",
+          "EASY TIPS FOR DINING OUT"
+        ],
+        "region_keys": [
+          "page:1:dining_2"
+        ],
+        "text": "Make special requests. Ask that your meal be prepared without added salt, MSG, or salty ingredients such as bacon, pickles, olives, and cheese.",
+        "embedding_text": "passage: Document: DASH Eating Plan: Tips To Reduce Salt and Sodium\nSection: EASY TIPS FOR DINING OUT\nAudience: household consumers\n\nMake special requests. Ask that your meal be prepared without added salt, MSG, or salty ingredients such as bacon, pickles, olives, and cheese.",
+        "token_count": 60,
+        "text_sha256": "d40828f895c02f095217f8a75cee84f7a70c11de955231303226e9a0aedefd07",
+        "spans": [
+          {
+            "block_id": "normalized_block_d18671806f34fc86de5678eea3ad620e13ef882ca3ca072dab285eaaab24f4ff",
+            "start": 0,
+            "end": 143,
+            "overlap": false
+          }
+        ],
+        "table_rows": null,
+        "table_context": null,
+        "source_locations": [
+          {
+            "format": "pdf",
+            "source_anchor": null,
+            "dom_path": null,
+            "physical_page": 1,
+            "printed_page_label": "1",
+            "bbox": [
+              252.0,
+              601.2001,
+              345.788,
+              682.7966
+            ],
+            "extraction_method": "native_pdf",
+            "ocr_confidence": null,
+            "review_state": "reviewed"
+          }
+        ]
+      },
+      "original_block_links": [
+        {
+          "original_block_id": "block_e2aae6330b6acd0507aa2adbbe2e6a06ab2882dc774918ac0cc67babe3ef9f2a",
+          "original_text_sha256": "d40828f895c02f095217f8a75cee84f7a70c11de955231303226e9a0aedefd07",
+          "original_locations": [
+            {
+              "format": "pdf",
+              "source_anchor": null,
+              "dom_path": null,
+              "physical_page": 1,
+              "printed_page_label": "1",
+              "bbox": [
+                252.0,
+                601.2001,
+                345.788,
+                682.7966
+              ],
+              "extraction_method": "native_pdf",
+              "ocr_confidence": null,
+              "review_state": "pending"
+            }
+          ],
+          "normalized_block_id": "normalized_block_d18671806f34fc86de5678eea3ad620e13ef882ca3ca072dab285eaaab24f4ff",
+          "state": "retained",
+          "rules": [
+            "source_mask_and_fidelity_passed"
+          ]
+        }
+      ]
+    }
+  ]
+}

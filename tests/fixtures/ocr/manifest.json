@@ -1,0 +1,35 @@
+{
+  "fixture_kind": "project_created_scan",
+  "fixture_sha256": "c500d03c105cdb68476aa7898c8e6fd56868bef41b1f08ad0d3ed5cfef6b8727",
+  "description": "Synthetic project-owned fixture, not a naturally scanned official publication. Pages 2/9 blank, 3 sparse cover; image instructions have explicit reading rectangles. Page 8 deliberately degraded numeric/unit content.",
+  "page_kinds": [
+    "native",
+    "blank",
+    "sparse_native",
+    "scanned",
+    "mixed",
+    "scanned_rotated",
+    "scanned_skewed",
+    "scanned_degraded_numeric",
+    "blank_raster"
+  ],
+  "expected_good_text": {
+    "4": [
+      "Keep food chilled.",
+      "Use clean utensils."
+    ],
+    "5": [
+      "Wash hands before preparing food.",
+      "Keep utensils clean."
+    ],
+    "6": [
+      "Separate raw and cooked foods."
+    ],
+    "7": [
+      "Keep food chilled.",
+      "Use clean utensils."
+    ]
+  },
+  "degraded_expected_text": "Store at 40 F for 2 hours.",
+  "generator_font_sha256": "525979822591a3447cfc49d943d6f7683508e25543407871c0ed8fed05fd2bd9"
+}

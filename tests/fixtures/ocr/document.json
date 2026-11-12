@@ -1,0 +1,45 @@
+{
+  "document_id": "project_mixed_scan",
+  "document_version_id": "docv_project_mixed_scan",
+  "family_id": "project_ocr_fixture",
+  "document_name": "Project-created mixed OCR fixture",
+  "publisher": "Project",
+  "source_url": "https://example.gov/project-mixed-scan.pdf",
+  "resolved_url": null,
+  "format": "pdf",
+  "dates": {
+    "publication_year": null,
+    "edition": null,
+    "source_stated_dates": [],
+    "structured_metadata_observed": [],
+    "notes": null
+  },
+  "retrieved_at": "2026-11-12T00:00:00Z",
+  "source_tier": "official_guidance",
+  "jurisdiction": "US",
+  "target_audience": "US",
+  "intended_audience": "household consumers",
+  "content_role": "consumer_guidance",
+  "eligibility": {
+    "decision": "approved_with_exclusions",
+    "default_index": true,
+    "eligible_sections": [
+      "Project fixture instructions"
+    ],
+    "excluded_sections": [],
+    "notes": []
+  },
+  "rights_review": {
+    "status": "project_created",
+    "scope": "Project-owned synthetic OCR test sentences; no official source images.",
+    "policy_url": null,
+    "observations": []
+  },
+  "raw_sha256": "c500d03c105cdb68476aa7898c8e6fd56868bef41b1f08ad0d3ed5cfef6b8727",
+  "content_sha256": null,
+  "parser_version": null,
+  "page_count": 9,
+  "text_classification": "mixed",
+  "author": null,
+  "medical_reviewer": null
+}

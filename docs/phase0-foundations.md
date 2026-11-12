@@ -74,8 +74,7 @@ by the settings loader. Unknown YAML keys are rejected, so credentials cannot be
 to the printable settings model. Validation messages omit submitted input values.
 
 Generation defaults to `unconfigured`; `local`/`hosted` require a nonempty model name.
-The embedding revision is deliberately null until Phase 3 pins a real model revision.
-Token sizes are starting configuration, not proof that a particular tokenizer fits them.
+At Phase 0 completion, the embedding revision was deliberately null and token sizes were provisional. Phase 2.5 now pins the E5 revision, verifies its tokenizer and 512-token limit, and implements the 350/50 baseline; see [chunking foundations](phase2-chunking.md). Embedding weights remain Phase 3 work.
 Positive limits, bounded retries and overlap smaller than chunk size are validated.
 
 ## Shared contracts

@@ -1,0 +1,82 @@
+[
+  {
+    "document_id": "mn_cold_storage",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/store/coldstore.html",
+    "publisher": "Minnesota Department of Health",
+    "reviewed_raw_sha256": "bbdf795e157d070d5d1ecd2a2451d28c410a5a77718692a662c34b687563a3fb",
+    "fixture_sha256": "e7f33ffef692d4ba8f20cf498346a4f474a4ba26518462e23982872b28553802",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "mn_safe_temperatures",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/temperature.html",
+    "publisher": "Minnesota Department of Health",
+    "reviewed_raw_sha256": "6e761d72f67fe304f7dcc98d7b49f5d6f9f66ddd3332091abd6b38fc70d33914",
+    "fixture_sha256": "62b4a24360897e436f2b1c97a51f3c1b766f6b6897bd929d5feefa0dcfa6bec5",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "mn_storage_chart",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html",
+    "publisher": "Minnesota Department of Health",
+    "reviewed_raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+    "fixture_sha256": "67c7f306bbe6ec05bac1668fe862cda4baf0ff8cc8436252291fa4840c94e3de",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "mn_food_thermometers",
+    "source_url": "https://www.health.state.mn.us/people/foodsafety/cook/thermy.html",
+    "publisher": "Minnesota Department of Health",
+    "reviewed_raw_sha256": "5285f02183267b596a18706e0b47a60e449185fa1be222f58b36b1334c489359",
+    "fixture_sha256": "9ac785060bc4d3f2c347dca47be52bd5a5380ad080ea865be5e77acc3b9174de",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "cdc_food_safety",
+    "source_url": "https://www.cdc.gov/food-safety/prevention/index.html",
+    "publisher": "Centers for Disease Control and Prevention",
+    "reviewed_raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+    "fixture_sha256": "b7e266969cdf55701a7941274ce21b9fc5c70690eb1d5676279519c2d3248631",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "cdc_pregnancy_food_safety",
+    "source_url": "https://www.cdc.gov/food-safety/foods/pregnant-people.html",
+    "publisher": "CDC",
+    "reviewed_raw_sha256": "3f21a62dd84a3d5bc138ef039ea4cc97af208c9294b92089563e16ea3d311f03",
+    "fixture_sha256": "14cbce8cf5fbbe7ed052f2f7273cd84db526ca4ed6744606d2aac4f47dd1529f",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "cdc_emergency_food_safety",
+    "source_url": "https://www.cdc.gov/food-safety/foods/keep-food-safe-after-emergency.html",
+    "publisher": "Centers for Disease Control and Prevention",
+    "reviewed_raw_sha256": "fb236f0203b52f208aae8f01a469db86c1a3ebf6b6bb3d175ecd6e8670dc56ae",
+    "fixture_sha256": "1ba1dcc3a42d4583632aec75e4f6341096d95282c54c68452828285748323605",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "fda_produce",
+    "source_url": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely",
+    "publisher": "FDA",
+    "reviewed_raw_sha256": "489b428c6f1faf39d692345e907b52effb21e29bf9c2eb3e3c5f437b4af91525",
+    "fixture_sha256": "a1912f68cd4b59a7b18e1bf008730dda63c349b43da8b33e93f07e84c70b0926",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "fda_seafood",
+    "source_url": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely",
+    "publisher": "FDA",
+    "reviewed_raw_sha256": "f2f74671298ca6a95104b174b9ea15450883f985ee7aba2a1dc4a67245f97e90",
+    "fixture_sha256": "8019278f8586f21a8c13ea72940455683901ab71d9938eb9d4f125cd048b3378",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  },
+  {
+    "document_id": "fda_nutrition_label_current",
+    "source_url": "https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label",
+    "publisher": "U.S. Food and Drug Administration",
+    "reviewed_raw_sha256": "7d78e44efc16fd3da627a9b3d729ab1f563d8849f12337c87dd94120d835866e",
+    "fixture_sha256": "b1ae46600c2f0bdc126e9769145f6794364561ab4b4fe7d5899646207ded8e15",
+    "description": "Source-derived DOM fixture: retained content root and title, omitted site shell and media. Not original acquisition bytes or a new retrieval."
+  }
+]

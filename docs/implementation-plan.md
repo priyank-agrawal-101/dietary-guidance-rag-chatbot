@@ -20,9 +20,14 @@ The objective is a US-focused chatbot that retrieves approved dietary and househ
 | Registry eligibility, original-byte artifact store and SQLite provenance | P1.1/P1.2 implemented and verified | See [corpus foundations](phase1-corpus-foundation.md). |
 | Reviewed HTML/PDF import, file inspection, bounded HTTPS fetch, acquisition CLI/reports | P1.3–P1.6 implemented and verified | See [source acquisition](phase1-acquisition.md) for actual import/fetch results and beginner explanations. |
 | Coverage review and read-only audit | P1.7 complete | See [coverage review](phase1-coverage.md) and [verified audit](coverage-audit.json). |
-| Extraction, active corpus/index, policy service, API and UI | Not implemented | Phases 2–7 remain planned. |
+| HTML extraction | P2H.1–P2H.3 implemented and verified | See [HTML extraction foundations](phase2-html-extraction.md) and [source comparisons](html-extraction-review.json). |
+| Native PDF extraction | P2P.1–P2P.4 implemented and verified | Six selected PDFs and three approved comparison layouts; 37 physical pages and 146 original table cells reviewed. See [PDF foundations](phase2-pdf-extraction.md). |
+| OCR fallback | P2O.1–P2O.3 implemented and verified in isolation | Nine-page project-created fixture, bounded region OCR, confidence/provenance and numeric/unit quarantine. See [OCR foundations](phase2-ocr-extraction.md). |
+| Shared normalization and exclusions | P2N.1–P2N.3 implemented and verified | 443 default canonical blocks, 54 comparison blocks, 250 retained table values compared and exact review receipts; [normalization foundations](phase2-normalization.md). |
+| Structure-aware chunking and staging persistence | P2C.1–P2C.3 implemented and verified | 269 reviewed default chunks, pinned 512-token E5 limit and SQLite/JSON inspection; [chunking foundations](phase2-chunking.md). |
+| Active vector corpus/index, policy service, API and UI | Not implemented | Phases 3–7 remain planned. |
 
-These counts describe the November 11, 2026 review. Recompute them from the registry when implementation starts; do not hardcode them in runtime logic.
+Registry counts reflect the November 11, 2026 source review; Phase 2 completion reflects November 12, 2026. Recompute coverage from the registry and reviewed build reports when sources change; do not hardcode these counts in runtime logic.
 
 ### Rules carried through every phase
 
@@ -170,6 +175,8 @@ The dated Minnesota chart is an extraction/comparison asset, not default current
 
 ### 2.1 HTML extraction
 
+**Status: complete — P2H.1–P2H.3, November 12, 2026.** Reviewed profiles cover all ten selected HTML assets. The acquisition-backed command produces 178 ordered native blocks and two contextual guidance tables, with original table structures, source anchors/DOM locations and extraction diagnostics. Source-derived portable fixtures and synthetic cases verify lists, spans/header relationships, responsive duplicates, discovery rejection and medical/calorie/process exclusions. Verification: 162 tests, Ruff lint/format, hash-lock installation, dependency consistency and wheel build passed. See [HTML extraction foundations](phase2-html-extraction.md) and [source comparisons](html-extraction-review.json). Outputs remain pending downstream review; this does not complete the broader Phase 2 exit gate.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
 | `P2H.1` | Implement one HTML main-content parser against a reviewed page. | P1.3, P0.4 | Ordered paragraphs/headings/lists exclude navigation and scripts; source anchor/context survives. |
@@ -183,6 +190,8 @@ The dated Minnesota chart is an extraction/comparison asset, not default current
 **Validation:** Compare extracted guidance against the original HTML. Include a list, a table with header relationships, responsive duplicate content and an excluded medical/calorie section. Reject discovery summaries as if they were complete guidance documents.
 
 ### 2.2 Native PDF text and layout extraction
+
+**Status: complete — P2P.1–P2P.4, November 12, 2026.** Reviewed native profiles cover all six selected PDFs (265 blocks, 30 pages and one table) plus three explicitly selected approved alternates for comparison (319 blocks, 37 pages and three tables total). Physical pages, visible printed labels and PDF navigation labels remain distinct; native word/block/cell geometry, reading order, dates, captions and qualifications survive. All 146 original table cells were independently compared, and all original pages rendered for layout review. Portable source-derived fixtures and synthetic continuations, page mismatches, detector misses and ambiguous cells verify quarantine behavior. Verification: 188 tests, Ruff lint/format, hash-lock installation, dependency consistency, registry validation and wheel build passed. See [PDF extraction foundations](phase2-pdf-extraction.md) and [source comparisons](pdf-extraction-review.json). Outputs remain pending downstream review; comparison exports do not alter default selection or activate a corpus.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -199,6 +208,8 @@ The dated Minnesota chart is an extraction/comparison asset, not default current
 
 ### 2.3 OCR fallback
 
+**Status: complete — P2O.1–P2O.3, November 12, 2026 (isolated extraction/quality checks).** Native, sparse, blank, scanned and mixed pages are classified; only explicitly reviewed raster regions receive bounded OCR. A nine-page project-created fixture demonstrates five OCR regions, quarter-turn/skew corrections, original word geometry, engine/language/image provenance and duplicate-native-text prevention. Real Tesseract yields four matching pending blocks and one quarantined blurred numeric/unit candidate, with no retained block for the uncertain text. Verification: 224 tests including 36 OCR checks, Ruff lint/format, hash-lock installation, dependency consistency, registry validation and wheel build pass. See [OCR foundations](phase2-ocr-extraction.md) and [review record](ocr-extraction-review.json). The original OCR milestone used existing shared block/location contracts; P2N.1–P2N.3 now implement the shared normalization dependency below. Uncertain OCR, chunking and activation gates remain separate.
+
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
 | `P2O.1` | Classify native, sparse/blank and scanned content pages. | P2P.1 | Native and intentionally blank pages do not receive duplicate/needless OCR. |
@@ -212,6 +223,8 @@ The dated Minnesota chart is an extraction/comparison asset, not default current
 **Validation:** Demonstrate OCR on a small licensed or project-created scanned fixture. The reviewed official PDFs predominantly contain native text and do not alone prove OCR works. Include a low-confidence numeric/unit case and verify it remains unavailable for answering until reviewed. Using a rendered page from an eligible PDF can provide a synthetic scan fixture, clearly labeled as synthetic rather than a naturally scanned official publication.
 
 ### 2.4 Shared cleaning, normalization and exclusions
+
+**Status: complete — P2N.1–P2N.3, November 12, 2026.** HTML, native PDF and OCR use common canonical blocks with original-location/native-artifact links, cautious Unicode/whitespace and reviewed line-wrap repairs, source-specific paragraph/region masks and exact quality receipts. All 16 selected assets produce 443 reviewed canonical blocks and three tables; three explicit comparison PDFs add 54 blocks/two tables without increasing consumer-family counts. All 250 retained table values and qualifiers match native outputs. NHLBI dining-card leakage found during this review was corrected in the native source geometry and independently checked against five original-page crops. HHS audience/nutrient context and safety negations survive; calculator/supplement/clinical/lookup/media exclusions remain enforced. Uncertain OCR remains quarantined. Verification: 265 tests including 41 normalization checks, Ruff lint/format, dependency consistency, registry validation, reproducible CLI review exports and wheel build pass. See [normalization foundations](phase2-normalization.md) and [exact source review/receipts](normalization-review.json). This P2N review covers transformation/exclusion fidelity. Subsequent P2C completion and the Phase 2 ingestion gate are recorded below; indexing and activation remain planned.
 
 | ID | Task | Depends on | Output and completion check |
 | --- | --- | --- | --- |
@@ -237,7 +250,13 @@ Implement paragraph/region-level exclusion masks for medical treatment, calorie/
 
 **Tasks:** Build chunks within coherent heading paths. Keep recommendations with conditions/explanations, split oversized prose at meaningful boundaries and retain numbered-list context. Serialize table rows with title, category, column labels, units and applicable notes. Repeat essential headers for split tables.
 
-Start with the architecture's proposed **300–400 tokenizer-token target** and **40–60-token prose overlap**, subject to the actual loaded embedding model limit. Include prefixes, headings and repeated labels in token counts; never rely on silent truncation. PDF page breaks do not automatically split a recommendation or continued table.
+Use the accepted **350-token preferred target / 50-token complete-sentence prose overlap**. Short complete evidence stays short; preserve atomic recommendations and exceptions even above the preferred target when they fit. Count the entire embedding input, including `passage:`, compact original document/section/audience context, body, repeated table labels and special tokens. Use the hash-pinned `intfloat/e5-base-v2` tokenizer at revision `f52bf8ec8c7124536f0efb74aca902b2995e5bcd` and enforce its verified **512-token limit** without truncation; quarantine unfittable atomic evidence.
+
+Headings provide context/metadata rather than standalone embeddings. Merge prose only within the same section and reviewed region. HHS food-group cards and NHLBI dining tips remain separate through native layout references. Split oversized lists between top-level items with nested explanations, numbering and introductions retained. Do not overlap across sections, independent cards or table rows. PDF page breaks alone do not split a recommendation; retain contributing pages and rectangles.
+
+For tables, group Minnesota storage rows within the same category and budget, repeating temperature headers and the quality note while preserving blanks. Use one CDC pregnancy category row with both choices and pregnancy context. Keep the six-row Minnesota grilling table together when the labeled input fits, otherwise use row groups with its qualification repeated. Serialize deterministically and preserve original HTML/PDF attribution.
+
+Consume fidelity-reviewed default evidence only; comparison snapshots stay separate and quarantined OCR remains unavailable. Compare 350 against 250 using cooking/storage, hot-weather, pregnancy and label questions before changing defaults; the current offline BM25 result is diagnostic, with dense E5 evaluation planned in Phase 3.
 
 Attach document/version IDs, block IDs, section path, canonical text, hashes, source dates/edition, format, URL, audience/role/family eligibility, table conditions and PDF page/geometry/extraction provenance. Generate deterministic chunk IDs from version, location, content and chunker configuration.
 
@@ -245,7 +264,11 @@ Attach document/version IDs, block IDs, section path, canonical text, hashes, so
 
 **Validation:** Identical inputs/settings produce stable chunks; meaningful content changes produce new identities. Every chunk fits the real tokenizer limit and resolves to original blocks. Table rows cannot lose refrigerator/freezer distinctions or safety-versus-quality qualifiers.
 
+**Status: complete — P2C.1–P2C.3, November 12, 2026.** The accepted structure-aware baseline uses a 350-token preferred target and up to 50 tokens of complete-sentence prose overlap. Exact block slices, nested/numbered lists and introductions, independent reviewed PDF cards, and labeled table rows retain qualifications and original locations. The pinned E5 revision verifies a 512-token full-input limit with truncation disabled. The 16 reviewed default sources produce 269 chunks (96 prose, 152 list, 21 table); maximum full input is 337 tokens. Three alternate sources produce 42 separate comparison chunks; quarantined OCR remains unavailable. A separate transactional SQLite store and deterministic JSON build/snapshot exports preserve canonical/native evidence links. The 250-token alternative produces 274 chunks; both achieve 16/16 complete-evidence hits@5 in a small authored offline BM25 diagnostic, so defaults stay 350/50 pending dense E5 evaluation in Phase 3. Verification: 336 tests with the real pinned tokenizer, reproducible default/comparison/rejection exports, Ruff, dependency checks, registry validation and wheel build. See [chunking foundations and commands](phase2-chunking.md), [review evidence](chunking-review.json) and [inspection examples](examples/chunking/inspection.json).
+
 ### Phase 2 exit gate
+
+**Status: passed for the reviewed ingestion development corpus.** Both formats produce reviewed chunks; source-derived native and accurately labeled synthetic scanned/mixed fixtures exercise routing and quality gates. Ambiguous OCR remains quarantined, exclusions and comparison separation are verified, and table values/qualifiers retain native attribution. This gate does not activate a vector index or imply complete semantic/image understanding. Dense retrieval and release checks follow in later phases.
 
 - Both HTML and PDF produce reviewed canonical blocks and chunks through the shared pipeline.
 - Native, scanned and mixed-page handling is tested with accurately labeled fixtures.
@@ -479,13 +502,13 @@ Use the stable task IDs above when creating issues or implementation checklists.
 | --- | --- | --- |
 | 0 | Complete: P0.1–P0.5 | 44 passing tests, lint/format checks, settings CLI, locked installs, wheel smoke check and registry baseline; see Phase 0 completion record. |
 | 1 | Complete: P1.1–P1.7 | Registry/provenance, file inspection, bounded fetch, commands and coverage audit verified. Current-snapshot stored bytes match all 16 selected assets, including 6 official PDFs. Acquisition gate passes; extraction/release checks remain Phase 2+. |
-| 2 | PDF inspection exists; parser/chunker implementation pending | Reviewed HTML/PDF/OCR blocks and chunks. |
+| 2 | Complete: P2H.1–P2H.3, P2P.1–P2P.4, P2O.1–P2O.3, P2N.1–P2N.3 and P2C.1–P2C.3 | Reviewed default HTML/PDF evidence yields 269 attributable staging chunks with pinned token limits; OCR quarantine and comparison separation pass the ingestion development gate. See the chunking review. |
 | 3 | Not started | Compatible snapshot and filtered retrieval demonstrations. |
 | 4 | Not started | Code gates and reviewed routing/error behavior. |
 | 5 | Not started | Supported claims with validated source/page citations. |
 | 6 | Not started | Integrated API/UI and source-separated comparisons. |
 | 7 | Not started | Evaluation, coverage, release and reproducibility evidence. |
 
-With Phase 0 and Phase 1 complete, continue toward Milestone A with Phase 2's HTML/native-PDF extraction and normalization, starting with the two earlier development inputs and extending to the 16 acquired consumer assets. Follow task dependencies and later OCR work toward extraction/release gates. Phases 2–7 remain planned. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage after extraction exclusions remove unusable material.
+With Phases 0–2 complete, Milestone A's HTML/PDF-to-inspectable-chunks slice is available. Continue toward Milestone B with P3.1–P3.6: pinned dense embeddings, compatible vector/evidence snapshots and filtered retrieval. Compare 350/250 with dense E5 and broader held-out questions before changing chunking defaults. Phases 3–7 remain planned. Reuse the source review, coverage audit, registry validator and acquisition pipeline, and recheck coverage when new extraction exclusions remove material.
 
 Keep the following outside the initial build: individual-food nutrient database integration, personalized diet/weight plans, persistent chat memory, arbitrary user document ingestion, live web search at answer time, distributed ingestion jobs and multiple API workers. Optional FTS5 search or reranking should be added only when measured retrieval failures justify them. A separate scientific/medical reference experiment must not expand the consumer chatbot's permitted advice scope.

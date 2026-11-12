@@ -135,7 +135,7 @@ Suppose a user asks, "According to the Minnesota health department’s Cold Stor
 | Interface | Small HTML/JavaScript chat page served by the API | Provides document selection and readable citations with minimal frontend infrastructure. |
 | Validation | pytest plus a curated question/evidence dataset | Checks behavior, extraction, retrieval, policy gates, and evidence support. |
 
-A suitable starting embedding model is `intfloat/e5-base-v2`. Pin its actual model revision when building the first corpus. Use its required query/passage prefixes and measure input length with its tokenizer. Other models can be substituted through the adapter, but changing the model or preprocessing requires rebuilding the index.
+The selected embedding model is `intfloat/e5-base-v2`, pinned to revision `f52bf8ec8c7124536f0efb74aca902b2995e5bcd`. Phase 2 chunking uses its hash-verified tokenizer and a verified 512-token input limit; embedding weights and dense retrieval remain Phase 3 work. Use its required query/passage prefixes and measure the complete input with its tokenizer. Other models can be substituted through the adapter, but changing the model or preprocessing requires rebuilding the index.
 
 No orchestration framework is required. Keep the ingestion, retrieval, policy, and citation logic explicit so their behavior can be inspected and tested.
 
@@ -230,11 +230,13 @@ Do not invent publication years or derive them from retrieval dates. An update/r
 
 Preserve the ordered structure of the extracted document before chunking. A block has a `block_id`, document version, block type, heading path, sequence position, text, and source anchor when present. PDF blocks also retain physical page indexes, printed page labels, bounding boxes, native/OCR method and quality indicators. A block may span pages; store all original locations.
 
-Block types include `paragraph`, `recommendation_list`, `table`, `table_row`, and `note`. Table blocks additionally retain the table title, column headers, row/group headers, units, and applicable footnotes. PDF table blocks preserve cell coordinates, original page images/geometry and any continuation headers across pages. This intermediate representation lets extraction and chunking be tested independently.
+Canonical block types include `heading`, `paragraph`, `recommendation_list`, `table`, and `note`; normalized tables retain explicit row references. Table blocks additionally retain the table title, column headers, row/group headers, units, and applicable footnotes. PDF table blocks preserve cell coordinates, original page images/geometry and any continuation headers across pages. This intermediate representation lets extraction and chunking be tested independently.
 
 ### 7.4 Chunk
 
-Every chunk stores:
+The published corpus contract below is the target for Phase 3 onward. Implemented Phase 2 staging chunks resolve full document metadata through their immutable build, normalization and native-artifact records; build/snapshot IDs precede a published `corpus_version`. Exact block slices, original table/row links and native PDF region references are already stored in the separate `data/staging/chunks.sqlite` database and JSON exports. See [chunk contracts and inspection](phase2-chunking.md#persistence-and-inspection).
+
+Every published chunk stores:
 
 - `chunk_id`, `document_id`, `document_version_id`, and `corpus_version`.
 - `document_name`, `publisher`, verified date/edition label, `format`, and `source_url`.
@@ -302,16 +304,18 @@ Compare sampled normalized text with rendered/original sources, covering every r
 
 ## 9. Chunking Strategy
 
-Use **heading-aware, block-aware chunking**, with separate handling for prose, recommendations, and tables.
+Use **structure-aware chunking**: headings and complete recommendations define boundaries, with separate handling for prose, lists, independent cards and tables. P2C.1–P2C.3 implement this baseline; see [foundations and commands](phase2-chunking.md), [review results](chunking-review.json) and [exact inspection examples](examples/chunking/inspection.json).
 
 ### 9.1 Prose and Recommendations
 
-- Start a chunk within a coherent section and attach its full heading path.
-- Combine adjacent paragraphs while they concern the same topic and fit the token budget.
-- Keep a recommendation with its conditions and explanation wherever possible.
-- Split oversized sections at paragraph or sentence boundaries.
-- Keep short numbered lists together. For oversized lists, repeat their introductory context and preserve each item's original number and attached qualifications.
-- Use limited overlap for prose continuity; do not duplicate unrelated neighboring recommendations.
+- Combine adjacent related paragraphs only within the same section and reviewed layout region. Stop at topic, audience or condition changes represented by reviewed structure.
+- Keep short HHS food-group cards and NHLBI dining tips independently searchable, even below the preferred token size. Native PDF region references enforce boundaries that headings alone cannot express.
+- Keep conditions, exceptions and explanations with their recommendation, including the two-hour refrigeration rule and its one-hour hot-weather exception.
+- Keep short lists together. Split oversized lists between top-level items, retaining nested explanations, qualifications, original numbering and exact introductory context. HTML sibling items from the same original list container can share a chunk.
+- Use full headings as metadata and compact original document/section/audience context in embedding text. Do not create standalone heading embeddings.
+- Split oversized prose at sentence boundaries. Overlap complete trailing sentences/condition groups up to **50 body tokens**; reduce overlap as needed to fit the next chunk. Do not overlap across sections, independent cards or table rows.
+
+Boundaries are deterministic and rely on fidelity-reviewed structure and explicit sentence/condition rules. New source layouts require review; this baseline uses no LLM semantic splitting or hierarchical retrieval.
 
 ### 9.2 Table Chunks
 
@@ -331,11 +335,23 @@ Notes: [applicable original footnote]
 
 PDF page boundaries are provenance boundaries, not automatic chunk boundaries. Keep a recommendation or continued table together across pages when context requires it, retaining all contributing physical page indexes and printed labels. Never include repeated page headers as guidance.
 
-Keep a small table together when it fits. For larger tables, use one row or a coherent row group per chunk, repeating the headers and necessary notes. Preserve a reference to the original table for debugging and review.
+Keep a small table together when its complete labeled input fits. For larger tables, use one row or a coherent row group per chunk, repeating headers and necessary notes. Preserve blank source values and references to original table structures; do not force HTML/PDF alternatives into identical layouts.
 
-### 9.3 Starting Token Budget and Trade-offs
+The current corpus uses these rules:
 
-For the proposed E5 model, begin with a target of **300 to 400 tokenizer tokens**, including the model prefix, heading context, and repeated table labels. Enforce the loaded model's actual input limit; do not rely on silent truncation. Start with approximately 40 to 60 tokens of overlap for split prose sections and tune using evidence-retrieval results.
+- **Minnesota storage chart:** group adjacent rows within the same category and budget; repeat refrigerator/freezer temperature headers and the quality qualification. Uncategorised products remain separate. Serialize blanks as `[blank in source]` while preserving empty values in canonical/native records.
+- **CDC pregnancy table:** one food-category row per chunk, retaining both riskier and safer choices, pregnancy context and the applicable note.
+- **Minnesota grilling table:** keep all six rows together when the fully labeled input fits; otherwise split coherent row groups and repeat the home-versus-regulated-facilities qualification.
+
+### 9.3 Verified Token Budget and Trade-offs
+
+The implemented default is a **350-token preferred target / 50-token sentence overlap**. The target is not a minimum or a hard cut: short complete evidence stays short, and an indivisible recommendation may exceed the preferred target while fitting the model limit.
+
+Count the **complete embedding input**: `passage:`, original document/compact section/audience context, body and repeated table labels, plus special tokens. The pinned E5 tokenizer, model position limit and Sentence Transformers metadata agree on **512 tokens**. Verify file hashes against [the tokenizer manifest](../config/tokenizer-e5-base-v2.json), disable truncation, and quarantine an unfittable atomic recommendation/row and its build. Preparation explicitly downloads tokenizer/metadata files only; subsequent chunk builds are offline.
+
+Consumer builds accept exact fidelity-reviewed default normalization and revalidate native artifacts. Comparisons have separate explicit snapshots and do not increase consumer coverage; quarantined OCR and project-created fixtures are unavailable to consumer chunking. Deterministic IDs and SQLite/JSON exports make blocks, rows, locations and configurations inspectable.
+
+The reviewed baseline produces **269 chunks**, with full input lengths of **20 / 61 / 337 tokens** (minimum / median / maximum). The **250-token** alternative produces **274 chunks**, with a maximum of 263 tokens for a complete pregnancy row. Both achieve 16/16 complete-evidence hits@5 on the authored offline BM25 diagnostic. Retain 350/50; evaluate dense E5 retrieval and broader held-out questions before changing defaults. The lexical diagnostic does not establish dense retrieval or answer accuracy.
 
 | Decision | Benefit | Cost or risk |
 | --- | --- | --- |
@@ -345,7 +361,7 @@ For the proposed E5 model, begin with a target of **300 to 400 tokenizer tokens*
 | Add limited prose overlap | Helps retrieve boundary-spanning passages. | Produces near-duplicate hits that need deduplication. |
 | Use source-specific extraction | Improves guidance quality. | Requires maintenance when websites change. |
 
-The README should report the chosen parameters, table/list examples, extraction failures, and measured trade-offs. Chunk size should change in response to evidence failures rather than arbitrary preference.
+The [README](../README.md) and [chunking guide](phase2-chunking.md) report the chosen parameters, table/list examples, exclusions/quarantine and measured trade-offs. Chunk size should change in response to evidence failures rather than arbitrary preference.
 
 ## 10. Embedding and Index Publication
 

@@ -1,0 +1,21 @@
+{
+  "kind": "project-authored offline diagnostic questions, grounded in reviewed default evidence",
+  "cases": [
+    {"id":"poultry-temperature","question":"What internal temperature should chicken and turkey reach?","document_ids":["cdc_food_safety","cdc_pregnancy_food_safety","mn_safe_grilling_pdf"],"required_phrases":["165°F","poultry"]},
+    {"id":"whole-meat-rest","question":"How hot should whole cuts of beef pork lamb be cooked, and how long should they rest?","document_ids":["cdc_food_safety","cdc_pregnancy_food_safety"],"required_phrases":["145°F","3 minutes"]},
+    {"id":"ground-meat","question":"What safe internal temperature is recommended for ground beef?","document_ids":["cdc_food_safety","mn_safe_grilling_pdf","mn_safe_temperatures"],"required_phrases":["ground","160°F"]},
+    {"id":"storage-eggs","question":"How long can hard cooked eggs stay in the refrigerator or freezer?","document_ids":["mn_storage_chart"],"required_phrases":["hard cooked","7","don’t freeze","40°F","0°F","taste loss"]},
+    {"id":"storage-beef","question":"How many days can fresh beef be refrigerated and how many months frozen?","document_ids":["mn_storage_chart"],"required_phrases":["beef","3 to 5","6 to 12","40°F","0°F","taste loss"]},
+    {"id":"storage-blank","question":"What refrigerator storage time does the chart give for TV dinners?","document_ids":["mn_storage_chart"],"required_phrases":["TV dinners","Refrigerator (Days at 40°F): [blank in source]","6","taste loss"]},
+    {"id":"hot-weather","question":"How long can perishable food stay out at a picnic above 90°F?","document_ids":["cdc_food_safety","fda_seafood"],"required_phrases":["2 hours","1 hour","90°F"]},
+    {"id":"pregnancy-melon","question":"Which cut melon choices are safer during pregnancy, including in hot weather?","document_ids":["cdc_pregnancy_food_safety"],"required_phrases":["Cut melon","2 hours","1 hour","90°F","7 or fewer days","Riskier Choice","Safer Choice"]},
+    {"id":"pregnancy-milk","question":"During pregnancy, is raw milk safe and which milk should I choose instead?","document_ids":["cdc_pregnancy_food_safety"],"required_phrases":["Category: Milk","Unpasteurized (raw) milk","Pasteurized milk","Riskier Choice","Safer Choice"]},
+    {"id":"pregnancy-cheese","question":"Which cheeses are safer during pregnancy, and how should deli sliced cheese be heated?","document_ids":["cdc_pregnancy_food_safety"],"required_phrases":["Category: Cheese","165°F","pasteurized","Riskier Choice","Safer Choice"]},
+    {"id":"label-dv","question":"What percentages of Daily Value are considered low and high per serving?","document_ids":["fda_nutrition_label_current"],"required_phrases":["5% DV or less","20% DV or more"]},
+    {"id":"label-serving","question":"Does the serving size on the Nutrition Facts label recommend how much I should eat?","document_ids":["fda_nutrition_label_current"],"required_phrases":["serving size reflects","not a recommendation"]},
+    {"id":"produce-soap","question":"Should I wash fruits and vegetables with soap or detergent?","document_ids":["fda_produce"],"required_phrases":["running water","not recommended","make you sick"]},
+    {"id":"prewashed-produce","question":"Do I need to wash bagged produce marked pre-washed or ready-to-eat again?","document_ids":["fda_produce"],"required_phrases":["without further washing","unclean surfaces"]},
+    {"id":"dining-sodium","question":"What special requests can I make at a restaurant to reduce sodium?","document_ids":["nhlbi_sodium_tips_pdf"],"required_phrases":["Make special requests","without added salt","MSG"]},
+    {"id":"grilling-qualification","question":"What home grilling temperature is recommended for fish and shellfish and why might regulated facilities use different temperatures?","document_ids":["mn_safe_grilling_pdf"],"required_phrases":["Fish and shellfish","145°F","Regulated facilities","time and temperature"]}
+  ]
+}
