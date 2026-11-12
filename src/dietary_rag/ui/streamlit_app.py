@@ -2,6 +2,7 @@
 
 import logging
 import os
+import re
 import threading
 from hashlib import sha256
 from pathlib import Path
@@ -30,6 +31,41 @@ ERRORS = {
     "unknown_document": "That source is no longer available. Please choose another source.",
     "source_unavailable": "A selected source is unavailable. Please choose another source.",
 }
+
+
+def suggested_questions():
+    path = ROOT / "docs/test-questions-fot-chatbot"
+    if not path.is_file():
+        return []
+    return re.findall(r"^\d+\.\s+(.+)$", path.read_text(encoding="utf-8"), re.MULTILINE)
+
+
+def prefill_question(question):
+    st.session_state["question_input"] = question
+
+
+def render_suggestions(questions, *, disabled):
+    if not questions:
+        return
+    with st.expander("Suggested questions", expanded=not st.session_state.turns):
+        st.caption("Choose a question to fill the chat box. You can edit it before sending.")
+
+        def buttons(items, offset):
+            columns = st.columns(2)
+            for index, question in enumerate(items, offset):
+                columns[index % 2].button(
+                    question,
+                    key=f"suggested_question_{index}",
+                    on_click=prefill_question,
+                    args=(question,),
+                    disabled=disabled,
+                    width="stretch",
+                )
+
+        buttons(questions[:6], 0)
+        if len(questions) > 6:
+            with st.expander("More questions"):
+                buttons(questions[6:], 6)
 
 
 def safe_source_url(value, reviewed):
@@ -190,8 +226,10 @@ def main():
     valid_scope = mode != "Choose sources" or bool(selected)
     if not valid_scope:
         st.info("Choose at least one source to ask a question.")
+    render_suggestions(suggested_questions(), disabled=not valid_scope)
     prompt = st.chat_input(
         "Ask a food or food-safety question",
+        key="question_input",
         max_chars=host.active.settings.runtime.question_max_characters,
         disabled=not valid_scope,
     )

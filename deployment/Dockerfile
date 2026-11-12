@@ -8,6 +8,7 @@ RUN python -m pip install --no-cache-dir -r requirements.txt && python -m pip ch
 COPY config /app/config
 COPY deployment/artifacts /app/deployment/artifacts
 COPY src /app/src
+COPY docs/test-questions-fot-chatbot /app/docs/test-questions-fot-chatbot
 COPY streamlit_app.py /app/
 COPY .streamlit/config.toml /app/.streamlit/config.toml
 RUN useradd --create-home --uid 10001 app && mkdir /state && chown app:app /state

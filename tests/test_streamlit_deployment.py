@@ -202,6 +202,51 @@ def test_streamlit_empty_selection_is_disabled_and_exact_scope_preserved(app_hos
     assert app_host[-1]["scope"] == {"mode": "selected", "document_ids": ["food"]}
 
 
+def test_suggested_questions_prefill_without_submitting(app_host):
+    from streamlit.testing.v1 import AppTest
+
+    from dietary_rag.ui.streamlit_app import suggested_questions
+
+    questions = suggested_questions()
+    assert len(questions) == 15
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py")).run()
+    assert (
+        len(
+            [
+                button
+                for button in app.button
+                if (button.key or "").startswith("suggested_question_")
+            ]
+        )
+        == 15
+    )
+    app.button(key="suggested_question_2").click().run()
+    assert not app.exception
+    assert app.chat_input[0].proto.value == questions[2]
+    assert not app_host and app.session_state["turns"] == []
+    app.chat_input[0].set_value(questions[2] + " Please explain.").run()
+    assert app_host[-1]["question"] == questions[2] + " Please explain."
+    app.checkbox[0].set_value(True).run()
+    assert len(app_host) == 1
+
+
+def test_suggestions_respect_empty_source_selection(app_host):
+    from streamlit.testing.v1 import AppTest
+
+    app = AppTest.from_file(str(ROOT / "streamlit_app.py")).run()
+    app.radio[0].set_value("Choose sources").run()
+    assert all(
+        button.disabled
+        for button in app.button
+        if (button.key or "").startswith("suggested_question_")
+    )
+    app.multiselect[0].set_value(["food"]).run()
+    app.button(key="suggested_question_0").click().run()
+    assert not app_host
+    app.chat_input[0].set_value(app.chat_input[0].proto.value).run()
+    assert app_host[-1]["scope"] == {"mode": "selected", "document_ids": ["food"]}
+
+
 def test_streamlit_startup_failure_is_friendly(monkeypatch):
     pytest.importorskip("streamlit")
     from streamlit.testing.v1 import AppTest

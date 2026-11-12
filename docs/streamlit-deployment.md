@@ -2,7 +2,10 @@
 
 The root `streamlit_app.py` runs the existing grounded Python service directly.
 It includes source selection, comparisons, validated citations, offline excerpts,
-friendly response states and collapsed diagnostics. FastAPI and the original web
+friendly response states and collapsed diagnostics. The suggested-question panel
+loads all 15 prompts from `docs/test-questions-fot-chatbot`: six are immediately
+visible and nine are under “More questions”. Choosing one fills the chat box for
+editing; only sending it requests an answer, using the current source selection. FastAPI and the original web
 interface remain available through their existing launch command.
 
 ## Local launch on this Mac
