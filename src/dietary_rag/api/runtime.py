@@ -3,7 +3,9 @@
 import json
 import os
 import threading
+import time
 from contextlib import contextmanager
+from hashlib import sha256
 from pathlib import Path
 
 from dietary_rag.answering.adapters import ExtractiveGenerator
@@ -53,6 +55,8 @@ class ActiveRuntime:
         # Chroma's embedded clients share a cached system which close_chroma stops.
         # Keep the complete pinned read context exclusive, including citation checks.
         self._corpus_lock = threading.Lock()
+        self._status_lock = threading.Lock()
+        self._status_cache = None
         root = Path(project_root)
 
         def path(value, default):
@@ -101,14 +105,34 @@ class ActiveRuntime:
             yield request
 
     def corpus_status(self):
-        # Full compatibility/provenance validation, not just active.json existence.
-        with self.open_request() as request:
-            return {
-                "corpus_version": request.pin.release.corpus_snapshot_id,
-                "release_id": request.pin.release.release_id,
-                "activation_generation": request.pin.generation,
-                "documents": dict(request.retriever.documents),
-            }
+        # Coalesce status checks; cache only metadata from full validation. Chat
+        # still opens and validates its own pin on every request.
+        if not self._status_lock.acquire(
+            timeout=remaining_seconds(self.settings.runtime.request_timeout_seconds)
+        ):
+            raise TimeoutError("source status deadline exceeded")
+        try:
+            pin = self.store.pin()
+            manifest = pin.release.snapshot_directory / "manifest.json"
+            if sha256(manifest.read_bytes()).hexdigest() != pin.release.manifest_sha256:
+                raise ValueError("pinned snapshot manifest changed")
+            key = (pin.generation, pin.release.release_id)
+            if self._status_cache is not None:
+                cached_key, expires, state = self._status_cache
+                if cached_key == key and time.monotonic() < expires:
+                    return {**state, "documents": dict(state["documents"])}
+            with self.open_request() as request:
+                state = {
+                    "corpus_version": request.pin.release.corpus_snapshot_id,
+                    "release_id": request.pin.release.release_id,
+                    "activation_generation": request.pin.generation,
+                    "documents": dict(request.retriever.documents),
+                }
+                key = (request.pin.generation, request.pin.release.release_id)
+            self._status_cache = (key, time.monotonic() + 30, state)
+            return {**state, "documents": dict(state["documents"])}
+        finally:
+            self._status_lock.release()
 
 
 def build_answer_service(settings, active_runtime, *, environ=None, offline=False, transport=None):

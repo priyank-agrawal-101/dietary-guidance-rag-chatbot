@@ -88,7 +88,7 @@ class AnswerService:
                         status="not_covered",
                         corpus_version=assessment.corpus_snapshot_id,
                         searched_documents=searched,
-                        message=f"The retrieved guidance from the searched documents does not cover the requested information: {scope_label}.",
+                        message="I couldn't find a supported answer in the sources searched. Try a more specific food question or choose different sources.",
                     )
                     return AnswerInspection(response, audit)
                 if self.generator is None:
@@ -104,6 +104,16 @@ class AnswerService:
                 unanswered = []
                 gaps = []
                 for coverage in assessment.coverage:
+                    if prepared.request.scope.mode == "all" and coverage.status != "supported":
+                        # A source that has no answer is not an unanswered part
+                        # when another searched source covers the same aspect.
+                        if any(
+                            other.aspect_id == coverage.aspect_id
+                            and other.status == "supported"
+                            and set(other.unit_ids) <= generated_ids
+                            for other in assessment.coverage
+                        ):
+                            continue
                     if (
                         coverage.status != "supported"
                         or not set(coverage.unit_ids) <= generated_ids

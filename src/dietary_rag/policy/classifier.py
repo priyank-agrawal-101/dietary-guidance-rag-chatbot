@@ -28,6 +28,11 @@ class LocalIntentClassifier:
         restricted = restricted_intents(value)
         if restricted:
             return IntentClassification(intents=restricted, confidence=1.0)
+        if re.search(
+            r"\b(?:presidents?|prime minister|politics|elections?|stock market|invest\w*|football|programming)\b",
+            value,
+        ):
+            return IntentClassification(intents=("unrelated",), confidence=0.95)
         if re.search(r"\b(?:lab results|blood tests|my condition)\b", value):
             return IntentClassification(intents=("ambiguous",), confidence=0.5)
         clauses = re.split(
@@ -94,6 +99,7 @@ def general_guidance(value):
             r"\b(?:sodium|salt|salty|salt-free)\b.{0,80}\b(?:remove|rinse|cook|season|flavor|prepare|foods?|vegetables?|menu|tips?|instead|substitut\w*)\b",
             r"\b(?:herbs?|citrus|seasonings?|flavor\w*)\b.{0,80}\b(?:salty|salt|food|prepare|home)\b",
             r"\b(?:dairy|hydration|hydrated|caffeinat\w*)\b",
+            r"\b(?:cooking|edible|olive|vegetable|canola|sunflower|coconut|mustard) oils?\b",
             r"\b(?:remove|reduce|limit|rinse\w*)\b.{0,80}\bsodium\b",
             r"\bdual.column labels?\b",
             r"\bboil\w*\b.{0,80}\b(?:juice|cider)\b",

@@ -140,13 +140,24 @@ def test_consumer_guidance_paraphrases_are_recognized(question):
 @pytest.mark.parametrize(
     "question",
     [
-        "How should I defrost frozen food and how do I invest in stocks?",
         "Which dairy products will fix my lab results?",
         "How should I clean it between uses?",
     ],
 )
 def test_food_context_does_not_permit_unknown_or_clinical_followups(question):
     assert PolicyService().decide(question).route == "needs_clarification"
+
+
+@pytest.mark.parametrize(
+    "question",
+    [
+        "Do you know about President of US?",
+        "Who is the US president?",
+        "How should I defrost frozen food and how do I invest in stocks?",
+    ],
+)
+def test_explicit_unrelated_topics_do_not_ask_for_food_details(question):
+    assert PolicyService().decide(question).route == "out_of_scope"
 
 
 @pytest.mark.parametrize(

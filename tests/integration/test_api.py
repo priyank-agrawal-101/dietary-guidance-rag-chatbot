@@ -390,15 +390,26 @@ def test_ui_loads_during_corpus_outage_and_cannot_serve_project_secrets(api_runt
             assert client.get(path).status_code == 404
 
 
-def test_concurrent_readiness_and_listing_share_a_safe_corpus_lifecycle(api_runtime):
+def test_concurrent_readiness_and_listing_share_a_safe_corpus_lifecycle(api_runtime, monkeypatch):
     from concurrent.futures import ThreadPoolExecutor
 
     _, _, active = api_runtime
+    opened = []
+    original_open = active.open_request
+
+    @contextmanager
+    def counted_open():
+        opened.append(True)
+        with original_open() as request:
+            yield request
+
+    monkeypatch.setattr(active, "open_request", counted_open)
     with ThreadPoolExecutor(max_workers=2) as pool:
         futures = [pool.submit(active.corpus_status) for _ in range(2)]
         states = [future.result(timeout=10) for future in futures]
     assert states[0]["corpus_version"] == states[1]["corpus_version"]
     assert states[0]["documents"] == states[1]["documents"]
+    assert len(opened) == 1
 
 
 def test_waiting_for_corpus_access_obeys_the_request_deadline(api_runtime):
@@ -433,3 +444,64 @@ def test_aggregate_metrics_record_stages_without_question_text(api_runtime):
             "citations",
         } <= metrics["stages"].keys()
         assert QUESTION not in json.dumps(metrics)
+
+
+def test_validated_status_cache_does_not_wait_for_chat_corpus_lock(api_runtime, monkeypatch):
+    _, _, active = api_runtime
+    first = active.corpus_status()
+    active._corpus_lock.acquire()
+    try:
+        from dietary_rag.api.context import request_context
+
+        with request_context(0.02):
+            second = active.corpus_status()
+        assert second == first
+        second["documents"].clear()
+        assert active.corpus_status()["documents"] == first["documents"]
+    finally:
+        active._corpus_lock.release()
+    active.store.pointer.unlink()
+    with pytest.raises(ValueError):
+        active.corpus_status()
+
+
+def test_expired_status_cache_requires_validation_again(api_runtime):
+    from dietary_rag.api.context import request_context
+
+    _, _, active = api_runtime
+    active.corpus_status()
+    key, _, state = active._status_cache
+    active._status_cache = (key, 0, state)
+    active._corpus_lock.acquire()
+    try:
+        with request_context(0.02), pytest.raises(TimeoutError):
+            active.corpus_status()
+    finally:
+        active._corpus_lock.release()
+
+
+def test_source_status_remains_available_while_chat_capacity_is_full(api_runtime):
+    from concurrent.futures import ThreadPoolExecutor
+
+    settings, registry, active = api_runtime
+    settings = settings.model_copy(update={"api": APISettings(max_in_flight=1)})
+    entered, release = threading.Event(), threading.Event()
+
+    def answer(payload):
+        entered.set()
+        release.wait(5)
+        return service_error(CURRENT_REQUEST.get().request_id, "model_unavailable")
+
+    service = SimpleNamespace(answer=answer, generator=SimpleNamespace(name="fixture"))
+    with client_for((settings, registry, active), service=service) as client:
+        assert client.get("/health/ready").status_code == 200
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            pending = pool.submit(client.post, "/chat", json={"question": "Store eggs"})
+            try:
+                assert entered.wait(1)
+                assert client.get("/documents").status_code == 200
+                assert client.get("/health/ready").status_code == 200
+                assert client.post("/chat", json={"question": "Store eggs"}).status_code == 503
+            finally:
+                release.set()
+                pending.result(timeout=5)

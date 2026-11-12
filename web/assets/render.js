@@ -9,14 +9,14 @@ export const ERROR_LABELS = {
   request_timeout: "Request timed out",
   usage_limit_exceeded: "Usage limit reached",
   token_budget_exceeded: "Try a narrower question",
-  service_busy: "Service is busy",
+  service_busy: "Please try again shortly",
 };
 const STATES = {
   answered: "Answered from sources",
-  not_covered: "Not covered by searched sources",
-  out_of_scope: "Outside scope",
+  not_covered: "I couldn't find that in these sources",
+  out_of_scope: "I can't help with that topic",
   requires_structured_data: "Nutrient lookup unavailable",
-  needs_clarification: "A little more detail is needed",
+  needs_clarification: "Could you tell me a little more?",
 };
 
 export function element(doc, tag, text, className) {
@@ -315,20 +315,13 @@ export function renderOutcome(doc, body, { documents, scope }) {
     container.append(grid);
     if (body.unanswered_aspects.length) {
       const gaps = element(doc, "section", undefined, "notice");
-      gaps.append(element(doc, "h4", "Unanswered in searched sources"));
-      const list = element(doc, "ul", undefined, "gap-list");
-      body.unanswered_aspects.forEach((aspect) => {
-        // The authoritative searched scope is shown once below instead of repeating it per gap.
-        const separator = aspect.lastIndexOf(" Searched: ");
-        let label = separator < 0 ? aspect : aspect.slice(0, separator);
-        for (const [id, source] of documents) {
-          if (label.startsWith(`${id} (${id}):`))
-            label = `${source.document_name}${label.slice(id.length)}`;
-          label = label.replace(` (${id}):`, ":");
-        }
-        list.append(element(doc, "li", label));
-      });
-      gaps.append(list);
+      gaps.append(
+        element(
+          doc,
+          "p",
+          "Some parts of your question or selected sources aren't covered by this answer. Try narrowing the question or choosing a different source.",
+        ),
+      );
       container.append(gaps);
     }
   } else {
@@ -339,11 +332,15 @@ export function renderOutcome(doc, body, { documents, scope }) {
       body.code ? "notice error" : "notice",
     );
     const message =
-      body.code === "token_budget_exceeded"
-        ? "Choose fewer sources or ask a narrower question, then try again."
-        : body.code === "model_unavailable"
-          ? "Answers are temporarily unavailable. Please try again later."
-          : body.message;
+      body.status === "not_covered"
+        ? "I couldn't find a supported answer in the sources searched. Try a more specific food question or choose different sources."
+        : body.code === "service_busy"
+          ? "I can't take another question just yet. Please try again in a moment."
+          : body.code === "token_budget_exceeded"
+            ? "Choose fewer sources or ask a narrower question, then try again."
+            : body.code === "model_unavailable"
+              ? "Answers are temporarily unavailable. Please try again later."
+              : body.message;
     notice.append(element(doc, "p", message));
     if (
       Number.isInteger(body.retry_after_seconds) &&
@@ -377,5 +374,28 @@ export function renderOutcome(doc, body, { documents, scope }) {
     searched.append(list);
     container.append(searched);
   }
+  const diagnostics = element(doc, "details", undefined, "request-details");
+  diagnostics.append(element(doc, "summary", "Diagnostic details"));
+  diagnostics.append(
+    element(
+      doc,
+      "pre",
+      JSON.stringify(
+        {
+          request_id: body.request_id,
+          status: body.status,
+          error_code: body.code,
+          error_message: body.code ? body.message : undefined,
+          corpus_version: body.corpus_version,
+          searched_document_ids: body.searched_documents,
+          unanswered_aspects: body.unanswered_aspects,
+        },
+        null,
+        2,
+      ),
+      "diagnostic-json",
+    ),
+  );
+  container.append(diagnostics);
   return container;
 }

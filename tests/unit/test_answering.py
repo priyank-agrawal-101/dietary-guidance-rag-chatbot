@@ -216,7 +216,12 @@ def test_source_separation_and_document_gap():
         evidence_hit("other", "Wash your hands before handling food.", rank=2),
     ]
     service, _ = service_for(hits)
-    result = service.inspect({"question": "What internal temperature should chicken be cooked to?"})
+    result = service.inspect(
+        {
+            "question": "What internal temperature should chicken be cooked to?",
+            "scope": {"mode": "selected", "document_ids": ["doc", "other"]},
+        }
+    )
     assert result.response.status == "answered" and len(result.response.document_answers) == 1
     assert "other" in result.response.unanswered_aspects[0]
     assert result.response.searched_documents == ("doc", "other")
@@ -389,7 +394,8 @@ def test_empty_retrieval_gap_names_actual_scope_without_generation():
         "doc",
         "other",
     )
-    assert "doc" in result.response.message and "other" in result.response.message
+    assert "(doc)" not in result.response.message and "(other)" not in result.response.message
+    assert result.audit["search_audit"]["searched_document_ids"] == ["doc", "other"]
     assert result.audit["generation_attempts"] == 0
 
 
@@ -753,3 +759,98 @@ def test_seasonal_produce_sodium_coverage_requires_the_actual_qualification(comp
     if complete:
         assert response.unanswered_aspects == ()
         assert "little or no added sugars or sodium" in response.document_answers[0].claims[0].text
+
+
+@pytest.mark.parametrize(
+    "preparation", ["hard cooked", "hard-cooked", "hard–cooked", "hard—cooked"]
+)
+def test_hyphenated_egg_preparation_is_already_specific(preparation):
+    service, _ = service_for([evidence_hit("doc", STORAGE, kind="table")])
+    response = service.answer(
+        {"question": f"How long can {preparation} eggs be kept in the refrigerator?"}
+    )
+    assert response.status == "answered"
+    assert "Refrigerator (Days at 40°F): 7" in response.document_answers[0].claims[0].text
+
+
+def test_full_collection_answer_does_not_claim_gaps_for_unrelated_sources():
+    service, _ = service_for(
+        [
+            evidence_hit("doc", "Cook chicken to an internal temperature of 165°F."),
+            evidence_hit("other", "Wash your hands before handling food.", rank=2),
+        ]
+    )
+    response = service.answer(
+        {"question": "What internal temperature should chicken be cooked to?"}
+    )
+    assert response.status == "answered"
+    assert response.unanswered_aspects == ()
+    assert response.searched_documents == ("doc", "other")
+
+
+@pytest.mark.parametrize(
+    "question,expected",
+    [
+        ("What information you have about cooking oil.", "answered"),
+        ("What does the guidance say about olive oil?", "answered"),
+        ("What does the guidance say about sunflower cooking oil?", "not_covered"),
+        ("What is the smoke point of cooking oil?", "not_covered"),
+        ("Can I reuse cooking oil for frying?", "not_covered"),
+    ],
+)
+def test_cooking_oil_answers_only_the_available_guidance(question, expected):
+    text = (
+        "When cooking with or adding fats to meals, prioritize oils with essential fatty acids, "
+        "such as olive oil. Other options can include butter or beef tallow."
+    )
+    service, _ = service_for([evidence_hit("doc", text)])
+    response = service.answer({"question": question})
+    assert response.status == expected
+    if expected == "answered":
+        assert response.document_answers[0].claims[0].text == text
+    else:
+        assert not response.citations
+
+
+MICROWAVE_REHEATING = (
+    "Know your microwave's wattage. If it is high wattage (800 watts or more), "
+    "use the minimum cooking time recommended. If it is low wattage (300–500 watts), "
+    "use the maximum cooking time recommended. When reheating, use a food thermometer "
+    "to make sure that microwaved food reaches 165°F."
+)
+
+
+@pytest.mark.parametrize("scope", [None, {"mode": "selected", "document_ids": ["doc"]}])
+def test_general_microwave_reheating_guidance_applies_to_leftovers(scope):
+    service, _ = service_for([evidence_hit("doc", MICROWAVE_REHEATING)])
+    request = {
+        "question": "How do microwave wattage and cooking time affect reheating leftovers safely?"
+    }
+    if scope is not None:
+        request["scope"] = scope
+    response = service.answer(request)
+    assert response.status == "answered" and response.unanswered_aspects == ()
+    assert response.document_answers[0].claims[0].text == MICROWAVE_REHEATING
+    assert response.citations[0].support_quotes == (MICROWAVE_REHEATING,)
+
+
+@pytest.mark.parametrize(
+    "omitted",
+    [
+        "minimum cooking time recommended",
+        "maximum cooking time recommended",
+        "165°F",
+    ],
+)
+def test_leftover_alias_does_not_accept_incomplete_reheating_instructions(omitted):
+    service, _ = service_for([evidence_hit("doc", MICROWAVE_REHEATING.replace(omitted, ""))])
+    response = service.answer(
+        {"question": "How do microwave wattage and cooking time affect reheating leftovers safely?"}
+    )
+    assert response.status == "not_covered" and not response.citations
+
+
+def test_microwave_reheating_alias_does_not_supply_leftover_storage_times():
+    service, _ = service_for([evidence_hit("doc", MICROWAVE_REHEATING)])
+    response = service.answer({"question": "How long can leftovers stay in the refrigerator?"})
+    assert response.status == "not_covered"

@@ -130,7 +130,7 @@ def units_for_hit(hit):
 
 
 def parse_aspects(question):
-    q = normalize(question)
+    q = normalize(question).replace("hard-cooked", "hard cooked")
     foods = tuple(name for name, pattern in FOODS.items() if re.search(pattern, q))
     # A prepared mixed-food row is its own category, not raw/shell egg storage.
     if "deli salad" in foods:
@@ -141,6 +141,10 @@ def parse_aspects(question):
     if not foods and unknown_food:
         foods = (unknown_food[1],)
     topics = []
+    if re.search(
+        r"\b(?:cooking|edible|olive|vegetable|canola|sunflower|coconut|mustard) oils?\b", q
+    ):
+        topics.append(("cooking_oils", None, ()))
     duration = bool(
         re.search(
             r"\b(?:how long|how many (?:days|months)|storage time|storage duration|keep.*days)\b", q
@@ -267,8 +271,8 @@ def parse_aspects(question):
 
 
 def matches(unit, aspect, question):
-    text = normalize(unit.claim_text)
-    q = normalize(question)
+    text = normalize(unit.claim_text).replace("hard-cooked", "hard cooked")
+    q = normalize(question).replace("hard-cooked", "hard cooked")
     topic = aspect.topic
     if topic == "unknown" or aspect.required_details:
         return False
@@ -296,7 +300,16 @@ def matches(unit, aspect, question):
     if (
         topic not in {"outage", "thermometer"}
         and food_terms
-        and not all(re.search(FOODS.get(t, r"\b" + re.escape(t) + r"\b"), text) for t in food_terms)
+        and not all(
+            re.search(FOODS.get(t, r"\b" + re.escape(t) + r"\b"), text)
+            or (
+                topic == "microwave"
+                and t == "leftovers"
+                and "when reheating" in text
+                and "microwaved food" in text
+            )
+            for t in food_terms
+        )
     ):
         return False
     if topic in {
@@ -310,6 +323,7 @@ def matches(unit, aspect, question):
         "produce_selection",
         "produce_storage",
         "hot_leftovers",
+        "cooking_oils",
     }:
         return matches_guidance(text, q, topic)
     for term in aspect.terms:
@@ -427,6 +441,19 @@ def matches(unit, aspect, question):
 
 def matches_guidance(text, question, topic):
     """Topic-specific completeness over one intact evidence unit, never model knowledge."""
+    if topic == "cooking_oils":
+        if re.search(r"smoke point|temperatures?|how hot|reus\w*|deep.fry\w*|frying", question):
+            return False
+        requested = re.findall(
+            r"\b(olive|vegetable|canola|sunflower|coconut|mustard|peanut|sesame|avocado|soybean|corn) (?:cooking )?oils?\b",
+            question,
+        )
+        return (
+            all(re.search(r"\b" + oil + r" oils?\b", text) for oil in requested)
+            and "when cooking with or adding fats" in text
+            and "prioritize oils with essential fatty acids" in text
+            and "olive oil" in text
+        )
     if topic == "microwave":
         if re.search(r"stand|standing", question):
             return "standing times" in text and "cold spots" in text and "hotter areas" in text

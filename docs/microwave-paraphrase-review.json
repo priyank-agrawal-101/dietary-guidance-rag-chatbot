@@ -1,0 +1,1337 @@
+{
+  "version": "microwave_paraphrase_fix_v1",
+  "question": "How do microwave wattage and cooking time affect reheating leftovers safely?",
+  "mode": "offline extractive real active corpus",
+  "passed": true,
+  "cases": [
+    {
+      "scope": {
+        "mode": "all"
+      },
+      "passed": true,
+      "response": {
+        "request_id": "12c9eeae-2d37-4c4c-9569-d8076b496ef7",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+                "citation_ids": [
+                  "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-e9hfkiyf-g",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Microwave food thoroughly",
+            "chunk_ids": [
+              "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee"
+            ],
+            "support_quotes": [
+              "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 1,
+        "validation_codes": [],
+        "search_audit": {
+          "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+          "activation_generation": 1,
+          "status": "searched",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+          "strategy": "hybrid",
+          "resolved_question": "How do microwave wattage and cooking time affect reheating leftovers safely?",
+          "selected_document_ids": null,
+          "searched_document_ids": [
+            "cdc_emergency_food_safety",
+            "cdc_food_safety",
+            "cdc_pregnancy_food_safety",
+            "dga_2025_2030_pdf",
+            "fda_nutrition_label_current",
+            "fda_produce",
+            "fda_seafood",
+            "hhs_adults_older_adults_pdf",
+            "hhs_kids_teens_pdf",
+            "mn_cold_storage",
+            "mn_cross_contamination_pdf",
+            "mn_food_thermometers",
+            "mn_safe_grilling_pdf",
+            "mn_safe_temperatures",
+            "mn_storage_chart",
+            "nhlbi_sodium_tips_pdf"
+          ],
+          "scope_issues": [],
+          "filtered_documents": {},
+          "branch_ranks": {
+            "dense": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                "document_id": "cdc_food_safety",
+                "score": 0.80760258436203
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+                "document_id": "cdc_food_safety",
+                "score": 0.7457796335220337
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.7318502068519592
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.7076873183250427
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.7066224217414856
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_2ef75db5088feaf30017c77731db614433fe95e745464f906d87e90a17f0e252",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.7044820189476013
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.701225996017456
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.691847026348114
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.6907755136489868
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.688616156578064
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6881881952285767
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+                "document_id": "cdc_food_safety",
+                "score": 0.6843917965888977
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+                "document_id": "cdc_food_safety",
+                "score": 0.6822709441184998
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.6789757013320923
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6729996800422668
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6725103259086609
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6675641536712646
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 0.6653403043746948
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.6643399000167847
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 0.6629385948181152
+              }
+            ],
+            "bm25": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                "document_id": "cdc_food_safety",
+                "score": 24.681159434515344
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+                "document_id": "fda_seafood",
+                "score": 9.984637472393752
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_8d5b822af6dac26b7893315b8e98101c0866633c764fe036d0a064ae5c504cce",
+                "document_id": "fda_produce",
+                "score": 9.657660702095143
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 8.971223182022001
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 8.02942599573406
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 7.962295992065485
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+                "document_id": "cdc_food_safety",
+                "score": 7.832519922851057
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_0f23cbd87cf78a040ea1ae8d47533b2ee3967379bbfb3806090a6a55cb93cb55",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 7.4311732221415525
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806",
+                "document_id": "cdc_food_safety",
+                "score": 7.139350600039354
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 6.613075240374808
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a",
+                "document_id": "cdc_food_safety",
+                "score": 6.486968289001918
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0",
+                "document_id": "fda_seafood",
+                "score": 6.257444985414837
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+                "document_id": "mn_safe_temperatures",
+                "score": 6.111682564876014
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb",
+                "document_id": "fda_seafood",
+                "score": 5.8710570381909015
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_05c72c83087542418f230b7c7208a54640d9f3877f1f74f71aee5b200066ef22",
+                "document_id": "fda_seafood",
+                "score": 5.7847651238405975
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 5.392702063258214
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 5.331527350610324
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+                "document_id": "fda_produce",
+                "score": 5.183332982692749
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec",
+                "document_id": "fda_seafood",
+                "score": 5.1731039859912675
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957",
+                "document_id": "fda_seafood",
+                "score": 5.166816497768061
+              }
+            ]
+          },
+          "fused_ranks": [
+            {
+              "rank": 1,
+              "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+              "document_id": "cdc_food_safety",
+              "score": 0.03278688524590164
+            },
+            {
+              "rank": 2,
+              "chunk_id": "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.03125763125763126
+            },
+            {
+              "rank": 3,
+              "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+              "document_id": "cdc_food_safety",
+              "score": 0.031054405392392875
+            },
+            {
+              "rank": 4,
+              "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.029211087420042643
+            },
+            {
+              "rank": 5,
+              "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.02819138376017471
+            },
+            {
+              "rank": 6,
+              "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.02813852813852814
+            },
+            {
+              "rank": 7,
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 0.025978407557354925
+            },
+            {
+              "rank": 8,
+              "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+              "document_id": "fda_seafood",
+              "score": 0.016129032258064516
+            },
+            {
+              "rank": 9,
+              "chunk_id": "chunk_8d5b822af6dac26b7893315b8e98101c0866633c764fe036d0a064ae5c504cce",
+              "document_id": "fda_produce",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 10,
+              "chunk_id": "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 11,
+              "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 12,
+              "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 13,
+              "chunk_id": "chunk_2ef75db5088feaf30017c77731db614433fe95e745464f906d87e90a17f0e252",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015151515151515152
+            },
+            {
+              "rank": 14,
+              "chunk_id": "chunk_0f23cbd87cf78a040ea1ae8d47533b2ee3967379bbfb3806090a6a55cb93cb55",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 15,
+              "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 16,
+              "chunk_id": "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806",
+              "document_id": "cdc_food_safety",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 17,
+              "chunk_id": "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 18,
+              "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 19,
+              "chunk_id": "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a",
+              "document_id": "cdc_food_safety",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 20,
+              "chunk_id": "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0",
+              "document_id": "fda_seafood",
+              "score": 0.013888888888888888
+            },
+            {
+              "rank": 21,
+              "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+              "document_id": "cdc_food_safety",
+              "score": 0.013888888888888888
+            },
+            {
+              "rank": 22,
+              "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+              "document_id": "cdc_food_safety",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 23,
+              "chunk_id": "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 24,
+              "chunk_id": "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb",
+              "document_id": "fda_seafood",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 25,
+              "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 26,
+              "chunk_id": "chunk_05c72c83087542418f230b7c7208a54640d9f3877f1f74f71aee5b200066ef22",
+              "document_id": "fda_seafood",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 27,
+              "chunk_id": "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 28,
+              "chunk_id": "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 29,
+              "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+              "document_id": "fda_produce",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 30,
+              "chunk_id": "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec",
+              "document_id": "fda_seafood",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 31,
+              "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 32,
+              "chunk_id": "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957",
+              "document_id": "fda_seafood",
+              "score": 0.0125
+            },
+            {
+              "rank": 33,
+              "chunk_id": "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 0.0125
+            }
+          ],
+          "budget_omissions": {
+            "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23": "final_candidate_budget",
+            "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d": "final_candidate_budget",
+            "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33": "final_candidate_budget",
+            "chunk_8d5b822af6dac26b7893315b8e98101c0866633c764fe036d0a064ae5c504cce": "final_candidate_budget",
+            "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298": "final_candidate_budget",
+            "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b": "final_candidate_budget",
+            "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225": "final_candidate_budget",
+            "chunk_2ef75db5088feaf30017c77731db614433fe95e745464f906d87e90a17f0e252": "final_candidate_budget",
+            "chunk_0f23cbd87cf78a040ea1ae8d47533b2ee3967379bbfb3806090a6a55cb93cb55": "final_candidate_budget",
+            "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8": "final_candidate_budget",
+            "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806": "final_candidate_budget",
+            "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830": "final_candidate_budget",
+            "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506": "final_candidate_budget",
+            "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a": "final_candidate_budget",
+            "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0": "final_candidate_budget",
+            "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133": "final_candidate_budget",
+            "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a": "final_candidate_budget",
+            "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c": "final_candidate_budget",
+            "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb": "final_candidate_budget",
+            "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da": "final_candidate_budget",
+            "chunk_05c72c83087542418f230b7c7208a54640d9f3877f1f74f71aee5b200066ef22": "final_candidate_budget",
+            "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c": "final_candidate_budget",
+            "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278": "final_candidate_budget",
+            "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b": "final_candidate_budget",
+            "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec": "final_candidate_budget",
+            "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2": "final_candidate_budget",
+            "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957": "final_candidate_budget",
+            "chunk_8912842b37fe0cc32d9696f6ad934fc98a67ceb4d2559c5b49e79ce7c7e66f16": "final_candidate_budget"
+          },
+          "duplicate_omissions": {},
+          "context_chunks": {},
+          "query_embedding_seconds": 2.0842638749963953,
+          "elapsed_seconds": 2.1176096249982947
+        },
+        "assessment": {
+          "version": "evidence_assessment_v1",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "decision": "partial",
+          "aspects": [
+            {
+              "aspect_id": "aspect_0",
+              "topic": "microwave",
+              "description": "microwave",
+              "terms": [
+                "leftovers"
+              ],
+              "temperatures": [],
+              "method": null,
+              "required_details": []
+            }
+          ],
+          "coverage": [
+            {
+              "document_id": "cdc_emergency_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "supported",
+              "unit_ids": [
+                "evidence_unit_a77b47ac64ec91547cc221eb59365416616a14932ca455df253193475ad5f452"
+              ]
+            },
+            {
+              "document_id": "cdc_pregnancy_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "dga_2025_2030_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_nutrition_label_current",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_produce",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_seafood",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_adults_older_adults_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_kids_teens_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cold_storage",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cross_contamination_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_food_thermometers",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_grilling_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_temperatures",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_storage_chart",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            }
+          ],
+          "units": [
+            {
+              "unit_id": "evidence_unit_a77b47ac64ec91547cc221eb59365416616a14932ca455df253193475ad5f452",
+              "document_id": "cdc_food_safety",
+              "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+              "claim_text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+              "evidence": [
+                {
+                  "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                  "support_quote": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+                }
+              ]
+            }
+          ],
+          "required_details": []
+        },
+        "validated_draft": {
+          "document_answers": [
+            {
+              "document_id": "cdc_food_safety",
+              "claims": [
+                {
+                  "claim_text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+                  "evidence": [
+                    {
+                      "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                      "support_quote": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "unanswered_aspects": []
+        },
+        "claim_evidence": {
+          "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee": {
+            "document_id": "cdc_food_safety",
+            "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+            "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+            "text_sha256": "84978d7777a8c1d83934ada4d58a11b96c7c319df6bf495dc0153369b585ab20",
+            "source_locations": [
+              {
+                "format": "html",
+                "source_anchor": "heading-e9hfkiyf-g",
+                "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > ul:nth-of-type(2)",
+                "physical_page": null,
+                "printed_page_label": null,
+                "bbox": null,
+                "extraction_method": "html",
+                "ocr_confidence": null,
+                "review_state": "reviewed"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "normalized_block_ce33dcecf8110a8cd119e8c0e434ab45d07b01aa442552c0ce80b4a80432c059",
+                "start": 0,
+                "end": 365,
+                "overlap": false
+              }
+            ],
+            "table_rows": null
+          }
+        },
+        "elapsed_seconds": 2.1365294999995967
+      }
+    },
+    {
+      "scope": {
+        "mode": "selected",
+        "document_ids": [
+          "cdc_food_safety"
+        ]
+      },
+      "passed": true,
+      "response": {
+        "request_id": "45e224fd-c9c5-4fc0-9ad1-1cd518c0c2ca",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "cdc_food_safety",
+            "claims": [
+              {
+                "text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+                "citation_ids": [
+                  "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788",
+            "document_id": "cdc_food_safety",
+            "document_name": "Food safety prevention",
+            "publisher": "Centers for Disease Control and Prevention",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "Visible page date: Nov. 24, 2025",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-e9hfkiyf-g",
+            "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Microwave food thoroughly",
+            "chunk_ids": [
+              "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee"
+            ],
+            "support_quotes": [
+              "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_food_safety"
+        ],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 1,
+        "validation_codes": [],
+        "search_audit": {
+          "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+          "activation_generation": 1,
+          "status": "searched",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+          "strategy": "hybrid",
+          "resolved_question": "How do microwave wattage and cooking time affect reheating leftovers safely?",
+          "selected_document_ids": [
+            "cdc_food_safety"
+          ],
+          "searched_document_ids": [
+            "cdc_food_safety"
+          ],
+          "scope_issues": [],
+          "filtered_documents": {},
+          "branch_ranks": {
+            "dense": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                "document_id": "cdc_food_safety",
+                "score": 0.80760258436203
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+                "document_id": "cdc_food_safety",
+                "score": 0.7457796335220337
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+                "document_id": "cdc_food_safety",
+                "score": 0.6843917965888977
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+                "document_id": "cdc_food_safety",
+                "score": 0.6822709441184998
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 0.6653403043746948
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+                "document_id": "cdc_food_safety",
+                "score": 0.6411304473876953
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a",
+                "document_id": "cdc_food_safety",
+                "score": 0.6292157173156738
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_e2849142083dbf2f9b57a76a103e19c19caf2e9c4a4af02ab0b890081c9e7c19",
+                "document_id": "cdc_food_safety",
+                "score": 0.6228403449058533
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_6220917aeaa8f1eabe27092aecf38979849d5ae6da4c5e79a8fed9e96bd3c255",
+                "document_id": "cdc_food_safety",
+                "score": 0.619596004486084
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_24c36a7829d5a26d268574abf2fe0d588fff0d2f5a9f9eef45088ba7b45f3789",
+                "document_id": "cdc_food_safety",
+                "score": 0.6096010208129883
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5",
+                "document_id": "cdc_food_safety",
+                "score": 0.5968883633613586
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_fe40440fc2b81c0af7740701b5a78f559d2572e47dc81e98b37a8599865825d0",
+                "document_id": "cdc_food_safety",
+                "score": 0.5946379899978638
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_de8c0b966d0693528b4221582a721083c366744a6312b260961f0b6e3ad4d81c",
+                "document_id": "cdc_food_safety",
+                "score": 0.5877601504325867
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_c443ccdbeabbb44dfaaebdc97e2b7e2da2f4e0a24ec897f46cc4d0bbf73fae10",
+                "document_id": "cdc_food_safety",
+                "score": 0.5708067417144775
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806",
+                "document_id": "cdc_food_safety",
+                "score": 0.5663049817085266
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_8a25d0e18077ae550a90b1099fd5af85da3de301693474bf579074de8d430203",
+                "document_id": "cdc_food_safety",
+                "score": 0.5647910833358765
+              }
+            ],
+            "bm25": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                "document_id": "cdc_food_safety",
+                "score": 13.773671902765697
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806",
+                "document_id": "cdc_food_safety",
+                "score": 5.07845059678091
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+                "document_id": "cdc_food_safety",
+                "score": 4.381872343689229
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 3.8810750954252358
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a",
+                "document_id": "cdc_food_safety",
+                "score": 3.474734505126641
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+                "document_id": "cdc_food_safety",
+                "score": 1.93058237520295
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+                "document_id": "cdc_food_safety",
+                "score": 1.8937946772044307
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5",
+                "document_id": "cdc_food_safety",
+                "score": 1.5982866251134678
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_fe40440fc2b81c0af7740701b5a78f559d2572e47dc81e98b37a8599865825d0",
+                "document_id": "cdc_food_safety",
+                "score": 0.41877434604658886
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_24c36a7829d5a26d268574abf2fe0d588fff0d2f5a9f9eef45088ba7b45f3789",
+                "document_id": "cdc_food_safety",
+                "score": 0.37876535178316595
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_de8c0b966d0693528b4221582a721083c366744a6312b260961f0b6e3ad4d81c",
+                "document_id": "cdc_food_safety",
+                "score": 0.37711934108010053
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_c443ccdbeabbb44dfaaebdc97e2b7e2da2f4e0a24ec897f46cc4d0bbf73fae10",
+                "document_id": "cdc_food_safety",
+                "score": 0.36857676044213694
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_8a25d0e18077ae550a90b1099fd5af85da3de301693474bf579074de8d430203",
+                "document_id": "cdc_food_safety",
+                "score": 0.36650124607080625
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_6220917aeaa8f1eabe27092aecf38979849d5ae6da4c5e79a8fed9e96bd3c255",
+                "document_id": "cdc_food_safety",
+                "score": 0.31658457858811845
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_e2849142083dbf2f9b57a76a103e19c19caf2e9c4a4af02ab0b890081c9e7c19",
+                "document_id": "cdc_food_safety",
+                "score": 0.3001591680925781
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+                "document_id": "cdc_food_safety",
+                "score": 0.24209986217510485
+              }
+            ]
+          },
+          "fused_ranks": [
+            {
+              "rank": 1,
+              "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+              "document_id": "cdc_food_safety",
+              "score": 0.03278688524590164
+            },
+            {
+              "rank": 2,
+              "chunk_id": "chunk_a998d50b228c2c4b6522678c7f242c0929f46b3198a8fb027911c6a8f6cc4a27",
+              "document_id": "cdc_food_safety",
+              "score": 0.03200204813108039
+            },
+            {
+              "rank": 3,
+              "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+              "document_id": "cdc_food_safety",
+              "score": 0.031024531024531024
+            },
+            {
+              "rank": 4,
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 0.031009615384615385
+            },
+            {
+              "rank": 5,
+              "chunk_id": "chunk_ba9cc05f1742a806bb0080cf9bb4540088308f1c236b861faa969a02add2ce6a",
+              "document_id": "cdc_food_safety",
+              "score": 0.030309988518943745
+            },
+            {
+              "rank": 6,
+              "chunk_id": "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5",
+              "document_id": "cdc_food_safety",
+              "score": 0.03007688828584351
+            },
+            {
+              "rank": 7,
+              "chunk_id": "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806",
+              "document_id": "cdc_food_safety",
+              "score": 0.02946236559139785
+            },
+            {
+              "rank": 8,
+              "chunk_id": "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5",
+              "document_id": "cdc_food_safety",
+              "score": 0.028790389395194696
+            },
+            {
+              "rank": 9,
+              "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+              "document_id": "cdc_food_safety",
+              "score": 0.028782894736842105
+            },
+            {
+              "rank": 10,
+              "chunk_id": "chunk_24c36a7829d5a26d268574abf2fe0d588fff0d2f5a9f9eef45088ba7b45f3789",
+              "document_id": "cdc_food_safety",
+              "score": 0.02857142857142857
+            },
+            {
+              "rank": 11,
+              "chunk_id": "chunk_fe40440fc2b81c0af7740701b5a78f559d2572e47dc81e98b37a8599865825d0",
+              "document_id": "cdc_food_safety",
+              "score": 0.028381642512077296
+            },
+            {
+              "rank": 12,
+              "chunk_id": "chunk_e2849142083dbf2f9b57a76a103e19c19caf2e9c4a4af02ab0b890081c9e7c19",
+              "document_id": "cdc_food_safety",
+              "score": 0.02803921568627451
+            },
+            {
+              "rank": 13,
+              "chunk_id": "chunk_6220917aeaa8f1eabe27092aecf38979849d5ae6da4c5e79a8fed9e96bd3c255",
+              "document_id": "cdc_food_safety",
+              "score": 0.028006267136701922
+            },
+            {
+              "rank": 14,
+              "chunk_id": "chunk_de8c0b966d0693528b4221582a721083c366744a6312b260961f0b6e3ad4d81c",
+              "document_id": "cdc_food_safety",
+              "score": 0.027783137179239824
+            },
+            {
+              "rank": 15,
+              "chunk_id": "chunk_c443ccdbeabbb44dfaaebdc97e2b7e2da2f4e0a24ec897f46cc4d0bbf73fae10",
+              "document_id": "cdc_food_safety",
+              "score": 0.027402402402402402
+            },
+            {
+              "rank": 16,
+              "chunk_id": "chunk_8a25d0e18077ae550a90b1099fd5af85da3de301693474bf579074de8d430203",
+              "document_id": "cdc_food_safety",
+              "score": 0.026856524873828405
+            }
+          ],
+          "budget_omissions": {
+            "chunk_e808f9bcb33c950f731dd066b6cf6d54474ae780acd4bb92dc33cb3c1d1a95e5": "final_candidate_budget",
+            "chunk_fb92e79e1c7907ebd1dc5f168db620209864a483f9080293082e8d5e7086e806": "final_candidate_budget",
+            "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5": "final_candidate_budget",
+            "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a": "final_candidate_budget",
+            "chunk_24c36a7829d5a26d268574abf2fe0d588fff0d2f5a9f9eef45088ba7b45f3789": "final_candidate_budget",
+            "chunk_fe40440fc2b81c0af7740701b5a78f559d2572e47dc81e98b37a8599865825d0": "final_candidate_budget",
+            "chunk_e2849142083dbf2f9b57a76a103e19c19caf2e9c4a4af02ab0b890081c9e7c19": "final_candidate_budget",
+            "chunk_6220917aeaa8f1eabe27092aecf38979849d5ae6da4c5e79a8fed9e96bd3c255": "final_candidate_budget",
+            "chunk_de8c0b966d0693528b4221582a721083c366744a6312b260961f0b6e3ad4d81c": "final_candidate_budget",
+            "chunk_c443ccdbeabbb44dfaaebdc97e2b7e2da2f4e0a24ec897f46cc4d0bbf73fae10": "final_candidate_budget",
+            "chunk_8a25d0e18077ae550a90b1099fd5af85da3de301693474bf579074de8d430203": "final_candidate_budget"
+          },
+          "duplicate_omissions": {},
+          "context_chunks": {},
+          "query_embedding_seconds": 0.006006791998515837,
+          "elapsed_seconds": 0.027207582999835722
+        },
+        "assessment": {
+          "version": "evidence_assessment_v1",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "decision": "supported",
+          "aspects": [
+            {
+              "aspect_id": "aspect_0",
+              "topic": "microwave",
+              "description": "microwave",
+              "terms": [
+                "leftovers"
+              ],
+              "temperatures": [],
+              "method": null,
+              "required_details": []
+            }
+          ],
+          "coverage": [
+            {
+              "document_id": "cdc_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "supported",
+              "unit_ids": [
+                "evidence_unit_a77b47ac64ec91547cc221eb59365416616a14932ca455df253193475ad5f452"
+              ]
+            }
+          ],
+          "units": [
+            {
+              "unit_id": "evidence_unit_a77b47ac64ec91547cc221eb59365416616a14932ca455df253193475ad5f452",
+              "document_id": "cdc_food_safety",
+              "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+              "claim_text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+              "evidence": [
+                {
+                  "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                  "support_quote": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+                }
+              ]
+            }
+          ],
+          "required_details": []
+        },
+        "validated_draft": {
+          "document_answers": [
+            {
+              "document_id": "cdc_food_safety",
+              "claims": [
+                {
+                  "claim_text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+                  "evidence": [
+                    {
+                      "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                      "support_quote": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "unanswered_aspects": []
+        },
+        "claim_evidence": {
+          "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee": {
+            "document_id": "cdc_food_safety",
+            "document_version_id": "docv_466bf8490fd30e53e52e11b74496039ffb1f7651841dc2bf6443cb9ddac5fa21",
+            "raw_sha256": "17e054c6b4d4c9aa79977d3d9acd75faa17d5feac7a85afcf1b2769088919105",
+            "text_sha256": "84978d7777a8c1d83934ada4d58a11b96c7c319df6bf495dc0153369b585ab20",
+            "source_locations": [
+              {
+                "format": "html",
+                "source_anchor": "heading-e9hfkiyf-g",
+                "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > ul:nth-of-type(2)",
+                "physical_page": null,
+                "printed_page_label": null,
+                "bbox": null,
+                "extraction_method": "html",
+                "ocr_confidence": null,
+                "review_state": "reviewed"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "normalized_block_ce33dcecf8110a8cd119e8c0e434ab45d07b01aa442552c0ce80b4a80432c059",
+                "start": 0,
+                "end": 365,
+                "overlap": false
+              }
+            ],
+            "table_rows": null
+          }
+        },
+        "elapsed_seconds": 0.04060124999523396
+      }
+    }
+  ],
+  "date": "2026-11-12",
+  "root_cause": "Microwave food-category matching required the literal word leftovers, but the complete CDC passage describes reheating microwaved food.",
+  "fix": "Allow the general reheated-microwaved-food passage to support the leftovers category only for the microwave aspect; retain completeness, numeric/qualifier, canonical-citation and policy checks.",
+  "verification": {
+    "relevant_tests_passed": 95,
+    "new_regression_cases": 6,
+    "frozen_evaluation_cases_passed": 71,
+    "frozen_evaluation_cases_total": 71,
+    "frozen_dataset_sha256": "a904da99586eea02c57d658bce9e5b41937b65e65d32467b5cc55b3683c5e599",
+    "lint_and_format": "passed",
+    "local_server_updated": true
+  },
+  "live_provider_check": {
+    "provider": "configured Groq via local HTTP API",
+    "http_status": 200,
+    "passed": true,
+    "response": {
+      "request_id": "30f6b03f-7376-42e2-8380-1b66b24b47ff",
+      "status": "answered",
+      "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+      "message": null,
+      "document_answers": [
+        {
+          "document_id": "cdc_food_safety",
+          "claims": [
+            {
+              "text": "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended. - When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F.",
+              "citation_ids": [
+                "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788"
+              ]
+            }
+          ]
+        }
+      ],
+      "citations": [
+        {
+          "citation_id": "citation_c6e73fb714ae092bcaacadaf54020ecb6fd16b5308b6364b14e5772e8c986788",
+          "document_id": "cdc_food_safety",
+          "document_name": "Food safety prevention",
+          "publisher": "Centers for Disease Control and Prevention",
+          "source_tier": "official_guidance",
+          "jurisdiction": "US",
+          "publication_year": null,
+          "date_label": "Visible page date: Nov. 24, 2025",
+          "format": "html",
+          "physical_pages": [],
+          "page_urls": [],
+          "printed_page_labels": [],
+          "source_url": "https://www.cdc.gov/food-safety/prevention/index.html#heading-e9hfkiyf-g",
+          "section_heading": "Preventing Food Poisoning > Prevention steps and strategies > Cook to the right temperature > Microwave food thoroughly",
+          "chunk_ids": [
+            "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee"
+          ],
+          "support_quotes": [
+            "- Know your microwave's wattage. Check inside the door, owner's manual, or manufacturer's website. If your microwave is high wattage (800 watts or more), use the minimum cooking time recommended. If it is low wattage (300\u2013500 watts), use the maximum cooking time recommended.\n- When reheating, use a food thermometer to make sure that microwaved food reaches 165\u00b0F."
+          ]
+        }
+      ],
+      "searched_documents": [
+        "cdc_emergency_food_safety",
+        "cdc_food_safety",
+        "cdc_pregnancy_food_safety",
+        "dga_2025_2030_pdf",
+        "fda_nutrition_label_current",
+        "fda_produce",
+        "fda_seafood",
+        "hhs_adults_older_adults_pdf",
+        "hhs_kids_teens_pdf",
+        "mn_cold_storage",
+        "mn_cross_contamination_pdf",
+        "mn_food_thermometers",
+        "mn_safe_grilling_pdf",
+        "mn_safe_temperatures",
+        "mn_storage_chart",
+        "nhlbi_sodium_tips_pdf"
+      ],
+      "unanswered_aspects": []
+    }
+  }
+}

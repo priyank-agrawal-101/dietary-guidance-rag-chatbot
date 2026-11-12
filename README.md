@@ -239,3 +239,5 @@ Operations (P7.4–P7.7): [runbook](docs/operations-runbook.md), [refresh proof]
 The [learning review gate revision](docs/review-gate-revision.md) documents the explicitly authorized AI-assisted acceptance, 71/71 condition-complete verdicts, three resolved findings and retained review notes. Use `scripts/check_release.py --learning-project` for the learning scope; default independent-human approval is unchanged.
 
 The immutable learning bundle is at `data/releases/learning-v0.1.1`; [publication proof](docs/learning-release-publication.json) records checksum and copied-index validation. No live deployment or independent human review is claimed.
+
+Chat UX update: [improvements and verification](docs/ux-improvements.md) covers friendly scope/source-gap replies, hyphenated egg preparation, cooking-oil coverage, collapsed request diagnostics and source loading without competing for chat capacity. Current development checks pass 687 Python tests, 50 UI tests and all 71 frozen evaluation cases. Reload the local chat to use the update.

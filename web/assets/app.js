@@ -104,14 +104,20 @@ export function mount(doc, fetcher) {
       const live = await fetchJSON(fetcher, "/health/live");
       if (!live.ok || live.body.status !== "alive")
         throw new Error("Service offline");
-      const [ready, listing] = await Promise.all([
-        fetchJSON(fetcher, "/health/ready", {
+      // Status reads are safe to retry. Never automatically replay a chat request.
+      async function status(path) {
+        const options = {
           timeout: (state.config.request_timeout_seconds + 5) * 1000,
-        }),
-        fetchJSON(fetcher, "/documents", {
-          timeout: (state.config.request_timeout_seconds + 5) * 1000,
-        }),
-      ]);
+        };
+        let result = await fetchJSON(fetcher, path, options);
+        if (result.body.code === "service_busy") {
+          await new Promise((resolve) => setTimeout(resolve, 250));
+          result = await fetchJSON(fetcher, path, options);
+        }
+        return result;
+      }
+      const ready = await status("/health/ready");
+      const listing = await status("/documents");
       if (!Array.isArray(listing.body.documents)) {
         const error = new Error("Source listing unavailable");
         error.code = listing.body.code || "invalid_response";
@@ -158,7 +164,7 @@ export function mount(doc, fetcher) {
         message(
           byId("health-notice"),
           code === "service_busy"
-            ? "The service is handling other requests. Wait for them to finish, then try loading sources again."
+            ? "Sources are taking a little longer to load. Please try again in a moment."
             : code === "request_timeout"
               ? "The source status check timed out. Try loading sources again."
               : code === "model_unavailable"
@@ -170,7 +176,7 @@ export function mount(doc, fetcher) {
       message(
         byId("health-notice"),
         error.code === "service_busy"
-          ? "The service is handling other requests. Wait for them to finish, then try loading sources again."
+          ? "Sources are taking a little longer to load. Please try again in a moment."
           : error.code === "request_timeout"
             ? "The source status check timed out. Try loading sources again."
             : "Unable to load sources. Check your connection and try again.",

@@ -61,6 +61,7 @@ def create_app(
     }
     # Slots remain held by workers even after an HTTP deadline cancels their waiter.
     slots = threading.BoundedSemaphore(settings.api.max_in_flight)
+    status_slots = threading.BoundedSemaphore(2)
 
     def response(value):
         headers = {}
@@ -72,9 +73,9 @@ def create_app(
             headers=headers,
         )
 
-    async def bounded(call):
+    async def bounded(call, capacity=slots):
         def run():
-            if not slots.acquire(blocking=False):
+            if not capacity.acquire(blocking=False):
                 from dietary_rag.api.context import CURRENT_REQUEST
 
                 return service_error(CURRENT_REQUEST.get().request_id, "service_busy")
@@ -82,7 +83,7 @@ def create_app(
                 remaining_seconds(settings.runtime.request_timeout_seconds)
                 return call()
             finally:
-                slots.release()
+                capacity.release()
 
         return await anyio.to_thread.run_sync(run, abandon_on_cancel=True)
 
@@ -179,7 +180,7 @@ def create_app(
 
     @app.get("/health/ready", response_model=ReadinessResponse | ServiceError)
     async def ready():
-        state = await bounded(corpus)
+        state = await bounded(corpus, status_slots)
         if isinstance(state, ServiceError):
             return response(state)
         generator = service.generator
@@ -200,7 +201,7 @@ def create_app(
     async def documents():
         from dietary_rag.api.context import CURRENT_REQUEST
 
-        state = await bounded(corpus)
+        state = await bounded(corpus, status_slots)
         # An unavailable corpus still exposes reviewed metadata with every source unavailable.
         if isinstance(state, ServiceError) and state.code != "corpus_unavailable":
             return response(state)

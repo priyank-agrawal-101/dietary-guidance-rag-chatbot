@@ -1,0 +1,2466 @@
+{
+  "version": "friendly_ux_review_v1",
+  "mode": "offline extractive real active corpus",
+  "passed": true,
+  "cases": [
+    {
+      "case": "cooking-oil",
+      "question": "What information you have about cooking oil.",
+      "passed": true,
+      "response": {
+        "request_id": "3fb8453a-7b10-4303-b794-4eda33a9a3a4",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "dga_2025_2030_pdf",
+            "claims": [
+              {
+                "text": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.",
+                "citation_ids": [
+                  "citation_6fb90c384723e360e7b670370211857e83486d1e87104efd2b8e56bb8b9d1e7d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_6fb90c384723e360e7b670370211857e83486d1e87104efd2b8e56bb8b9d1e7d",
+            "document_id": "dga_2025_2030_pdf",
+            "document_name": "Dietary Guidelines for Americans, 2025\u20132030",
+            "publisher": "HHS and USDA",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "2025\u20132030 edition; publication year not established in inspected PDF; 2025\u20132030",
+            "format": "pdf",
+            "physical_pages": [
+              4
+            ],
+            "page_urls": [
+              "https://cdn.realfood.gov/DGA_508.pdf#page=4"
+            ],
+            "printed_page_labels": [
+              "3"
+            ],
+            "source_url": "https://cdn.realfood.gov/DGA_508.pdf#page=4",
+            "section_heading": "Dietary Guidelines for Americans, 2025\u20132030 > Incorporate Healthy Fats",
+            "chunk_ids": [
+              "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5"
+            ],
+            "support_quotes": [
+              "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 1,
+        "validation_codes": [],
+        "search_audit": {
+          "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+          "activation_generation": 1,
+          "status": "searched",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+          "strategy": "hybrid",
+          "resolved_question": "What information you have about cooking oil.",
+          "selected_document_ids": null,
+          "searched_document_ids": [
+            "cdc_emergency_food_safety",
+            "cdc_food_safety",
+            "cdc_pregnancy_food_safety",
+            "dga_2025_2030_pdf",
+            "fda_nutrition_label_current",
+            "fda_produce",
+            "fda_seafood",
+            "hhs_adults_older_adults_pdf",
+            "hhs_kids_teens_pdf",
+            "mn_cold_storage",
+            "mn_cross_contamination_pdf",
+            "mn_food_thermometers",
+            "mn_safe_grilling_pdf",
+            "mn_safe_temperatures",
+            "mn_storage_chart",
+            "nhlbi_sodium_tips_pdf"
+          ],
+          "scope_issues": [],
+          "filtered_documents": {},
+          "branch_ranks": {
+            "dense": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 0.6597028374671936
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_0c30670e258e526ef8e2ce80e5c9c86a4308caf67fcc4a4c68594b7ed5f5991a",
+                "document_id": "mn_food_thermometers",
+                "score": 0.6412181854248047
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_f23ed5f347bb263baf99820f154c0c09c067e4e6e68c21aead39de034346084f",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.636726975440979
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.629842221736908
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.6297719478607178
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb",
+                "document_id": "mn_food_thermometers",
+                "score": 0.6239242553710938
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6182921528816223
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6162819266319275
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6161366701126099
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6149753928184509
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_61326a425e4f51131c421b1da5389fceb546851d8cb7e184bb1cbd5139a9aaf4",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 0.6141546964645386
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6123672127723694
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6120098829269409
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_8311597273093171fccbff23a4f697cebcc8f6baf92114f40caa2640907255d0",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6088894605636597
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_1aa44f1f4832bfeedec0727331336b53b24760bedbb57fa3257adfc1e7184022",
+                "document_id": "mn_cross_contamination_pdf",
+                "score": 0.6062007546424866
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_44a9b730c58d03a61e0547f34da7cc51a679f82a3a094ddfd9c1e75313a7beed",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 0.6056565642356873
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6044782996177673
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 0.6043554544448853
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_b442d8935602f7b8b183dc3a65450dedf1705ab41b76299ddd4ac732af337ebd",
+                "document_id": "fda_produce",
+                "score": 0.6021037697792053
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_1ed19e304ddfdb9690e99760f68881315aec366de1dcbe9432702de8214e8dcd",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 0.6014922261238098
+              }
+            ],
+            "bm25": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 7.968835427350044
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+                "document_id": "fda_seafood",
+                "score": 7.396893807785753
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 7.359697035164284
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_e12bcad80081d4d8aa0710592099d00aa4721a572c7027f00fd0f8ed522e79f9",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 6.581339673216528
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_6031c00a88a03deb1f4a18d254e8b8fb7ba84ae4eca646021ab6e68ff82dd198",
+                "document_id": "fda_produce",
+                "score": 6.1838208234880465
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_d28bd263fc8de1777ae9e71590fb53db8cad96a1fea9ff4526a7a601e0b3806d",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 6.155140577719379
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_a300fc86d36a0836d950ef94d72387b29061a3e17a1990009cebd335fb2c921d",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 6.104757009326246
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_b57c9bd8ffd8352385870a5e60a93f3e6d223f3f891850803ca9b0ea22800b80",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 5.988225260868954
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_d1a59744c982da300db5e6d15d11ce5bbaa54f552719df9d52fb2764b2b826e4",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 5.911209628345861
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4",
+                "document_id": "fda_nutrition_label_current",
+                "score": 5.815090797496828
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_69ed3e1dd90aeb3144ec564ca654294d32ed0ab66d58e90d599d199d80edc3e8",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 5.663319316457586
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_9aa423ba68132bda99752b64bfd6e193467becf9556bb6738b470d0bf37049be",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 5.60119516006916
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+                "document_id": "mn_storage_chart",
+                "score": 5.465374625690117
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+                "document_id": "mn_safe_temperatures",
+                "score": 5.40523728375091
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_376052b2c7f89403216424faf367318488e7015d7a8c3da727b73bf9a482a890",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 5.05410753056843
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 5.047768344758107
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+                "document_id": "mn_storage_chart",
+                "score": 4.894355846910022
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+                "document_id": "mn_storage_chart",
+                "score": 4.850290181092982
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_e734f0b596280cc215b45d52cbbdcf1228e116c15bbbe1f4472d98a5b94aa776",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 4.841451779578043
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+                "document_id": "mn_storage_chart",
+                "score": 4.807010913479861
+              }
+            ]
+          },
+          "fused_ranks": [
+            {
+              "rank": 1,
+              "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+              "document_id": "dga_2025_2030_pdf",
+              "score": 0.03278688524590164
+            },
+            {
+              "rank": 2,
+              "chunk_id": "chunk_0c30670e258e526ef8e2ce80e5c9c86a4308caf67fcc4a4c68594b7ed5f5991a",
+              "document_id": "mn_food_thermometers",
+              "score": 0.016129032258064516
+            },
+            {
+              "rank": 3,
+              "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+              "document_id": "fda_seafood",
+              "score": 0.016129032258064516
+            },
+            {
+              "rank": 4,
+              "chunk_id": "chunk_75a1725703be9970deb7e14737700f2dc72048091f639cbc1642101801b98278",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 5,
+              "chunk_id": "chunk_f23ed5f347bb263baf99820f154c0c09c067e4e6e68c21aead39de034346084f",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 6,
+              "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 7,
+              "chunk_id": "chunk_e12bcad80081d4d8aa0710592099d00aa4721a572c7027f00fd0f8ed522e79f9",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 8,
+              "chunk_id": "chunk_6031c00a88a03deb1f4a18d254e8b8fb7ba84ae4eca646021ab6e68ff82dd198",
+              "document_id": "fda_produce",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 9,
+              "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 10,
+              "chunk_id": "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb",
+              "document_id": "mn_food_thermometers",
+              "score": 0.015151515151515152
+            },
+            {
+              "rank": 11,
+              "chunk_id": "chunk_d28bd263fc8de1777ae9e71590fb53db8cad96a1fea9ff4526a7a601e0b3806d",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.015151515151515152
+            },
+            {
+              "rank": 12,
+              "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014925373134328358
+            },
+            {
+              "rank": 13,
+              "chunk_id": "chunk_a300fc86d36a0836d950ef94d72387b29061a3e17a1990009cebd335fb2c921d",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.014925373134328358
+            },
+            {
+              "rank": 14,
+              "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 15,
+              "chunk_id": "chunk_b57c9bd8ffd8352385870a5e60a93f3e6d223f3f891850803ca9b0ea22800b80",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 16,
+              "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 17,
+              "chunk_id": "chunk_d1a59744c982da300db5e6d15d11ce5bbaa54f552719df9d52fb2764b2b826e4",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 18,
+              "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 19,
+              "chunk_id": "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4",
+              "document_id": "fda_nutrition_label_current",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 20,
+              "chunk_id": "chunk_61326a425e4f51131c421b1da5389fceb546851d8cb7e184bb1cbd5139a9aaf4",
+              "document_id": "dga_2025_2030_pdf",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 21,
+              "chunk_id": "chunk_69ed3e1dd90aeb3144ec564ca654294d32ed0ab66d58e90d599d199d80edc3e8",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 22,
+              "chunk_id": "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013888888888888888
+            },
+            {
+              "rank": 23,
+              "chunk_id": "chunk_9aa423ba68132bda99752b64bfd6e193467becf9556bb6738b470d0bf37049be",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.013888888888888888
+            },
+            {
+              "rank": 24,
+              "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+              "document_id": "mn_storage_chart",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 25,
+              "chunk_id": "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 26,
+              "chunk_id": "chunk_8311597273093171fccbff23a4f697cebcc8f6baf92114f40caa2640907255d0",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 27,
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 28,
+              "chunk_id": "chunk_1aa44f1f4832bfeedec0727331336b53b24760bedbb57fa3257adfc1e7184022",
+              "document_id": "mn_cross_contamination_pdf",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 29,
+              "chunk_id": "chunk_376052b2c7f89403216424faf367318488e7015d7a8c3da727b73bf9a482a890",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 30,
+              "chunk_id": "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 31,
+              "chunk_id": "chunk_44a9b730c58d03a61e0547f34da7cc51a679f82a3a094ddfd9c1e75313a7beed",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 32,
+              "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+              "document_id": "mn_storage_chart",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 33,
+              "chunk_id": "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 34,
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 35,
+              "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+              "document_id": "mn_storage_chart",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 36,
+              "chunk_id": "chunk_b442d8935602f7b8b183dc3a65450dedf1705ab41b76299ddd4ac732af337ebd",
+              "document_id": "fda_produce",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 37,
+              "chunk_id": "chunk_e734f0b596280cc215b45d52cbbdcf1228e116c15bbbe1f4472d98a5b94aa776",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 38,
+              "chunk_id": "chunk_1ed19e304ddfdb9690e99760f68881315aec366de1dcbe9432702de8214e8dcd",
+              "document_id": "dga_2025_2030_pdf",
+              "score": 0.0125
+            },
+            {
+              "rank": 39,
+              "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+              "document_id": "mn_storage_chart",
+              "score": 0.0125
+            }
+          ],
+          "budget_omissions": {
+            "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161": "final_candidate_budget",
+            "chunk_e12bcad80081d4d8aa0710592099d00aa4721a572c7027f00fd0f8ed522e79f9": "final_candidate_budget",
+            "chunk_6031c00a88a03deb1f4a18d254e8b8fb7ba84ae4eca646021ab6e68ff82dd198": "final_candidate_budget",
+            "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2": "final_candidate_budget",
+            "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb": "final_candidate_budget",
+            "chunk_d28bd263fc8de1777ae9e71590fb53db8cad96a1fea9ff4526a7a601e0b3806d": "final_candidate_budget",
+            "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8": "final_candidate_budget",
+            "chunk_a300fc86d36a0836d950ef94d72387b29061a3e17a1990009cebd335fb2c921d": "final_candidate_budget",
+            "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23": "final_candidate_budget",
+            "chunk_b57c9bd8ffd8352385870a5e60a93f3e6d223f3f891850803ca9b0ea22800b80": "final_candidate_budget",
+            "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b": "final_candidate_budget",
+            "chunk_d1a59744c982da300db5e6d15d11ce5bbaa54f552719df9d52fb2764b2b826e4": "final_candidate_budget",
+            "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da": "final_candidate_budget",
+            "chunk_85cafd303aa23498f62dfbea655c39f2dfe81ebe0428c8a0ca37c68535079ab4": "final_candidate_budget",
+            "chunk_61326a425e4f51131c421b1da5389fceb546851d8cb7e184bb1cbd5139a9aaf4": "final_candidate_budget",
+            "chunk_69ed3e1dd90aeb3144ec564ca654294d32ed0ab66d58e90d599d199d80edc3e8": "final_candidate_budget",
+            "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580": "final_candidate_budget",
+            "chunk_9aa423ba68132bda99752b64bfd6e193467becf9556bb6738b470d0bf37049be": "final_candidate_budget",
+            "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c": "final_candidate_budget",
+            "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4": "final_candidate_budget",
+            "chunk_8311597273093171fccbff23a4f697cebcc8f6baf92114f40caa2640907255d0": "final_candidate_budget",
+            "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118": "final_candidate_budget",
+            "chunk_1aa44f1f4832bfeedec0727331336b53b24760bedbb57fa3257adfc1e7184022": "final_candidate_budget",
+            "chunk_376052b2c7f89403216424faf367318488e7015d7a8c3da727b73bf9a482a890": "final_candidate_budget",
+            "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a": "final_candidate_budget",
+            "chunk_44a9b730c58d03a61e0547f34da7cc51a679f82a3a094ddfd9c1e75313a7beed": "final_candidate_budget",
+            "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4": "final_candidate_budget",
+            "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb": "final_candidate_budget",
+            "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d": "final_candidate_budget",
+            "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37": "final_candidate_budget",
+            "chunk_b442d8935602f7b8b183dc3a65450dedf1705ab41b76299ddd4ac732af337ebd": "final_candidate_budget",
+            "chunk_e734f0b596280cc215b45d52cbbdcf1228e116c15bbbe1f4472d98a5b94aa776": "final_candidate_budget",
+            "chunk_1ed19e304ddfdb9690e99760f68881315aec366de1dcbe9432702de8214e8dcd": "final_candidate_budget",
+            "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091": "final_candidate_budget"
+          },
+          "duplicate_omissions": {},
+          "context_chunks": {},
+          "query_embedding_seconds": 1.9949934999967809,
+          "elapsed_seconds": 2.0514939589993446
+        },
+        "assessment": {
+          "version": "evidence_assessment_v1",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "decision": "partial",
+          "aspects": [
+            {
+              "aspect_id": "aspect_0",
+              "topic": "cooking_oils",
+              "description": "cooking oils",
+              "terms": [],
+              "temperatures": [],
+              "method": null,
+              "required_details": []
+            }
+          ],
+          "coverage": [
+            {
+              "document_id": "cdc_emergency_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_pregnancy_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "dga_2025_2030_pdf",
+              "aspect_id": "aspect_0",
+              "status": "supported",
+              "unit_ids": [
+                "evidence_unit_7ae27b5d411305cf78daca80a372607f0b23f6093676b675a0e20cd1f2e2148b"
+              ]
+            },
+            {
+              "document_id": "fda_nutrition_label_current",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_produce",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_seafood",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_adults_older_adults_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_kids_teens_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cold_storage",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cross_contamination_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_food_thermometers",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_grilling_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_temperatures",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_storage_chart",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            }
+          ],
+          "units": [
+            {
+              "unit_id": "evidence_unit_7ae27b5d411305cf78daca80a372607f0b23f6093676b675a0e20cd1f2e2148b",
+              "document_id": "dga_2025_2030_pdf",
+              "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+              "claim_text": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.",
+              "evidence": [
+                {
+                  "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+                  "support_quote": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow."
+                }
+              ]
+            }
+          ],
+          "required_details": []
+        },
+        "validated_draft": {
+          "document_answers": [
+            {
+              "document_id": "dga_2025_2030_pdf",
+              "claims": [
+                {
+                  "claim_text": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.",
+                  "evidence": [
+                    {
+                      "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+                      "support_quote": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "unanswered_aspects": []
+        },
+        "claim_evidence": {
+          "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5": {
+            "document_id": "dga_2025_2030_pdf",
+            "document_version_id": "docv_1db0dbfc8831feeb8d3686251fd8da910222794f5e928955e4db13b2e723a358",
+            "raw_sha256": "f27d3c96d51db4847b6087c068ec2d3dca400ef35e5e94c4c3ac77e8fd66e36c",
+            "text_sha256": "c1d29fdcbaf3d7e3906baddeef37c694aaf5898cc70c1eccb25cab3e01c979c2",
+            "source_locations": [
+              {
+                "format": "pdf",
+                "source_anchor": null,
+                "dom_path": null,
+                "physical_page": 4,
+                "printed_page_label": "3",
+                "bbox": [
+                  122.4927,
+                  407.5656,
+                  341.499,
+                  467.5616
+                ],
+                "extraction_method": "native_pdf",
+                "ocr_confidence": null,
+                "review_state": "reviewed"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "normalized_block_4c9f62a38bd6906829d03d7eb51afab51f3e33f01f2a12723e05480a93d03f98",
+                "start": 0,
+                "end": 156,
+                "overlap": false
+              }
+            ],
+            "table_rows": null
+          }
+        },
+        "elapsed_seconds": 2.1108621669991408
+      }
+    },
+    {
+      "case": "hard-cooked-eggs",
+      "question": "How long can hard-cooked eggs be kept in the refrigerator?",
+      "passed": true,
+      "response": {
+        "request_id": "3a993528-9070-40e7-969a-9db5b5da0201",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 1,
+        "validation_codes": [],
+        "search_audit": {
+          "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+          "activation_generation": 1,
+          "status": "searched",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+          "strategy": "hybrid",
+          "resolved_question": "How long can hard-cooked eggs be kept in the refrigerator?",
+          "selected_document_ids": null,
+          "searched_document_ids": [
+            "cdc_emergency_food_safety",
+            "cdc_food_safety",
+            "cdc_pregnancy_food_safety",
+            "dga_2025_2030_pdf",
+            "fda_nutrition_label_current",
+            "fda_produce",
+            "fda_seafood",
+            "hhs_adults_older_adults_pdf",
+            "hhs_kids_teens_pdf",
+            "mn_cold_storage",
+            "mn_cross_contamination_pdf",
+            "mn_food_thermometers",
+            "mn_safe_grilling_pdf",
+            "mn_safe_temperatures",
+            "mn_storage_chart",
+            "nhlbi_sodium_tips_pdf"
+          ],
+          "scope_issues": [],
+          "filtered_documents": {},
+          "branch_ranks": {
+            "dense": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                "document_id": "mn_storage_chart",
+                "score": 0.7674681544303894
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+                "document_id": "mn_cold_storage",
+                "score": 0.739103376865387
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_c22186d87ca37e075e3fb69de4754a9c867020f59fdac42c1bca557454fe8bc3",
+                "document_id": "mn_storage_chart",
+                "score": 0.7191575765609741
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+                "document_id": "cdc_food_safety",
+                "score": 0.7147625684738159
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.7109459638595581
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8",
+                "document_id": "mn_storage_chart",
+                "score": 0.6984366774559021
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_a265ee7738149c48ef37814e95dc133cb9d41e27f713454ccc7890a1f1ce5fd8",
+                "document_id": "mn_storage_chart",
+                "score": 0.6969664692878723
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.6939076781272888
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.6914541721343994
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_155de72a02d8e85dd3a1f1346d389edaf77f1dc6837047d0308830f8b31cca05",
+                "document_id": "mn_cross_contamination_pdf",
+                "score": 0.69049471616745
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+                "document_id": "mn_storage_chart",
+                "score": 0.6847549676895142
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 0.6845151782035828
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+                "document_id": "cdc_food_safety",
+                "score": 0.68067467212677
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_8f966bf58b76a31a275124e206de7ba40c7d67d0084f6a9ab85a047d7cd211fe",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.6797727346420288
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583",
+                "document_id": "mn_storage_chart",
+                "score": 0.676238477230072
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_bf90664ffbfdc86fa58c82e9e4e8854137c73b4ce30b15927b60d39326e57238",
+                "document_id": "mn_storage_chart",
+                "score": 0.6735800504684448
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.672803521156311
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_425ae033e9cfc671f15a6df408dd3a6883a3a65d587d3ba27d98fb2b43fc06eb",
+                "document_id": "fda_seafood",
+                "score": 0.6710668206214905
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_09475edc2c0fa4fd99a6f36886c4aa35aa7e698ff777f90c1ff171098cefc6d3",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 0.6637067198753357
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec",
+                "document_id": "fda_seafood",
+                "score": 0.6593359112739563
+              }
+            ],
+            "bm25": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+                "document_id": "mn_cold_storage",
+                "score": 16.540986438482022
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                "document_id": "mn_storage_chart",
+                "score": 14.664654061654215
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 12.19861847578221
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 12.038075766448818
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_c22186d87ca37e075e3fb69de4754a9c867020f59fdac42c1bca557454fe8bc3",
+                "document_id": "mn_storage_chart",
+                "score": 10.543268648806094
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_a265ee7738149c48ef37814e95dc133cb9d41e27f713454ccc7890a1f1ce5fd8",
+                "document_id": "mn_storage_chart",
+                "score": 10.2480952244443
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_09475edc2c0fa4fd99a6f36886c4aa35aa7e698ff777f90c1ff171098cefc6d3",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 9.860389068696296
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+                "document_id": "mn_safe_temperatures",
+                "score": 9.576925358231739
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5",
+                "document_id": "cdc_food_safety",
+                "score": 9.332172140251663
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 9.281171567410448
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 9.011880856244865
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+                "document_id": "mn_safe_temperatures",
+                "score": 8.939450854876789
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+                "document_id": "cdc_emergency_food_safety",
+                "score": 8.607477785250905
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957",
+                "document_id": "fda_seafood",
+                "score": 8.60599927857428
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 8.214969349279844
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb",
+                "document_id": "fda_seafood",
+                "score": 8.206113182445895
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+                "document_id": "mn_storage_chart",
+                "score": 8.202196931636728
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+                "document_id": "mn_storage_chart",
+                "score": 8.132140366593447
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+                "document_id": "mn_storage_chart",
+                "score": 7.996167797178105
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_f05de67dae72e3c7a6c7da9882d0e4eed2c806d896dfdb939899a0f1918137bc",
+                "document_id": "mn_cold_storage",
+                "score": 7.956877657921751
+              }
+            ]
+          },
+          "fused_ranks": [
+            {
+              "rank": 1,
+              "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+              "document_id": "mn_cold_storage",
+              "score": 0.03252247488101534
+            },
+            {
+              "rank": 2,
+              "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+              "document_id": "mn_storage_chart",
+              "score": 0.03252247488101534
+            },
+            {
+              "rank": 3,
+              "chunk_id": "chunk_c22186d87ca37e075e3fb69de4754a9c867020f59fdac42c1bca557454fe8bc3",
+              "document_id": "mn_storage_chart",
+              "score": 0.03125763125763126
+            },
+            {
+              "rank": 4,
+              "chunk_id": "chunk_a265ee7738149c48ef37814e95dc133cb9d41e27f713454ccc7890a1f1ce5fd8",
+              "document_id": "mn_storage_chart",
+              "score": 0.03007688828584351
+            },
+            {
+              "rank": 5,
+              "chunk_id": "chunk_52e0742c75201054b64bc80d751aefb641d36eb9f4a3644be835b9d4db85e225",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.028404512489927477
+            },
+            {
+              "rank": 6,
+              "chunk_id": "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 0.02797339593114241
+            },
+            {
+              "rank": 7,
+              "chunk_id": "chunk_09475edc2c0fa4fd99a6f36886c4aa35aa7e698ff777f90c1ff171098cefc6d3",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.027583600982429624
+            },
+            {
+              "rank": 8,
+              "chunk_id": "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.026875901875901876
+            },
+            {
+              "rank": 9,
+              "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 10,
+              "chunk_id": "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133",
+              "document_id": "cdc_food_safety",
+              "score": 0.015625
+            },
+            {
+              "rank": 11,
+              "chunk_id": "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 12,
+              "chunk_id": "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 13,
+              "chunk_id": "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8",
+              "document_id": "mn_storage_chart",
+              "score": 0.015151515151515152
+            },
+            {
+              "rank": 14,
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 15,
+              "chunk_id": "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5",
+              "document_id": "cdc_food_safety",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 16,
+              "chunk_id": "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830",
+              "document_id": "cdc_emergency_food_safety",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 17,
+              "chunk_id": "chunk_155de72a02d8e85dd3a1f1346d389edaf77f1dc6837047d0308830f8b31cca05",
+              "document_id": "mn_cross_contamination_pdf",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 18,
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 19,
+              "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+              "document_id": "mn_storage_chart",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 20,
+              "chunk_id": "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a",
+              "document_id": "cdc_food_safety",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 21,
+              "chunk_id": "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957",
+              "document_id": "fda_seafood",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 22,
+              "chunk_id": "chunk_8f966bf58b76a31a275124e206de7ba40c7d67d0084f6a9ab85a047d7cd211fe",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 23,
+              "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 24,
+              "chunk_id": "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583",
+              "document_id": "mn_storage_chart",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 25,
+              "chunk_id": "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb",
+              "document_id": "fda_seafood",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 26,
+              "chunk_id": "chunk_bf90664ffbfdc86fa58c82e9e4e8854137c73b4ce30b15927b60d39326e57238",
+              "document_id": "mn_storage_chart",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 27,
+              "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+              "document_id": "mn_storage_chart",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 28,
+              "chunk_id": "chunk_425ae033e9cfc671f15a6df408dd3a6883a3a65d587d3ba27d98fb2b43fc06eb",
+              "document_id": "fda_seafood",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 29,
+              "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+              "document_id": "mn_storage_chart",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 30,
+              "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+              "document_id": "mn_storage_chart",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 31,
+              "chunk_id": "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec",
+              "document_id": "fda_seafood",
+              "score": 0.0125
+            },
+            {
+              "rank": 32,
+              "chunk_id": "chunk_f05de67dae72e3c7a6c7da9882d0e4eed2c806d896dfdb939899a0f1918137bc",
+              "document_id": "mn_cold_storage",
+              "score": 0.0125
+            }
+          ],
+          "budget_omissions": {
+            "chunk_757bfd941c8ded4f65ac949b64c8a9dfe56e95d150a66d91a11a8a4bdf97d362": "final_candidate_budget",
+            "chunk_09475edc2c0fa4fd99a6f36886c4aa35aa7e698ff777f90c1ff171098cefc6d3": "final_candidate_budget",
+            "chunk_f6f98b3deeabedb84d0713a1523329ff2e9db4ce9e9928b29e63e784e9c09275": "final_candidate_budget",
+            "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506": "final_candidate_budget",
+            "chunk_2d5573d906472f750f42b477980cd3cac9cfbbccd90ec504da000b262bf4e133": "final_candidate_budget",
+            "chunk_39665c0e7d49baae72c9ed046cad0e8e35f6b167f5ee5fb2808edfbb372ad298": "final_candidate_budget",
+            "chunk_5c45d9991eb70297670383c4d9259bf477e1b67e07e16e7f0974ee6d1ec4a42c": "final_candidate_budget",
+            "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8": "final_candidate_budget",
+            "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118": "final_candidate_budget",
+            "chunk_86d686f8fc451550395934a22c4cb2f16f47c45157b65ff2e5f03d8fc9204cd5": "final_candidate_budget",
+            "chunk_a96688d62f2781aac17a80010d5f59621e28777862be2445a70664100eeec830": "final_candidate_budget",
+            "chunk_155de72a02d8e85dd3a1f1346d389edaf77f1dc6837047d0308830f8b31cca05": "final_candidate_budget",
+            "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d": "final_candidate_budget",
+            "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091": "final_candidate_budget",
+            "chunk_6b719f1cc3312c172d830888ba56ee8564f580fef8e702682f07c56c3ebeef3a": "final_candidate_budget",
+            "chunk_32c6bbeff05889b6faf4f74db32428a88a96446d33e6a733a5e8405a5d1ce957": "final_candidate_budget",
+            "chunk_8f966bf58b76a31a275124e206de7ba40c7d67d0084f6a9ab85a047d7cd211fe": "final_candidate_budget",
+            "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67": "final_candidate_budget",
+            "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583": "final_candidate_budget",
+            "chunk_b9fbcb27d1e4ecccdecbc6b70ecd2b33228ccbdd023c8779e8d2d18df1d6dbeb": "final_candidate_budget",
+            "chunk_bf90664ffbfdc86fa58c82e9e4e8854137c73b4ce30b15927b60d39326e57238": "final_candidate_budget",
+            "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c": "final_candidate_budget",
+            "chunk_425ae033e9cfc671f15a6df408dd3a6883a3a65d587d3ba27d98fb2b43fc06eb": "final_candidate_budget",
+            "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37": "final_candidate_budget",
+            "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4": "final_candidate_budget",
+            "chunk_9331492c423ecbfda24c0e16d55af96dc2f85cf6ddc3277b9bdf6c210bfa43ec": "final_candidate_budget",
+            "chunk_f05de67dae72e3c7a6c7da9882d0e4eed2c806d896dfdb939899a0f1918137bc": "final_candidate_budget"
+          },
+          "duplicate_omissions": {},
+          "context_chunks": {},
+          "query_embedding_seconds": 0.00574366599903442,
+          "elapsed_seconds": 0.017710000000079162
+        },
+        "assessment": {
+          "version": "evidence_assessment_v1",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "decision": "partial",
+          "aspects": [
+            {
+              "aspect_id": "aspect_0",
+              "topic": "storage_duration",
+              "description": "storage duration in the refrigerator",
+              "terms": [
+                "eggs",
+                "hard cooked",
+                "cooked"
+              ],
+              "temperatures": [],
+              "method": "refrigerator",
+              "required_details": []
+            }
+          ],
+          "coverage": [
+            {
+              "document_id": "cdc_emergency_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_pregnancy_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "dga_2025_2030_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_nutrition_label_current",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_produce",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_seafood",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_adults_older_adults_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_kids_teens_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cold_storage",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cross_contamination_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_food_thermometers",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_grilling_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_temperatures",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_storage_chart",
+              "aspect_id": "aspect_0",
+              "status": "supported",
+              "unit_ids": [
+                "evidence_unit_2e75bc9f1b9901f56c4a90d97409b977aaeeb3bc0028b6b1372c19d91eee1d03"
+              ]
+            },
+            {
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            }
+          ],
+          "units": [
+            {
+              "unit_id": "evidence_unit_2e75bc9f1b9901f56c4a90d97409b977aaeeb3bc0028b6b1372c19d91eee1d03",
+              "document_id": "mn_storage_chart",
+              "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+              "claim_text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+              "evidence": [
+                {
+                  "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                  "support_quote": "Table: Cold Storage Chart"
+                },
+                {
+                  "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                  "support_quote": "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze"
+                },
+                {
+                  "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                  "support_quote": "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+                }
+              ]
+            }
+          ],
+          "required_details": []
+        },
+        "validated_draft": {
+          "document_answers": [
+            {
+              "document_id": "mn_storage_chart",
+              "claims": [
+                {
+                  "claim_text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                  "evidence": [
+                    {
+                      "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                      "support_quote": "Table: Cold Storage Chart"
+                    },
+                    {
+                      "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                      "support_quote": "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze"
+                    },
+                    {
+                      "chunk_id": "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e",
+                      "support_quote": "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "unanswered_aspects": []
+        },
+        "claim_evidence": {
+          "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e": {
+            "document_id": "mn_storage_chart",
+            "document_version_id": "docv_1701ba9e15aa695c6e08eff9263a14ac7a0262a16df8420f664b42c2e710e631",
+            "raw_sha256": "e8486ab0a225637ada2263112ed8f2386b3c7c299441399c9cc25067c0a78bc7",
+            "text_sha256": "ce35e05ee94d5b33506478608a934a0959573ad52fb53e622bcc97671fb50d95",
+            "source_locations": [
+              {
+                "format": "html",
+                "source_anchor": "block-bootstrap-mdh-content",
+                "dom_path": "html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > table:nth-of-type(2)",
+                "physical_page": null,
+                "printed_page_label": null,
+                "bbox": null,
+                "extraction_method": "html",
+                "ocr_confidence": null,
+                "review_state": "reviewed"
+              }
+            ],
+            "spans": [],
+            "table_rows": {
+              "block_id": "normalized_block_28be82788434069bc08800bb786b2e569aad21d22d53be41e82f88b39d2114fa",
+              "original_table_id": "block_0f8b92a44201286fe8e5c8a2f9e018bdf1d2a1e1a9f7a155487c74f80b5a7b55",
+              "row_indices": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          }
+        },
+        "elapsed_seconds": 0.031917749998683576
+      }
+    },
+    {
+      "case": "unrelated-president",
+      "question": "Do you know about President of US?",
+      "passed": true,
+      "response": {
+        "request_id": "76ce31f1-4701-4f14-a776-83f6e67c5b05",
+        "status": "out_of_scope",
+        "corpus_version": null,
+        "message": "I focus on food and nutrition, so I can't answer that topic. I can help with food choices, cooking and storage safety, or understanding food labels.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 0,
+        "validation_codes": []
+      }
+    },
+    {
+      "case": "unsupported-oil-smoke-point",
+      "question": "What is the smoke point of cooking oil?",
+      "passed": true,
+      "response": {
+        "request_id": "09b4a1dc-15ae-4997-aa0d-1a7769cb9565",
+        "status": "not_covered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": "I couldn't find a supported answer in the sources searched. Try a more specific food question or choose different sources.",
+        "document_answers": [],
+        "citations": [],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      },
+      "inspection": {
+        "version": "answer_inspection_v1",
+        "generation_attempts": 0,
+        "validation_codes": [],
+        "search_audit": {
+          "release_id": "corpus_release_5416ff51d077f1e497a8c4b2eaaefd0d42390605260e6c01639cbd2154c76b1f",
+          "activation_generation": 1,
+          "status": "searched",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "retrieval_configuration_id": "retrieval_config_97fa98ecad801e8185b67254aa0e17a48b4601622a3dcc0e89717000b51be231",
+          "strategy": "hybrid",
+          "resolved_question": "What is the smoke point of cooking oil?",
+          "selected_document_ids": null,
+          "searched_document_ids": [
+            "cdc_emergency_food_safety",
+            "cdc_food_safety",
+            "cdc_pregnancy_food_safety",
+            "dga_2025_2030_pdf",
+            "fda_nutrition_label_current",
+            "fda_produce",
+            "fda_seafood",
+            "hhs_adults_older_adults_pdf",
+            "hhs_kids_teens_pdf",
+            "mn_cold_storage",
+            "mn_cross_contamination_pdf",
+            "mn_food_thermometers",
+            "mn_safe_grilling_pdf",
+            "mn_safe_temperatures",
+            "mn_storage_chart",
+            "nhlbi_sodium_tips_pdf"
+          ],
+          "scope_issues": [],
+          "filtered_documents": {},
+          "branch_ranks": {
+            "dense": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6537439823150635
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6442555785179138
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6227530837059021
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_f23ed5f347bb263baf99820f154c0c09c067e4e6e68c21aead39de034346084f",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6121797561645508
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6085687279701233
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.6064842939376831
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_28753be580abde16964407dc02765b6c900710a7a561e0a4d6009516b80952f2",
+                "document_id": "mn_cold_storage",
+                "score": 0.6061933040618896
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+                "document_id": "cdc_pregnancy_food_safety",
+                "score": 0.6036331057548523
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+                "document_id": "cdc_food_safety",
+                "score": 0.602148711681366
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+                "document_id": "fda_seafood",
+                "score": 0.5940744280815125
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb",
+                "document_id": "mn_food_thermometers",
+                "score": 0.5938127636909485
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.5912805199623108
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5909435153007507
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5886731743812561
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5813209414482117
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+                "document_id": "mn_safe_temperatures",
+                "score": 0.5813159942626953
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5798696875572205
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5774469971656799
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5737398862838745
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 0.5676508545875549
+              }
+            ],
+            "bm25": [
+              {
+                "rank": 1,
+                "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 7.968835427350044
+              },
+              {
+                "rank": 2,
+                "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+                "document_id": "mn_safe_temperatures",
+                "score": 7.910707367198949
+              },
+              {
+                "rank": 3,
+                "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+                "document_id": "cdc_food_safety",
+                "score": 6.173416145069654
+              },
+              {
+                "rank": 4,
+                "chunk_id": "chunk_b960b70a04fbadb1ce5f72589a35d8d70b2dca116192646fc495ee539e661eb0",
+                "document_id": "fda_seafood",
+                "score": 5.960000990996516
+              },
+              {
+                "rank": 5,
+                "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+                "document_id": "mn_cold_storage",
+                "score": 5.873190771012262
+              },
+              {
+                "rank": 6,
+                "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 5.841270472033384
+              },
+              {
+                "rank": 7,
+                "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+                "document_id": "mn_storage_chart",
+                "score": 5.665515644700237
+              },
+              {
+                "rank": 8,
+                "chunk_id": "chunk_feb48f031951d9213322c9c5a5de9a809bb1806d1f43583c66ec5846b769b5ca",
+                "document_id": "dga_2025_2030_pdf",
+                "score": 5.544362710896176
+              },
+              {
+                "rank": 9,
+                "chunk_id": "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0",
+                "document_id": "fda_seafood",
+                "score": 5.539448317635987
+              },
+              {
+                "rank": 10,
+                "chunk_id": "chunk_261a436641aed15389d6e75bbb936a6e5139441e0eea94685a9021e03f45cb47",
+                "document_id": "fda_seafood",
+                "score": 5.480476934484282
+              },
+              {
+                "rank": 11,
+                "chunk_id": "chunk_be51583adfaf21a0ed005881bec9887376d1c2c925791337c164db18e09d8484",
+                "document_id": "hhs_kids_teens_pdf",
+                "score": 5.400610371283783
+              },
+              {
+                "rank": 12,
+                "chunk_id": "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a",
+                "document_id": "hhs_adults_older_adults_pdf",
+                "score": 5.047768344758107
+              },
+              {
+                "rank": 13,
+                "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+                "document_id": "mn_storage_chart",
+                "score": 4.9803011117672416
+              },
+              {
+                "rank": 14,
+                "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+                "document_id": "mn_storage_chart",
+                "score": 4.928693547503665
+              },
+              {
+                "rank": 15,
+                "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+                "document_id": "mn_storage_chart",
+                "score": 4.878174493894994
+              },
+              {
+                "rank": 16,
+                "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+                "document_id": "fda_produce",
+                "score": 4.86183056286649
+              },
+              {
+                "rank": 17,
+                "chunk_id": "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583",
+                "document_id": "mn_storage_chart",
+                "score": 4.828708926950513
+              },
+              {
+                "rank": 18,
+                "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+                "document_id": "mn_safe_temperatures",
+                "score": 4.750863825846942
+              },
+              {
+                "rank": 19,
+                "chunk_id": "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8",
+                "document_id": "mn_storage_chart",
+                "score": 4.732805697662173
+              },
+              {
+                "rank": 20,
+                "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+                "document_id": "mn_safe_grilling_pdf",
+                "score": 4.641861954088705
+              }
+            ]
+          },
+          "fused_ranks": [
+            {
+              "rank": 1,
+              "chunk_id": "chunk_35b44fc2ac9c4856bc538e1dd3d189a86a6dfb7d1bd2ce32bccb9339d819b161",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.031544957774465976
+            },
+            {
+              "rank": 2,
+              "chunk_id": "chunk_a648b0b7344e34cd8c676924b254272a81c75980b06afa94c09f2fa4729fc118",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.030017921146953404
+            },
+            {
+              "rank": 3,
+              "chunk_id": "chunk_b6a53ad3744650d58e5cf5175f4e3e136d82c50521a6fc7c2356df67fb8d6506",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.028629032258064516
+            },
+            {
+              "rank": 4,
+              "chunk_id": "chunk_b5e9d23176aca58061d304d4671255ba0d2037ce97f998127d9f13b17a4037f2",
+              "document_id": "mn_safe_temperatures",
+              "score": 0.025978407557354925
+            },
+            {
+              "rank": 5,
+              "chunk_id": "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5",
+              "document_id": "dga_2025_2030_pdf",
+              "score": 0.01639344262295082
+            },
+            {
+              "rank": 6,
+              "chunk_id": "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee",
+              "document_id": "cdc_food_safety",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 7,
+              "chunk_id": "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015873015873015872
+            },
+            {
+              "rank": 8,
+              "chunk_id": "chunk_b960b70a04fbadb1ce5f72589a35d8d70b2dca116192646fc495ee539e661eb0",
+              "document_id": "fda_seafood",
+              "score": 0.015625
+            },
+            {
+              "rank": 9,
+              "chunk_id": "chunk_f23ed5f347bb263baf99820f154c0c09c067e4e6e68c21aead39de034346084f",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015625
+            },
+            {
+              "rank": 10,
+              "chunk_id": "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 11,
+              "chunk_id": "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1",
+              "document_id": "mn_cold_storage",
+              "score": 0.015384615384615385
+            },
+            {
+              "rank": 12,
+              "chunk_id": "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.015151515151515152
+            },
+            {
+              "rank": 13,
+              "chunk_id": "chunk_28753be580abde16964407dc02765b6c900710a7a561e0a4d6009516b80952f2",
+              "document_id": "mn_cold_storage",
+              "score": 0.014925373134328358
+            },
+            {
+              "rank": 14,
+              "chunk_id": "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c",
+              "document_id": "mn_storage_chart",
+              "score": 0.014925373134328358
+            },
+            {
+              "rank": 15,
+              "chunk_id": "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67",
+              "document_id": "cdc_pregnancy_food_safety",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 16,
+              "chunk_id": "chunk_feb48f031951d9213322c9c5a5de9a809bb1806d1f43583c66ec5846b769b5ca",
+              "document_id": "dga_2025_2030_pdf",
+              "score": 0.014705882352941176
+            },
+            {
+              "rank": 17,
+              "chunk_id": "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0",
+              "document_id": "fda_seafood",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 18,
+              "chunk_id": "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d",
+              "document_id": "cdc_food_safety",
+              "score": 0.014492753623188406
+            },
+            {
+              "rank": 19,
+              "chunk_id": "chunk_261a436641aed15389d6e75bbb936a6e5139441e0eea94685a9021e03f45cb47",
+              "document_id": "fda_seafood",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 20,
+              "chunk_id": "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33",
+              "document_id": "fda_seafood",
+              "score": 0.014285714285714285
+            },
+            {
+              "rank": 21,
+              "chunk_id": "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb",
+              "document_id": "mn_food_thermometers",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 22,
+              "chunk_id": "chunk_be51583adfaf21a0ed005881bec9887376d1c2c925791337c164db18e09d8484",
+              "document_id": "hhs_kids_teens_pdf",
+              "score": 0.014084507042253521
+            },
+            {
+              "rank": 23,
+              "chunk_id": "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a",
+              "document_id": "hhs_adults_older_adults_pdf",
+              "score": 0.013888888888888888
+            },
+            {
+              "rank": 24,
+              "chunk_id": "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4",
+              "document_id": "mn_storage_chart",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 25,
+              "chunk_id": "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.0136986301369863
+            },
+            {
+              "rank": 26,
+              "chunk_id": "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 27,
+              "chunk_id": "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37",
+              "document_id": "mn_storage_chart",
+              "score": 0.013513513513513514
+            },
+            {
+              "rank": 28,
+              "chunk_id": "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 29,
+              "chunk_id": "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091",
+              "document_id": "mn_storage_chart",
+              "score": 0.013333333333333334
+            },
+            {
+              "rank": 30,
+              "chunk_id": "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b",
+              "document_id": "fda_produce",
+              "score": 0.013157894736842105
+            },
+            {
+              "rank": 31,
+              "chunk_id": "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 32,
+              "chunk_id": "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583",
+              "document_id": "mn_storage_chart",
+              "score": 0.012987012987012988
+            },
+            {
+              "rank": 33,
+              "chunk_id": "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.01282051282051282
+            },
+            {
+              "rank": 34,
+              "chunk_id": "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 35,
+              "chunk_id": "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8",
+              "document_id": "mn_storage_chart",
+              "score": 0.012658227848101266
+            },
+            {
+              "rank": 36,
+              "chunk_id": "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4",
+              "document_id": "mn_safe_grilling_pdf",
+              "score": 0.0125
+            }
+          ],
+          "budget_omissions": {
+            "chunk_24ad9d244be3c34f70eafcf2aa706f5723b142b2d2e5eb3c6fbac48087e634ee": "final_candidate_budget",
+            "chunk_5cf6151a979c2b3c2fb067d3a25eaa21426ecbb271d5697449e8daddb519b2e9": "final_candidate_budget",
+            "chunk_b960b70a04fbadb1ce5f72589a35d8d70b2dca116192646fc495ee539e661eb0": "final_candidate_budget",
+            "chunk_f23ed5f347bb263baf99820f154c0c09c067e4e6e68c21aead39de034346084f": "final_candidate_budget",
+            "chunk_525f7695606d47dd8dabb57be149919aa004282885e19d77786d2152073e34b8": "final_candidate_budget",
+            "chunk_5fb42496d93667a39e4b623f702c5a17d87485fc1430eab365ceb5f40f323ac1": "final_candidate_budget",
+            "chunk_41b886a0d32c1628b65cf6685158d538b5b5de19d086928b1a41269ca65cd777": "final_candidate_budget",
+            "chunk_28753be580abde16964407dc02765b6c900710a7a561e0a4d6009516b80952f2": "final_candidate_budget",
+            "chunk_abbec55773ce35958afdb7ad5ecf9a8ff8bf13955ef68c523d64963dca164e4c": "final_candidate_budget",
+            "chunk_560d2cb83b8990d30f76081ce86c90db13ede4edca2dfa456d0f2d4e9dad4c67": "final_candidate_budget",
+            "chunk_feb48f031951d9213322c9c5a5de9a809bb1806d1f43583c66ec5846b769b5ca": "final_candidate_budget",
+            "chunk_12fc70e76129094f4df06b48759cb1b510648a930d03ab74a364601407eec8c0": "final_candidate_budget",
+            "chunk_3a6b374f85f98386784d12f542060ac3656419d312dc40daabfdeb8e0234e89d": "final_candidate_budget",
+            "chunk_261a436641aed15389d6e75bbb936a6e5139441e0eea94685a9021e03f45cb47": "final_candidate_budget",
+            "chunk_9c6d5d723e6ea0ec121306dab5584dad5d2559bdfa1f6a020809bfcb68fd3a33": "final_candidate_budget",
+            "chunk_b1ed227c6aa653eec5b0adc5df77a71de0889d68db1964fb0dd6224d9c04deeb": "final_candidate_budget",
+            "chunk_be51583adfaf21a0ed005881bec9887376d1c2c925791337c164db18e09d8484": "final_candidate_budget",
+            "chunk_127d19ba0d79aa5af153507a5bc958b9b140e739a988bc5037899c4d15fba94a": "final_candidate_budget",
+            "chunk_64e4710cc07e63857ce353ab178ea3272ffadb34fe61d16a3960ae444754d5c4": "final_candidate_budget",
+            "chunk_73b59ef14be05e027413eee6e1aab3478b77ae7f78995381d03447fbbf94a580": "final_candidate_budget",
+            "chunk_adc67435659cffbdaaf73a28c4a85ec1c0559a207d91153e01fee82b93fdaf0b": "final_candidate_budget",
+            "chunk_d92fd41239d5ca88818de562a2eb9ae3816aa84aac43e3da9cf9eff507e00f37": "final_candidate_budget",
+            "chunk_24db48e2db8a57ea135dce30a28a75b4028e867719177ef406c50c55ee9a110c": "final_candidate_budget",
+            "chunk_4929ea0fc43ca85686ca6e3e3d0d2955306d34b292f4de263aaff1254fa59091": "final_candidate_budget",
+            "chunk_aae85226d426a4db503c7ece4ac29f50936ab4b4bbba85c5a3ebfd5b5b1a150b": "final_candidate_budget",
+            "chunk_0aff8b20042a166ad44c70f13ea146569941bb5ce321ba7a3f3fcd8a40364b23": "final_candidate_budget",
+            "chunk_8cc08d4efce0a36055ed013d54b5aabd6ffe9d3019077e6fa7603203d64fb583": "final_candidate_budget",
+            "chunk_6efe2e830faa9f1f2d50b65a101ee4a708a4242aa5fcd3fda804b3513d2cb4eb": "final_candidate_budget",
+            "chunk_0414b76a24d0e2c78b53c44c33fcccdeb0690a235aa3bc784de200f51f8ff3da": "final_candidate_budget",
+            "chunk_3dd551d1de69aafa70b76cb141a3fa4b941e65afb1eb4f1afd90f4a04ec0afe8": "final_candidate_budget",
+            "chunk_ad9a14a3e47f55f8589e178f79aa5b1f0d60012381f216d5c6bda035341ca3c4": "final_candidate_budget"
+          },
+          "duplicate_omissions": {},
+          "context_chunks": {},
+          "query_embedding_seconds": 0.005382583003665786,
+          "elapsed_seconds": 0.035513208000338636
+        },
+        "assessment": {
+          "version": "evidence_assessment_v1",
+          "corpus_snapshot_id": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+          "decision": "not_covered",
+          "aspects": [
+            {
+              "aspect_id": "aspect_0",
+              "topic": "cooking_oils",
+              "description": "cooking oils",
+              "terms": [],
+              "temperatures": [],
+              "method": null,
+              "required_details": []
+            }
+          ],
+          "coverage": [
+            {
+              "document_id": "cdc_emergency_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "cdc_pregnancy_food_safety",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "dga_2025_2030_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_nutrition_label_current",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_produce",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "fda_seafood",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_adults_older_adults_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "hhs_kids_teens_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cold_storage",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_cross_contamination_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_food_thermometers",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_grilling_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_safe_temperatures",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "mn_storage_chart",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            },
+            {
+              "document_id": "nhlbi_sodium_tips_pdf",
+              "aspect_id": "aspect_0",
+              "status": "not_covered",
+              "unit_ids": []
+            }
+          ],
+          "units": [],
+          "required_details": []
+        }
+      }
+    }
+  ],
+  "date": "2026-11-12",
+  "verification": {
+    "python_tests_passed": 687,
+    "ui_tests_passed": 50,
+    "frozen_evaluation_cases_passed": 71,
+    "frozen_evaluation_cases_total": 71,
+    "frozen_dataset_sha256": "a904da99586eea02c57d658bce9e5b41937b65e65d32467b5cc55b3683c5e599",
+    "lint_and_format": "passed",
+    "browser_visual_verification": "Browser access host unavailable; DOM integration tests passed.",
+    "local_url": "http://127.0.0.1:8000/",
+    "server_restarted_and_verified": true
+  },
+  "live_provider_checks": [
+    {
+      "case": "hard-cooked-eggs",
+      "provider": "configured live Groq via local HTTP API",
+      "http_status": 200,
+      "passed": true,
+      "response": {
+        "request_id": "875824bd-a8bb-437b-abfa-a6115efd680a",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "mn_storage_chart",
+            "claims": [
+              {
+                "text": "Table: Cold Storage Chart Category: Eggs Product: [blank in source] Product: hard cooked Refrigerator (Days at 40\u00b0F): 7 Freezer (Months at 0\u00b0F): don\u2019t freeze Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer).",
+                "citation_ids": [
+                  "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_70b36fac4f1100d29d772e0f3d8f84c1b0e2e3cdeee877c3b0acb76bcf8c0c2d",
+            "document_id": "mn_storage_chart",
+            "document_name": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures",
+            "publisher": "Minnesota Department of Health",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US-MN",
+            "publication_year": null,
+            "date_label": "Revised April 2007; Last Updated: September 25, 2026",
+            "format": "html",
+            "physical_pages": [],
+            "page_urls": [],
+            "printed_page_labels": [],
+            "source_url": "https://www.health.state.mn.us/people/foodsafety/store/cold.html#block-bootstrap-mdh-content",
+            "section_heading": "Refrigerator and Freezer Storage Chart: Cold Storage Temperatures > Cold Storage Chart",
+            "chunk_ids": [
+              "chunk_8531ddcb3f0adacbabff4a0fc55410155e8dec0909ec752271c5ee974c922f1e"
+            ],
+            "support_quotes": [
+              "Table: Cold Storage Chart",
+              "Category: Eggs\nProduct: [blank in source]\nProduct: hard cooked\nRefrigerator (Days at 40\u00b0F): 7\nFreezer (Months at 0\u00b0F): don\u2019t freeze",
+              "Note: This chart gives short, conservative storage times to protect you from food spoilage (what you risk in long refrigeration) and from taste loss (what happens when food is left too long in the freezer)."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      }
+    },
+    {
+      "case": "cooking-oil",
+      "provider": "configured live Groq via local HTTP API",
+      "http_status": 200,
+      "passed": true,
+      "response": {
+        "request_id": "549f177e-5b1a-4c87-88dc-cb04e95b80c8",
+        "status": "answered",
+        "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+        "message": null,
+        "document_answers": [
+          {
+            "document_id": "dga_2025_2030_pdf",
+            "claims": [
+              {
+                "text": "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow.",
+                "citation_ids": [
+                  "citation_6fb90c384723e360e7b670370211857e83486d1e87104efd2b8e56bb8b9d1e7d"
+                ]
+              }
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "citation_id": "citation_6fb90c384723e360e7b670370211857e83486d1e87104efd2b8e56bb8b9d1e7d",
+            "document_id": "dga_2025_2030_pdf",
+            "document_name": "Dietary Guidelines for Americans, 2025\u20132030",
+            "publisher": "HHS and USDA",
+            "source_tier": "official_guidance",
+            "jurisdiction": "US",
+            "publication_year": null,
+            "date_label": "2025\u20132030 edition; publication year not established in inspected PDF; 2025\u20132030",
+            "format": "pdf",
+            "physical_pages": [
+              4
+            ],
+            "page_urls": [
+              "https://cdn.realfood.gov/DGA_508.pdf#page=4"
+            ],
+            "printed_page_labels": [
+              "3"
+            ],
+            "source_url": "https://cdn.realfood.gov/DGA_508.pdf#page=4",
+            "section_heading": "Dietary Guidelines for Americans, 2025\u20132030 > Incorporate Healthy Fats",
+            "chunk_ids": [
+              "chunk_88bce2055ef7ec544ab50fe49d9db4ac7bb8715c1f19901a9e6c5706b38f80f5"
+            ],
+            "support_quotes": [
+              "+ When cooking with or adding fats to meals, prioritize oils with essential fatty acids, such as olive oil. Other options can include butter or beef tallow."
+            ]
+          }
+        ],
+        "searched_documents": [
+          "cdc_emergency_food_safety",
+          "cdc_food_safety",
+          "cdc_pregnancy_food_safety",
+          "dga_2025_2030_pdf",
+          "fda_nutrition_label_current",
+          "fda_produce",
+          "fda_seafood",
+          "hhs_adults_older_adults_pdf",
+          "hhs_kids_teens_pdf",
+          "mn_cold_storage",
+          "mn_cross_contamination_pdf",
+          "mn_food_thermometers",
+          "mn_safe_grilling_pdf",
+          "mn_safe_temperatures",
+          "mn_storage_chart",
+          "nhlbi_sodium_tips_pdf"
+        ],
+        "unanswered_aspects": []
+      }
+    }
+  ],
+  "release_context": "Development UX update following learning-v0.1.1; previously published release bundle/evidence retained."
+}

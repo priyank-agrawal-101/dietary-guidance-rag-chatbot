@@ -221,7 +221,13 @@ for (const status of [
       documents: docs,
       scope: { mode: "all" },
     });
-    assert.ok(node.textContent.includes(body.message));
+    assert.ok(
+      node.textContent.includes(
+        status === "not_covered"
+          ? "Try a more specific food question"
+          : body.message,
+      ),
+    );
     assert.equal(node.querySelectorAll(".claim").length, 0);
   });
 }
@@ -498,7 +504,10 @@ test("busy source listing is distinguished from an unreachable server", async ()
   });
   await ui.app.initialized;
   assert.equal(ui.byId("availability").hidden, false);
-  assert.ok(ui.byId("health-notice").textContent.includes("other requests"));
+  assert.ok(
+    ui.byId("health-notice").textContent.includes("taking a little longer"),
+  );
+  assert.equal(ui.calls.filter((call) => call.path === "/documents").length, 2);
 });
 
 test("unknown citation URLs and cross-document references cannot authorize an answer", () => {
@@ -536,7 +545,11 @@ test("gap rendering removes duplicated scope while retaining every searched sour
       "requested storage; no sufficient retrieved evidence.",
     ),
   );
-  assert.ok(!node.textContent.includes("huge repeated scope"));
+  const notice = node.querySelector(".notice");
+  assert.ok(!notice.textContent.includes("huge repeated scope"));
+  const details = node.querySelector(".diagnostic-json").parentElement;
+  assert.equal(details.open, false);
+  assert.ok(details.textContent.includes("huge repeated scope"));
   for (const id of body.searched_documents)
     assert.ok(node.textContent.includes(docs.get(id).document_name));
 });
@@ -581,4 +594,60 @@ test("chat shows evidence without diagnostic metadata or usage requests", async 
     ui.dom.window.document.querySelector("footer a").getAttribute("href"),
     "/diagnostics",
   );
+});
+
+test("source loading recovers from a brief busy response without replaying chat", async () => {
+  let listingCalls = 0;
+  const ui = setup(undefined, {
+    "/documents": () =>
+      ++listingCalls === 1
+        ? response(
+            { code: "service_busy", message: "Internal capacity details." },
+            503,
+          )
+        : response({
+            documents: [...docs.values()],
+            corpus_version: "snapshot_fixture",
+          }),
+  });
+  await ui.app.initialized;
+  assert.equal(ui.byId("availability").hidden, true);
+  assert.equal(ui.app.state.documents.size, docs.size);
+  assert.equal(listingCalls, 2);
+  assert.equal(
+    ui.calls.some((call) => call.path === "/chat"),
+    false,
+  );
+  const paths = ui.calls.map((call) => call.path);
+  assert.ok(paths.indexOf("/health/ready") < paths.indexOf("/documents"));
+});
+
+test("source-gap replies keep raw source identifiers only in collapsed diagnostics", () => {
+  const body = {
+    request_id: "req-gap",
+    status: "not_covered",
+    message:
+      "The retrieved guidance does not cover this: internal_source_1 (internal_source_1).",
+    corpus_version: "snapshot_internal",
+    searched_documents: ["internal_source_1"],
+    document_answers: [],
+    citations: [],
+    unanswered_aspects: [],
+  };
+  const node = renderOutcome(new JSDOM("").window.document, body, {
+    documents: new Map(),
+    scope: { mode: "all" },
+  });
+  assert.ok(
+    node
+      .querySelector(".notice")
+      .textContent.includes("Try a more specific food question"),
+  );
+  assert.equal(
+    node.querySelector(".notice").textContent.includes("internal_source_1"),
+    false,
+  );
+  const diagnostics = node.querySelector(".diagnostic-json");
+  assert.ok(diagnostics.textContent.includes("internal_source_1"));
+  assert.equal(diagnostics.parentElement.open, false);
 });
