@@ -2,6 +2,7 @@
 
 import json
 import sqlite3
+from collections import OrderedDict
 from pathlib import Path
 
 from dietary_rag.corpus.identity import stable_id
@@ -10,6 +11,7 @@ from dietary_rag.ingestion.chunk_contracts import Chunk, ChunkBuild
 from dietary_rag.ingestion.chunking import validate_chunk_links
 from dietary_rag.ingestion.normalization import parse_extraction
 from dietary_rag.ingestion.normalization_contracts import NormalizedExtraction
+from dietary_rag.ingestion.ocr_contracts import OCRExtraction
 
 SCHEMA = """
 BEGIN;
@@ -30,6 +32,7 @@ class ChunkRepository:
         self.path = Path(path)
         self.read_only = read_only
         self.connection = None
+        self._parsed_records = OrderedDict()
 
     def __enter__(self):
         if self.read_only:
@@ -65,6 +68,27 @@ class ChunkRepository:
     def __exit__(self, *args):
         self.connection.close()
         self.connection = None
+        self._parsed_records.clear()
+
+    def _parse_record(self, kind, identifier, payload, parse):
+        # SQL is still read on every lookup. Reuse only the exact payload already
+        # validated in this read-only context; changed rows are parsed afresh.
+        if not self.read_only:
+            return parse(payload)
+        key = (kind, identifier)
+        cached = self._parsed_records.get(key)
+        if cached is not None and cached[0] == payload:
+            self._parsed_records.move_to_end(key)
+            return cached[1]
+        value = parse(payload)
+        # OCR engine metadata is a mutable dict; return independent objects.
+        # Builds, normalizations and native HTML/PDF contracts are deeply frozen.
+        if isinstance(value, OCRExtraction):
+            return value
+        self._parsed_records[key] = (payload, value)
+        if len(self._parsed_records) > 64:
+            self._parsed_records.popitem(last=False)
+        return value
 
     def _insert(self, table, key_field, key, payload, *, extra=()):
         row = self.connection.execute(
@@ -185,7 +209,7 @@ class ChunkRepository:
         ).fetchone()
         if row is None:
             raise KeyError(build_id)
-        return ChunkBuild.model_validate_json(row[0])
+        return self._parse_record("build", build_id, row[0], ChunkBuild.model_validate_json)
 
     def get_normalization(self, normalization_id):
         row = self.connection.execute(
@@ -194,7 +218,9 @@ class ChunkRepository:
         ).fetchone()
         if row is None:
             raise KeyError(normalization_id)
-        return NormalizedExtraction.model_validate_json(row[0])
+        return self._parse_record(
+            "normalization", normalization_id, row[0], NormalizedExtraction.model_validate_json
+        )
 
     def snapshot_builds(self, snapshot_id):
         return tuple(
@@ -235,7 +261,9 @@ class ChunkRepository:
         ).fetchone()
         if row is None:
             raise KeyError(extraction_id)
-        return parse_extraction(json.loads(row[0]))
+        return self._parse_record(
+            "native", extraction_id, row[0], lambda payload: parse_extraction(json.loads(payload))
+        )
 
     def resolve_chunk(self, chunk_id):
         row = self.connection.execute(

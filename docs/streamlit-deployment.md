@@ -180,3 +180,27 @@ the local benchmark; do not treat a local startup time as a cloud guarantee.
 Answer citations use short numbered references such as `[1]`. Reviewed source
 names, links and supporting quotes appear in the collapsed “Sources and supporting
 passages” accordion. Internal citation identifiers remain in answer diagnostics.
+
+## Request latency
+
+Repeated source-record parsing has been reduced inside each read-only SQLite
+context. Each lookup still reads the stored payload and compares it with the
+validated payload; changed records are parsed again. The cache is bounded and
+cleared when the context closes. All snapshot, vector, scope, policy and answer
+checks remain active. User questions and answers are not cached by this change.
+
+The [local latency review](latency-review.json) records about 4.0 seconds before
+and 0.6 seconds after for warm source-excerpt answers. These timings exclude Groq
+generation and cloud network/download time. The native index rebuild with cached
+model files took about 11 seconds, with 71/71 frozen answer cases passing.
+
+To measure the local runtime without API calls:
+
+```sh
+OMP_NUM_THREADS=2 TOKENIZERS_PARALLELISM=false .venv/bin/python scripts/benchmark_latency.py
+```
+
+For hosted latency, inspect generation timing separately in Service diagnostics.
+A slower Groq response or a restarted cloud host can still dominate total time.
+Changing to a smaller generation model would require checking its grounded
+answers before adopting it; the current model and validation thresholds are retained.

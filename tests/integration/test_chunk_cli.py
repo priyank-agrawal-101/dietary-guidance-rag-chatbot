@@ -89,6 +89,41 @@ def test_sqlite_never_reuses_acquisition_or_unknown_schema(tmp_path):
             pass
 
 
+def test_read_only_records_reuse_parsing_but_detect_changed_payloads(
+    tmp_path, chunk_evidence, real_chunk_tokenizer
+):
+    build, norm, native, _ = entries(chunk_evidence, real_chunk_tokenizer)
+    path = tmp_path / "chunks.sqlite"
+    with ChunkRepository(path) as writer:
+        writer.save_snapshot([(build, norm, native)], real_chunk_tokenizer)
+    reader = ChunkRepository(path, read_only=True)
+    with reader:
+        first = reader.resolve_chunk(build.chunks[0].chunk_id)
+        second = reader.resolve_chunk(build.chunks[-1].chunk_id)
+        assert first["build"] is second["build"]
+        assert first["normalization"] is second["normalization"]
+        assert first["native"] is second["native"]
+        with sqlite3.connect(path) as writer:
+            writer.execute(
+                "UPDATE builds SET payload_json='{}' WHERE build_id=?", (build.build_id,)
+            )
+        with pytest.raises(ValueError):
+            reader.resolve_chunk(build.chunks[0].chunk_id)
+    assert not reader._parsed_records
+
+
+def test_parsed_record_cache_is_bounded_and_writers_do_not_reuse_objects(tmp_path):
+    reader = ChunkRepository(tmp_path / "unused", read_only=True)
+    for index in range(100):
+        reader._parse_record("fixture", str(index), str(index), lambda payload: (payload,))
+    assert len(reader._parsed_records) == 64
+    writer = ChunkRepository(tmp_path / "unused")
+    assert writer._parse_record("fixture", "id", "text", lambda value: [value]) is not (
+        writer._parse_record("fixture", "id", "text", lambda value: [value])
+    )
+    assert not writer._parsed_records
+
+
 def test_sqlite_transaction_rolls_back_conflicting_provenance(
     tmp_path, chunk_evidence, real_chunk_tokenizer
 ):

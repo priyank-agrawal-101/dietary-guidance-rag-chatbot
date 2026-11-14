@@ -1,0 +1,120 @@
+{
+  "version": "request_parsing_performance_v1",
+  "baseline": {
+    "answer_seconds": [
+      7.645616458999939,
+      3.9879876670001977
+    ],
+    "metrics": {
+      "scope": "single process; resets on restart",
+      "chat_states": {
+        "answered": 3
+      },
+      "stages": {
+        "policy": {
+          "count": 3,
+          "total_seconds": 0.0022251250002227607,
+          "max_seconds": 0.0018096249996233382
+        },
+        "corpus_open": {
+          "count": 3,
+          "total_seconds": 13.562235541001428,
+          "max_seconds": 6.281223083000441
+        },
+        "retrieval": {
+          "count": 6,
+          "total_seconds": 4.359514540999953,
+          "max_seconds": 4.287281916000211
+        },
+        "assessment": {
+          "count": 3,
+          "total_seconds": 0.008094915999208752,
+          "max_seconds": 0.004111749999538006
+        },
+        "generation": {
+          "count": 3,
+          "total_seconds": 2.6665999939723406e-05,
+          "max_seconds": 1.0250000741507392e-05
+        },
+        "validation": {
+          "count": 3,
+          "total_seconds": 0.028446209000321687,
+          "max_seconds": 0.014300916999673063
+        },
+        "citations": {
+          "count": 3,
+          "total_seconds": 0.008838500999445387,
+          "max_seconds": 0.00457541699961439
+        }
+      }
+    }
+  },
+  "optimized": {
+    "version": "grounded_latency_v1",
+    "startup_seconds": 0.8540149999998903,
+    "answer_seconds": [
+      2.7466887919999863,
+      0.6826269169996522,
+      0.5951480000003357
+    ],
+    "median_warm_answer_seconds": 0.638887458499994,
+    "metrics": {
+      "scope": "single process; resets on restart",
+      "chat_states": {
+        "answered": 3
+      },
+      "stages": {
+        "policy": {
+          "count": 3,
+          "total_seconds": 0.002196542998717632,
+          "max_seconds": 0.0018774999998640851
+        },
+        "corpus_open": {
+          "count": 3,
+          "total_seconds": 1.7914739159996316,
+          "max_seconds": 0.6547949579999113
+        },
+        "retrieval": {
+          "count": 6,
+          "total_seconds": 2.2115394160000506,
+          "max_seconds": 2.166525874999934
+        },
+        "assessment": {
+          "count": 3,
+          "total_seconds": 0.006826832999649923,
+          "max_seconds": 0.004252292000273883
+        },
+        "generation": {
+          "count": 3,
+          "total_seconds": 2.129099902958842e-05,
+          "max_seconds": 9.70800010691164e-06
+        },
+        "validation": {
+          "count": 3,
+          "total_seconds": 0.0027988329993604566,
+          "max_seconds": 0.001232707999406557
+        },
+        "citations": {
+          "count": 3,
+          "total_seconds": 0.0004818760007765377,
+          "max_seconds": 0.00018799999998009298
+        }
+      }
+    },
+    "corpus_version": "corpus_snapshot_5f9222fb5064f31c6a8c1dfee694398200bae3b6220d877af103219fccf7bdbb",
+    "scope": "Local source-excerpt path; no Groq latency, cloud timing or network download timing claimed."
+  },
+  "warm_reduction_percent": 84.0,
+  "frozen_evaluation": {
+    "passed": 71,
+    "total": 71,
+    "native_startup_seconds": 10.909756416999699,
+    "warm_startup_seconds": 0.5804243749998932
+  },
+  "integrity": "SQLite is read on every lookup; only exact previously validated immutable payloads are reused within a read-only context. Changed rows are parsed again; caches clear on close. OCR objects with mutable metadata are not cached. All canonical/vector/policy/answer checks still run.",
+  "scope": "Local source-excerpt benchmark, not hosted Groq or Community Cloud latency.",
+  "python_tests": {
+    "passed": 717,
+    "failed": 0
+  }
+}
